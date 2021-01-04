@@ -28,7 +28,16 @@ import UIKit
  ## Syntax
  ![TypeAnnotation](type-annotation.png)
  */
+let num: Int = 123
+//상수 이름: 종류 = 초기값
+//선언 초기화 분리 가능
 
+let value: Double
+value = 12.3
+//기본 저장 자료형이 있고 다른 자료형으로 저장하고 싶으면 Annotation 사용
 
-
+let ch: Character = "c"
+//초기값으로 형식추론, 컴파일 시간 증가, 컴파일 시간단축위해 사용
+//형식추론 : 초기값으로 자료형 결정
+//Int, Double, String, Bool
 //: [Next](@next)
