@@ -24,13 +24,21 @@ import UIKit
 /*:
  # Strings
  */
+"Have a nice day"
 
-
-
+"123"
+let str = "1"
+type(of: str)
 /*:
  # Character
  */
+let ch: Character = "1"
+type(of: ch)
 
+//let doubleCh: Character = "AA"
+//문자가 두개 이상이면 무조건 스트링
 
+let empthCh: Character = " "
+//빈 문자 공백 저장
 
 

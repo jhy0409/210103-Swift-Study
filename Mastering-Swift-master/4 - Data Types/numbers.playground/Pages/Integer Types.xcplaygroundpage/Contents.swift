@@ -28,23 +28,35 @@ import UIKit
  
  ![IntegerTypes](integer-types.png)
  */
+//저장할 수 있는 수의 최소, 최대값
+Int8.min
+Int8.max
 
-
-
-
+//몇 바이트를 저장할 수 있는지 출력
+MemoryLayout<Int8>.size
+MemoryLayout<Int16>.size
+MemoryLayout<Int32>.size
+MemoryLayout<Int64>.size
 /*:
  ## Signed vs Unsigned
  
  ![SignedUnsigned](signed-unsigned.png)
  */
 
-
-
+Int8.min
+Int8.max
+UInt8.min
+UInt8.max
 
 /*:
  ## Int & UInt
  */
+//64bit에서 8byte
+MemoryLayout<Int>.size
+Int.min
+Int.max
 
-
+let num = 123
+type(of: num)
 
 //: [Next](@next)

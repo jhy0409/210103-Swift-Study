@@ -24,5 +24,20 @@ import UIKit
 /*:
  # Boolean
  */
+//let은 상수
+let valid = true
 
+//자료형 직접 지정
+let valid2: Bool = false
 
+let isValid: Bool = true
+let str = ""
+str.isEmpty
+
+if isValid {
+    
+}
+
+while !isValid {
+    
+}
