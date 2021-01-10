@@ -26,15 +26,20 @@ import UIKit
  # Overflow Operators
  */
 
+Int8.min
+Int8.max
 
-
+//let num: Int8 = Int8.max + 1
+//오버플로우 발생
 /*:
  ## Overflow Addition Operator
  ````
  a &+ b
  ````
  */
-
+//오버플로우 제공 연산자 : +, -, *
+let a: Int8 = Int8.max
+let b: Int8 = a &+ 1
 
 
 /*:
@@ -43,17 +48,15 @@ import UIKit
  a &- b
  ````
  */
-
-
-
+let c: Int8 = Int8.min
+let d: Int8 = c &- 1
 /*:
  ## Overflow Multiplication Operator
  ````
  a &* b
  ````
  */
-
-
+let e: Int8 = Int8.max &* 2
 
 
 

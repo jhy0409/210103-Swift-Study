@@ -28,14 +28,22 @@ import UIKit
  ## Syntax
  ![TypeConversion](type-conversion.png)
  */
+let a = 123
+let b = 4.56
 
+Double(a) + b
+a + Int(b)
 
+let c = Int8(a)
 
+let d = Int.max
+//let e = Int8(d)
 
+let str = "123"
+let num = Int(str)
 
-
-
-
+let str = "number"
+let num = Int(str)
 
 
 

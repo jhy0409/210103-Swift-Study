@@ -32,9 +32,14 @@ import UIKit
  !a
  ````
  */
+//논리 부정연산자
+!true
 
+let a = 12
+let b = 34
 
-
+a < b
+!(a < b)
 /*:
  ## Logical AND Operators
  ````
@@ -42,17 +47,24 @@ import UIKit
  ````
  */
 
+a > 30 && b % 2 == 0
 
-
+true && true
+true && false
+false && true
+false && false
 /*:
  ## Logical OR Operators
  ````
  a || b
  ````
  */
+a > 30 || b % 2 == 0
 
-
-
+true || true
+true || false
+false || true
+false || false
 
 
 

@@ -24,7 +24,8 @@ import UIKit
 /*:
  # Comparison Operators
  */
-
+let a = 12
+let b = 34
 
 /*:
  ## Equal to Operator
@@ -33,8 +34,14 @@ import UIKit
  ````
  */
 
+a == b
+
+"swft" == "Swift"
 
 
+//---- 같은 자료형만 비교 가능
+//let c = 12.34
+//a == c
 /*:
  ## Not equal to Operator
  ````
@@ -42,7 +49,7 @@ import UIKit
  ````
  */
 
-
+a != b
 
 /*:
  ## Greater than Operator
@@ -51,8 +58,9 @@ import UIKit
  ````
  */
 
-
-
+a > b
+"swift" > "Swift"
+//아스키코드로 비교
 /*:
  ## Greater than or equal to Operator
  ````
@@ -60,8 +68,9 @@ import UIKit
  ````
  */
 
-
-
+a >= b
+7 > 7
+7 >= 7
 /*:
  ## Less than Operator
  ````
@@ -69,7 +78,7 @@ import UIKit
  ````
  */
 
-
+a < b
 
 /*:
  ## Less than or equal to Operator
@@ -78,7 +87,7 @@ import UIKit
  ````
  */
 
-
+a <= b
 
 
 

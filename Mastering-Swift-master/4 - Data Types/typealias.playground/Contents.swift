@@ -26,7 +26,10 @@ import UIKit
  ## Syntax
  ![typealias](typealias.png)
  */
+typealias Coordinate =  Double
 
+let lat: Coordinate = 12.34
+let Ion: Double = 56.78
 
 
 

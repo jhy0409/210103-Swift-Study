@@ -27,16 +27,21 @@ import UIKit
  ![Syntax](syntax.png)
  */
 
+let hour = 12
 
+hour < 12 ? "am" : "pm"
 
+if hour < 12 {
+    "am"
+} else {
+    "pm"
+}
 
+// hour < 11 "Good Morning"
+// hour < 17 "Good Afternoon"
+// "Good Evening"
 
+hour < 11 ? "Good Morning" :
+    (hour < 17 ? "Good Afternoon" : "Good Evening")
 
-
-
-
-
-
-
-
-
+MemoryLayout<Int>.size
