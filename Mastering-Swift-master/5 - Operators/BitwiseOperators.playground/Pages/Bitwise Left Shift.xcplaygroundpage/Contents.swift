@@ -30,7 +30,13 @@ import Foundation
  ````
  ![lshift](lshift.png)
  */
+// 앞 0이 사라지고 뒤에 새로 0이 생김, 기존 0과 같은건 X, 곱하기와 같은 효과
+let a: UInt8 = 0b0010_0010
+a << 1
+0b0100_0100
 
+a << 2
+a * 4
 
 
 

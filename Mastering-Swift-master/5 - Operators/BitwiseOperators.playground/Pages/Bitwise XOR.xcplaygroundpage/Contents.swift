@@ -30,8 +30,12 @@ import Foundation
  ````
  ![xor](xor.png)
  */
+// 비트가 달라야 1
+let a: UInt8 = 0b0010_0010
+let b: UInt8 = 0b1100_1110
 
-
+a ^ b
+0b1110_1100 
 
 
 //: [Next](@next)

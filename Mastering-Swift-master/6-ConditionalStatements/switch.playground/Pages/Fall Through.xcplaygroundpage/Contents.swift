@@ -40,7 +40,7 @@ case 3:
 default:
    break
 }
-
+//매칭값 실행 후 이어지는 블록 실행, 무슨값이든 실행됨
 
 let attempts = 10
 

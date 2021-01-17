@@ -27,7 +27,7 @@ import Foundation
 /*:
  # Interval Matching
  */
-
+//범위를 매칭시키는 것, 범위연산자 사용
 let temperature = -8
 
 switch temperature {

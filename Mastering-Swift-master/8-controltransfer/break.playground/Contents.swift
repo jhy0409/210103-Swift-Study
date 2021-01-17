@@ -24,32 +24,40 @@ import UIKit
 /*:
  # break
  */
+let num = 1
 
+switch num {
+case 1...10:
+    print("begin block")
+    
+    if num % 2 != 0 {
+        break //switch문 종료, 제어를 이어지는 코드로 전달
+    }
+    
+    print("end block")
+default:
+    break
+}
 
+print("done")
+print()
 
+for index in 1...10 {
+    print(index)
+    
+    if index > 1{
+        break
+    }
+};print()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+for i in 1...10 {
+    print("OUTER LOOP", i)
+    
+    for j in 1...10 {
+        print("  inner loop", j)
+        
+        if j > 1 {
+            break //문장 중첩시 가장인접한 문장을 중지함, 안쪽 2번실행, 바깥 10번반복
+        }
+    }
+}

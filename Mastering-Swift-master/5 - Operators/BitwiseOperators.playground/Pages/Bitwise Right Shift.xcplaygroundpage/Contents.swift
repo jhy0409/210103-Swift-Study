@@ -30,15 +30,18 @@ import Foundation
  ````
  ![rshift](rshift.png)
  */
-
-
-
+let a: UInt8 = 0b0010_0010
+a >> 1
+a >> 2
+0b0001_0001
+// 논리 shift, logical shift, Uint8 = unsigned
 
 /*:
  ## Arithmetic Shift
  ![ashift](ashift.png)
  */
-
+// signed > 산술 shift실행
+// 옮겨가면서 앞이 0이면 0, 1이면 1
 
 
 

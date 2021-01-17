@@ -30,19 +30,17 @@ import Foundation
  ## Syntax
  ![repeat-while](syntax-repeat-while.png)
  */
+// 실행 후 조건판단
+var num = 100
+while num < 100 {
+    num += 1
+}
+num
 
+num = 100
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+repeat {
+    num += 1
+} while num < 100
+num
 

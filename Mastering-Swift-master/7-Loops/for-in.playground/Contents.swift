@@ -23,39 +23,49 @@ import UIKit
 /*:
  # For-In Loops
  */
-
-
-
-
-
-
-
-
-
+print("hello")
+print("hello")
 
 
 /*:
  ## Syntax
  ![syntax](syntax-range.png)
  */
+// loopConstant : 반복 상수
+// in Range(범위연산자로 지정), 반복상수 자료형: lower, upperBound와 동일
 
+// 반복상수 생략하는 것 : Wildcard Pattern(언더스코어 문자 생략)
+for _ in 1...5 {
+    print("hello")
+}
 
+let power = 10
+var result = 1
 
+for _ in 1...power {
+    result *= 2
+}
 
+result
 
-
-
-
-
+// to: 종료범위, 실제범위에 포함x, ~9까지, by: 2씩 증가
+for num in stride(from: 0, to: 10, by: 2){
+    print(num)
+}
 /*:
  ## Syntax
  ![syntax](syntax-collection.png)
  */
+// 배열이나 딕셔너리 같은 컬렉션 반복가능
+// 컬렉션 열거: 컬렉션 포함된 요소 반복하는 것
 
+let list = ["Apple", "Banana", "Orange"]
+for fruit in list {
+    print(fruit)
+}
 
-
-
-
-
-
-
+for i in 2...9 {
+    for j in 1...9 {
+        print("\(i) * \(j) = \(i * j)") // 스트링 인터플레이션 문법
+    };print();
+}

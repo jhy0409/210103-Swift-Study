@@ -29,7 +29,17 @@ import UIKit
  ![while](syntax-while.png)
  */
 
+//for-in Loop : Range, Collection, (범위와 컬렉션 반복, 횟수 예측 가능)
+//while Loop : Condition, 조건에 맞아야 반복되기 때문에 횟수 예측 어려움, 무한루프 주의
 
+var num = 1
+var sum = 0
+
+while num <= 100 {
+    sum += num
+    num += 1
+}
+sum
 
 
 

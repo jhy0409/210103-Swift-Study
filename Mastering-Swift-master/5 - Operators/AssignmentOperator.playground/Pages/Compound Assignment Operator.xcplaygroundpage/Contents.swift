@@ -34,9 +34,14 @@ import Foundation
  a = a + b
  ````
  */
+// 복합할당 연산자 = 연산자, 할당연산자 합쳐진것
+var a = 1
+var b = 2
+a = a + b
 
-
-
+a = 1
+b = 2
+a += b
 /*:
  ## Subtraction Assignment Operator
  ````
@@ -44,9 +49,13 @@ import Foundation
  a = a - b
  ````
  */
+a = 5
+b = 2
+a = a - b
 
-
-
+a = 5
+b = 2
+a -= b
 /*:
  ## Multiplication Assignment Operator
  ````
@@ -54,9 +63,13 @@ import Foundation
  a = a * b
  ````
  */
+a = 5
+b = 2
+a = a * b
 
-
-
+a = 5
+b = 2
+a *= b
 /*:
  ## Division Assignment Operator
  ````
@@ -64,9 +77,13 @@ import Foundation
  a = a / b
  ````
  */
+a = 5
+b = 2
+a = a / b
 
-
-
+a = 5
+b = 2
+a /= b
 /*:
  ## Modulo Assignment Operator
  ````
@@ -74,7 +91,13 @@ import Foundation
  a = a % b
  ````
  */
+a = 5
+b = 2
+a = a%b
 
+a = 5
+b = 2
+a %= b
 
 /*:
  ## Bitwise AND Assignment Operator

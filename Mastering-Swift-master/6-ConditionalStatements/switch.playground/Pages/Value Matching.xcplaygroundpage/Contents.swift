@@ -26,7 +26,7 @@ import UIKit
  ## Syntax
  ![switch-syntax](switch-syntax.png)
  */
-
+// 패턴, 밸류매칭 시 사용, 패턴 여러개 중첩가능
 let num = 1
 
 switch num {
@@ -43,7 +43,7 @@ default:
  ## Syntax
  ![where](where.png)
  */
-
+// 패턴에 조건 추가
 switch num {
 case let n where n <= 10:
    print(n)

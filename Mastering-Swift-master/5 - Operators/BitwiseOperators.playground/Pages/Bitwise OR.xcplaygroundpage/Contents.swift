@@ -31,9 +31,11 @@ import Foundation
  
  ![or](or.png)
  */
+// 기존 or연산자와 동일, |하나만 사용, 둘다 0일때만 0
+let a: UInt8 = 0b0010_0010
+let b: UInt8 = 0b1100_1110
 
-
-
-
+a | b
+0b1110_1110
 
 //: [Next](@next)

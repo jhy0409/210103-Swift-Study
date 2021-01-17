@@ -33,12 +33,35 @@ import UIKit
  
  ![custom-operator](custom-operator.png)
  */*/
+// 기존에 없던 새로운 연산자 구현 = 사용자정의 연산자
+// 없던 새로운 연산자 구현하므로 > 연산자 선언 > 글로벌 스코프에서 선언
+// infix : 이항연산자와 같이 중간에 올 때
 
+prefix operator +++
+extension Int {
+    static prefix func +++(num: inout Int){
+        num += 2
+    }
+}
 
+var a = 1
++++a
+a
 
+precedencegroup MyPrecedence {
+    higherThan: AdditionPrecedence
+}
+// + -, 보다 높아짐
 
+infix operator *+*: MyPrecedence
 
+extension Int {
+    static func *+*(left: Int, right: Int) -> Int {
+        return (left * right) + (left * right)
+    }
+}
 
+1 *+* 2 + 3
 
 
 
@@ -57,7 +80,9 @@ import UIKit
  
  ![precedence-group-declaration](precedence-group-declaration.png)
  */
-
+// 우선순위 그룹 이름 upperCamel로 짓는게 관례
+// lower : 다른모듈에 선언된 그룹지정
+// associativity : 연산자 결합규칙 지정, left, right, none(기본값)
 
 
 
