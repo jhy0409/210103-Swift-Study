@@ -24,20 +24,33 @@ import UIKit
 /*:
  # continue
  */
+// 무엇을 종료하고 계속하는지 구분, break= switch, 반복문에서 사용
+// continue는 반복문에서만 사용
+
+// for in, while동일하게 작동
+
+for index in 1...10 {
+    
+    if index % 2 == 0 {
+        continue
+        // 문장은 실행하고 다음 반복회차 실행함, 현재의 반복을 종료 -> 다음 반복을 실행
+    }
+    print(index)
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+// 반복문 중첩
+for i in 1...10 {
+    print("OUTER LOOP", i)
+    
+    for j in 1...10 {
+        if j % 2 == 0 {
+            continue
+            // 바깥 반복문은 영향없이 가장 인접한 문장에 영향을 줌(반복문을 종료)
+        }
+        print(" inner loop", j)
+    }
+}
 
 
 

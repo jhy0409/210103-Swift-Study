@@ -28,9 +28,18 @@ import UIKit
  ![labeled](labeled.png)
  ![usinglabel](usinglabel.png)
  */
+// 반복, if, switch문에서 주로 사용
+// 제어, 반복문 중첩코드에서 원하는 문장 직접 종료할 때 활용
 
-
-
+outer: for i in 1...3 {
+    print("OUTER LOOP", i)
+    
+    for j in 1...3 {
+        print("   inner loop",j)
+        
+        break outer
+    }
+}
 
 
 
