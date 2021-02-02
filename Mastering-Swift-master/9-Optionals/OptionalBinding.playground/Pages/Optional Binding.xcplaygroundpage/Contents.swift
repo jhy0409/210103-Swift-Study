@@ -24,18 +24,12 @@ import Foundation
 /*:
  # Optional Binding
  */
+var num: Int? = nil
+//print(num!)
 
-
-
-
-
-
-
-
-
-
-
-
+//if num != nil {
+//    print(num)
+//}
 
 
 /*:
@@ -43,12 +37,43 @@ import Foundation
  ![optional-binding-syntax](optional-binding-syntax.png)
  */
 
+// if, while, guard문에서 사용.
+// 상수 (이름): (자료형) = (초기값 : 옵셔널 표현식) { 실행문 }
+// ()~() => 바인딩
+// 코드 실행조건 : 옵셔널 표현식 평가 >> 값이 리턴이 되면 언래핑 후 상수에 저장 됨 >> 바인딩 성공
+// 값 있을때만 실행되기 때문에 옵셔널에 의한 크래시 대부분 피할 수 있음
 
+if num != nil {
+    print(num!) //강제 추출
+} else {
+    print("empty")
+}
+if let num = num { // 임시상수* = 위에서 선언한 변수**
+    print(num)     // -> *
+    //옵셔널 바인딩에서는 같은 이름 사용해도 문제 발생 x
+} else {
+    print("empty")
+}
 
+var str: String? = "str"
+guard let str = str else {
+    fatalError()
+}
+str //바인딩한 상수는 엘스블록 다음에서 사용한다.
 
+num = 123
+if var num = num {
+    num = 456
+    print(num)
+}
 
+// 하나의 문장 여러바인딩 동시 사용
+let a: Int? = 12
+let b: String? = "str"
 
-
+if let num = a, let str = b, str.count > 5 {
+    
+}
 
 
 
