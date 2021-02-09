@@ -25,17 +25,23 @@ import UIKit
  # Return Values
  ![return](return.png)
  */
+// 함수에서 값 리턴하는 법
+// return : 함수실행 중지, 리턴형 선언돼있으면 평가 후 결과를 리턴
+func add() -> Int {
+    return 1 + 2
+}
+let r = add()
 
-
-
-
-
-
-
-
-
-
-
+if add() == 3 {
+    print("three")
+}
+func doSomething() {
+    let rnd = Int.random(in: 1...10)
+    if rnd % 2 == 1 {
+        return
+    }
+    print(rnd)
+}
 
 
 

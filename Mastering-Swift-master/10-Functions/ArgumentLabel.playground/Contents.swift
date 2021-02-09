@@ -25,25 +25,27 @@ import UIKit
  # Argument Label
  */
 
-func sayHello(name: String) {
-   print("Hello, \(name)")
-}
-
-sayHello(name: "Swift")
-
-
-
-
-
-
-
-
-
-
 /*:
  ## Syntax
  ![arg1](arg1.png)
  ![arg2](arg2.png)
  */
+// 함수이름 가독성 높이려고 사용, 함수이름은 동사,
+// 인자레이블은 전치사 주로 사용(to, in, with...)
 
+func sayHello(name: String) {
+   print("Hello 1, \(name)")
+}
 
+sayHello(name: "Swift")
+
+func sayHello(to name: String) {
+    print("Hello 2, \(name)")
+}
+sayHello(to: "Swift")
+
+func sayHello(_ name: String){
+    print("Hello 3, \(name)")
+}
+sayHello("Swift")
+// 컨트롤 커맨드키 상태에서 클릭 -> 구현된 함수설명으로 이동

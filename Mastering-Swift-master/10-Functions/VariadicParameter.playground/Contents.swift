@@ -25,24 +25,21 @@ import UIKit
  # Variadic Parameters
  ![variadic](variadic.png)
  */
+// 가변 파라미터 = 배열형태로 전달
+print("Hello")
 
+print("Hello", "Swift")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 가변인자는 하나만 가능(순서는 상관x, 보통 앞이나 뒤에), 기본값 선언 불가능
+func printSum(of nums: Int...) {
+    var sum = 0
+    for num in nums {
+        sum += num
+    }
+    print(sum)
+}
+printSum(of: 1, 2, 3)
+printSum(of: 1, 2, 3, 4, 5)
 
 
 

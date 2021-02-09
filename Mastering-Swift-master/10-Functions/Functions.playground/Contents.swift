@@ -29,24 +29,20 @@ import UIKit
  ## Calling Functions
  ![call](call.png)
  */
+// 특정기능 수행하는 코드조각
+// 선언된 함수사용 : 함수호출, 만들어 사용 : 함수선언-구현
 
-
-
-
-
-
-
-
-
-
+print("Hello")
 
 /*:
  ## Defining Functions
  ![define](define.png)
  */
+func sayHello() {
+    print("hello, swift")
+}
 
-
-
+sayHello()
 
 
 

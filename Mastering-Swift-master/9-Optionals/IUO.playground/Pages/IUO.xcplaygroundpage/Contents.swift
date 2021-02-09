@@ -26,9 +26,19 @@ import Foundation
  # Implicitly Unwrapped Optionals
  ![iuo](iuo.png)
  */
+// 암시적, 자동적으로 추출되는 옵셔널
+let num: Int! = 12
+let a = num
+// 형식추론 사용시 자동추출 x
 
+let b: Int = num
+// non-optional 처리돼야 할 때 자동 언래핑 (특정조건에서)
+// let num: Int? = 12 -> 오류 / !강제추출 하거나 옵셔널바인딩 사용
 
+let b2: Int = num!
+//이렇게랑 옵셔널 바인딩 사용가능
 
-
-
-
+let num2: Int! = nil
+//let b3: Int = num2!
+//iuo 옵셔널, 자동 및 강제추출, 값있는지는 확인x
+// 아웃렛연결, api에서 iuo리턴 -> 옵셔널처리 옵셔널 바인딩이나 체이닝으로 처리
