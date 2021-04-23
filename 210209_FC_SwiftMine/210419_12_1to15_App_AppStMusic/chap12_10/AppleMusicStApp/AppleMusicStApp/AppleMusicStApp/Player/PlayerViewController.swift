@@ -34,7 +34,9 @@ class PlayerViewController: UIViewController {
         updateTime(time: CMTime.zero)
         // TODO: TimeObserver 구현
         
-        timeObserver = simplePlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 10), queue: DispatchQueue.main, using: {time in self.updateTime(time: time)})
+        timeObserver = simplePlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 10), queue: DispatchQueue.main) { time in
+            self.updateTime(time: time)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
