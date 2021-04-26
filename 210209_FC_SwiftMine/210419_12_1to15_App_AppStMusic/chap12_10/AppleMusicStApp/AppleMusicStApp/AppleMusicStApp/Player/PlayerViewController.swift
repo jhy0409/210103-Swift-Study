@@ -65,7 +65,7 @@ class PlayerViewController: UIViewController {
         guard let currentItem = simplePlayer.currentItem else { return }
         
         let position = Double(sender.value) // 0...1 >0.5
-        let seconds = position * currentItem.duration.seconds
+        let seconds = currentItem.duration.seconds * position
         let time = CMTime(seconds: seconds, preferredTimescale: 100)
         simplePlayer.seek(to: time)
     }
