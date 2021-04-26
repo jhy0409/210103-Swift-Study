@@ -50,7 +50,7 @@ extension HomeViewController: UICollectionViewDataSource {
             }
             
             header.update(with: item)
-            header.tapHandler = { item -> Void in
+            header.tapHandler = { item in
                 // Player를 띄운다
                 let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
                 guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
