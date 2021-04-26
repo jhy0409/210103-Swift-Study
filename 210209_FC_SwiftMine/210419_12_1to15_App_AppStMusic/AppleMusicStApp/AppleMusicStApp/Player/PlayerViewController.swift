@@ -33,6 +33,8 @@ class PlayerViewController: UIViewController {
         updatePlayButton()
         updateTime(time: CMTime.zero)
         // TODO: TimeObserver 구현
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
