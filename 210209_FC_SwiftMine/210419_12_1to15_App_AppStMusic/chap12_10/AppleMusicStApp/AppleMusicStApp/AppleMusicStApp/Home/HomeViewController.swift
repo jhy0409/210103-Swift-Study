@@ -87,10 +87,8 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 20 - card(width) - 20 - card(width) - 20
         // TODO: 셀사이즈 구하기
-        let itemSpacing: CGFloat = 20
-        let margin: CGFloat = 20
-        let width = (collectionView.bounds.width - itemSpacing - margin*2)/2
-        let height = width + 60
+        let width: CGFloat = (collectionView.bounds.width - (20 * 3))/2
+        let height: CGFloat = width + 60
         return CGSize(width: width, height: height)
     }
 }
