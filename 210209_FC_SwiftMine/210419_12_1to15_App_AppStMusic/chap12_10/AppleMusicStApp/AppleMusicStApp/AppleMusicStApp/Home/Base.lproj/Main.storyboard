@@ -95,7 +95,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdX-ZK-4ed">
-                                            <rect key="frame" x="268" y="192" width="30" height="30"/>
+                                            <rect key="frame" x="23" y="69" width="364" height="200"/>
                                             <connections>
                                                 <action selector="cardTapped:" destination="wEe-Dg-NYP" eventType="touchUpInside" id="LzW-Qa-qLw"/>
                                             </connections>
