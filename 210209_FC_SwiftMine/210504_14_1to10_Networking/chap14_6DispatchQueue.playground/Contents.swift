@@ -56,13 +56,13 @@ DispatchQueue.global(qos: .background).async {
         updateUI(image: image)
     }
     
-} //  sync로 변경하였음
+}
 
 // Sync, Async
 
-DispatchQueue.global(qos: .background).async {
+DispatchQueue.global(qos: .background).sync {
     for i in 0...5 {
-        print("1. 첫번째 수행요청 : 🟪 \(i+1)")
+        print("1. 첫번째 수행요청 : 🟪 \(i+1)") // sync로 변경하였음
     }
 }
 
