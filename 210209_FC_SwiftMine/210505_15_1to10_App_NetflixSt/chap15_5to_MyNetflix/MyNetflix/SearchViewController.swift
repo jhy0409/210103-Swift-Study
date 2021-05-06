@@ -47,7 +47,14 @@ extension SearchViewController: UICollectionViewDataSource {
 }
 
 extension SearchViewController: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // movie
+        // player vc
+        // player + movie
+        // presenting player vc
+        
+        let movie = movies[indexPath.item]
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegateFlowLayout {
