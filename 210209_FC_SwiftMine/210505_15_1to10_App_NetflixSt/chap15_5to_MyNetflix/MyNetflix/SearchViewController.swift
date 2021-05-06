@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchViewController: UIViewController {
     
@@ -28,9 +29,19 @@ extension SearchViewController: UICollectionViewDataSource {
     
     // 어떻게 표현?
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultCell", for: indexPath) as? ResultCell else { return  UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ResultCell", for: indexPath) as?
+                ResultCell else {
+            return  UICollectionViewCell()
+        }
         
-        cell.backgroundColor = .red
+        let movie = movies[indexPath.item]
+        let url = URL(string: movie.thumbnailPath)!
+        cell.movieThumbnail.kf.setImage(with: url)
+        
+        // imagepath(string) -> image
+        // 외부 코드 가져다쓰기
+        // SPM(Swift Package Manager), Cocoa Pod, Carthage
+        
         return cell
     }
 }
@@ -72,14 +83,15 @@ extension SearchViewController: UISearchBarDelegate {
         // - 목표: 서치텀을 가지고 네트워킹을 통해서 영화 검색
         // - [x] 검색API가 필요
         // - [x] 결과를 받아올 모델 Movie, Response
-        // - 결과를 받아와서, CollectionView로 표현
+        // - [x] 결과를 받아와서, CollectionView로 표현
         
         SearchAPI.search(searchTerm) { movies in
-            // conllectionView로 표현
+            // [x] conllectionView로 표현
             print("---> 몇개? \(movies.count), 첫번째 제목: \(movies.first?.title)")
-            
-            self.movies = movies
-            self.resultCollectionView.reloadData()
+            DispatchQueue.main.async {
+                self.movies = movies
+                self.resultCollectionView.reloadData()
+            }
         }
         
         print("---> 검색어: \(searchTerm)")
