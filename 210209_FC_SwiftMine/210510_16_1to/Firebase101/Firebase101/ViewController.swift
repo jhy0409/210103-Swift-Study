@@ -10,14 +10,18 @@ import Firebase
 class ViewController: UIViewController {
     
     @IBOutlet weak var dataLable: UILabel!
+    @IBOutlet weak var numOfCustomers: UILabel!
     let db = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         updateLable()
-        saveBasicTypes()
-        saveCustomers()
+//        saveBasicTypes()
+//        saveCustomers()
+        fetchCustomers()
+        
+        // [] update, delete
     }
     
     func updateLable() {
@@ -63,7 +67,26 @@ extension ViewController {
     }
 }
 
-struct Customer {
+// Mark : Read(Fetch) Data
+extension ViewController {
+    func fetchCustomers() {
+        db.child("customers").observeSingleEvent(of: .value) { snapshot in
+            print("--> \(snapshot.value)")
+            do {
+                let data = try JSONSerialization.data(withJSONObject: snapshot.value, options: [])
+                let decoder = JSONDecoder()
+                let customers: [Customer] = try decoder.decode([Customer].self, from: data)
+                DispatchQueue.main.async {
+                    self.numOfCustomers.text = "# of Customers: \(customers.count)"
+                } // print("--> customers: \(customers.count)")
+            } catch let error {
+                print("--> error: \(error.localizedDescription)")
+            }
+        }
+    }
+}
+
+struct Customer: Codable {
     let id: String
     let name: String
     let books: [Book]
@@ -77,7 +100,7 @@ struct Customer {
     static var id: Int = 0
 }
 
-struct Book {
+struct Book: Codable {
     let title: String
     let author: String
     
