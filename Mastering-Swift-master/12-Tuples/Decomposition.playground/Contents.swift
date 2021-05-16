@@ -26,22 +26,15 @@ import UIKit
  ![decomposition](decomposition.png)
  */
 
+let data = ("<html>", 200, "OK", 12.34)
+//let body = data.0
+//let code = data.1
+//let message = data.2
+//let size = data.3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//let (body, code, massage, size) = data
+let (body, code, massage, _) = data
+body
+code
+massage
 

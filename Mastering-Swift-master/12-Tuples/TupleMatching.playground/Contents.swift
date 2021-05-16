@@ -24,28 +24,32 @@ import UIKit
 /*:
  # Tuple Matching
  */
+//let resolution = (3840.0, 2160.0)
+let resolution = (1920.0, 1080.0)
+let fK = "4K"
+if resolution.0 == 3840 && resolution.1 == 2160 {
+    print(fK)
+}
 
+switch resolution {
+case let(w, h) where w / h == 16.0 / 9.0:
+    print("16 : 9")
+case (_, 1080):
+    print("1080p")
+case (3840...4096, 2160):
+        print(fK)
+default:
+    break
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
+ 
+ 스위치 : 튜플매칭 지원
+ 
+ - 인터벌 매칭
+ - 와일드카드 패턴
+ - 밸류 바인딩
+ */
 
 
 
