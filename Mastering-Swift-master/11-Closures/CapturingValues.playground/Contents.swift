@@ -24,7 +24,22 @@ import UIKit
 /*:
  # Capturing Values
  */
-
+/*
+ 짧고 독립적인 코드조각
+ 
+ - objective c : block
+ - java : lamda
+ 
+ 람다 포함되는 세가지
+ 
+ Named Closures
+ 1. Function        : 값 캡처 x
+ 2. Nested Function : 값 캡처 ㅇ
+ 
+ Unnamed Closures
+ 3. Anonymous Function (익명, 이름 없는 함수)
+ 
+ */
 
 
 

@@ -38,7 +38,3 @@ func outer() -> () -> () {
 let f = outer()
 f() // inner함수를 호출 -> inner 정상 호출되도록 outer 호출한 스코프로 확장
 //inner()
-
-
-
-
