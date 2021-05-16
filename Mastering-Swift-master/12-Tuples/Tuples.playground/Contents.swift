@@ -27,35 +27,28 @@ import UIKit
  ## Tuple Expression
  ![tuple-expr](tuple-expr.png)
  */
+// let i = (12, 34)
+// int(스칼라 타입)    : 하나의 값만 저장함
+// 튜플(컴파운드 타입)   : 두개의 값 이상 저장 가능함
 
-
-
-
-
-
-
-
-
+let data = ("<html>", 200, "OK", 12.34)
+// (가능)  멤버 값 수정
+// (불가능) 멤버의 값 추가 및 삭제
 
 
 /*:
  ## Explicit Member Expression
  ![eme](eme.png)
  */
+// Unnamed Tuple ----------------- 멤버의 이름이 x
 
+// 튜플 이름or튜플 리턴함수.인덱스
+data.0
+data.1
+data.2
+data.3
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 값 형식, 값 복사 함
+var mutableTuble = data
+mutableTuble.1 = 404
+mutableTuble.1
