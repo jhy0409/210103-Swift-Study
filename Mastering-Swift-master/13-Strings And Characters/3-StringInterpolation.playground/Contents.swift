@@ -24,35 +24,42 @@ import UIKit
  # String Interpolation
  ![placeholder](placeholder.png)
  */
+// 문자열 동적 구성
+var str = "12.34KB"
 
-
-
-
-
-
-
-
-
-
-
-
+let size = 12.34
+str = String(size) + "KB"
+str = "\(size)KB"
 
 /*:
  ## Format Specifier
  ![format-specifier](format-specifier.png)
  */
+// 원하는 포맷 직접지정
+str = String(format: "%.1fKB", size)
+print(str)
 
+String(format: "Hello, %@", "Swift")
+String(format: "%d", 12)
+String(format: "%010.3f", 12.34)
 
+String(format: "[%d]", 123)
+String(format: "[%10d]", 123)
+String(format: "[%-10d]", 123)
 
+let firstName = "나다"
+let lastName = "김"
 
+let korFormat = "이름 %2$@ %1$@입니다."
+let engFormat = "name is %1$@ %2$@"
 
+String(format: korFormat, firstName, lastName)
+String(format: engFormat, firstName, lastName)
 
+str = "\\"
+print(str)
 
-
-
-
-
-
-
-
-
+print("A\tB") // 탭 추가
+print("c\nD") // 줄 바꿈
+print("\"Hello\" He said.")
+print("\'Hello\' He said.")

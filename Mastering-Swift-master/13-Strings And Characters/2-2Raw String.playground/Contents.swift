@@ -32,8 +32,7 @@ import UIKit
 var str = "\"Hello\", Swift"
 var rawStr = #""Hello", Swift"#
 
-str = "Lorem\nIpsum"
-//rawStr = #"Lorem\nIpsum"#
+str = "Lorem\nIpsum" //rawStr = #"Lorem\nIpsum"#
 rawStr = #"Lorem\#nIpsum"#
 rawStr = ###"Lorem\###nIpsum"###
 
