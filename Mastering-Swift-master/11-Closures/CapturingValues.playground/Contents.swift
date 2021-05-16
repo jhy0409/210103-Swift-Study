@@ -42,26 +42,15 @@ import UIKit
  */
 
 
+// 클로저 내부에서 외부 값 접근시 값을 캡처함(값 가져와 쓴다)
+// objective-c : 값 복사, swift : 참조 복사
+var num = 0
+let c = {
+    num += 1
+    print("check point #1: \(num)")
+}
+c()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print("check point #2: \(num)")
 
