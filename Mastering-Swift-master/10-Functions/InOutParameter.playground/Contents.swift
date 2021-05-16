@@ -56,7 +56,7 @@ num2
 // literel 전달 불가능, 메모리 공간가진 변수를 전달해야 함
 // swapNumber(&12, with: &34)
 
-// 기본값 선언 불가능 ( 변수 및 리터럴 )
+// 기본값 선언 불가능 ( 변수 및 리터럴 ), 함수 호출 시 상수전달 x
 // func swapNumber(_ a: inout Int, with b: inout Int) {
 
 // 가변파라미터에서 사용 불가능

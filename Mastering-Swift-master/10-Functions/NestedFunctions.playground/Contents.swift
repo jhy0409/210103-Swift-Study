@@ -24,7 +24,20 @@ import UIKit
 /*:
  # Nested Functions
  */
+// 다른함수 내부에 포함 = Nested Functions(내포된 함수)
+func outer() -> () -> () {
+    func inner() {
+        print("inner")
+    }
+    
+    print("outer")
+    
+    return inner
+}
 
+let f = outer()
+f() // inner함수를 호출 -> inner 정상 호출되도록 outer 호출한 스코프로 확장
+//inner()
 
 
 

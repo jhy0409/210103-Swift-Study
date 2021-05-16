@@ -38,17 +38,10 @@ if add() == 3 {
 func doSomething() {
     let rnd = Int.random(in: 1...10)
     if rnd % 2 == 1 {
+        print(rnd)
         return
     }
     print(rnd)
 }
 
-
-
-
-
-
-
-
-
-
+doSomething()
