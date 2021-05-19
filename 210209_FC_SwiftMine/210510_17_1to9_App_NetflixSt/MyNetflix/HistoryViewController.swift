@@ -2,8 +2,6 @@
 //  HistoryViewController.swift
 //  MyNetflix
 //
-//  Created by inooph on 2021/05/12.
-//  Copyright © 2021 com.joonwon. All rights reserved.
 //
 
 import UIKit
