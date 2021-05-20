@@ -1,2 +1,2 @@
 # 210103 Swift Study
- 추후 공개용
+[iOS App, Swift] 앱 제작, 강의 수강 내용
