@@ -86,25 +86,14 @@ enum GBwiB: UInt32 {
 enum GameState: UInt32 {
     case win, lose, draw
 }
+
 print("\nif 5. 가위(0), 바위(1), 보(2) 입력")
 
 var inputGBB = uint32(readLine()!)!
 var randNum = [ 0, 1, 2 ]
 
 var comGBB = GBwiB.init(rawValue: UInt32(randNum.randomElement()!))!
-/*
- let positionToFind = 11
- if let somePlanet = Planet(rawValue: positionToFind) {
- switch somePlanet {
- case .earth:
- print("Mostly harmless")
- default:
- print("Not a safe place for humans")
- }
- } else {
- print("There isn't a planet at position \(positionToFind)")
- }
- */
+
 if let userhoice = GBwiB(rawValue: inputGBB) {
     switch userhoice {
     case .gawi:
@@ -122,56 +111,27 @@ if let userhoice = GBwiB(rawValue: inputGBB) {
     case .bawi:
         switch comGBB {
         case .gawi:
-            print("결과: \(GameState.win)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)")
+            print("결과: \(GameState.win)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)") // 사용자 이김
         
         case .bawi:
-            print("결과: \(GameState.draw)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)")
+            print("결과: \(GameState.draw)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)") // 비김
         
         default:
-            print("결과: \(GameState.lose)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)")
+            print("결과: \(GameState.lose)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)") // 사용자 짐
         }
     default: // 보
         switch comGBB {
         case .gawi:
-            print("결과: \(GameState.lose)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)")
+            print("결과: \(GameState.lose)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)") // 사용자 짐
         
         case .bawi:
-            print("결과: \(GameState.win)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)")
+            print("결과: \(GameState.win)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)") // 사용자 이김
         
         default:
-            print("결과: \(GameState.draw)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)")
+            print("결과: \(GameState.draw)/ 사용자: \(userhoice), 컴퓨터: \(comGBB)") // 비김
         }
     }
 } else { print("올바르지 않은 입력입니다. 0~2사이의 값을 입력하세요\n\(inputGBB)")}
-
-
-
-
-
-
-
-
-
-
-
-//exit_thisFunc:
-//if userGBB == GBwiB.none {
-//    break exit_thisFunc
-//}
-//
-//switch userGBB {
-//case .gawi:
-//    <#code#>
-//default:
-//    <#code#>
-//}
-
-
-
-//func result_GBB (_ userInput: GBwiB) -> GameState {
-//
-//}
-//result_GBB(inputGBB)
 
 
 
