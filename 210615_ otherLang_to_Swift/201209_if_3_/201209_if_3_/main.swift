@@ -132,6 +132,3 @@ if let userhoice = GBwiB(rawValue: inputGBB) {
         }
     }
 } else { print("올바르지 않은 입력입니다. 0~2사이의 값을 입력하세요\n\(inputGBB)")}
-
-
-
