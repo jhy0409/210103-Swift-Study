@@ -1,6 +1,6 @@
 //
 //  main.swift
-//  201209_if_3_
+//  diddd
 //
 //  Created by inooph on 2021/06/15.
 //
@@ -9,6 +9,8 @@
 //https://github.com/jhy0409/jhy0409/tree/main/3%20JavaClass/201209_if/src
 
 import Foundation
+
+//  201209_if_3_
 
 /*
 //public class IF3 {
@@ -76,7 +78,7 @@ if 100 >= inputData4 && 90 <= inputData4 {
 } else {
     print("그 외의 "+str)
 }
- */
+
 
 let retrn_str = "값을 입력하세요"
 enum GBwiB: UInt32 {
@@ -132,3 +134,30 @@ if let userhoice = GBwiB(rawValue: inputGBB) {
         }
     }
 } else { print("올바르지 않은 입력입니다. 0~2사이의 값을 입력하세요\n\(inputGBB)")}
+ */
+
+let strLine = "-----------------------------"
+var anyStr = ""
+
+print(bigSmall_twoNum())
+
+func bigSmall_twoNum() -> (String) {
+    print("\(strLine)\n\t\t대소 비교 프로그램\n\(strLine)")
+    print("단, 0 < 입력숫자\n")
+    print("1. num1 입력")
+    guard let num1 = UInt32(readLine()!) else { return "" }
+    
+    print("2. num2 입력")
+    guard let num2 = UInt32(readLine()!) else { return "" }
+    
+    if num1 > num2 {
+        anyStr = "num1(\(num1))이 num2(\(num2))보다 크다."
+    } else if num1 < num2 {
+        anyStr = "num1(\(num1))이 num2(\(num2))보다 작다."
+    } else {
+        anyStr = "num1(\(num1))이 num2(\(num2))와 같다."
+    }
+    
+    return anyStr
+}
+
