@@ -26,7 +26,7 @@ import Foundation
 //    }
 //}
 
-/*
+///*
 print("숫자를 입력")
 var inputData = Int(readLine()!)!
 sHi(inputData)
@@ -41,4 +41,4 @@ func sHi(_ num: Int) -> (){
     }
     //    guard var iData = Int(readLine()!) else { return }
 }
-*/
+
