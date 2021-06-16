@@ -126,6 +126,8 @@ let DambaeList: [Dambae] = [
     Dambae(name: "더원 화이트", price: 4500)
 ]
 
+var tmpDB = [Dambae]()
+
 let errDBsrt = 99
 func menu() -> Int {
     print("\(strLine)\n\t담배 자판기 프로그램 v1.0\n\(strLine)")
@@ -151,16 +153,9 @@ func menu() -> Int {
 }
 
 let selectedDB = menu()
-//let sontakDB = DambaeList.firstIndex(where: { $0.index == selectedDB })
+let sontakDB = DambaeList.firstIndex(where: { $0.index == selectedDB })
 
-/*
- if let name = selection?.name {
-     if let location = myArray.index(where: { $0.name == name }) {
-         // you know that location is not nil here
-     }
- }
- */
-let sontakDB = DambaeList
 
-print("선택하신 담배는 \(sontakDB)")
+
+//print("선택하신 담배는 \(String(describing: sontakDB))")
 
