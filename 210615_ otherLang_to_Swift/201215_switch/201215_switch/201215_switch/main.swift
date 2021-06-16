@@ -106,29 +106,32 @@ let strLine = "-----------------------------"
 // 실습3 담배자판기 프로그램
 // https://www.notion.so/201215-Switch-e76b864d95c64b4e85f4761f7a22b122#52bbe9e329554b4993beacbaa98bc290
 
+let DambaeList: [Dambae] = [
+    Dambae(index: 1, name: "에쎄 골든 리프", price: 6000),
+    Dambae(index: 2, name: "에쎄 스페셜 골드", price: 5000),
+    Dambae(index: 3, name: "더원 블루", price: 4500),
+    Dambae(index: 4, name: "더원 오렌지", price: 4500),
+    Dambae(index: 5, name: "더원 화이트", price: 4500)
+]
+
+let errDBstr = "유효하지 않은 입력입니다."
 struct Dambae {
     let name: String
     let price: Int
-    var index = 1
+    let index: Int
     
-    init(name: String, price: Int) {
+    init(index: Int, name: String, price: Int) {
+        self.index = index
         self.name = name
         self.price = price
-        self.index += 1
     }
 }
 
-let DambaeList: [Dambae] = [
-    Dambae(name: "에쎄 골든 리프", price: 6000),
-    Dambae(name: "에쎄 스페셜 골드", price: 5000),
-    Dambae(name: "더원 블루", price: 4500),
-    Dambae(name: "더원 오렌지", price: 4500),
-    Dambae(name: "더원 화이트", price: 4500)
-]
+let errDBcode = 99
+let selectedDB = menu()
+purchaseDB(index: selectedDB, DBlist: DambaeList)
 
-var tmpDB = [Dambae]()
 
-let errDBsrt = 99
 func menu() -> Int {
     print("\(strLine)\n\t담배 자판기 프로그램 v1.0\n\(strLine)")
     print("원하는 담배를 메뉴에서 선택하세요.\n")
@@ -148,14 +151,28 @@ func menu() -> Int {
     }
     print("\(strLine)\n 숫자로 입력")
     
-    guard let selectN = Int(readLine()!) else { return errDBsrt }
+    guard let selectN = Int(readLine()!) else { return errDBcode }
     return selectN
 }
 
-let selectedDB = menu()
-let sontakDB = DambaeList.firstIndex(where: { $0.index == selectedDB })
-
-
-
-//print("선택하신 담배는 \(String(describing: sontakDB))")
-
+func purchaseDB (index: Int, DBlist: [Dambae]) {
+    let selecteDB = DBlist.first { $0.index == index }?.name ?? errDBstr
+    let slctDB_Price = DBlist.first { $0.index == index }?.price ?? errDBcode
+    if selecteDB == errDBstr {
+        print(errDBstr)
+        return
+    }
+    print("\(strLine)\n선택하신 담배는 [\(selecteDB)]입니다.")
+    print("[\(slctDB_Price)]원을 투입하세요. (금액 입력)")
+    print("")
+    
+    guard let inpMoney = Int(readLine()!) else { print(errDBstr); return }
+    let namugiDon = inpMoney - slctDB_Price
+    if namugiDon > 0 {
+        print("\(selecteDB)를 구매하였습니다. 거스름돈은 [\(namugiDon)]을 받으십시오.\n")
+    } else if namugiDon == 0 {
+        print("\(selecteDB)를 구매하였습니다.\n")
+    } else {
+        print("추가금액[\(namugiDon.magnitude)]을 투입하세요.\n")
+    }
+}
