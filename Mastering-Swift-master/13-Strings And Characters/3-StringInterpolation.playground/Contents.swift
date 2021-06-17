@@ -36,30 +36,130 @@ str = "\(size)KB"
  ![format-specifier](format-specifier.png)
  */
 // 원하는 포맷 직접지정
-str = String(format: "%.1fKB", size)
-print(str)
+//str = String(format: "%.1fKB", size)
+//print(str)
+//
+//String(format: "Hello, %@", "Swift")
+//String(format: "%d", 12)
+//String(format: "%010.3f", 12.34)
+//
+//String(format: "[%d]", 123)
+//String(format: "[%10d]", 123)
+//String(format: "[%-10d]", 123)
+//
+//let firstName = "나다"
+//let lastName = "김"
+//
+//let korFormat = "이름 %2$@ %1$@입니다."
+//let engFormat = "name is %1$@ %2$@"
+//
+//String(format: korFormat, firstName, lastName)
+//String(format: engFormat, firstName, lastName)
+//
+//str = "\\"
+//print(str)
+//
+//print("A\tB") // 탭 추가
+//print("c\nD") // 줄 바꿈
+//print("\"Hello\" He said.")
+//print("\'Hello\' He said.")
 
-String(format: "Hello, %@", "Swift")
-String(format: "%d", 12)
-String(format: "%010.3f", 12.34)
+/*:
+ ## String Interpolation (Swift 5+)
+ */
+struct Size {
+    var width = 0.0
+    var height = 0.0
+}
 
-String(format: "[%d]", 123)
-String(format: "[%10d]", 123)
-String(format: "[%-10d]", 123)
+var s = Size(width: 1.2, height: 3.4)
+//print("\(s)")
 
-let firstName = "나다"
-let lastName = "김"
+// 1.2 X 3.4
 
-let korFormat = "이름 %2$@ %1$@입니다."
-let engFormat = "name is %1$@ %2$@"
+//extension Size: CustomStringConvertible {
+//    var description: String {
+//        return "\(width) x \(height)"
+//    }
+//}
 
-String(format: korFormat, firstName, lastName)
-String(format: engFormat, firstName, lastName)
 
-str = "\\"
-print(str)
 
-print("A\tB") // 탭 추가
-print("c\nD") // 줄 바꿈
-print("\"Hello\" He said.")
-print("\'Hello\' He said.")
+
+
+
+
+
+
+
+
+//extension String.StringInterpolation {
+//    mutating func appendIterpolation(_ value: Size) {
+//        appendInterpolation("\(value.width) x \(value.height)")
+//    }
+//
+//    mutating func appendIterpolation(_ value: Size, style: NumberFormatter.Style) {
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = style
+//
+//        if let width = formatter.string(for: value.width), let height = formatter.string(for: value.height) {
+//            appendInterpolation("\(width) x \(height)")
+//        } else {
+//            appendInterpolation("\(value.width) x \(value.height)")
+//        }
+//    }
+//}
+
+
+
+
+
+
+extension String.StringInterpolation {
+    mutating func appendIterploation(_ data: Size) {
+        appendInterpolation("TTTTTT \(data.width)")
+    }
+    
+    mutating func appendInterpolation(_ data: Size, style: NumberFormatter.Style) {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = style
+        
+        if let garo = formatter.string(for: data.width), let sero = formatter.string(for: data.height) {
+            appendInterpolation("\(garo) XXX \(sero)")
+        } else {
+            appendInterpolation("\(data.width) 999 \(data.height)")
+        }
+    }
+}
+
+print("\(s)")
+print("\(s, style: .spellOut)")
+
+
+
+
+
+
+//print("\(s, style: .spellOut)")
+
+struct Size3 {
+    var width: Int
+    var height: Int
+}
+
+
+//var s2 = Size3(width: 10, height: 10)
+//extension String.StringInterpolation {
+//    mutating func appendInterpolation(_ data: Size3, style: NumberFormatter.Style){
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = style
+//
+//        let result = Int(data.width) * Int(data.height)
+//
+//        if let garo = formatter.string(for: data.width), let sero = formatter.string(for: data.height), let rtrnRslt = formatter.string(for: result) {
+//            appendInterpolation("Size3 = \(garo) x \(sero) = \(rtrnRslt)")
+//        }
+//    }
+//}
+//
+//print("\(s2, style: .spellOut)")
