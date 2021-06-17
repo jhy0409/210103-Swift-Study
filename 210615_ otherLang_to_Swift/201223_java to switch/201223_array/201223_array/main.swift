@@ -155,3 +155,46 @@ var temp = 0
          }
      }
  */
+
+//var munArr1 = [Int](repeating: 0, count: 100)
+//let range_MunArr1 = 0...99
+//for i in range_MunArr1 {
+//    munArr1[i] = i + 1
+//
+//    if munArr1[i] % 5 == 0 {
+//        print("munArr1[\(i)] : \(munArr1[i])")
+//    }
+//
+//    if i == 89 {
+//        print("\(i+1)번째 출력 종료")
+//        break
+//    }
+//}
+
+
+/*
+ 3. 아래의 데이터를 새로운 배열에 저장한후, 출력하세요.
+ 
+ 조건1) 배열 초기값
+ int arr[] = new int[] {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+ 조건2) 새로운 배열을 생성하고 100, 90, 80 순으로 저장하여 출력.
+ 
+ //    int arr1[] = new int[] { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 };
+ //    int[] arr2 = new int[arr1.length]; //10ea
+ ////    System.out.println(arr2.length); //10ea
+ //    int hap = 0;
+ //
+ //    for (int i = 0; i < arr2.length; i++) {
+ //        arr2[i] = arr1[arr1.length - (i + 1)];
+ //        System.out.print(arr2[i]+",  ");
+ //
+ //    }
+ */
+
+var munArr1_2 : [Int] = [0, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+var temArr1_2 = [Int](repeating: 0, count: munArr1_2.count) // 10칸짜리 빈 배열
+
+for i in 0...9 {
+    temArr1_2[i] = munArr1_2[munArr1_2.count - (i+1)] // 9에서 0번째까지 값을 역순으로 저장
+    print("tempArr1_2[\(i)] : \(temArr1_2[i])")
+}
