@@ -26,17 +26,44 @@ import Foundation
 /*:
  # Removing Substrings
  */
+// 특정 문자나 범위 삭제
+var str = "Hello, Awesome Swift!!!"
+let lastCharIndex = str.index(before: str.endIndex)
+var removed = str.remove(at: lastCharIndex)
 
+removed
+str
 
+removed = str.removeFirst()
+removed
+str
 
+str.removeFirst(2)
+str
 
+str.removeLast()
+str
 
+str.removeLast(2)
+str
 
+if let range = str.range(of: "Awesome") {
+    str.removeSubrange(range)
+    str
+}
 
+str.removeAll() // 파라미터 없으면 메모리공간도 함께 삭제
+str
 
+str.removeAll(keepingCapacity: true) // 초기화 후 다른문자 다시 저장시 메모리 유지하는게 좋음, --> 빈문자열, 메모리 삭제 X
 
+str = "Hello, Awesome Swift!!!"
 
+var substr = str.dropLast() // substring = 원본의 메모리 공유
+substr = str.dropLast(3)
 
+substr = str.drop(while: { (ch) -> Bool in
+    return ch != ","
+})
 
-
-
+substr
