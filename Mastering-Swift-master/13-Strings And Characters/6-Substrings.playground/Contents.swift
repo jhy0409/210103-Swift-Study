@@ -24,37 +24,24 @@ import UIKit
 /*:
  # Substring
  */
+let str = "Hello, Swift"
+let l = str.lowercased()
+var first = str.prefix(1)
+// String.SubSequence == Substring / ctrl, cmd click 선언부 내용확인
+// 서브스트링 : 원본문자열의 메모리 공유
+// 값 읽을 때 : 원본 메모리 공유
+// 변경시점에서 새로운 메모리 생성
 
+first.insert("!", at: first.endIndex) // 원본문자열 바꿈, 추가 시점에서 새로운 메모리 생성
+str
+first // Copy-on-write Optimization
 
+let newStr = String(str.prefix(1)) // 새로운 문자열 메모리 할당 및 바로 생성
+//let s = str[str.startIndex ..< str.index(str.startIndex, offsetBy: 2)]
+let s = str[..<str.index(str.startIndex, offsetBy: 2)] // one sided range = 단항연산자 이용
 
+str[str.index(str.startIndex, offsetBy: 2)...]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+let lower = str.index(str.startIndex, offsetBy: 2)
+let upper = str.index(str.startIndex, offsetBy: 5)
+str[lower ... upper]
