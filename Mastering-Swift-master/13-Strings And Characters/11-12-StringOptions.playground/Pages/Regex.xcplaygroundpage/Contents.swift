@@ -26,20 +26,21 @@ import Foundation
 /*:
  # Regular Expression
  */
+// 정규식 옵션, 복잡한 패턴 문자 검색시. 입력값 검증시 활용
 
+let emailPattern = "([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\\.[0-9a-zA-Z_-]+){1,2}"
+let emailAddress = "user@emxample.com"
 
+if let _ = emailAddress.range(of: emailPattern) {
+    print("found")
+} else {
+    print("not found")
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+if let range = emailAddress.range(of: emailPattern, options: [.regularExpression]), (range.lowerBound, range.upperBound) == (emailAddress.startIndex, emailAddress.endIndex) {
+    print("found")
+} else {
+    print("not found")
+}
 
 //: [Next](@next)

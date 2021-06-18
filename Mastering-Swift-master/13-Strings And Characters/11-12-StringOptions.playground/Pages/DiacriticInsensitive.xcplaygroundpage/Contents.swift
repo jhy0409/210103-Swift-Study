@@ -26,15 +26,14 @@ import Foundation
 /*:
  # Diacritic Insensitive
  */
+// 발음기호 처리
 
+let a = "Cafe"
+let b = "Cafè"
 
-
-
-
-
-
-
-
+a == b
+a.compare(b) == .orderedSame // 문자 결과(모양)이 달라서 false
+a.compare(b, options: .diacriticInsensitive) == .orderedSame // 발음기호 무시
 
 
 

@@ -26,17 +26,14 @@ import Foundation
 /*:
  # Width Insensitive Option
  */
+ // 전각, 반각문자 구분X 비교옵션
 
+let a = "\u{30A1}"
+let b = "\u{ff67}"
 
-
-
-
-
-
-
-
-
-
+a == b
+a.compare(b) == .orderedSame
+a.compare(b, options: .widthInsensitive) == .orderedSame
 
 
 

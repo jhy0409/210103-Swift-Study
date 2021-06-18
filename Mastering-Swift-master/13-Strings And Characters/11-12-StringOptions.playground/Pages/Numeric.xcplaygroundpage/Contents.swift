@@ -26,14 +26,18 @@ import UIKit
 /*:
  # Numeric Option
  */
+// String Options #2
+// 문자열 순서 비교
+"A" < "B"
+"a" < "B"
 
+let file9 = "file9.txt"
+let file10 = "file10.txt"
 
-
-
-
-
-
-
+file9 < file10 // ~le1 - ~le9 > 1과 9를 비교하기 때문
+file9.compare(file10) == .orderedAscending
+file9.compare(file10, options: .numeric) == .orderedAscending
+// numeric 문자열 포함된 숫자를 숫자자체로 비교
 
 
 //: [Next](@next)
