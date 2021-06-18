@@ -28,42 +28,39 @@ import Foundation
  ## Creating an Array
  */
 
+let nums = [1, 2, 3]
+let emptyArray: [Int] = [] // 추론 요소가 없음, 자료형 직접 지정
 
+let emptyArray2 = Array<Int>() // 생성자 사용
+let emptyArray3 = [Int]()
 
-
-
-
-
-
-
-
-
-
-
+let zeroArray = [Int](repeating: 0, count: 3) // 배열만들고 기본값으로 채움
 
 /*:
  ## Inspecting an Array
  */
-
-
-
-
-
-
-
+nums.count
+nums.count == 0
+nums.isEmpty
+emptyArray.isEmpty
 
 /*:
  ## Accessing Elements
  */
+// 배열요소 접근
 
+let fruits = ["Apple", "Banana", "Melon"]
+fruits[0]
+fruits[2] // fruits[fruits.count - 1]
+fruits[0...1]
 
+fruits[fruits.startIndex]
+fruits[fruits.index(before: fruits.endIndex)]
 
+fruits.first
+fruits.last
 
+emptyArray.first
+emptyArray.last
 
-
-
-
-
-
-
-
+// emptyArray[0] <- 빈 배열이므로 에러
