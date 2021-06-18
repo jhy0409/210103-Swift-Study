@@ -24,30 +24,17 @@ import UIKit
 /*:
  # Finding Substrings
  */
+// 문자열 검색
+let str = "Hello, Swift"
+str.lowercased().contains("swift") // 대소문자 무시 검색
+str.range(of: "Swift")
+str.range(of: "swift", options: [.caseInsensitive])
 
+let str2 = "Hello, Programming"
+let str3  = str2.lowercased()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 공통된 접두어 검색
+var common = str.commonPrefix(with: str2)
+common = str.commonPrefix(with: str3)
+str.commonPrefix(with: str3, options: .caseInsensitive)
+str3.commonPrefix(with: str, options: .caseInsensitive)
