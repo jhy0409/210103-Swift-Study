@@ -24,19 +24,26 @@ import UIKit
 /*:
  # Appending Strings and Characters
  */
+// 7-StringEditing1 / 문자열 편집1
+// 문자열 연결
+var str = "Hello"
+str.append(", ") // 대상 문자열 직접 변경
+str
 
+let s = str.appending("Swift") // ing, ed : 원본 그대로 두고 연결 후 새로운 문자열 리턴, 상수, 변수 상관 X
+str
+s
 
+// s.append("D") 직접 변경시 변수로 선언해야함
+s.appending("!!!")
+s
+"File size is".appendingFormat("%.1f", 12.3456)
+var str2 = "Hello Swift"
+str2.insert(",", at: str2.index(str2.startIndex, offsetBy: 5))
 
-
-
-
-
-
-
-
-
-
-
-
+if let sIndex = str2.firstIndex(of: "S") {
+    str2.insert(contentsOf: "Awesome ", at: sIndex)
+}
+str2
 
 //: [Next](@next)
