@@ -25,4 +25,34 @@ import UIKit
  # Character Set
  */
 
+// 문자 집합, 문자열 검색이나 잘못된 문자 삭제시 활용
+let a = CharacterSet.uppercaseLetters
+let b = a.inverted
+var str = "loRem Ipsup"
+var charSet = CharacterSet.uppercaseLetters
 
+if let range = str.rangeOfCharacter(from: charSet) {
+    print(str.distance(from: str.startIndex, to: range.lowerBound))
+}
+
+if let range = str.rangeOfCharacter(from: charSet, options: .backwards) {
+    print(str.distance(from: str.startIndex, to: range.lowerBound))
+}
+
+str = " A p p l e "
+charSet = .whitespaces
+
+let trimmed = str.trimmingCharacters(in: charSet)
+
+var editTarget = CharacterSet.uppercaseLetters
+editTarget.insert("#")
+editTarget.insert(charactersIn: "~!@")
+
+editTarget.remove("A")
+editTarget.remove(charactersIn: "BCD")
+
+let customCharSet = CharacterSet(charactersIn: "@.")
+let email = "userId@example.com"
+
+let componets = email.components(separatedBy: customCharSet)
+// characterset 문자로 분리 후 문자배열로 리턴
