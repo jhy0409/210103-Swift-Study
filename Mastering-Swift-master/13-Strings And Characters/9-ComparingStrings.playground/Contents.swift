@@ -24,18 +24,28 @@ import UIKit
 /*:
  # Comparing Strings
  */
+// 문자열 비교
+let largeA = "Apple"
+let smallA = "apple"
+let b = "Banana"
 
+largeA == smallA
+largeA != smallA
 
+largeA < smallA // 아스키코드 비교
+largeA < b
+smallA < b
 
+largeA.compare(smallA) == .orderedSame // 대소문자 구분비교
 
+// 결과가 같음
+largeA.caseInsensitiveCompare(smallA) == .orderedSame
+largeA.compare(smallA, options: [.caseInsensitive]) == .orderedSame
 
+let str = "Hello, Swift Programming!"
+let prefix = "hello"
+let suffix = "Programming"
 
-
-
-
-
-
-
-
-
-
+// 접두, 접미어 비교, 대소문자 구분함
+str.lowercased().hasPrefix(prefix.lowercased())
+str.hasSuffix(suffix)
