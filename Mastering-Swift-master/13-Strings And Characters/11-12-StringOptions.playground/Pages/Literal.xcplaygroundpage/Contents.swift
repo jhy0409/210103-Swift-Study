@@ -26,20 +26,15 @@ import Foundation
 /*:
  # Literal Option
  */
+let a = "\u{D55C}" // 한, 완성형
+let b = "\u{1112}\u{1161}\u{11AB}" // 조합형
 
+a == b
+a.compare(b) == .orderedSame
+// Swift : 코드유닛 및 최종문자 함께 비교
+// Objective C : 코드유닛만 비교, 두 언어 같이 사용시 주의해야함
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 스위프트에서 오브젝티브c 처럼 문자코드 직접비교
+a.compare(b, options: [.literal]) == .orderedSame // 이게 더 빠름
 
 //: [Next](@next)

@@ -24,16 +24,11 @@ import UIKit
 /*:
  # Case Insensitive Option
  */
+// 문자열 옵션, 9가지 문자열 옵션, option 파라미터 있는 곳에서 모두 사용 가능
 
-
-
-
-
-
-
-
-
-
+"A" == "a"
+"A".caseInsensitiveCompare("a") == .orderedSame // 대소문자 무시
+"A".compare("a", options: [.caseInsensitive]) == .orderedSame
 
 
 //: [Next](@next)

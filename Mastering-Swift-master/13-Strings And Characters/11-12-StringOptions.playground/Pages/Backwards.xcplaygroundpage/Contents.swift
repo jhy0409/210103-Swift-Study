@@ -26,27 +26,19 @@ import Foundation
 /*:
  # Backwards Option
  */
+// 문자열 검색방향 지정옵션
 
 let korean = "행복하세요"
 let english = "Be happy"
 let arabic = "كن سعيدا"
 
+if let range = english.range(of: "p") {
+    english.distance(from: english.startIndex, to: range.lowerBound)
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if let range = english.range(of: "p", options: .backwards) {
+    english.distance(from: english.startIndex, to: range.lowerBound)
+} // 뒤에서부터 검색, y다음의 p
 
 
 //: [Next](@next)
