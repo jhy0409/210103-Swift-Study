@@ -24,47 +24,27 @@ import UIKit
 /*:
  # Adding Keys and Values
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var words = [String: String]()
+words["A"] = "Apple"
+words["B"] = "Banana"
+words.count
+words
+words["B"] = "Ball" // 키 존재시 기존 저장값에서 교체, 없을 때 신규생성
+words.count
+words
+words.updateValue("City", forKey: "C")
+words.updateValue("Circle", forKey: "C") // 이전 저장값 리턴
+words
 /*:
  # Removing Keys and Values
  */
+// 키 기준 삭제
+words
+words["B"] = nil // 키와 연관된 값 삭제
+words
+words["Z"] = nil // 존재하지 않는 값 삭제, 동작없이 종료 후 다음코드 실행
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 메소드 사용
+words.removeValue(forKey: "A")
+words.removeValue(forKey: "A")
+words.removeAll()
