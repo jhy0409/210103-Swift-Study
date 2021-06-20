@@ -26,57 +26,98 @@ import Foundation
  ## Set Type
  ![set-type](set-type.png)
  */
-
-
-
-
-
-
-
+/*
+ 집합 구현한 것 , 사용빈도 : 배열, 딕셔너리 > 셋
+ 정렬순서보다 검색속도 중요한 경우 배열대신 사용
+ 
+ 1. 정렬되지 않은 배열 형태로 사용
+ 2. 동일요소 형식 저장
+ 3. 동일 값 하나만 저장
+ 4. 검색빠른 이유 : 해싱 (요소 유효성, 빠른 검색위해 사용)
+ 
+ set 은 배열리터럴 사용, 형식추론 사용 불가능
+ */
+let set: Set<Int> = [1, 2, 2, 3, 3, 3]
+// let set: Set = [1, 2, 2, 3, 3, 3] // 자료형 생략 -> 요소의 자료형 생략가능
+set.count
 
 /*:
  ## Inspecting a Set
  */
-
-
-
-
-
-
-
-
-
+set.count
+set.isEmpty
 /*:
  ## Testing for Membership
  */
-
-
-
-
-
-
-
-
-
-
-
+set.contains(1)
 /*:
  ## Adding and Removing Elements
  */
+// 요소 추가, 삭제
+var words = Set<String>()
+var insertResult = words.insert("Swift")
+insertResult.inserted
+insertResult.memberAfterInsert
 
+insertResult = words.insert("Swift")
+insertResult.inserted
+insertResult.memberAfterInsert
 
+var updateResult = words.update(with: "Swift")
+updateResult
 
+updateResult = words.update(with: "Apple")
+updateResult
 
+var value = "Swift"
+value.hashValue
+updateResult = words.update(with: value)
+updateResult
 
+value = "Hello"
+value.hashValue
+updateResult = words.update(with: value)
+updateResult
 
+words
 
+struct SampleData: Hashable {
+    var hashValue: Int = 123
+    var data: String
+    
+    init(_ data: String) {
+        self.data = data
+    }
+    
+    static func ==(lhs: SampleData, rhs: SampleData) -> Bool {
+        return lhs.hashValue == rhs.hashValue
+    }
+}
 
+var sampleSet = Set<SampleData>()
 
+var data = SampleData("Swift")
+data.hashValue
 
+var r = sampleSet.insert(data)
+r.inserted
+r.memberAfterInsert
+sampleSet
 
+data.data = "Hello"
+data.hashValue
 
+r = sampleSet.insert(data)
+r.inserted
+r.memberAfterInsert
+sampleSet
 
+sampleSet.update(with: data)
+sampleSet
 
+words
+words.remove("Swift")
+words
 
-
-
+words.remove("Ghost") // 없는 값 삭제
+words.removeAll()
