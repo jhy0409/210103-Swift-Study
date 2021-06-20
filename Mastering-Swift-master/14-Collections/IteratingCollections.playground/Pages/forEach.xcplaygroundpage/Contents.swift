@@ -26,12 +26,44 @@ import Foundation
 /*:
  ## forEach
  */
+print("Array", "================")
+let arr = [1, 2, 3]
+
+arr.forEach { (num) in
+    print(num)
+}
+
+print("Set", "================")
+let set: Set = [1, 2, 3]
+
+set.forEach { (num) in
+    print(num)
+}
 
 
+print("Dictionary", "================")
+let dict = ["A": 1, "B":2, "C":3]
+dict.forEach { (elem) in
+    print(elem.key, elem.value)
+}
 
+func withForIn() {
+    print(#function)
+    let arr = [1,2,3]
+    for num in arr { // break, continue사용 가능
+        print(num)
+        return
+    }
+}
 
+func withForeach() {
+    print(#function)
+    let arr = [1, 2, 3]
+    arr.forEach { (num) in
+        print(num)
+        return
+    }
+}
 
-
-
-
-
+withForIn() // return 함수전체 종료
+withForeach() // return 클로저만 종료

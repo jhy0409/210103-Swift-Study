@@ -27,23 +27,24 @@ import UIKit
  ## for-in
  ![for-in](for-in.png)
  */
+// 컬렉션 열거 뜻 : 저장된 요소로 반복작업 수행 -> 배열, 딕셔너리, 셋
 
+print("Array", "================")
+let arr = [1, 2, 3]
+for num in arr {
+    print(num)
+}
 
+print("Set", "================") // 정렬되지 않은 컬렉션, 열거순서는 그때마다 달라짐
+let set: Set = [1, 2, 3]
+for num in set {
+    print(num)
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print("Dictionary", "================") // 정렬되지 않은 컬렉션, 열거순서는 그때마다 달라짐
+let dict = ["A":1, "B":2, "C":3]
+for (key, value) in dict {
+    print(key, value)
+}
 
 //: [Next](@next)
