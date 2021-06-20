@@ -25,98 +25,56 @@ import Foundation
  ## Dictionary Literal
  ![dictliteral](dict-literal.png)
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// unordered, key: unique, value: 같아도 됨,
+// (키, 값) 자료형이 일치 해야함
+var dict = ["A": "Apple", "B": "Banana"]
+dict = [:] // 빈 딕셔너리 -> 콜론
 
 /*:
  ## Dictionary Type
  ![type1](dict-type.png)
  ![type2](dict-type2.png)
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
+let dict1: Dictionary<String, Int> // 정식문법
+let dic2: [String:Int] // 단축문법
 
 /*:
  ## Creating a Dictionary
  */
+let words = ["A": "Apple", "B": "Banana", "C": "City"]
+let emptyDict: [String: String] = [:]
+// 리터럴이용한 생성 추론값이 없어 에러
 
+// 단축문법 -  생성자 이용 빈 딕셔너리 생성
+let emptyDict2 = [String: String]()
 
-
-
-
-
-
-
-
-
-
-
-
-
+// 정식문법 -  생성자 이용 빈 딕셔너리 생성
+let emptyDict3 = Dictionary<String, String>()
 
 /*:
  ## Inspecting a Dictionary
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 저장된 요소의 수 확인, 배열과 동일
+words.count
+words.isEmpty
 
 /*:
  ## Accessing Keys and Values
  */
+// 저장된 요소 접근, 서브스크립트 문법
+words["A"] // 키를 전달
+words["Apple"] // 값 바로검색 불가능, 키로만 가능
 
+let a = words["E"]
+let b = words["E", default: "Empty"]
 
+for k in words.keys.sorted() {
+    print(k)
+}
 
+for v in words.values {
+    print(v)
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+let keys = Array(words.keys)
+let values = Array(words.values)
