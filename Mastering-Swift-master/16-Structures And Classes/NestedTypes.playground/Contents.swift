@@ -25,19 +25,28 @@ import UIKit
  # Nested Types
  ![nested-type](nested-type.png)
  */
+/*
+ 포함된 형식, 내포된 형식
+ 형식 내부에 선언된 형식
+ */
 
+class One {
+    struct Two { // nested type
+        enum Three {
+            case a
+            class Four {
+            }
+        }
+    }
+    var a = Two() // 생략 가능
+    //var a = One.Two()
+}
 
+let two: One.Two = One.Two()
+let four: One.Two.Three.Four = One.Two.Three.Four()
+let a_three: One.Two.Three = One.Two.Three.a
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
+ NumberFormatter : 숫자를 특정형식의 문자열로
+ DateFormatter   : 날짜를 대상으로 사용
+ */
