@@ -50,22 +50,23 @@ struct Person2 {
  # Explicit Member Expression
  ![syntax](syntax2.png)
  */
-let p2 = Person()
-var p = Person2() // 구조체를 상수로 저장 -> 모든 속성이 let
-p.name
-p.age // 점문법(Dot Syntax), 명시적 멤버 표현식(Explicit Member Expression)
+let p1_class = Person()
+var p_struct = Person2()
+// let p_struct = Person2() // 구조체를 상수로 저장 -> 모든 속성이 let
+p_struct.name
+p_struct.age // 점문법(Dot Syntax), 명시적 멤버 표현식(Explicit Member Expression)
 
-p.age = 30
+p_struct.age = 30
 // p.name = "New Name" // 에러, let
 
-p2.name
-p2.age
+p1_class.name
+p1_class.age
 
-p2.name = "class"
-p2.age = 99
+p1_class.name = "class"
+p1_class.age = 99
 
-p2.name
-p2.age
+p1_class.name
+p1_class.age
 
 /*:
  # Lazy Stored Properties
