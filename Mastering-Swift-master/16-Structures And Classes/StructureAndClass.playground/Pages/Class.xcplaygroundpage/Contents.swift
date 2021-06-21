@@ -28,7 +28,7 @@ import Foundation
  ![Class](class.png)
  */
 class Person {
-    var name = "John Doe"
+    var name = "John Doe" // 생성과 동시에 초기화
     var age = 0
     
     func speak() {
