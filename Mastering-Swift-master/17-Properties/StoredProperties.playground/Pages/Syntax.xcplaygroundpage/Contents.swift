@@ -108,3 +108,4 @@ struct BlogPost {
  */
 var post = BlogPost()
 post.attachment // let(오류) : 초기화 해야하는데 구조체 자체가 상수여서
+post.formattedDate
