@@ -25,23 +25,32 @@ import UIKit
  # Raw Values
  ![Raw Values](raw-values.png)
  */
+/*
+ Raw Values // 원시값
+ */
+enum Alignment: Int {
+    case left
+    case right = 100
+    case center
+}
+Alignment.left.rawValue
+Alignment.right.rawValue
+Alignment.center.rawValue
+// Alignment.left.rawValue = 10 // immutable, 선언이후 원시값 저장 불가능
 
+Alignment(rawValue: 0)
+Alignment(rawValue: 200)
+enum Weekday: String {
+    case sun
+    case mon = "Monday"
+    case tue
+    case wedn, thur, fri, sat
+}
+Weekday.sun.rawValue
+Weekday.mon.rawValue
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+enum ControlChar: Character { // 원시값이 캐릭터(문자)인 경우 반드시 값을 직접 지정해야함
+    case tab = "\t"
+    case newLine = "\n"
+}
 
