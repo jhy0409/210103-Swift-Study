@@ -25,24 +25,31 @@ import UIKit
  # Structure
  ![Struct](struct.png)
  */
+/*
+ 멤버 : 형식 내부에 구현하는 것
+ */
 
+struct Person {
+    var name: String
+    var age: Int
+    
+    func speak() {
+        print("Hello")
+    }
+}
 
+let p = Person(name: "Stee", age: 50)
 
+// 기존의 접근법, 컴파일 에러 안남(스코프, 접근법이 다름)
+let name = "Paul"
+name
 
+p.name
+p.age
+p.speak()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 함수는 이름만으로 호출 -> sayHi()
+// 메소드는 인스턴스 이름으로 호출 -> p.speak()
 
 
 //: [Next](@next)

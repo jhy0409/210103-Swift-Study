@@ -27,28 +27,21 @@ import Foundation
  # Class
  ![Class](class.png)
  */
+class Person {
+    var name = "John Doe"
+    var age = 0
+    
+    func speak() {
+        print("Hello")
+    }
+}
 
+let p = Person()
 
+// 속성접근
+p.name
+p.age
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 메소드 호출
+p.speak()
 

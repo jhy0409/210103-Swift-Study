@@ -31,13 +31,11 @@ import UIKit
  */
 
 // 연관값 개별 바인딩
-
 enum Transporation {
     case bus(number: Int)
     case taxi(company: String, number: String)
     case subway(lineNumber: Int, express: Bool)
 }
-
 var tpt = Transporation.bus(number: 7)
 
 switch tpt {
@@ -53,11 +51,7 @@ tpt = Transporation.subway(lineNumber: 2, express: false)
 
 // 2호선 확인, 급행여부 따라 코드 분기
 if case let .subway(2, express) = tpt { // express => 바인딩
-    if express {
-        
-    } else {
-        
-    }
+    if express { } else { }
 }
 
 print("\n급행만 확인 ============")
