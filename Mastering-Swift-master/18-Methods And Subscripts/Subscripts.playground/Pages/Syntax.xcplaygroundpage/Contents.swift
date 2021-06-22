@@ -89,19 +89,20 @@ m[0,0]
 
 // ---- index 유효값 검사, if & optional
 /*
- struct Matrix2 {
- var data = [[1, 2, 3],
- [4, 5, 6],
- [7, 8, 9]]
- 
- subscript(row: Int, col: Int) -> Int? {
- if row < data.count && col < data[0].count { // 행의개수, 열의개수 미만 3이면 0~2까지
- return data[row][col]
- } else { return nil }
- } // 읽기전용 서브스크립트, get {}생략 됨
- }
- 
- let test = Matrix()
- m[0,4]
  */
+struct Matrix2 {
+    var data = [[1, 2, 3],
+                [4, 5, 6],
+                [7, 8, 9]]
+    
+    subscript(row: Int, col: Int) -> Int? {
+        if row < data.count && col < data[0].count { // 행의개수, 열의개수 미만 3이면 0~2까지
+            return data[row][col]
+        } else { return nil }
+    } // 읽기전용 서브스크립트, get {}생략 됨
+}
 
+let test = Matrix2()
+test[0,4]
+test[5,5]
+test[2,1]
