@@ -25,17 +25,41 @@ import UIKit
 /*:
  # Dynamic Member Lookup
  */
-
+/*
+ 점문법으로 서브스크립트에 접근하는 단축문법을 구현
+ 파이썬 호환위해 도입된 문법
+ */
+@dynamicMemberLookup
 struct Person {
-   var name: String
-   var address: String
+    var name: String
+    var address: String
+    
+    // [고정] argument lable : dynamicMember, 파라미터 유형: String
+    // 리턴형은 자유롭게 가능
+    subscript(dynamicMember member: String) -> String {
+        switch member {
+        case "nameKey":
+            return name
+        case "addressKey":
+            return address
+        default:
+            return "n/a"
+        }
+    }
 }
 
+let p = Person(name: "James", address: "seoul")
+p.name
+p.address
 
+p[dynamicMember: "nameKey"]
+p[dynamicMember: "addressKey"]
 
+p.nameKey // 점문법으로 서브스크립트 접근 단축문법 제공
+p.addressKey
+p.missingKey
 
-
-
-
-
-
+//대상 접근시점 : 런타임
+//자동완성 제공 불가 :컴파일 시점 접근가능한 subscript판단 X
+//- 장점 : 유연성, - 단점 : 가독성, 유지보수
+ 
