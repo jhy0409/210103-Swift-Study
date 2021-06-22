@@ -116,8 +116,8 @@ var s = Size(width: 1.2, height: 3.4)
 
 
 extension String.StringInterpolation {
-    mutating func appendIterploation(_ data: Size) {
-        appendInterpolation("TTTTTT \(data.width)")
+    mutating func appendInterpolation(_ data: Size) {
+        appendInterpolation("\(data.width) X \(data.height)")
     }
     
     mutating func appendInterpolation(_ data: Size, style: NumberFormatter.Style) {
@@ -125,7 +125,7 @@ extension String.StringInterpolation {
         formatter.numberStyle = style
         
         if let garo = formatter.string(for: data.width), let sero = formatter.string(for: data.height) {
-            appendInterpolation("\(garo) XXX \(sero)")
+            appendInterpolation("\(garo) X \(sero)")
         } else {
             appendInterpolation("\(data.width) 999 \(data.height)")
         }
