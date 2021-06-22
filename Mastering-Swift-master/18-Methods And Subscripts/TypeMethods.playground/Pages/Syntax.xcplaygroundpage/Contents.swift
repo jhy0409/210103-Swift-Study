@@ -27,22 +27,34 @@ import UIKit
  ![class-func](class-func.png)
  ![call](call.png)
  */
+/*
+ 인스턴스 메소드
+ 타입 메소드 : 형식에 연관된 메소드
+ 
+ 구현 : 클래스, 구조체, 열거형
+ 
+ 1] static  : 오버라이딩 금지
+ 2] class   : 서브클래스에서 오버라이딩 허용시 사용
+ */
 
+class Circle {
+    static let pi = 3.14
+    var radius = 0.0
+    func getArea() -> Double {
+        return radius * radius * Circle.pi
+    }
+    class func printPi() { // 타입 메소드 : 타입속성에 static키워드 없이 바로 접근, 인스턴스 멤버 직접접근 불가능
+        print("parent class\t- Circle\t\t: \(pi)")
+    }
+}
 
+Circle.printPi()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+class StrokeCircle: Circle {
+    override static func printPi() {
+    // 스태틱으로 선언한 메소드 서브클래스에서 오버라이딩 XXX
+    // 인스턴스 메소드도 동일
+        print("subclass\t\t- StrokeCircle\t: \(pi)")
+    }
+}
+StrokeCircle.printPi()
