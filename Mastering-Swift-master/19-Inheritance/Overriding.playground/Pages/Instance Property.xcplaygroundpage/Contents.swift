@@ -91,7 +91,7 @@ class Oval: Circle {
      //    super.radius = newValue
      //}
      */
-    }
+     //}
     // 속성 오버라이딩 : 계산속성이나 프로퍼티 옵저버로 구현
     /*
      오버라이딩
@@ -102,7 +102,7 @@ class Oval: Circle {
      
      오버라이딩한 멤버에서 self접근 시 재귀 호출 발생하지 않도록 주의
      */
-
+}
 let o = Oval(name: "Oval")
 o.radius
 o.draw()
