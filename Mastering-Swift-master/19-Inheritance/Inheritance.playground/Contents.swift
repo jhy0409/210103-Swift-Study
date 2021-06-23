@@ -43,7 +43,7 @@ import UIKit
  최상위           : Root, Base, Parent, Super class
  상속받는 하위 클래스 : Child Class, Sub Class
  
- --- * 베이스 -> 하위 서브클래스 존재하지만 슈퍼클래스는 존재하지 않음
+ --- * 베이스 -> 하위 서브클래스 존재하지만 슈퍼클래스는 꼭 상속하지 않아도 됨
  Objective-C : 모든클래스 상속해야 함 (NSObject)
  Swift       : 제약이 없음
  
