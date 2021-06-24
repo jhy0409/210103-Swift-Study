@@ -27,22 +27,36 @@ import Foundation
  # Required Initializer
  ![required](required.png)
  */
-
+/*
+ 필수 생성자 : 부모클래스 name: String받는 생성자 직접 구현할 때
+ */
 class Figure {
-   var name: String
-
-   init(name: String) {
-      self.name = name
-   }
-
-   func draw() {
-      print("draw \(name)")
-   }
+    var name: String
+    
+    required init(name: String) { // 서브클래스에서 동일한 생성자 직접 구현해야 함
+        self.name = name
+    }
+    
+    func draw() {
+        print("draw \(name)")
+    }
 }
 
 class Rectangle: Figure {
-   var width = 0.0
-   var height = 0.0
+    var width = 0.0
+    var height = 0.0 // 기본값 있고 부모클래스 상속 -> 부모클래스 생성자 상속받음, *
+    
+    init() { // * 안받기 위해 기본생성자 축
+        width = 0.0
+        height = 0.0
+        super.init(name: "unknown")
+    }
+    
+    required init(name: String) { // 슈퍼클래스와 동일한 형태로 구현해야함 -> rect클래스 상속받는 서브클래스에도 동일한 형태의 required생성자 구현하도록 하기위해
+        width = 0.0
+        height = 0.0
+        super.init(name: name)
+    }
 }
 
 
