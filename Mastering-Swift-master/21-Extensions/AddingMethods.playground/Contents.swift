@@ -24,9 +24,64 @@ import UIKit
 /*:
  # Adding Methods
  */
+/*
+ 익스텐션으로 메소드를 추가하는 코드
 
+ - Double 형식에 화씨/섭씨 온도 변환 메소드 추가
+ - Date 형식에 문자열 포멧팅 메소드 추가
+ - String 형식에 랜덤 문자열 생성 메소드 추가
+ */
 
+extension Double {
+    // 인스턴스 메소드
+    func toFayrenheit() -> Double { // 섭씨 -> 화씨 변환
+        return self * 9 / 5 + 32
+    }
+    
+    func toCelsius() -> Double { // 화씨 -> 섭씨
+        return (self - 32) * 5 / 9
+    }
+    
+    // 타입 메소드
+    static func converToFahrenheit(from celsius: Double) -> Double {
+        return celsius.toFayrenheit() // 섭F -> 화C
+    }
+    
+    static func converToCelsius(from fahrenheic: Double) -> Double {
+        return fahrenheic.toCelsius()
+    }
+}
 
+let c = 30.0
+c.toFayrenheit()
+Double.converToFahrenheit(from: 30.0)
 
+// 날짜를 문자열로 formatting
+extension Date {
+    func toString(format: String = "yyyyMMdd") -> String {
+        let privateFormatter = DateFormatter()
+        privateFormatter.dateFormat = format
+        return privateFormatter.string(from: self)
+    }
+}
+let today = Date()
+today.toString()
+today.toString(format: "MM/dd/yyyy")
 
+extension String { // 지정된 길이로 생성된 랜덤문자열 생성하는 메소드
+    static func random(length: Int, charactersIn chars: String = "abcdefghijklmnopqrstuvwxyzGHIJKLMNOPQRSTUVWXYZ0123456789") -> String {
+        var randomString = String() // == ""
+        randomString.reserveCapacity(length) // 메모리 확보
+        // print("rndStr length = \(randomString.count)")
+        
+        for _ in 0 ..< length {
+            guard let char = chars.randomElement() else {
+                continue
+            }
+            randomString.append(char)
+        }
+        return randomString
+    }
+}
 
+String.random(length: 5)

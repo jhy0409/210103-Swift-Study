@@ -36,7 +36,7 @@ import UIKit
 extension Date {
     var year: Int {
         let cal = Calendar.current
-        return cal.component(.year, from: self) // 속성내부 날짜 인스턴스 접근
+        return cal.component(.year, from: self) // self : 속성내부 날짜 인스턴스 접근
     }
     
     var month: Int { // 과제
