@@ -25,5 +25,19 @@ import UIKit
  # Subscript Requirements
  ![subscript](subscript.png)
  */
+// 프로토콜에서 서브스크립트를 선언하고 형식에서 요구사항을 구현
 
-
+protocol List {
+    subscript(idx: Int) -> Int { get }
+    // get으로 값만 읽을 수 있게하면 나머지 구현 제한 없음
+    // get 필수, set만 필요에따라 생략 가능
+}
+struct DataStore: List {
+    subscript(idx: Int) -> Int {
+        get {
+            return 0
+        }
+        set {
+        }
+    }
+}
