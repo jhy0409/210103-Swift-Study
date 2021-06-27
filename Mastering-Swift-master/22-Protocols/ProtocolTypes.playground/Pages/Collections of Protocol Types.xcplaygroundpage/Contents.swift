@@ -26,7 +26,9 @@ import Foundation
 /*:
  # Collections of Protocol Types
  */
-
+/*
+ 프로토콜 활용한 상속과 유사한 패턴 구현
+ */
 
 protocol Figure {
    func draw()
@@ -56,8 +58,18 @@ let t = Triangle()
 let r = Rectangle()
 let c = Circle()
 
+let list: [Figure] = [t, r, c] // 독립형식이어서 형식으로 사용가능(First-class Citizen)
+/*
+  인스턴스 형식 모두 다름, 값-참조 형식 혼재하여 에러
+  동일 상속계층 클래스일 때는 자동 업캐스팅되어 저장
+ */
 
-
-
-
-
+for item in list {
+    item.draw()
+    
+    if let c = item as? Circle {
+        c.radius
+    }
+    // up, down casting => 상속 미지원 값형식에서도 유사한 패턴으로 구현가능
+    // 값, 참조형식 상관없이 함께 처리 가능
+}

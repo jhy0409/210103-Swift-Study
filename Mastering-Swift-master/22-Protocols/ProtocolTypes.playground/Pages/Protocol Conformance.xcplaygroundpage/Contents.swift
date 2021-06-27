@@ -28,7 +28,15 @@ import UIKit
  ![is](is.png)
  ![as](as.png)
  */
-
+/*
+ 프로토콜 적합성 : 특정형식이 프로토콜 채용하는지 나타내는 척도
+ 확인         : 타입캐스팅 연산자로 확인
+ 성격         : 클래스 다운캐스팅과 유사
+ 
+ as연산자 :
+    - 인스턴스를 프로토콜 형식으로 캐스팅
+    - 프로토콜 형식 저장된 인스턴스 실제형식 캐스팅시 사용
+ */
 protocol Resettable {
    func reset()
 }
@@ -44,10 +52,16 @@ class Size: Resettable {
 }
 
 let s = Size()
+s is Resettable // 채용 프로토콜
+s is ExpressibleByNilLiteral // 미채용 프로토콜
+let r = Size() as Resettable
+r as? Size // 2] runtime cast
 
-
-
-
-
+/*
+  1] compile type cast, 2] runtime cast
+ 
+    - 인스턴스 프로토콜 형식 캐스팅 : 1], 2] 둘다 가능
+    - 원래형식 되돌릴 때         : 2]만 가능
+ */
 
 //: [Next](@next)
