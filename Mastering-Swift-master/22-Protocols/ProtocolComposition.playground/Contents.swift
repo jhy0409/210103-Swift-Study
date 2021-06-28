@@ -57,31 +57,27 @@ class Circle: Resettable {
    }
 }
 
-class Oval: Circle {
+class Oval: Circle { // resettable만 채용
    
 }
 
 let r: Resettable = Size()
 let p: Printable = Size()
 
+// r, p 모두 충족하는 인스턴스의 저장 '&' -> 병합된 임시 프로토콜로 처리 : 새로운 프로토콜 생성은 아님
+
+var rp: Resettable & Printable = Size()
+// rp = Circle() // rp -> r, p / Circle() -> r만 채용하므로 저장 불가능
 
 /*:
  ![composition2](composition2.png)
  */
+/*
+ Class & Protocol & ...
+ 
+ - 클래스 저장시 모든 서브 클래스 저장할 수 있음
+ */
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// r, circle의 서브클래스인 인스턴스
+var cr: Circle & Resettable = Circle()
+cr = Oval()
