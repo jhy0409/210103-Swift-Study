@@ -27,7 +27,15 @@ import Foundation
  # Unowned Reference
  ![unowned](unowned.png)
  */
-
+/*
+ 비소유 참조 : 약한참조 동일한 방식으로 강한참조 해결
+ - non-optional 형식
+ - 용도 : 참조사이클 해결 및 속성을 넌옵셔널로 선언해야할 때 사용
+ - 인스턴스 생명주기 : 소유자와 같거나 더 긴 경우 사용
+ 
+ - 옵셔널이 아니므로 참조인스턴스 해제돼도 nil로 초기화되지 않음
+    -> 해제된 인스턴스 접근시 runtime error
+ */
 class Person {
    var name = "John Doe"
    var car: Car?
@@ -58,15 +66,3 @@ person?.car = rentedCar
 
 person = nil
 rentedCar = nil
-
-
-
-
-
-
-
-
-
-
-
-
