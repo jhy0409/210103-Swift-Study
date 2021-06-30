@@ -27,15 +27,18 @@ import Foundation
  # Type Constraints
  ![type-constraints](type-constraints.png)
  */
-
-func swapValue<T>(lhs: inout T, rhs: inout T) {
-   let tmp = lhs
-   lhs = rhs
-   rhs = tmp
+/*
+ 형식제약
+ 대체할 수 있는 타입 클래스와 클래스 상속한 클래스로 제한됨
+ 프로토콜 채용형식으로 제한
+ */
+func swapValue<T: Equatable>(lhs: inout T, rhs: inout T) {
+    // 비교값이 같다면 리턴
+    // (대체형식 제한 없음)
+    // 비교기능 구현되지않은 전달값 파라미터로 올 수 있으므로 제한둬야함
+    if lhs == rhs { return } //형식제약, 동등연산자로 비교할 수있는 값만 전달할 수 있게 됨
+    let tmp = lhs
+    lhs = rhs
+    rhs = tmp
 }
-
-
-
-
-
 //: [Next](@next)

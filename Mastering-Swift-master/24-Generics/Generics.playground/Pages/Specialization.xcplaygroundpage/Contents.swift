@@ -26,7 +26,14 @@ import Foundation
 /*:
  # Specialization
  */
-
+/*
+ 특수화를 통한 특정형식 위한 함수 구현
+ 
+ 제네릭 : 형식 관계없이 동일한 코드 실행함
+ 문자열 전달 경우에도 동등연산자로 비교
+ 
+ 대소문자 무시 -> case insensitive 스트링만 제공
+ */
 
 func swapValue<T: Equatable>(lhs: inout T, rhs: inout T) {
    print("generic version")
@@ -40,4 +47,25 @@ func swapValue<T: Equatable>(lhs: inout T, rhs: inout T) {
    rhs = tmp
 }
 
+func swapValue(lhs: inout String, rhs: inout String) {
+    print("specialized version")
+    
+    if lhs.caseInsensitiveCompare(rhs) == . orderedSame {
+        let tmp = lhs
+        lhs = rhs
+        rhs = tmp
+    }
+}
 
+var a = 1
+var b = 2
+swapValue(lhs: &a, rhs: &b) // 실제 호출함수는 전달되는 값을통해 정해짐
+
+var c = "Swift"
+var d = "Programming"
+swapValue(lhs: &c, rhs: &d)
+/*
+ 제네릭함수 오버라이딩한 함수로 인식됨
+ 제네릭 함수보다 우선순위가 높음
+ 모든함수가 문자열 받을 수 있지만 우선순위 높은 두번째 함수가 호출됨
+ */
