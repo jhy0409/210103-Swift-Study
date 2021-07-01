@@ -25,7 +25,18 @@ import UIKit
  # optional try
  ![optional-try](optional-try.png)
  */
-
+/*
+ try표현식
+    - 사용 : 에러를 던지는 함수 또는 생성자 호출시
+ 
+ 1. try? expression (optional try)
+    - do-catch외에서 호출 시 사용
+ 
+ 2. try! expression (forced try)
+    - 실행중지, 런타임에러 발생
+ 
+ -> 에러를 옵셔널값으로 변경함 -> 주로 옵셔널 바인딩과 함께 사용
+ */
 enum DataParsingError: Error {
    case invalidType
    case invalidField
@@ -40,9 +51,27 @@ func parsing(data: [String: Any]) throws {
    guard let _ = data["age"] as? Int else {
       throw DataParsingError.invalidType
    }
-   
    // Parsing
 }
 
+if let _ = try? parsing(data: [:]) {
+    print("success")
+} else {
+    print("fail if문")
+}
 
+do {
+    try parsing(data: [:])
+    print("success")
+} catch {
+    print("fail do-catch문")
+}
 
+try? parsing(data: [:])
+try! parsing(data: ["name": "steve", "age": 33])
+/* 비권장
+ //try! parsing(data: [:])
+    - 에러발생시 강제로 종료되므로
+    - 표현식에서 발생하는 에러를 다른곳으로 전달할 수 없음
+    - do-catch로 에러처리 불가능
+ */
