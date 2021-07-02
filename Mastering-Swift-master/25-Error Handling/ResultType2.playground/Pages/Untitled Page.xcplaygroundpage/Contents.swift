@@ -24,7 +24,7 @@ import UIKit
 /*:
  # Result Type in Async Code
  */
-
+//네트워크 코드 : 비동기방식으로 구현
 guard let url = URL(string: "http://kxcoding-study.azurewebsites.net/api/books") else {
    fatalError("invalid url")
 }
@@ -40,7 +40,7 @@ struct Book: Codable {
 }
 
 typealias CompletionHandler = (BookListData?, Error?) -> ()
-
+// 옵셔널 : 에러발생시 불필요한 값 전달하지 않기위해 사용
 func parseBookList(completion: @escaping CompletionHandler) {
    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
       if let error = error {
@@ -53,9 +53,10 @@ func parseBookList(completion: @escaping CompletionHandler) {
          return
       }
       
-      do {
+      do { // json으로 넘어오는 데이터를 디코딩 -> 스위프트 객체로
          let list = try JSONDecoder().decode(BookListData.self, from: data)
          completion(list, nil)
+        // 1] list에 nil전달되면 논리적 오류 및 크래시 발생
       } catch {
          completion(nil, error)
       }
@@ -63,15 +64,18 @@ func parseBookList(completion: @escaping CompletionHandler) {
    task.resume()
 }
 
+// 2] 옵셔널이므로 실제 값 전달되는지 확인필요 optional binding, chaining
 parseBookList { (data, error) in
    if let error = error {
       print(error.localizedDescription)
       return
    }
-   
    data?.list.forEach { print($0.title) }
 }
+/*
+ [ 현재코드 문제점 ]
+ - error: data와 nil이 쌍으로 전달되는 보장이 없음
+ */
 
 
-
- //: [Next](@next)
+//: [Next](@next)
