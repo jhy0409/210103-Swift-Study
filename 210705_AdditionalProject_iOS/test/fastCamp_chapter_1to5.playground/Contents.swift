@@ -111,3 +111,31 @@ import UIKit
 //printResult(substract, 10, 5)
 
 // chapter 5-8 옵셔널, optional
+//var carName: String?
+//carName = nil
+//carName = "탱크"
+//
+//// 실습
+//var movieStar: String?
+//let num = Int("10")
+//movieStar = "한동석"
+
+// chapter 5-12 옵셔널 고급, optional
+//    실습문제
+var favoriteFood: String? = "떡볶이"
+//favoriteFood = nil
+
+if let foodName = favoriteFood {
+    print("좋아하는 음식은 \(foodName)")
+} else {
+    print("invalid food name")
+}
+
+func printNick(nick: String?) {
+    guard let nName = nick else {
+        print("invalid nickname")
+        return
+    }
+    print("nickname is \(nName)")
+}
+printNick(nick: "별명은 서너개")
