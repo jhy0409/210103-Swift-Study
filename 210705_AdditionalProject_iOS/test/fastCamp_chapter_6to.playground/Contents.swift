@@ -49,3 +49,12 @@ func printDic(dic: [String:String]) {
 print()
 //myDic = [:]
 printDic(dic: myDic)
+
+// chapter 6-7 실습
+// array: 순서가 있는 아이템, dictionary: 키로 값 관리, Set: 중복없는 유니크한 아이템
+// 공통 property : isEmpty, count, inser, remove
+var someArray: Array<Int> = [1, 2, 3, 3, 3]
+print(someArray.count) // print : 5
+
+var someSet: Set<Int> = [1, 2, 2, 2, 3, 3, 3]
+print(someSet.count) // print : 3
