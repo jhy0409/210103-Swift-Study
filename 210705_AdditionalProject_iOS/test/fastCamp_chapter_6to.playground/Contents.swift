@@ -106,3 +106,10 @@ operateTwoNum(a: num1, b: num2, operation: addClosure)
 operateTwoNum(a: 20, b: 2) { a, b in
     return a / b
 }
+
+// chapter 6-9 클로저 : Capturing Value
+let voidClosure = {
+    print("타입유형 확인하기")
+}
+
+voidClosure()
