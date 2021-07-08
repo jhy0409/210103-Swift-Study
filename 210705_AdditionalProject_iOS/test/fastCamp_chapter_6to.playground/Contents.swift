@@ -109,7 +109,66 @@ operateTwoNum(a: 20, b: 2) { a, b in
 
 // chapter 6-9 클로저 : Capturing Value
 let voidClosure = {
-    print("타입유형 확인하기")
+    print("타입유형 확인하기\n")
 }
 
 voidClosure()
+
+
+// chapter 6-11 실습, 챕터 6마지막
+// normal form
+//{ (param) -> return type in
+//    statements...
+
+//}
+// Example 1: Simple Closure
+var choSImpleClosure = {
+    // print ()->() // input, output없는 형식
+}
+choSImpleClosure()
+
+// Example 2: 코드블록 구현한 Closure
+choSImpleClosure = {
+    print("Hello Kitty, Example 2번째")
+}
+choSImpleClosure()
+
+// Example 3: 인풋 파라미터를 받는 Closure
+//choSImpleClosure: (String) -> () = {
+let choSImpleClosure2: (String) -> Void = { name in
+    print("Hello Kitty, \(name)")
+}
+choSImpleClosure2("Example 3번째")
+
+// Example 4: 값을 리턴하는 Closure
+let choSImpleClosure4: (String) -> String = { place in
+    let message = "2021. 7. 8. 공부 중, 장소: \(place)"
+    return message
+}
+
+let result = choSImpleClosure4("cafe, Example 4번째")
+print("\(result)\n")
+
+// Example 5: Closure를 파라미터로 받는 함수 구현
+func someSimpleFunction(choSimpleClosure: ()-> Void) {
+    choSimpleClosure()
+    print("2. 함수에서 호출이 되었다.")
+}
+
+someSimpleFunction(choSimpleClosure: {
+    print("1. from closure")
+})
+// Example 6: Trailing Closure 클로저를 좀 더 깔끔하게
+func someSimpleFunction(message: String, choSimpleClosure: ()-> Void) {
+    choSimpleClosure()
+    print("2. 함수에서 호출이 되었다. 메세지는 \(message)")
+}
+print()
+someSimpleFunction(message: "Example 6번째", choSimpleClosure: {
+    print("from flosure - 여섯번째 클로저 예제")
+})
+
+print()
+someSimpleFunction(message: "Example 6번째") {
+    print("from flosure - 여섯번째 클로저 예제\n마지막 파라미터가 클로저일 때 생략가능")
+}
