@@ -119,4 +119,45 @@ import UIKit
 /*
  - Property : 호출시 저장된 값을 하나 반환한다. (computed property)
  - Method : 호출시 어떤 작업을 한다. // 메소드가 값을 리턴하는 작업을 한다면 1과 동일
+ 
+ // 경우에 따른 사용
+ 1. Computed Property
+    - setter 필요
+ 
+ 2. Method
+    - setter 미사용
+    - DB access나 File io가 필요할 때
  */
+
+// -------- chapter 7-9강
+
+struct Lecture {
+    var title: String
+    var maxStudents: Int = 10
+    var numOfRegistered: Int = 0
+    func remainSeats() -> Int {
+        let remainSeats = lec.maxStudents - lec.numOfRegistered
+        return remainSeats
+    }
+    mutating func register() {
+        // 등록된 학생 수 증가
+        numOfRegistered += 1
+    }
+    
+    static let target: String = "Anybody want to learn soemthing"
+    static func 소속한원이름() -> String {
+        return "패캠"
+    }
+}
+
+var lec = Lecture(title: "1. iOS Basic")
+
+
+lec.remainSeats()
+lec.register()
+lec.register()
+lec.register()
+lec.remainSeats()
+
+Lecture.target // type property
+Lecture.소속한원이름() // type method
