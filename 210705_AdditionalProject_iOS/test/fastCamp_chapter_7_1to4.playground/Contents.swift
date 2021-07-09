@@ -235,38 +235,40 @@ let doubleLineStr = "=============================="
 
 
 // chapter 7-4 실습
-struct Lecture: CustomStringConvertible {
-    // 설명형으로 쓸 때 CustomStringConvertible 프로토콜 활용
-    var description: String {
-        return "Title \(subject), gangsa: \(gangsa)"
-    }
-    
-    let subject: String
-    let gangsa: String
-    var studentNum: Int
-}
-
-func printLecture(lec: [Lecture], gangsaIrum: String) {
-    
-    var lectureName = ""
-    
-    for lc in lec {
-        if gangsaIrum == lc.gangsa {
-            lectureName = lc.gangsa
-        }
-    }
-    if lectureName.count == 0 {
-        print("해당 강사의 강의가 존재하지 않습니다.")
-        return
-    }
-    print("강의이름 : \(lectureName)")
-}
-
-let gangwi_1 = Lecture(subject: "1강의", gangsa: "1강사", studentNum: 1111)
-let gangwi_2 = Lecture(subject: "2강의", gangsa: "2강사", studentNum: 2222)
-let gangwi_3 = Lecture(subject: "3강의", gangsa: "3강사", studentNum: 3333)
-
-let lectures: [Lecture] = [gangwi_1, gangwi_2, gangwi_3]
-
-printLecture(lec: lectures, gangsaIrum: "5강사")
-print(gangwi_1)
+/*
+ struct Lecture: CustomStringConvertible {
+ // 설명형으로 쓸 때 CustomStringConvertible 프로토콜 활용
+ var description: String {
+ return "Title \(subject), gangsa: \(gangsa)"
+ }
+ 
+ let subject: String
+ let gangsa: String
+ var studentNum: Int
+ }
+ 
+ func printLecture(lec: [Lecture], gangsaIrum: String) {
+ 
+ var lectureName = ""
+ 
+ for lc in lec {
+ if gangsaIrum == lc.gangsa {
+ lectureName = lc.gangsa
+ }
+ }
+ if lectureName.count == 0 {
+ print("해당 강사의 강의가 존재하지 않습니다.")
+ return
+ }
+ print("강의이름 : \(lectureName)")
+ }
+ 
+ let gangwi_1 = Lecture(subject: "1강의", gangsa: "1강사", studentNum: 1111)
+ let gangwi_2 = Lecture(subject: "2강의", gangsa: "2강사", studentNum: 2222)
+ let gangwi_3 = Lecture(subject: "3강의", gangsa: "3강사", studentNum: 3333)
+ 
+ let lectures: [Lecture] = [gangwi_1, gangwi_2, gangwi_3]
+ 
+ printLecture(lec: lectures, gangsaIrum: "5강사")
+ print(gangwi_1)
+ */
