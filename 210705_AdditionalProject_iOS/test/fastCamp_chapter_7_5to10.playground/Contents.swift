@@ -162,7 +162,6 @@ Lecture.target // type property
 Lecture.소속한원이름() // type method
 
 // -------- chapter 7-10강 struct extension
-
 struct Math {
     static func abs(value: Int) -> Int {
         if value > 0 {
