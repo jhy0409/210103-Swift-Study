@@ -163,7 +163,7 @@ class FootballPlayer: StudentAthlete {
 }
 
 let student1 = Student(firstName: "Jason", lastName: "Lee")
-let student1_1 = Student(student: student1)
+let student1_1 = Student(student: student1) // 간편생성자를 통한 새로운 인스턴스 생성
 
 let student2 = StudentAthlete(firstName: "Jay", lastName: "Lee", sports: ["Football"])
 
