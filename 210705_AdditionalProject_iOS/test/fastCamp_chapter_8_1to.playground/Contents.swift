@@ -1,0 +1,44 @@
+import UIKit
+
+struct PersonStruct {
+    var firstName: String
+    var lastName: String
+    
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
+    
+    mutating func uppercaseName() {
+        firstName = firstName.uppercased()
+        lastName = lastName.uppercased()
+        print("\(firstName) \(lastName)")
+    }
+}
+
+class PersonClass {
+    var firstName: String
+    var lastName: String
+    
+    init(firstName: String, lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+    
+    var fullName: String {
+        return "\(firstName) \(lastName)"
+    }
+    
+    func uppercaseName() {
+        firstName = firstName.uppercased()
+        lastName = lastName.uppercased()
+        print("\(firstName) \(lastName)")
+    }
+}
+
+var pS = PersonStruct(firstName: "struct", lastName: "def")
+pS.fullName
+pS.uppercaseName()
+pS.fullName
+
+var pC = PersonClass(firstName: "class", lastName: "ghi")
+pC.fullName
