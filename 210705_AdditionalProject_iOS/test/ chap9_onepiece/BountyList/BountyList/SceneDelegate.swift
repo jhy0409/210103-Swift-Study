@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  BountyList
 //
-//  Created by inooph on 2021/07/12.
+//  Created by inooph on 2021/04/04.
 //
 
 import UIKit
