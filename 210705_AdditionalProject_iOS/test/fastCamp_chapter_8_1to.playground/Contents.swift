@@ -1,5 +1,6 @@
 import UIKit
 
+// -------- chapter 8-1~2 Struct & Class
 struct PersonStruct {
     var firstName: String
     var lastName: String
@@ -42,3 +43,5 @@ pS.fullName
 
 var pC = PersonClass(firstName: "class", lastName: "ghi")
 pC.fullName
+
+// -------- chapter 8-4 상속
