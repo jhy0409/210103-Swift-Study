@@ -82,3 +82,5 @@ let history = Grade(letter: "A", points: 10.0, credits: 3)
 jasonStu.grades.append(math)
 jasonStu.grades.append(history)
 jasonStu.grades.count
+
+// -------- chapter 8-5 상속 --> chap8_4to5_class_inheritance.playground 파일 참고
