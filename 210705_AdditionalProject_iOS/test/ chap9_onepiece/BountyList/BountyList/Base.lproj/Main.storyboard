@@ -105,14 +105,44 @@
                                     <action selector="close:" destination="3Jx-6b-ZiE" eventType="touchUpInside" id="3us-7c-Ll7"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FJA-ag-2jn">
+                                <rect key="frame" x="50" y="100" width="314" height="448.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FJA-ag-2jn" secondAttribute="height" multiplier="7:10" id="Mmg-Hn-XxA"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hX7-UO-Q36">
+                                <rect key="frame" x="167" y="579" width="80" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jdq-qI-Kix">
+                                <rect key="frame" x="167" y="636" width="80" height="36"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2EX-dI-W27"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hX7-UO-Q36" firstAttribute="top" secondItem="FJA-ag-2jn" secondAttribute="bottom" constant="30.5" id="ILK-oy-O64"/>
                             <constraint firstItem="2EX-dI-W27" firstAttribute="trailing" secondItem="A5n-88-UXE" secondAttribute="trailing" constant="16" id="Usm-4C-Zfe"/>
                             <constraint firstItem="A5n-88-UXE" firstAttribute="top" secondItem="2EX-dI-W27" secondAttribute="top" constant="20" id="gcu-3k-CAY"/>
+                            <constraint firstItem="FJA-ag-2jn" firstAttribute="top" secondItem="2EX-dI-W27" secondAttribute="top" constant="100" id="kiJ-41-1yA"/>
+                            <constraint firstItem="Jdq-qI-Kix" firstAttribute="top" secondItem="hX7-UO-Q36" secondAttribute="bottom" constant="21" id="nmW-6r-oSb"/>
+                            <constraint firstItem="hX7-UO-Q36" firstAttribute="centerX" secondItem="FJA-ag-2jn" secondAttribute="centerX" id="oi6-sf-ERK"/>
+                            <constraint firstItem="FJA-ag-2jn" firstAttribute="leading" secondItem="2EX-dI-W27" secondAttribute="leading" constant="50" id="srA-v0-aTG"/>
+                            <constraint firstItem="FJA-ag-2jn" firstAttribute="centerX" secondItem="2EX-dI-W27" secondAttribute="centerX" id="wFu-dG-WNJ"/>
+                            <constraint firstItem="Jdq-qI-Kix" firstAttribute="centerX" secondItem="hX7-UO-Q36" secondAttribute="centerX" id="xMI-FQ-oRe"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bountyLabel" destination="Jdq-qI-Kix" id="pyW-Kk-i6g"/>
+                        <outlet property="imgView" destination="FJA-ag-2jn" id="cTO-EO-daP"/>
+                        <outlet property="nameLabel" destination="hX7-UO-Q36" id="kpy-LD-3ka"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bjo-cv-HiK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
