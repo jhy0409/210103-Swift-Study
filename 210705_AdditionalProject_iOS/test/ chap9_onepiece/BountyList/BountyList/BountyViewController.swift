@@ -34,6 +34,7 @@ class BountyViewController: UIViewController, UITableViewDataSource, UITableView
     // 클릭됐을 때 UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("--->\(indexPath.row)")
+        performSegue(withIdentifier: "showDetail", sender: nil)
     }
 }
 
