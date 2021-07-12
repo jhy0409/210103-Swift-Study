@@ -27,38 +27,38 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uUX-i4-3KB">
-                                                    <rect key="frame" x="15" y="31.5" width="96" height="137"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="uUX-i4-3KB" secondAttribute="height" multiplier="7:10" id="3DS-i7-wK0"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Luffy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hfI-ev-ybQ">
-                                                    <rect key="frame" x="119" y="55" width="258" height="30"/>
+                                                    <rect key="frame" x="163" y="55" width="214" height="30"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0t-Vy-Tmf">
-                                                    <rect key="frame" x="178" y="99" width="140" height="36"/>
+                                                    <rect key="frame" x="200" y="99" width="140" height="36"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eYR-Tm-LX3">
+                                                    <rect key="frame" x="15" y="29" width="99.5" height="142"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="eYR-Tm-LX3" secondAttribute="height" multiplier="7:10" id="tQu-tN-QsN"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="uUX-i4-3KB" firstAttribute="leading" secondItem="Fa6-eV-FKf" secondAttribute="leading" constant="15" id="6rG-V4-96V"/>
                                                 <constraint firstAttribute="trailing" secondItem="hfI-ev-ybQ" secondAttribute="trailing" constant="37" id="F28-a1-JbL"/>
+                                                <constraint firstItem="eYR-Tm-LX3" firstAttribute="leading" secondItem="Fa6-eV-FKf" secondAttribute="leading" constant="15" id="HOp-WQ-Z6w"/>
                                                 <constraint firstItem="hfI-ev-ybQ" firstAttribute="centerY" secondItem="Fa6-eV-FKf" secondAttribute="centerY" constant="-30" id="LYB-iU-4VT"/>
-                                                <constraint firstItem="uUX-i4-3KB" firstAttribute="height" secondItem="Fa6-eV-FKf" secondAttribute="height" multiplier="0.735" constant="-10" id="OJL-Cw-MKN"/>
-                                                <constraint firstItem="hfI-ev-ybQ" firstAttribute="leading" secondItem="uUX-i4-3KB" secondAttribute="trailing" constant="8" symbolic="YES" id="TDH-XJ-coW"/>
-                                                <constraint firstItem="f0t-Vy-Tmf" firstAttribute="centerX" secondItem="hfI-ev-ybQ" secondAttribute="centerX" id="byU-fY-PZL"/>
-                                                <constraint firstItem="uUX-i4-3KB" firstAttribute="centerY" secondItem="Fa6-eV-FKf" secondAttribute="centerY" id="eSB-cW-4aN"/>
+                                                <constraint firstItem="hfI-ev-ybQ" firstAttribute="leading" secondItem="eYR-Tm-LX3" secondAttribute="trailing" constant="48.5" id="WUq-1m-GD8"/>
+                                                <constraint firstItem="eYR-Tm-LX3" firstAttribute="height" secondItem="Fa6-eV-FKf" secondAttribute="height" multiplier="0.76" constant="-10" id="fkQ-Mu-94j"/>
+                                                <constraint firstItem="eYR-Tm-LX3" firstAttribute="centerY" secondItem="Fa6-eV-FKf" secondAttribute="centerY" id="izE-Pe-vJm"/>
+                                                <constraint firstItem="f0t-Vy-Tmf" firstAttribute="centerX" secondItem="hfI-ev-ybQ" secondAttribute="centerX" id="jxS-05-e2l"/>
                                                 <constraint firstItem="f0t-Vy-Tmf" firstAttribute="top" secondItem="hfI-ev-ybQ" secondAttribute="bottom" constant="14" id="yHt-TG-s6m"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="bountyLabel" destination="f0t-Vy-Tmf" id="KOt-jk-xMz"/>
-                                            <outlet property="imgView" destination="uUX-i4-3KB" id="kcP-R9-H83"/>
+                                            <outlet property="imgView" destination="eYR-Tm-LX3" id="hiF-b0-Nxk"/>
                                             <outlet property="nameLabel" destination="hfI-ev-ybQ" id="de4-TH-Iow"/>
                                         </connections>
                                     </tableViewCell>
