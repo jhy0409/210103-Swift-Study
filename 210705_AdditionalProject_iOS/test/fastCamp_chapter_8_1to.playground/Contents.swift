@@ -64,17 +64,21 @@ class Person {
     }
 }
 
-class Student {
+class Student: Person {
     var grades: [Grade] = []
-    
-    var firstName: String
-    var lastName: String
-    init(firstName: String, lastName: String) {
-        self.firstName = firstName
-        self.lastName = lastName
-    }
-    
-    func printMyName() {
-        print("My name is \(firstName) \(lastName)")
-    }
 }
+
+let jayP = Person(firstName: "Jay-Person", lastName: "Lee")
+let jasonStu = Student(firstName: "Jason-Student", lastName: "Lee")
+
+jayP.firstName
+jasonStu.firstName
+
+jayP.printMyName()
+jasonStu.printMyName()
+
+let math = Grade(letter: "B", points: 8.5, credits: 3)
+let history = Grade(letter: "A", points: 10.0, credits: 3)
+jasonStu.grades.append(math)
+jasonStu.grades.append(history)
+jasonStu.grades.count
