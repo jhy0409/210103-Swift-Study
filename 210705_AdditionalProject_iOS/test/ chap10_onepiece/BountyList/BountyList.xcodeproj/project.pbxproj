@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68898E47269D4BF7008BBC04 /* BountyInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68898E46269D4BF7008BBC04 /* BountyInfo.swift */; };
 		68A675862619DD9E008E6720 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A675852619DD9E008E6720 /* AppDelegate.swift */; };
 		68A675882619DD9E008E6720 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A675872619DD9E008E6720 /* SceneDelegate.swift */; };
 		68A6758D2619DD9E008E6720 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68A6758B2619DD9E008E6720 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		68898E46269D4BF7008BBC04 /* BountyInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BountyInfo.swift; sourceTree = "<group>"; };
 		68A675822619DD9E008E6720 /* BountyList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BountyList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68A675852619DD9E008E6720 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68A675872619DD9E008E6720 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 		68A675842619DD9E008E6720 /* BountyList */ = {
 			isa = PBXGroup;
 			children = (
+				68898E46269D4BF7008BBC04 /* BountyInfo.swift */,
 				68A675852619DD9E008E6720 /* AppDelegate.swift */,
 				68A6759B2619DEDD008E6720 /* BountyViewController.swift */,
 				68A675872619DD9E008E6720 /* SceneDelegate.swift */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68898E47269D4BF7008BBC04 /* BountyInfo.swift in Sources */,
 				68A675862619DD9E008E6720 /* AppDelegate.swift in Sources */,
 				68A6759C2619DEDD008E6720 /* BountyViewController.swift in Sources */,
 				68A675882619DD9E008E6720 /* SceneDelegate.swift in Sources */,
