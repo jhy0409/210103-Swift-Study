@@ -75,39 +75,6 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         return CGSize(width: width, height: height)
     }
-    
-//    // UITableViewDataSource
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.numOfBountyInfoList
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? ListCell else {
-//            return UITableViewCell()
-//        }
-//        let bountyInfo = viewModel.bountyInfo(at: indexPath.row)
-//        cell.update(info: bountyInfo)
-//        return cell
-//    }
-//
-//    // UITableViewDelegate
-//    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
-//        print("--> \(indexPath.row)")
-//        performSegue(withIdentifier: "showDetail", sender: indexPath.row)
-//    }
-}
-
-class ListCell: UITableViewCell {
-    @IBOutlet weak var ImgView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var bountyLabel: UILabel!
-    
-    func update(info: BountyInfo) {
-        ImgView.image = info.image
-        nameLabel.text = info.name
-        bountyLabel.text = "\(info.bounty)"
-    }
 }
 
 class GridCell: UICollectionViewCell {
