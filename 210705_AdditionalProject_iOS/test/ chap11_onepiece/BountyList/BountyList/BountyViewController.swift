@@ -60,10 +60,20 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         return cell
     }
     
-    // UICollectionViewDelegateFlowLayout : 셀 사이즈 계산 (목표: 디바이스마다 일관적인 디자인 보여주기 위해)
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("-->\(indexPath.item)")
         performSegue(withIdentifier: "showDetail", sender: indexPath.item)
+    }
+    
+    // UICollectionViewDelegateFlowLayout : 셀 사이즈 계산 (목표: 디바이스마다 일관적인 디자인 보여주기 위해)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemSpacing:CGFloat = 10
+        let textAreaHeight: CGFloat = 65
+        
+        let width: CGFloat = (collectionView.bounds.width - itemSpacing) / 2
+        let height: CGFloat = width * 10/7 +  textAreaHeight
+        
+        return CGSize(width: width, height: height)
     }
     
 //    // UITableViewDataSource
