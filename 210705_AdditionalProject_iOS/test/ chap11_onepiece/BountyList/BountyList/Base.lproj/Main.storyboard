@@ -124,8 +124,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="30000000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8N-Dj-NiP">
-                                <rect key="frame" x="107" y="672" width="201" height="47"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30000000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8N-Dj-NiP">
+                                <rect key="frame" x="124" y="650" width="166" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -137,7 +137,7 @@
                             <constraint firstItem="Vir-dU-xWw" firstAttribute="trailing" secondItem="dwJ-sA-Ymd" secondAttribute="trailing" constant="16" id="8ev-NV-leE"/>
                             <constraint firstItem="1i8-76-NYB" firstAttribute="top" secondItem="lYP-4d-gLk" secondAttribute="bottom" constant="39.333333333333258" id="Drj-Pq-wed"/>
                             <constraint firstItem="lYP-4d-gLk" firstAttribute="leading" secondItem="Vir-dU-xWw" secondAttribute="leading" constant="50" id="NaB-fR-dS4"/>
-                            <constraint firstItem="a8N-Dj-NiP" firstAttribute="top" secondItem="1i8-76-NYB" secondAttribute="bottom" constant="37" id="Nem-7y-bTL"/>
+                            <constraint firstItem="a8N-Dj-NiP" firstAttribute="top" secondItem="1i8-76-NYB" secondAttribute="bottom" constant="26" id="Nem-7y-bTL"/>
                             <constraint firstItem="a8N-Dj-NiP" firstAttribute="centerX" secondItem="1i8-76-NYB" secondAttribute="centerX" id="P31-y9-Zus"/>
                             <constraint firstItem="lYP-4d-gLk" firstAttribute="centerX" secondItem="Vir-dU-xWw" secondAttribute="centerX" id="Pzj-xR-TIe"/>
                             <constraint firstItem="1i8-76-NYB" firstAttribute="centerX" secondItem="lYP-4d-gLk" secondAttribute="centerX" id="X0K-Z3-0AG"/>
@@ -148,7 +148,9 @@
                     <connections>
                         <outlet property="ImgView" destination="lYP-4d-gLk" id="mPC-bn-Ycg"/>
                         <outlet property="bountyLabel" destination="a8N-Dj-NiP" id="kDJ-Im-xfg"/>
+                        <outlet property="bountyLabelCenterX" destination="P31-y9-Zus" id="cp0-M7-9tS"/>
                         <outlet property="nameLabel" destination="1i8-76-NYB" id="Tgs-6l-1r9"/>
+                        <outlet property="nameLabelCenterX" destination="X0K-Z3-0AG" id="aNg-Oo-1l7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Pr-je-Wlg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
