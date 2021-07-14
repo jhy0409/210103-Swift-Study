@@ -16,26 +16,62 @@ class TrackManager {
     
     // TODO: 생성자 정의하기
     init() {
-        
+        let tracks = loadTracks()
+        self.tracks = tracks
+        self.albums = loadAlbums(track: tracks)
+        self.todaysTrack = self.tracks.randomElement()
     }
     
     // TODO: 트랙 로드하기
     func loadTracks() -> [AVPlayerItem] {
-        return []
+        //파일을 읽어서 AVPlayerItem 만들기
+        let urls = Bundle.main.urls(forResourcesWithExtension: "mp3", subdirectory: nil) ?? []
+        
+        //var items: [AVPlayerItem] = []
+        //for url in urls {
+        //    let item = AVPlayerItem(url: url)
+        //    items.append(item)
+        //}
+        
+        //let items = urls.map { url -> AVPlayerItem in
+        //    let item = AVPlayerItem(url: url)
+        //    return item
+        //}
+        
+        let items = urls.map { url in
+            return AVPlayerItem(url: url)
+        }
+        return items
     }
     
     // TODO: 인덱스에 맞는 트랙 로드하기
     func track(at index: Int) -> Track? {
-        return nil
+        let playerItem = tracks[index]
+        let track = playerItem.convertToTrack()
+        return track
     }
     
     // TODO: 앨범 로딩메소드 구현
     func loadAlbums(track: [AVPlayerItem]) -> [Album] {
-        return []
+        // 컴팩트맵 : nil이 아닌 배열 리턴
+        let trackList: [Track] = tracks.compactMap { $0.convertToTrack()}
+        
+        let albumDics = Dictionary(grouping: trackList, by: {(track) in track.albumName
+        })
+        
+        var albums: [Album] = []
+        for (key, value) in albumDics {
+            let title = key
+            let tracks = value
+            
+            let album = Album(title: title, tracks: tracks)
+            albums.append(album)
+        }
+        return albums
     }
     
     // TODO: 오늘의 트랙 랜덤으로 선책
     func loadOtherTodaysTrack() {
-        
+        self.todaysTrack = self.tracks.randomElement()
     }
 }
