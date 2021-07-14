@@ -71,7 +71,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="bbP-FG-raE" customClass="TrackCollectionHeaderView" customModule="musicApp" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TrackCollectionHeaderView" id="bbP-FG-raE" customClass="TrackCollectionHeaderView" customModule="musicApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="296"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -87,7 +87,7 @@
                                                 <action selector="cardTapped:" destination="bbP-FG-raE" eventType="touchUpInside" id="fZW-9s-L48"/>
                                             </connections>
                                         </button>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ObN-fF-ThU">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ObN-fF-ThU">
                                             <rect key="frame" x="18" y="66" width="369" height="200"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="200" id="x0F-cv-GmO"/>
