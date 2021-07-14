@@ -41,7 +41,6 @@ extension HomeViewController: UICollectionViewDataSource {
                 return UICollectionReusableView()
             }
             
-            
             header.update(with: item)
             header.tapHandler = { item -> Void in
                 // Player를 띄운다.

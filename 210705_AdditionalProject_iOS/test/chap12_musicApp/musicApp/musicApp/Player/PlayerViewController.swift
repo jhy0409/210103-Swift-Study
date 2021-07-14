@@ -11,7 +11,7 @@ import AVFoundation
 
 class PlayerViewController: UIViewController {
     
-    @IBOutlet weak var thumbnailImageView: UIImage!
+    @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var artistLabel: UILabel!
     
