@@ -17,13 +17,16 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // 몇개 표시 할까?
-        return 0
+        return 10
     }
     
     // 셀 어떻게 표시 할까?
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // TODO: 셀 구성하기
-        return UICollectionViewCell()
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TrackCollecionViewCell", for: indexPath) as? TrackCollecionViewCell else {
+            return UICollectionViewCell()
+        }
+        return cell
     }
     // 헤더뷰 어떻게 표시할까?
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -48,6 +51,10 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         // 20 - card(width) - 20 - card(width) - 20
         // TODO: 셀사이즈 구하기
-        return CGSize.zero
+        let itemSpacing: CGFloat = 20
+        let margin: CGFloat = 20
+        let width = (collectionView.bounds.width - itemSpacing - margin * 2) / 2
+        let height = width + 60
+        return CGSize(width: width, height: height)
     }
 }
