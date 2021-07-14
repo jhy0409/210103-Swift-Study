@@ -12,7 +12,7 @@ class TrackCollecionViewCell: UICollectionViewCell {
     @IBOutlet weak var trackTitle: UILabel!
     @IBOutlet weak var trackArtist: UILabel!
     
-    override func awakeFromNib() {
+    override func awakeFromNib() { // 스토리보드에서 앱으로 올라올 때
         super.awakeFromNib()
         trackThumbnail.layer.cornerRadius = 4
         trackArtist.textColor = UIColor.systemGray2
@@ -20,5 +20,9 @@ class TrackCollecionViewCell: UICollectionViewCell {
     
     func updateUI(item: Track?) {
         // TODO: 곡정보 표시하기
+        guard let track = item else { return }
+        trackThumbnail.image = track.artwork
+        trackTitle.text = track.title
+        trackArtist.text = track.artist
     }
 }
