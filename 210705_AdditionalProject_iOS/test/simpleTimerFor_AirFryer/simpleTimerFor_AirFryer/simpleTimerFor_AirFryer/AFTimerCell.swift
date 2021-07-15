@@ -17,8 +17,14 @@ class AFTimerCell: UICollectionViewCell {
     @IBOutlet weak var timerSwitch: UISwitch!
     var cornerRadius: CGFloat = 5.0
     
+    var timerTapHandler: ((Bool)-> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        reset()
+        timerSwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
+        
+        
         // Apply rounded corners to contentView
         contentView.layer.cornerRadius = cornerRadius
         contentView.layer.masksToBounds = true
@@ -33,7 +39,6 @@ class AFTimerCell: UICollectionViewCell {
         layer.shadowOpacity = 0.10
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 5)
-        reset()
     }
     
     override func layoutSubviews() {
@@ -45,9 +50,6 @@ class AFTimerCell: UICollectionViewCell {
             cornerRadius: cornerRadius
         ).cgPath
     }
-    
-    
-    
     
     func updateUI(food: Food) {
         ondoLabel.text = "\(food.ondo)℃" // 온도
@@ -63,4 +65,15 @@ class AFTimerCell: UICollectionViewCell {
     func reset() {
         
     }
+    
+    @IBAction func switchTapped(_ sender: Any) {
+        if timerSwitch.isOn {
+            // [] 타이머 On
+            
+        } else {
+            // [] 타이머 off
+        }
+        timerTapHandler?(timerSwitch.isOn)
+    }
+    
 }
