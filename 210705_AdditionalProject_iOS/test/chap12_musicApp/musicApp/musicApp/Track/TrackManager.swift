@@ -18,7 +18,7 @@ class TrackManager {
     init() {
         let tracks = loadTracks()
         self.tracks = tracks
-        self.albums = loadAlbums(track: tracks)
+        self.albums = loadAlbums(tracks: tracks)
         self.todaysTrack = self.tracks.randomElement()
     }
     
@@ -52,7 +52,7 @@ class TrackManager {
     }
     
     // TODO: 앨범 로딩메소드 구현
-    func loadAlbums(track: [AVPlayerItem]) -> [Album] {
+    func loadAlbums(tracks: [AVPlayerItem]) -> [Album] {
         // 컴팩트맵 : nil이 아닌 배열 리턴
         let trackList: [Track] = tracks.compactMap { $0.convertToTrack()}
         

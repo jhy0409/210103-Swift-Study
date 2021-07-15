@@ -15,7 +15,6 @@ class SimplePlayer {
     
     var currentTime: Double {
         // TODO: currentTime 구하기
-        
         return player.currentItem?.currentTime().seconds ?? 0
     }
     
