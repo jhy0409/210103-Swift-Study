@@ -85,13 +85,26 @@ class FoodManager {
         let lastId = foods.last?.foodId ?? 0
         FoodManager.lastId = lastId
     }
+    
+    func getFoodsArr() -> [Food] {
+        return foods
+    }
+    
+    func setFoodsArr(tempArr: [Food]) -> Void {
+        self.foods = tempArr
+    }
 }
 
 class FoodViewModel {
-    private let manager = FoodManager.shared
+    public let manager = FoodManager.shared
     
     var foods: [Food] {
-        return manager.foods
+        get {
+            return manager.foods
+        }
+        set {
+            self.foods = newValue
+        }
     }
     
     func addFood(_ food: Food) {

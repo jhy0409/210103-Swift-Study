@@ -24,11 +24,13 @@ class AddTimerViewController: UIViewController {
     
     @IBOutlet weak var addButton: UIButton!
     var foodBtnType: (() -> String)?
+    var pushFoodHandler: (() -> Void)?
     
     private var uiButton = [UIButton]()
     private let uiLabelColorArr = [#colorLiteral(red: 1, green: 0, blue: 0, alpha: 0.2), #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.2), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 0.2), #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.2), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.2), #colorLiteral(red: 0.2196078449, green: 0.2030190556, blue: 0.8549019694, alpha: 0.2), #colorLiteral(red: 0.5, green: 0.007843137719, blue: 0.4200693323, alpha: 0.2)]
     
     var foodViewModel = FoodViewModel()
+    var tempFoodsArr: [Food] = []
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
@@ -78,21 +80,23 @@ class AddTimerViewController: UIViewController {
         FoodManager.lastId = nextId
         
         print("1. \(nextId) / 2. \(ondo), / 3. \(hour) / 4. \(min) / 5. \(turn) / 6. \(foodName) ")
-        //foodId: nextId, ondo: Int(ondo)!, hour: Int(hour)!, min: Int(min)!, turn: Int(turn)!, foodType: foodName, isTimerOn: false)
-        
         
         let foodType: String = foodBtnType?() ?? "기타"
-        
         
         // ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool
         let food: Food = FoodManager.shared.createFood(ondo: Int(ondo)!, hour: Int(hour)!, min: Int(min)!, turn: Int(turn)!, foodType: foodType, isTimerOn: false, foodName: foodName)
         
-        guard let vc = storyboard?.instantiateViewController(identifier: "AFTimerViewController") as? AFTimerViewController else  { return }
+        foodViewModel.addFood(food) // 음식 배열에 추가
+        tempFoodsArr = foodViewModel.foods
+        _ = pushFoodHandler?()
+        self.navigationController?.popViewController(animated: true)
         
-//        vc.foodViewModel = foodViewModel
-        foodViewModel.addFood(food)
-        print("생성되었음 \(foodViewModel.foods.count)")
+        guard let vc = self.storyboard?.instantiateViewController(identifier: "AFTimerViewController") as? AFTimerViewController else { return }
         
+        vc.foodViewModel.manager.setFoodsArr(tempArr: tempFoodsArr)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
+
+
+
