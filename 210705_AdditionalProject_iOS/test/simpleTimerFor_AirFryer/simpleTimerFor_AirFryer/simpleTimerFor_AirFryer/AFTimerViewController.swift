@@ -10,19 +10,14 @@ import UIKit
 class AFTimerViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     let foodViewModel = FoodViewModel()
-    var paramArr: [Food] = []
     
-//    let foodManager: FoodManager = FoodManager.shared
     override func viewDidLoad() {
         super.viewDidLoad() // Do any additional setup after loading the view.
         foodViewModel.loadFoods()
-        paramArr = foodViewModel.manager.getFoodsArr()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        let food = Storage.restoreFood("foods.json")
-//        print("---> restore from disk: \(String(describing: food))")
+    override func viewWillAppear(_ animated: Bool) {
+        self.collectionView.reloadData()
     }
 }
 
@@ -46,7 +41,6 @@ extension AFTimerViewController: UICollectionViewDataSource {
         }
         
         self.foodViewModel.updateFood(food)
-        
         
         return cell
     }

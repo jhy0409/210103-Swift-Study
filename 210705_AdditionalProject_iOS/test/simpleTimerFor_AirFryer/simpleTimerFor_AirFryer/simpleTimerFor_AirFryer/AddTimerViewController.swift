@@ -87,16 +87,5 @@ class AddTimerViewController: UIViewController {
         let food: Food = FoodManager.shared.createFood(ondo: Int(ondo)!, hour: Int(hour)!, min: Int(min)!, turn: Int(turn)!, foodType: foodType, isTimerOn: false, foodName: foodName)
         
         foodViewModel.addFood(food) // 음식 배열에 추가
-        tempFoodsArr = foodViewModel.foods
-        _ = pushFoodHandler?()
-        self.navigationController?.popViewController(animated: true)
-        
-        guard let vc = self.storyboard?.instantiateViewController(identifier: "AFTimerViewController") as? AFTimerViewController else { return }
-        
-        vc.foodViewModel.manager.setFoodsArr(tempArr: tempFoodsArr)
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-
-
-
