@@ -8,25 +8,36 @@
 import UIKit
 
 class AFTimerViewController: UIViewController {
-    let foodManager: FoodManager = FoodManager.shared
+    let foodViewModel = FoodViewModel()
+//    let foodManager: FoodManager = FoodManager.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        foodViewModel.loadFoods()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let food = Storage.restoreFood("foods.json")
+        print("---> restore from disk: \(food)")
     }
 }
 
 extension AFTimerViewController: UICollectionViewDataSource {
     // [] item 개수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-//        return foodManager.foods.count
+//        return 10
+        return foodViewModel.foods.count
     }
     
     // [] cell 표시
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AFTimerCell", for: indexPath) as? AFTimerCell else { return UICollectionViewCell() }
-        
+        var food: Food = foodViewModel.foods[indexPath.item]
+        cell.updateUI(food: food)
         return cell
     }
 }

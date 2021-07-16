@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6856B68026A12AE300529AA0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856B67F26A12AE300529AA0 /* Storage.swift */; };
 		6874AA5C26A0F87400E2891F /* AddTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874AA5B26A0F87400E2891F /* AddTimerViewController.swift */; };
 		68F885B026A068FD000A49BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F885AF26A068FD000A49BA /* AppDelegate.swift */; };
 		68F885B226A068FD000A49BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F885B126A068FD000A49BA /* SceneDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6856B67F26A12AE300529AA0 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		6874AA5B26A0F87400E2891F /* AddTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimerViewController.swift; sourceTree = "<group>"; };
 		68F885AC26A068FD000A49BA /* simpleTimerFor_AirFryer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simpleTimerFor_AirFryer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F885AF26A068FD000A49BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				68F885BD26A068FE000A49BA /* Info.plist */,
 				68F885C726A07845000A49BA /* Food.swift */,
 				6874AA5B26A0F87400E2891F /* AddTimerViewController.swift */,
+				6856B67F26A12AE300529AA0 /* Storage.swift */,
 			);
 			path = simpleTimerFor_AirFryer;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				68F885C626A06C44000A49BA /* AFTimerCell.swift in Sources */,
+				6856B68026A12AE300529AA0 /* Storage.swift in Sources */,
 				68F885B426A068FD000A49BA /* AFTimerViewController.swift in Sources */,
 				6874AA5C26A0F87400E2891F /* AddTimerViewController.swift in Sources */,
 				68F885C826A07845000A49BA /* Food.swift in Sources */,

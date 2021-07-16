@@ -22,6 +22,26 @@ struct Food: Codable, Equatable {
         return lhs.foodId == rhs.foodId
     }
     
+//    init(ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool) {
+//        self.foodId = FoodManager.lastId // ?
+//        self.ondo = ondo
+//        self.hour = hour
+//        self.min = min
+//        turningFood = turn
+//        self.foodType = foodType
+//        self.isTimerOn = isTimerOn
+//    }
+    
+    init(foodId: Int, ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool) {
+        self.foodId = foodId
+        self.ondo = ondo
+        self.hour = hour
+        self.min = min
+        turningFood = turn
+        self.foodType = foodType
+        self.isTimerOn = isTimerOn
+    }
+    
     mutating func update(ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool) {
         self.ondo = ondo
         self.hour = hour
@@ -42,7 +62,7 @@ class FoodManager {
         let nextId = FoodManager.lastId + 1
         FoodManager.lastId = nextId
         return Food(foodId: nextId, ondo: ondo, hour: hour, min: min,
-                    turningFood: turn, foodType: foodType, isTimerOn: isTimerOn)
+                    turn: turn, foodType: foodType, isTimerOn: isTimerOn)
     }
     
     func addFood(_ food: Food) {
@@ -65,10 +85,14 @@ class FoodManager {
     }
     
     func saveFood() {
-        
+        Storage.store(foods, to: .documents, as: "foods.json")
     }
     
     func retrieveFood() {
+        foods = Storage.retrive("foods.json", from: .documents, as: [Food].self) ?? []
+        
+        let lastId = foods.last?.foodId ?? 0
+        FoodManager.lastId = lastId
     }
 }
 
