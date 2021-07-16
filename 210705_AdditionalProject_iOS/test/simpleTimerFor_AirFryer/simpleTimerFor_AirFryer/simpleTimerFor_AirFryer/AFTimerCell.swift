@@ -8,12 +8,15 @@
 import UIKit
 
 class AFTimerCell: UICollectionViewCell {
+    @IBOutlet weak var foodTitleLabel: UILabel!
     @IBOutlet weak var ondoLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var turnNumLabel: UILabel!
     @IBOutlet weak var foodTypeLabel: UILabel!
     
     @IBOutlet weak var timerDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var timerStartLabel: UILabel!
     @IBOutlet weak var timerSwitch: UISwitch!
     var cornerRadius: CGFloat = 5.0
     
@@ -51,10 +54,13 @@ class AFTimerCell: UICollectionViewCell {
         ).cgPath
     }
     
-    func updateUI(food: Food) {
+    func updateUI(food: Food?) {
+        guard let food = food else { return }
+        foodTitleLabel.text = "\(food.foodName)"
         ondoLabel.text = "\(food.ondo)℃" // 온도
-        let hour = food.hour, min = food.min
-        timerLabel.text = "\(hour)시간 \(min)분" // 시간
+        let h = String(food.hour), m = String(food.min)
+        timerLabel.text = "\(h)시간 \(m)분" // 시간
+        timerStartLabel.text = "\(h) : \(m)"
         turnNumLabel.text = "\(food.turningFood)번" // 뒤집는 횟수
         foodTypeLabel.text = food.foodType // 음식 분류, 채소, 고기 등
         
@@ -69,9 +75,10 @@ class AFTimerCell: UICollectionViewCell {
     @IBAction func switchTapped(_ sender: Any) {
         if timerSwitch.isOn {
             // [] 타이머 On
-            
+            print("===> timer is on")
         } else {
             // [] 타이머 off
+            print("===> timer is OFF")
         }
         timerTapHandler?(timerSwitch.isOn)
     }

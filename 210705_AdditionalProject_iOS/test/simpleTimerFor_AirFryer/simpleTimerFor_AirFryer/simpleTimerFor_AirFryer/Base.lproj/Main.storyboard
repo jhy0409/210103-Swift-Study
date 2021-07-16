@@ -12,7 +12,7 @@
         <!--AFCook-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="AFCook" customClass="AFTimerViewController" customModule="simpleTimerFor_AirFryer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AFTimerViewController" id="BYZ-38-t0r" userLabel="AFCook" customClass="AFTimerViewController" customModule="simpleTimerFor_AirFryer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,7 +92,7 @@
                                                     <rect key="frame" x="113" y="281" width="51" height="31"/>
                                                     <color key="onTintColor" systemColor="systemBlueColor"/>
                                                     <connections>
-                                                        <action selector="abc:" destination="tz3-aj-1Ti" eventType="valueChanged" id="tEK-4m-mvb"/>
+                                                        <action selector="switchTapped:" destination="tz3-aj-1Ti" eventType="valueChanged" id="hdl-m3-OUH"/>
                                                     </connections>
                                                 </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="타이머 켜기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPw-ix-3IY">
@@ -124,14 +124,14 @@
                                                 <constraint firstItem="yIl-ar-eCt" firstAttribute="leading" secondItem="MMz-I0-eFn" secondAttribute="trailing" constant="30.5" id="QQY-9q-Bpq"/>
                                                 <constraint firstItem="m6O-7o-uoX" firstAttribute="centerY" secondItem="YfP-RE-XeZ" secondAttribute="centerY" id="S2O-ou-c62"/>
                                                 <constraint firstItem="S5B-8R-V0q" firstAttribute="trailing" secondItem="v02-59-lgI" secondAttribute="trailing" id="Soa-vW-Zd6"/>
-                                                <constraint firstAttribute="trailing" secondItem="yV0-YC-VNS" secondAttribute="trailing" constant="75" id="Yvo-dO-xUa"/>
                                                 <constraint firstItem="yIl-ar-eCt" firstAttribute="top" secondItem="MMz-I0-eFn" secondAttribute="top" id="Z07-SF-pS8"/>
                                                 <constraint firstItem="yV0-YC-VNS" firstAttribute="top" secondItem="L1R-dG-XHa" secondAttribute="top" id="a00-Ma-qo2"/>
                                                 <constraint firstItem="uNv-N9-zVt" firstAttribute="leading" secondItem="5so-9O-wcK" secondAttribute="trailing" constant="30" id="ecs-xm-cxQ"/>
+                                                <constraint firstItem="MMz-I0-eFn" firstAttribute="leading" secondItem="6Iy-EC-vPl" secondAttribute="leading" constant="18" id="f3w-1Z-E1F"/>
                                                 <constraint firstItem="aPw-ix-3IY" firstAttribute="centerY" secondItem="S5B-8R-V0q" secondAttribute="centerY" id="fxf-lf-R2c"/>
-                                                <constraint firstAttribute="trailing" secondItem="yIl-ar-eCt" secondAttribute="trailing" constant="72.5" id="g9Z-H0-FH9"/>
                                                 <constraint firstItem="SA1-qF-Qq9" firstAttribute="centerX" secondItem="6Iy-EC-vPl" secondAttribute="centerX" id="hX8-LA-SZi"/>
                                                 <constraint firstItem="m6O-7o-uoX" firstAttribute="leading" secondItem="YfP-RE-XeZ" secondAttribute="trailing" constant="30" id="iVq-ky-2jg"/>
+                                                <constraint firstItem="L1R-dG-XHa" firstAttribute="leading" secondItem="6Iy-EC-vPl" secondAttribute="leading" constant="18" id="ksJ-N8-G79"/>
                                                 <constraint firstItem="MMz-I0-eFn" firstAttribute="top" secondItem="L1R-dG-XHa" secondAttribute="bottom" constant="8" id="lK9-ul-PzZ"/>
                                                 <constraint firstItem="aPw-ix-3IY" firstAttribute="leading" secondItem="6Iy-EC-vPl" secondAttribute="leading" constant="18" id="vd1-CV-erm"/>
                                                 <constraint firstItem="yV0-YC-VNS" firstAttribute="leading" secondItem="L1R-dG-XHa" secondAttribute="trailing" constant="15.5" id="xZO-sc-2dw"/>
@@ -139,12 +139,14 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="foodTypeLabel" destination="yIl-ar-eCt" id="9Ti-dS-Aub"/>
-                                            <outlet property="ondoLabel" destination="m6O-7o-uoX" id="8uW-0B-fe3"/>
-                                            <outlet property="timerDescriptionLabel" destination="aPw-ix-3IY" id="sFv-Hm-6Wo"/>
-                                            <outlet property="timerLabel" destination="aPw-ix-3IY" id="goT-jL-5xW"/>
-                                            <outlet property="timerSwitch" destination="S5B-8R-V0q" id="0eK-BU-DcH"/>
-                                            <outlet property="turnNumLabel" destination="yV0-YC-VNS" id="Etu-ct-K5i"/>
+                                            <outlet property="foodTitleLabel" destination="v02-59-lgI" id="tHi-jZ-h58"/>
+                                            <outlet property="foodTypeLabel" destination="yIl-ar-eCt" id="vTn-eZ-CPi"/>
+                                            <outlet property="ondoLabel" destination="m6O-7o-uoX" id="4t1-Ji-Z9i"/>
+                                            <outlet property="timerDescriptionLabel" destination="aPw-ix-3IY" id="zXH-hy-LZO"/>
+                                            <outlet property="timerLabel" destination="uNv-N9-zVt" id="ZtP-ns-nRE"/>
+                                            <outlet property="timerStartLabel" destination="SA1-qF-Qq9" id="bhI-MN-VG1"/>
+                                            <outlet property="timerSwitch" destination="S5B-8R-V0q" id="yG8-bQ-xHz"/>
+                                            <outlet property="turnNumLabel" destination="yV0-YC-VNS" id="G9f-qt-BTi"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -164,6 +166,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="조리시간" image="timer" catalog="system" id="TVv-jy-zxn"/>
+                    <connections>
+                        <outlet property="collectionView" destination="wuv-TD-QpM" id="Bbi-sy-ysE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -449,8 +454,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="FSs-Yj-rKl"/>
                         <segue destination="ZvY-fh-ll5" kind="relationship" relationship="viewControllers" id="cSB-GF-Wu2"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="9n2-e7-ZN8"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFi-92-G3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

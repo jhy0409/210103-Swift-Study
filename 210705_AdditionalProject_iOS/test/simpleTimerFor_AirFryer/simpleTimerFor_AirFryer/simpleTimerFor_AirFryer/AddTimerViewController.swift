@@ -14,15 +14,6 @@ class AddTimerViewController: UIViewController {
     @IBOutlet weak var minTxt: UITextField!
     @IBOutlet weak var turnTimeTxt: UITextField!
     
-//    @IBOutlet weak var gogiLabel: UILabel!
-//    @IBOutlet weak var snackLabel: UILabel!
-//    @IBOutlet weak var ganpeyonLabel: UILabel!
-//    @IBOutlet weak var breadLabel: UILabel!
-//    @IBOutlet weak var chesoLabel: UILabel!
-//    @IBOutlet weak var hesanmulLabel: UILabel!
-//    @IBOutlet weak var etcFoodLabel: UILabel!
-//    private var uiTextLabel = [UILabel]()
-    
     @IBOutlet weak var gogiButton: UIButton!
     @IBOutlet weak var snackButton: UIButton!
     @IBOutlet weak var ganpeyonButton: UIButton!
@@ -32,54 +23,35 @@ class AddTimerViewController: UIViewController {
     @IBOutlet weak var etcFoodButton: UIButton!
     
     @IBOutlet weak var addButton: UIButton!
+    var foodBtnType: (() -> String)?
     
     private var uiButton = [UIButton]()
     private let uiLabelColorArr = [#colorLiteral(red: 1, green: 0, blue: 0, alpha: 0.2), #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.2), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 0.2), #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.2), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.2), #colorLiteral(red: 0.2196078449, green: 0.2030190556, blue: 0.8549019694, alpha: 0.2), #colorLiteral(red: 0.5, green: 0.007843137719, blue: 0.4200693323, alpha: 0.2)]
     
-    let foodViewModel = FoodViewModel()
+    var foodViewModel = FoodViewModel()
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
-//        uiTextLabel = [gogiLabel, snackLabel, ganpeyonLabel, breadLabel, chesoLabel, hesanmulLabel, etcFoodLabel]
         uiButton = [gogiButton, snackButton, ganpeyonButton, breadButton, chesoButton, hesanmulButton, etcFoodButton]
-        
         reset(uiButton)
         
-        addButton.backgroundColor = #colorLiteral(red: 0, green: 0.6565038562, blue: 0.9419061542, alpha: 0.45)
-        addButton.layer.cornerRadius = 10
+        addButton.backgroundColor = #colorLiteral(red: 0, green: 0.6565038562, blue: 0.9419061542, alpha: 0.45); addButton.layer.cornerRadius = 10
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
     }
     
-  
-    func reset(_ uiBtn: [UIButton]) {
+    func reset(_ uiBtn: [UIButton]) { // 음식유형 버튼 초기화
         var i: Int = 0
         for item in uiBtn {
             item.backgroundColor = uiLabelColorArr[i]
             item.layer.cornerRadius = 5
             
-            print("\(i + 1)")
             i += 1
         }
     }
-    
-//    func reset(_ uxTxtF: [UILabel]) {
-//        var i: Int = 0
-//        for item in uxTxtF {
-//            item.backgroundColor = uiLabelColorArr[i]
-//            item.layer.cornerRadius = 5
-//
-//            //            item.layer.borderColor =
-//            //            item.layer.borderWidth = 10
-//
-//            print("\(i + 1)")
-//            i += 1
-//            //item.addLeftPadding()
-//        }
-//    }
     
     @IBAction func addButtonTap(_ sender: Any) {
         // [x] 기본값 세팅
@@ -108,23 +80,19 @@ class AddTimerViewController: UIViewController {
         print("1. \(nextId) / 2. \(ondo), / 3. \(hour) / 4. \(min) / 5. \(turn) / 6. \(foodName) ")
         //foodId: nextId, ondo: Int(ondo)!, hour: Int(hour)!, min: Int(min)!, turn: Int(turn)!, foodType: foodName, isTimerOn: false)
         
-        // ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool
-//        let food = FoodManager.createFood(ondo, hour, min, turn, foodType, false) ㅗㅗㅗ
         
-//        foodViewModel.addFood(food)
+        let foodType: String = foodBtnType?() ?? "기타"
+        
+        
+        // ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool
+        let food: Food = FoodManager.shared.createFood(ondo: Int(ondo)!, hour: Int(hour)!, min: Int(min)!, turn: Int(turn)!, foodType: foodType, isTimerOn: false, foodName: foodName)
+        
+        guard let vc = storyboard?.instantiateViewController(identifier: "AFTimerViewController") as? AFTimerViewController else  { return }
+        
+//        vc.foodViewModel = foodViewModel
+        foodViewModel.addFood(food)
         print("생성되었음 \(foodViewModel.foods.count)")
         
     }
-
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

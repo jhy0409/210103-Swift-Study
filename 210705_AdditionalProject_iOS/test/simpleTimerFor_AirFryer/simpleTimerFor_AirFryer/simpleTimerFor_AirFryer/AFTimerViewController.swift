@@ -8,21 +8,25 @@
 import UIKit
 
 class AFTimerViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
     let foodViewModel = FoodViewModel()
+    
 //    let foodManager: FoodManager = FoodManager.shared
     override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+        super.viewDidLoad() // Do any additional setup after loading the view.
         foodViewModel.loadFoods()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        let food = Storage.restoreFood("foods.json")
-        print("---> restore from disk: \(food)")
+//        let food = Storage.restoreFood("foods.json")
+//        print("---> restore from disk: \(String(describing: food))")
     }
+    
+    @IBAction func switchOnOff(_ sender: Any) {
+        
+    }
+    
 }
 
 extension AFTimerViewController: UICollectionViewDataSource {
@@ -36,8 +40,11 @@ extension AFTimerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AFTimerCell", for: indexPath) as? AFTimerCell else { return UICollectionViewCell() }
-        var food: Food = foodViewModel.foods[indexPath.item]
+        let food: Food = foodViewModel.foods[indexPath.item]
         cell.updateUI(food: food)
+        self.foodViewModel.updateFood(food)
+        
+        
         return cell
     }
 }
