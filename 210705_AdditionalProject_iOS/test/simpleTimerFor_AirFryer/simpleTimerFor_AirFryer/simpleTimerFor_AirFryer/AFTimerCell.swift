@@ -74,8 +74,10 @@ class AFTimerCell: UICollectionViewCell {
         
         foodTypeBtn.setTitle(food.foodType, for: .normal) // 음식 분류, 채소, 고기 등
         // [] 라벨별 색 변경
-        let col = findLabelBgColor(food.foodName)
+        
+        let col = findLabelBgColor(food.foodType)
         foodTypeBtn.layer.backgroundColor = col
+        foodTypeBtn.layer.cornerRadius = 5
         
         timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
         // 타이머 켜기끄기

@@ -23,36 +23,30 @@ class AddTimerViewController: UIViewController {
     @IBOutlet weak var etcFoodButton: UIButton!
     
     @IBOutlet weak var addButton: UIButton!
+    
+    var isTypeBtnCliked: Bool = false
     var foodBtnType: (() -> String)?
-    var pushFoodHandler: (() -> Void)?
     
     private var uiButton = [UIButton]()
     private let uiLabelColorArr = [#colorLiteral(red: 1, green: 0, blue: 0, alpha: 0.2), #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.2), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 0.2), #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.2), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.2), #colorLiteral(red: 0.2196078449, green: 0.2030190556, blue: 0.8549019694, alpha: 0.2), #colorLiteral(red: 0.5, green: 0.007843137719, blue: 0.4200693323, alpha: 0.2)]
+    private var uiTxtFields = [UITextField]()
     
     var foodViewModel = FoodViewModel()
     var tempFoodsArr: [Food] = []
+    var btnSenderTxt = ""
     
     override func viewDidLoad() {
         // Do any additional setup after loading the view.
         super.viewDidLoad()
         uiButton = [gogiButton, snackButton, ganpeyonButton, breadButton, chesoButton, hesanmulButton, etcFoodButton]
-        reset(uiButton)
+        tintBtn(uiButton)
         
+        uiTxtFields = [foodNameTxt, ondoTxt, hourTxt, minTxt, turnTimeTxt ]
         addButton.backgroundColor = #colorLiteral(red: 0, green: 0.6565038562, blue: 0.9419061542, alpha: 0.45); addButton.layer.cornerRadius = 10
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
-    }
-    
-    func reset(_ uiBtn: [UIButton]) { // 음식유형 버튼 초기화
-        var i: Int = 0
-        for item in uiBtn {
-            item.backgroundColor = uiLabelColorArr[i]
-            item.layer.cornerRadius = 5
-            
-            i += 1
-        }
     }
     
     @IBAction func addButtonTap(_ sender: Any) {
@@ -69,7 +63,6 @@ class AddTimerViewController: UIViewController {
         if let minIf = Int(min), minIf > 60, let hourIf = Int(hour), hourIf == 0 {
             let h = minIf / 60 // 60으로 나눈 몫
             let m = minIf % 60 // 60으로 나눈 나머지
-            
             hour = String(h); min = String(m)
         }
         guard let foodName = foodNameTxt.text, foodName.isEmpty == false,
@@ -79,13 +72,66 @@ class AddTimerViewController: UIViewController {
         let nextId = FoodManager.lastId + 1
         FoodManager.lastId = nextId
         
-        print("1. \(nextId) / 2. \(ondo), / 3. \(hour) / 4. \(min) / 5. \(turn) / 6. \(foodName) ")
-        
-        let foodType: String = foodBtnType?() ?? "기타"
+        let foodType: String = btnSenderTxt
         
         // ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool
         let food: Food = FoodManager.shared.createFood(ondo: Int(ondo)!, hour: Int(hour)!, min: Int(min)!, turn: Int(turn)!, foodType: foodType, isTimerOn: false, foodName: foodName)
         
         foodViewModel.addFood(food) // 음식 배열에 추가
+        txtField_makeEmpty(txtFields: uiTxtFields) // 문자입력 창 초기화
+    }
+}
+
+extension AddTimerViewController {
+    
+    @IBAction func gogiBtn_Clicked(_ sender: Any) {
+        guard let str = sender as? UIButton else { return }
+        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    }
+    
+    @IBAction func snackBtn_Clicked(_ sender: Any) {
+        guard let str = sender as? UIButton else { return }
+        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    }
+    
+    @IBAction func ganpeyonBtn_Clicked(_ sender: Any) {
+        guard let str = sender as? UIButton else { return }
+        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    }
+    
+    @IBAction func breadBtn_Clicked(_ sender: Any) {
+        guard let str = sender as? UIButton else { return }
+        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    }
+    
+    @IBAction func chesoBtn_Clicked(_ sender: Any) {
+        guard let str = sender as? UIButton else { return }
+        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    }
+    
+    @IBAction func hesanmulBtn_Clicked(_ sender: Any) {
+        guard let str = sender as? UIButton else { return }
+        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    }
+    
+    @IBAction func etcFoodBtn_Clicked(_ sender: Any) {
+        guard let str = sender as? UIButton else { return }
+        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    }
+    
+    func tintBtn(_ uiBtn: [UIButton]) { // 음식유형 버튼 초기화
+        var i: Int = 0
+        for item in uiBtn {
+            item.backgroundColor = uiLabelColorArr[i]
+            item.layer.cornerRadius = 5
+            
+            i += 1
+        }
+    }
+    
+    func txtField_makeEmpty(txtFields: [UITextField]) { // 글자입력칸 초기화
+        for item in txtFields {
+            item.text = ""
+        }
     }
 }
