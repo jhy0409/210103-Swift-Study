@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddTimerViewController: UIViewController {
+class AddTimerViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var foodNameTxt: UITextField!
     @IBOutlet weak var ondoTxt: UITextField!
     @IBOutlet weak var hourTxt: UITextField!
@@ -83,7 +83,21 @@ class AddTimerViewController: UIViewController {
 }
 
 extension AddTimerViewController {
+    /*
+     foodNameTxt
+     ondoTxt
+     hourTxt
+     minTxt
+     turnTimeTxt
+     */
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // 키보드 
+        self.foodNameTxt.resignFirstResponder()
+        self.ondoTxt.resignFirstResponder()
+        self.hourTxt.resignFirstResponder()
+        self.minTxt.resignFirstResponder()
+        self.turnTimeTxt.resignFirstResponder()
+    }
     @IBAction func gogiBtn_Clicked(_ sender: Any) {
         guard let str = sender as? UIButton else { return }
         btnSenderTxt = str.titleLabel?.text ?? "NONE"
