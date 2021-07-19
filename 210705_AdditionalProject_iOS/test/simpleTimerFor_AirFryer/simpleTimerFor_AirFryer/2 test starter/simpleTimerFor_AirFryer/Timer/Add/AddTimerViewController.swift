@@ -57,8 +57,8 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
         var hour = hourTxt.text == "" ? "0" : String(hourTxt.text!) // 시간, 분
         var min = minTxt.text == "" ? "0" : String(minTxt.text!)
         
-        if (hour == "0" && min == "0") || ondo == "0" { // 유효값 검사(키보드에서 숫자만 입력됨)
-            print("[확인]\n- 시간, 분이 둘 다 0일 수 없습니다.\n- 온도를 설정하십시오."); return }
+        if (hour == "0" && min == "0") || (hour != "0" && Int(min)! > 60 ) || ondo == "0" { // 유효값 검사(키보드에서 숫자만 입력됨)
+            print("[확인]\n- 시간, 분이 둘 다 0일 수 없습니다.\n- 분으로 설정시 시간을 비우십시오. \n- 온도를 설정하십시오."); return }
         
         // [x] 분으로 세팅 ex) 80분 -> 1h 20min, 조건 : 시간이 0이고 분이 60분 이상일 때
         if let minIf = Int(min), minIf > 60, let hourIf = Int(hour), hourIf == 0 {

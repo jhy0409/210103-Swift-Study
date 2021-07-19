@@ -531,6 +531,9 @@
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XkH-JJ-FFP">
                                                     <rect key="frame" x="305" y="12" width="51" height="31"/>
                                                     <color key="onTintColor" systemColor="systemBlueColor"/>
+                                                    <connections>
+                                                        <action selector="downToggle:" destination="dJZ-UV-zbv" eventType="valueChanged" id="c0X-d3-huQ"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>

@@ -40,6 +40,8 @@ class AFTimerCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        foodTypeBtn.isEnabled = false
         timerSwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
         
         // Apply rounded corners to contentView
