@@ -35,6 +35,9 @@ class AFTimerCell: UICollectionViewCell {
     var timer = Timer()
     var tempFood: Food?
     
+    var tmpH: Int?, tmpM: Int?, tmpS: Int?
+    var doneTimer: Bool?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         timerSwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
@@ -141,18 +144,33 @@ class AFTimerCell: UICollectionViewCell {
                 
                 guard (elapsedTimeSeconds <= expireLimit) else { // 시간 초과한 경우
                     timer.invalidate()
-                    self?.timerStartLabel.isHidden = false
+                    //self?.timerStartLabel.isHidden = false
+                    
                     return
                 }
                 
                 var tmpStr = expireLimit - elapsedTimeSeconds // 종료시간 - 시작시간
                 let h = tmpStr / ( 60 * 60 )
+                self?.tmpH = h
                 tmpStr %= 60 * 60
+
                 let m = tmpStr / 60
+                self?.tmpM = m
                 tmpStr %= 60
                 let s = tmpStr
+                self?.tmpS = s
+                
                 let remainSeconds = "\(h)시 \(m)분 \(s)초"
                 self?.timerStartLabel.text = String(describing: remainSeconds.self)
+                
+                updateHMS(h: self?.tmpH, m: self?.tmpM, s: self?.tmpS)
+            }
+        }
+        
+        func updateHMS(h: Int?, m: Int?, s: Int?) {
+            guard let h = h, let m = m, let s = s else { return }
+            if h == 0 && m == 0 && s == 0 { doneTimer = true
+                
             }
         }
     }

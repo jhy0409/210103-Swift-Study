@@ -59,9 +59,16 @@ extension AFTimerViewController: UICollectionViewDataSource {
             }
             cell.setTimer(startTime: startTime, food: food)
         }
-        
         self.foodViewModel.updateFood(food)
-        
+        if cell.doneTimer == true {
+            let alert = UIAlertController(title: "알림", message: "설정된 시간입니다", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+            
+            //cell.timerSwitch.isOn = false
+            //cell.timerDescriptionLabel.text = cell.timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
+            //print("===> timer is OFF")
+        }
         return cell
     }
 }
