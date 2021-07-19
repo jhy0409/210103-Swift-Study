@@ -6,8 +6,12 @@
 //
 
 import UIKit
+import Firebase
 
 class SettingTableViewController: UITableViewController {
+    
+    let db = Database.database().reference().child("data")
+    
     @IBOutlet weak var downSample: UISwitch!
     @IBOutlet weak var versionDescription: UILabel!
     

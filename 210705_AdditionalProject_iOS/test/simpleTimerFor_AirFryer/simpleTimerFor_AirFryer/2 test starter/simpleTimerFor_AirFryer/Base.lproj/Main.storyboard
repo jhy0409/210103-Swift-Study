@@ -509,7 +509,7 @@
         <scene sceneID="r3Z-wW-n9h">
             <objects>
                 <tableViewController id="dJZ-UV-zbv" userLabel="Setting" customClass="SettingTableViewController" customModule="simpleTimerFor_AirFryer" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="9IY-TN-Rn4">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="9IY-TN-Rn4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>

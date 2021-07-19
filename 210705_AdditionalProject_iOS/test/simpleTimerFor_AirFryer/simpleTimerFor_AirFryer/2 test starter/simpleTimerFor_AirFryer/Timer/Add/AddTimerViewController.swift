@@ -43,6 +43,7 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
         
         uiTxtFields = [foodNameTxt, ondoTxt, hourTxt, minTxt, turnTimeTxt ]
         addButton.backgroundColor = #colorLiteral(red: 0, green: 0.6565038562, blue: 0.9419061542, alpha: 0.45); addButton.layer.cornerRadius = 10
+        btnSenderTxt = "NONE" // 초기값설정
     }
     
     override func awakeFromNib() {
@@ -72,7 +73,7 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
         let nextId = FoodManager.lastId + 1
         FoodManager.lastId = nextId
         
-        let foodType: String = btnSenderTxt
+        let foodType: String = btnSenderTxt == "NONE" ? "기타" : btnSenderTxt
         
         // ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool
         let food: Food = FoodManager.shared.createFood(ondo: Int(ondo)!, hour: Int(hour)!, min: Int(min)!, turn: Int(turn)!, foodType: foodType, isTimerOn: false, foodName: foodName)
