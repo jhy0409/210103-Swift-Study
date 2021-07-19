@@ -36,8 +36,7 @@ class AFTimerCell: UICollectionViewCell {
     var tempFood: Food?
     
     weak var viewController: UIViewController?
-//    var tmpH: Int?, tmpM: Int?, tmpS: Int?
-//    var doneTimer: Bool?
+    var tmpFoodStr: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -76,6 +75,7 @@ class AFTimerCell: UICollectionViewCell {
         let h = String(food.hour), m = String(food.min)
         timerLabel.text = "\(h)시간 \(m)분" // 시간
         timerStartLabel.text = "\(h) : \(m)"
+        tmpFoodStr = "\(h) : \(m)" // 타이머 실행전 기본값
         turnNumLabel.text = "\(food.turningFood)번" // 뒤집는 횟수
         
         // [x] 라벨별 색 변경
@@ -145,33 +145,40 @@ class AFTimerCell: UICollectionViewCell {
                 
                 guard (elapsedTimeSeconds <= expireLimit) else { // 시간 초과한 경우
                     timer.invalidate()
-                    
                     return
                 }
                 
                 var tmpStr = expireLimit - elapsedTimeSeconds // 종료시간 - 시작시간
                 let h = tmpStr / ( 60 * 60 )
-                self?.tmpH = h
                 tmpStr %= 60 * 60
-
+                
                 let m = tmpStr / 60
-                self?.tmpM = m
                 tmpStr %= 60
                 let s = tmpStr
-                self?.tmpS = s
                 
                 let remainSeconds = "\(h)시 \(m)분 \(s)초"
                 self?.timerStartLabel.text = String(describing: remainSeconds.self)
                 
-                updateHMS(h: self?.tmpH, m: self?.tmpM, s: self?.tmpS)
+                showAlert(h, m, s)
             }
         }
         
-        func updateHMS(h: Int?, m: Int?, s: Int?) {
-            guard let h = h, let m = m, let s = s else { return }
-            if h == 0 && m == 0 && s == 0 { doneTimer = true
-                print(doneTimer)
-            }
+        func showAlert(_ h: Int, _ m: Int, _ s: Int){
+            if h == 0 && m == 0 && s == 0 {
+                let alertController = UIAlertController(title: "알림", message: "설정한 시간이 다 되었습니다.", preferredStyle: .alert)
+                
+                let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                viewController?.present(alertController, animated: true, completion: nil)
+                resetSwitch()
+            } else { return }
+        }
+        
+        func resetSwitch() {
+            timerSwitch.isOn = false
+            timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
+            timerStartLabel.text = tmpFoodStr
+            print("===> timer is OFF")
         }
     }
 }

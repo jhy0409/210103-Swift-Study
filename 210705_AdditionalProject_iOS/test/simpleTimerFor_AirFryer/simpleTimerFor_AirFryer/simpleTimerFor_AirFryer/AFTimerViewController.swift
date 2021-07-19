@@ -45,6 +45,7 @@ extension AFTimerViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AFTimerCell", for: indexPath) as? AFTimerCell else { return UICollectionViewCell() }
         let food: Food = foodViewModel.foods[indexPath.item]
         cell.updateUI(food: food)
+        cell.viewController = self
         
         // [x] 삭제 버튼 누를 때 동작
         cell.closeBtnHandler = {
@@ -52,6 +53,7 @@ extension AFTimerViewController: UICollectionViewDataSource {
             self.collectionView.reloadData()
         }
         
+        // [x] 타이머 스위치 누를 때 동작
         cell.timerTapHandler = {
             guard let startTime = self.startTime else  {
                 cell.tempFood = food
@@ -61,16 +63,7 @@ extension AFTimerViewController: UICollectionViewDataSource {
             cell.setTimer(startTime: startTime, food: food)
         }
         self.foodViewModel.updateFood(food)
-        if cell.doneTimer == true {
-            let alert = UIAlertController(title: "알림", message: "설정된 시간입니다", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-            present(alert, animated: true, completion: nil)
-            
-            cell.updateUI(food: food)
-//            cell.timerSwitch.isOn = false
-//            cell.timerDescriptionLabel.text = cell.timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
-//            print("===> timer is OFF")
-        }
+        
         return cell
     }
 }
