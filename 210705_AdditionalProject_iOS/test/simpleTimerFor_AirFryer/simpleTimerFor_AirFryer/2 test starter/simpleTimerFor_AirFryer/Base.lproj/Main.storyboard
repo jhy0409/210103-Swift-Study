@@ -498,14 +498,86 @@
                     <connections>
                         <segue destination="ZvY-fh-ll5" kind="relationship" relationship="viewControllers" id="cSB-GF-Wu2"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="9n2-e7-ZN8"/>
+                        <segue destination="dJZ-UV-zbv" kind="relationship" relationship="viewControllers" id="gIg-0t-WYX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFi-92-G3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="113.04347826086958" y="73.660714285714278"/>
         </scene>
+        <!--설정-->
+        <scene sceneID="r3Z-wW-n9h">
+            <objects>
+                <tableViewController id="dJZ-UV-zbv" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="9IY-TN-Rn4">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <sections>
+                            <tableViewSection headerTitle="Settings" id="071-Cp-pTN">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="g30-Ev-2qo">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g30-Ev-2qo" id="QiL-qb-bGU">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="서버에서 샘플받기" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctw-hh-k3B">
+                                                    <rect key="frame" x="20" y="16" width="136.5" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XkH-JJ-FFP">
+                                                    <rect key="frame" x="305" y="12" width="51" height="31"/>
+                                                    <color key="onTintColor" systemColor="systemBlueColor"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="XkH-JJ-FFP" firstAttribute="centerY" secondItem="QiL-qb-bGU" secondAttribute="centerY" id="2Pc-RF-TIp"/>
+                                                <constraint firstItem="Ctw-hh-k3B" firstAttribute="leading" secondItem="QiL-qb-bGU" secondAttribute="leading" constant="20" id="eeB-Kw-JEV"/>
+                                                <constraint firstAttribute="trailing" secondItem="XkH-JJ-FFP" secondAttribute="trailing" constant="20" id="k06-A9-2qH"/>
+                                                <constraint firstItem="Ctw-hh-k3B" firstAttribute="centerY" secondItem="QiL-qb-bGU" secondAttribute="centerY" id="uJ7-Q7-6lB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9Tp-ZM-icR">
+                                        <rect key="frame" x="20" y="104.5" width="374" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Tp-ZM-icR" id="u8L-k2-nNh">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정보" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0L-oi-rfZ">
+                                                    <rect key="frame" x="20" y="16" width="33" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="N0L-oi-rfZ" firstAttribute="centerY" secondItem="u8L-k2-nNh" secondAttribute="centerY" id="sWo-Dt-DDo"/>
+                                                <constraint firstItem="N0L-oi-rfZ" firstAttribute="leading" secondItem="u8L-k2-nNh" secondAttribute="leading" constant="20" id="y3f-Xf-iGw"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="dJZ-UV-zbv" id="bH0-aE-TDj"/>
+                            <outlet property="delegate" destination="dJZ-UV-zbv" id="GAk-nq-xGV"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="설정" image="gear" catalog="system" id="ifB-xU-daJ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egm-kL-rkp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1528" y="769"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="timer" catalog="system" width="128" height="121"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

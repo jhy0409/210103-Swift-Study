@@ -135,13 +135,13 @@ class AFTimerCell: UICollectionViewCell {
             timerStartLabel.text = "\(h) : \(m)"
             return
         }
+        
         DispatchQueue.main.async { [weak self] in
             self?.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
                 let elapsedTimeSeconds = Int(Date().timeIntervalSince(startTime))
                 
-                let hourToSec = (food.hour) * 60 * 60
-                let minToSec = food.min * 60
-                let expireLimit = totalSec() //hourToSec + minToSec // 초로 환산
+                var expireLimit = food.totalSec //hourToSec + minToSec // 초로 환산
+                if food.foodName == "test" { expireLimit = 4 } // test일 때 10초
                 
                 guard (elapsedTimeSeconds <= expireLimit) else { // 시간 초과한 경우
                     timer.invalidate()
@@ -185,12 +185,7 @@ class AFTimerCell: UICollectionViewCell {
             let s = inputTotal
             return (h, m, s)
         }
-    }
-    
-    func totalSec() -> Int? {
-        guard let food = tempFood, let h = tempFood?.hour, let m = tempFood?.min else { return nil }
         
-        return 0
     }
 }
 
