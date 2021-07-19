@@ -31,11 +31,13 @@ class AFTimerCell: UICollectionViewCell {
     var timerTapHandler: (()-> Void)?
     var closeBtnHandler: (()-> Void)?
     
+    var startTime: Date?
+    var timer = Timer()
+    var tempFood: Food?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        reset()
         timerSwitch.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-        
         
         // Apply rounded corners to contentView
         contentView.layer.cornerRadius = cornerRadius
@@ -103,23 +105,57 @@ class AFTimerCell: UICollectionViewCell {
         }
     }
     
-    func reset() {
-        
-    }
-    
     @IBAction func switchTapped(_ sender: Any) {
         if timerSwitch.isOn {
             // [] 타이머 On
             timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
             print("===> timer is on")
+            timerTapHandler?()
         } else {
             // [] 타이머 off
             timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
             print("===> timer is OFF")
+            timerTapHandler?()
         }
-        timerTapHandler?()
     }
+    
     @IBAction func closeBtnTapped(_ sender: Any) {
         closeBtnHandler?()
     }
+    
+    func setTimer(startTime: Date, food: Food) {
+        if timerSwitch.isOn == false {
+            timer.invalidate()
+            guard let food = tempFood else { return }
+            let h = food.hour, m = food.min
+            timerStartLabel.text = "\(h) : \(m)"
+            return
+        }
+        DispatchQueue.main.async { [weak self] in
+            self?.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
+                let elapsedTimeSeconds = Int(Date().timeIntervalSince(startTime))
+                
+                let hourToSec = (food.hour) * 60 * 60
+                let minToSec = food.min * 60
+                let expireLimit = hourToSec + minToSec // 초로 환산
+                
+                guard (elapsedTimeSeconds <= expireLimit) else { // 시간 초과한 경우
+                    timer.invalidate()
+                    self?.timerStartLabel.isHidden = false
+                    return
+                }
+                
+                var tmpStr = expireLimit - elapsedTimeSeconds // 종료시간 - 시작시간
+                let h = tmpStr / ( 60 * 60 )
+                tmpStr %= 60 * 60
+                let m = tmpStr / 60
+                tmpStr %= 60
+                let s = tmpStr
+                let remainSeconds = "\(h)시 \(m)분 \(s)초"
+                self?.timerStartLabel.text = String(describing: remainSeconds.self)
+            }
+        }
+    }
 }
+
+
