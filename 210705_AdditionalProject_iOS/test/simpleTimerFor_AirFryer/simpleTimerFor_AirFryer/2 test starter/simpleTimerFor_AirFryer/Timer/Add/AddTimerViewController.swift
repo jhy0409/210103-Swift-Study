@@ -80,6 +80,7 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
         
         foodViewModel.addFood(food) // 음식 배열에 추가
         txtField_makeEmpty(txtFields: uiTxtFields) // 문자입력 창 초기화
+        btnSenderTxt = "NONE"
     }
 }
 
