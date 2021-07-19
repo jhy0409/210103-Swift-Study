@@ -83,21 +83,15 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
 }
 
 extension AddTimerViewController {
-    /*
-     foodNameTxt
-     ondoTxt
-     hourTxt
-     minTxt
-     turnTimeTxt
-     */
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // 키보드 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) { // 다른곳 터치시 키보드 내리기
         self.foodNameTxt.resignFirstResponder()
         self.ondoTxt.resignFirstResponder()
         self.hourTxt.resignFirstResponder()
         self.minTxt.resignFirstResponder()
         self.turnTimeTxt.resignFirstResponder()
     }
+    
+    // 각 버튼 클릭시 음식분류 내용 전달
     @IBAction func gogiBtn_Clicked(_ sender: Any) {
         guard let str = sender as? UIButton else { return }
         btnSenderTxt = str.titleLabel?.text ?? "NONE"
@@ -138,7 +132,6 @@ extension AddTimerViewController {
         for item in uiBtn {
             item.backgroundColor = uiLabelColorArr[i]
             item.layer.cornerRadius = 5
-            
             i += 1
         }
     }

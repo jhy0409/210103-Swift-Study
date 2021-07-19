@@ -22,22 +22,26 @@ class AFTimerViewController: UIViewController {
 }
 
 extension AFTimerViewController: UICollectionViewDataSource {
-    // [] item 개수
+    // [x] item 개수
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 10
         return foodViewModel.foods.count
     }
     
-    // [] cell 표시
+    // [x] cell 표시
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AFTimerCell", for: indexPath) as? AFTimerCell else { return UICollectionViewCell() }
         let food: Food = foodViewModel.foods[indexPath.item]
         cell.updateUI(food: food)
         
+        // [x] 삭제 버튼 누를 때 동작
         cell.closeBtnHandler = {
             self.foodViewModel.deleteFood(food)
             self.collectionView.reloadData()
+        }
+        
+        cell.timerTapHandler = {
+            
         }
         
         self.foodViewModel.updateFood(food)

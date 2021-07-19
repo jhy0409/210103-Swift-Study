@@ -28,7 +28,7 @@ class AFTimerCell: UICollectionViewCell {
                                    CGColor(red: 0.2196078449, green: 0.2030190556, blue: 0.8549019694, alpha: 0.2),
                                    CGColor(red: 0.5, green: 0.007843137719, blue: 0.4200693323, alpha: 0.2)]
     
-    var timerTapHandler: ((Bool)-> Void)?
+    var timerTapHandler: (()-> Void)?
     var closeBtnHandler: (()-> Void)?
     
     override func awakeFromNib() {
@@ -72,15 +72,14 @@ class AFTimerCell: UICollectionViewCell {
         timerStartLabel.text = "\(h) : \(m)"
         turnNumLabel.text = "\(food.turningFood)번" // 뒤집는 횟수
         
+        // [x] 라벨별 색 변경
         foodTypeBtn.setTitle(food.foodType, for: .normal) // 음식 분류, 채소, 고기 등
-        // [] 라벨별 색 변경
-        
         let col = findLabelBgColor(food.foodType)
         foodTypeBtn.layer.backgroundColor = col
         foodTypeBtn.layer.cornerRadius = 5
         
+        // [x] 타이머 켜기끄기
         timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
-        // 타이머 켜기끄기
     }
     
     func findLabelBgColor(_ str: String) -> CGColor {
@@ -111,12 +110,14 @@ class AFTimerCell: UICollectionViewCell {
     @IBAction func switchTapped(_ sender: Any) {
         if timerSwitch.isOn {
             // [] 타이머 On
+            timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
             print("===> timer is on")
         } else {
             // [] 타이머 off
+            timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
             print("===> timer is OFF")
         }
-        timerTapHandler?(timerSwitch.isOn)
+        timerTapHandler?()
     }
     @IBAction func closeBtnTapped(_ sender: Any) {
         closeBtnHandler?()
