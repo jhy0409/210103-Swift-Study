@@ -16,7 +16,7 @@ struct Food: Codable, Equatable {
         (hour * 60 * 60) + (min * 60)
     }
     
-    var turningFood: Int
+    var turningFood: Int 
     var foodType: String
     var isTimerOn: Bool = false // 생성시에는 타이머 꺼진게 기본값
     var foodName: String
