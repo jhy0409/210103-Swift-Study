@@ -24,6 +24,7 @@ class AFTimerViewController: UIViewController {
     var timer = Timer()
     
     deinit {
+        print("----> deinit")
         timer.invalidate()
     }
     
@@ -65,9 +66,10 @@ extension AFTimerViewController: UICollectionViewDataSource {
             alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)
             
-            //cell.timerSwitch.isOn = false
-            //cell.timerDescriptionLabel.text = cell.timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
-            //print("===> timer is OFF")
+            cell.updateUI(food: food)
+//            cell.timerSwitch.isOn = false
+//            cell.timerDescriptionLabel.text = cell.timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
+//            print("===> timer is OFF")
         }
         return cell
     }
