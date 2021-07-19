@@ -505,10 +505,10 @@
             </objects>
             <point key="canvasLocation" x="113.04347826086958" y="73.660714285714278"/>
         </scene>
-        <!--설정-->
+        <!--Setting-->
         <scene sceneID="r3Z-wW-n9h">
             <objects>
-                <tableViewController id="dJZ-UV-zbv" sceneMemberID="viewController">
+                <tableViewController id="dJZ-UV-zbv" userLabel="Setting" customClass="SettingTableViewController" customModule="simpleTimerFor_AirFryer" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="9IY-TN-Rn4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -548,14 +548,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="55"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="정보" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0L-oi-rfZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="버전" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0L-oi-rfZ">
                                                     <rect key="frame" x="20" y="16" width="33" height="23"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0c9-ko-RQs">
+                                                    <rect key="frame" x="320.5" y="16" width="33.5" height="23"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="textColor" systemColor="secondaryLabelColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0c9-ko-RQs" secondAttribute="trailing" constant="20" symbolic="YES" id="9jb-UW-KRT"/>
+                                                <constraint firstItem="0c9-ko-RQs" firstAttribute="centerY" secondItem="u8L-k2-nNh" secondAttribute="centerY" id="XQf-nD-ao2"/>
                                                 <constraint firstItem="N0L-oi-rfZ" firstAttribute="centerY" secondItem="u8L-k2-nNh" secondAttribute="centerY" id="sWo-Dt-DDo"/>
                                                 <constraint firstItem="N0L-oi-rfZ" firstAttribute="leading" secondItem="u8L-k2-nNh" secondAttribute="leading" constant="20" id="y3f-Xf-iGw"/>
                                             </constraints>
@@ -565,11 +573,15 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="dJZ-UV-zbv" id="bH0-aE-TDj"/>
-                            <outlet property="delegate" destination="dJZ-UV-zbv" id="GAk-nq-xGV"/>
+                            <outlet property="dataSource" destination="dJZ-UV-zbv" id="Xs9-1x-EVQ"/>
+                            <outlet property="delegate" destination="dJZ-UV-zbv" id="h0a-b4-FBu"/>
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="설정" image="gear" catalog="system" id="ifB-xU-daJ"/>
+                    <connections>
+                        <outlet property="downSample" destination="XkH-JJ-FFP" id="LXN-0y-dQf"/>
+                        <outlet property="versionDescription" destination="0c9-ko-RQs" id="dtD-oz-NIY"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egm-kL-rkp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -583,6 +595,9 @@
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
