@@ -11,7 +11,6 @@ import Firebase
 class SettingTableViewController: UITableViewController {
     var foodViewModel = FoodViewModel()
     var addTmpFood: [Food] = []
-    let db = Database.database().reference().child("data")
     
     var foods: [Food] = []
     
@@ -31,7 +30,7 @@ class SettingTableViewController: UITableViewController {
             downSample.isEnabled = false // 다운이 완료되면 초기화
             print("---> toggle On")
             
-            self.db.setValue(<#T##value: Any?##Any?#>)
+//            self.db.setValue(<#T##value: Any?##Any?#>)
         }
         // [] toggle버튼 OFF -> 기본 json file 다운로드
         else {
@@ -57,6 +56,7 @@ class SettingTableViewController: UITableViewController {
     */
 
 }
+
 
 extension FoodViewModel {
     static var countN_download = 0
