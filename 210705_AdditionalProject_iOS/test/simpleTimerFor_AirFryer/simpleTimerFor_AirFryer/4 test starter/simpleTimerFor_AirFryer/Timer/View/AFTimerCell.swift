@@ -112,8 +112,10 @@ class AFTimerCell: UICollectionViewCell {
     func setTimer(startTime: Date, food: Food) {
         if timerSwitch.isOn == false {
             timer.invalidate()
+            
             let h = food.hour, m = food.min
             timerStartLabel.text = "\(h) : \(m)"
+            print("===> timer is OFF : setTimer [ timer.invalidate() ]")
             return
         }
         
@@ -123,11 +125,6 @@ class AFTimerCell: UICollectionViewCell {
                 
                 var expireLimit = food.totalSec //hourToSec + minToSec // 초로 환산
                 if food.foodName == "test" { expireLimit = 4 } // test일 때 10초
-                
-                guard (elapsedTimeSeconds <= expireLimit) else { // 시간 초과한 경우
-                    timer.invalidate()
-                    return
-                }
                 
                 var tmpStr = expireLimit - elapsedTimeSeconds // 종료시간 - 시작시간
                 
@@ -155,7 +152,7 @@ class AFTimerCell: UICollectionViewCell {
             timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
             timerStartLabel.text = tmpFoodStr
             timer.invalidate()
-            print("===> timer is OFF")
+            print("===> timer is OFF : reset Switch [ timer.invalidate() ]")
         }
         
         func returnHMS(_ inputTotal: inout Int) -> (h: Int, m: Int, s: Int) {
