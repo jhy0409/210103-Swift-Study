@@ -29,8 +29,7 @@ class SettingTableViewController: UITableViewController {
         //  -> 다운로드 완료후 동작
         if downSample.isOn == true {
             downSample.isEnabled = false // 다운이 완료되면 초기화
-//            print("---> toggle On")
-            print("---> toggle On : Start Update")
+            print("---> toggle On")
             
             self.db.setValue(<#T##value: Any?##Any?#>)
         }

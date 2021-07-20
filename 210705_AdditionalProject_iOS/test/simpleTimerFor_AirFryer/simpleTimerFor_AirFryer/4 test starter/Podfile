@@ -8,5 +8,6 @@ target 'simpleTimerFor_AirFryer' do
   # Pods for simpleTimerFor_AirFryer
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
+  pod 'Firebase/Core'
 
 end
