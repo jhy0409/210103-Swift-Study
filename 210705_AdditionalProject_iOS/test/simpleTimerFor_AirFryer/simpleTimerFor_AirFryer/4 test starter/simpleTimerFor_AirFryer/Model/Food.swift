@@ -104,7 +104,7 @@ class FoodViewModel {
             return manager.foods
         }
         set {
-            self.foods = newValue
+            manager.foods = newValue
         }
     }
     
