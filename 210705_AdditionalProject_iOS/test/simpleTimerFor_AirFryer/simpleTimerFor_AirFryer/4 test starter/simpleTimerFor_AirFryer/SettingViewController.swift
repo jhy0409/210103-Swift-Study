@@ -13,6 +13,8 @@ class SettingTableViewController: UITableViewController {
     var addTmpFood: [Food] = []
     let db = Database.database().reference().child("data")
     
+    var foods: [Food] = []
+    
     @IBOutlet weak var downSample: UISwitch!
     @IBOutlet weak var versionDescription: UILabel!
     
@@ -25,13 +27,23 @@ class SettingTableViewController: UITableViewController {
     @IBAction func downToggle(_ sender: Any) {
         // [] toggle버튼 ON -> 기본 json file 다운로드
         //  -> 다운로드 완료후 동작
+        if downSample.isOn == true {
+            downSample.isEnabled = false // 다운이 완료되면 초기화
+//            print("---> toggle On")
+            print("---> toggle On : Start Update")
+            
+            self.db.setValue(<#T##value: Any?##Any?#>)
+        }
         // [] toggle버튼 OFF -> 기본 json file 다운로드
+        else {
+            print("---> toggle Off")
+        }
         
-        if downSample.isOn == true, FoodViewModel.countN_download < 1 {
+//        if downSample.isOn == true, FoodViewModel.countN_download < 1 {
 //            addTmpFood.append(<#T##newElement: Food##Food#>)
 //            foodViewModel.updateFood(addTmpFood)
-            FoodViewModel.countN_download = 1
-        }
+//            FoodViewModel.countN_download = 1
+//        }
     }
     
     

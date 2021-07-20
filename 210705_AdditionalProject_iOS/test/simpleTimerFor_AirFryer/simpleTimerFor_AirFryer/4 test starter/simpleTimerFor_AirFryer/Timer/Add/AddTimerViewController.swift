@@ -70,9 +70,6 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
                 hour = String(h); min = String(m)
             }
             
-            let nextId = FoodManager.lastId + 1
-            FoodManager.lastId = nextId
-            
             let foodType: String = btnSenderTxt == "NONE" ? "기타" : btnSenderTxt
             
             // ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool
