@@ -8,10 +8,11 @@
 import UIKit
 import Firebase
 /*
- todo
- [] 버전정보 강제 업데이트
- [] 타이머 전체 비우기
- [] firebase에서 내려받기
+ 할일 목록
+ 
+ - [] firebase에서 내려받기
+ - [] 버전정보 강제 업데이트
+ - [] 타이머 전체 비우기
  
  */
 
