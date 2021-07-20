@@ -16,17 +16,7 @@ class AFTimerViewController: UIViewController {
         foodViewModel.loadFoods()
     }
     
-    
-    
-    
-    
     var startTime: Date?
-    var timer = Timer()
-    
-    deinit {
-        print("----> deinit")
-        timer.invalidate()
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.collectionView.reloadData()
@@ -56,7 +46,6 @@ extension AFTimerViewController: UICollectionViewDataSource {
         // [x] 타이머 스위치 누를 때 동작
         cell.timerTapHandler = {
             guard let startTime = self.startTime else  {
-                cell.tempFood = food
                 cell.setTimer(startTime: Date(), food: food)
                 return
             }

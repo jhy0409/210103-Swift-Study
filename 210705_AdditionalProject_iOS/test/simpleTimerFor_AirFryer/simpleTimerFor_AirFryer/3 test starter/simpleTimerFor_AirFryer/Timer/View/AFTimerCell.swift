@@ -15,7 +15,6 @@ class AFTimerCell: UICollectionViewCell {
     @IBOutlet weak var foodTypeBtn: UIButton!
     
     @IBOutlet weak var timerDescriptionLabel: UILabel!
-    
     @IBOutlet weak var timerStartLabel: UILabel!
     @IBOutlet weak var timerSwitch: UISwitch!
     var cornerRadius: CGFloat = 10
@@ -33,7 +32,6 @@ class AFTimerCell: UICollectionViewCell {
     
     var startTime: Date?
     var timer = Timer()
-    var tempFood: Food?
     
     weak var viewController: UIViewController?
     var tmpFoodStr: String?
@@ -114,7 +112,6 @@ class AFTimerCell: UICollectionViewCell {
     func setTimer(startTime: Date, food: Food) {
         if timerSwitch.isOn == false {
             timer.invalidate()
-            guard let food = tempFood else { return }
             let h = food.hour, m = food.min
             timerStartLabel.text = "\(h) : \(m)"
             return
@@ -157,6 +154,7 @@ class AFTimerCell: UICollectionViewCell {
             timerSwitch.isOn = false
             timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
             timerStartLabel.text = tmpFoodStr
+            timer.invalidate()
             print("===> timer is OFF")
         }
         
@@ -169,7 +167,6 @@ class AFTimerCell: UICollectionViewCell {
             let s = inputTotal
             return (h, m, s)
         }
-        
     }
 }
 

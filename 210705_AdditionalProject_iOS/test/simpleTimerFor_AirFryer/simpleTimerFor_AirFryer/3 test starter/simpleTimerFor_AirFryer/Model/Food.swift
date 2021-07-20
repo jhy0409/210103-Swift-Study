@@ -12,9 +12,7 @@ struct Food: Codable, Equatable {
     var ondo: Int
     var hour: Int
     var min: Int
-    var totalSec: Int {
-        (hour * 60 * 60) + (min * 60)
-    }
+    var totalSec: Int { (hour * 60 * 60) + (min * 60) }
     
     var turningFood: Int 
     var foodType: String
