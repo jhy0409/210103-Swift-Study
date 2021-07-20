@@ -24,7 +24,7 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var addButton: UIButton!
     
-    var isTypeBtnCliked: Bool = false
+    //var isTypeBtnCliked: Bool = false
     var foodBtnType: (() -> String)?
     
     private var uiButton = [UIButton]()
@@ -32,7 +32,6 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
     private var uiTxtFields = [UITextField]()
     
     var foodViewModel = FoodViewModel()
-    var tempFoodsArr: [Food] = []
     var btnSenderTxt = ""
     
     override func viewDidLoad() {
@@ -82,7 +81,6 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
             txtField_makeEmpty(txtFields: uiTxtFields) // 문자입력 창 초기화
             btnSenderTxt = "NONE"
             showAlert("타이머 추가 완료")
-            
         }
     }
 }
