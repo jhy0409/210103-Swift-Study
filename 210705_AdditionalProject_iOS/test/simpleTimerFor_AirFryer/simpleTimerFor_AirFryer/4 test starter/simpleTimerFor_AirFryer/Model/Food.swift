@@ -93,6 +93,7 @@ class FoodManager {
     
     func setFoodsArr(tempArr: [Food]) -> Void {
         self.foods = tempArr
+        saveFood()
     }
 }
 
@@ -122,5 +123,9 @@ class FoodViewModel {
     
     func loadFoods() {
         manager.retrieveFood()
+    }
+    
+    func deleteAllFoods() {
+        manager.setFoodsArr(tempArr: [])
     }
 }
