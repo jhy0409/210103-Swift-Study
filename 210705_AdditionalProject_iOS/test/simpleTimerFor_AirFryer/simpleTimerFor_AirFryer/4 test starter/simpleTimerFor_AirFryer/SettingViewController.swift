@@ -7,19 +7,26 @@
 
 import UIKit
 import Firebase
+/*
+ todo
+ [] 버전정보 강제 업데이트
+ [] 타이머 전체 비우기
+ [] firebase에서 내려받기
+ 
+ */
 
 class SettingTableViewController: UITableViewController {
-    var foodViewModel = FoodViewModel()
+    let foodViewModel = FoodViewModel()
     var addTmpFood: [Food] = []
     
     var foods: [Food] = []
     
-    @IBOutlet weak var downSample: UISwitch!
+    @IBOutlet weak var downSample: UISwitch! // 서버 데이터 다운
+    @IBOutlet weak var delFoodsAll: UISwitch! // 타이머 전체삭제
     @IBOutlet weak var versionDescription: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        downSample.isOn = false
         // Do any additional setup after loading the view.
     }
     
@@ -28,13 +35,13 @@ class SettingTableViewController: UITableViewController {
         //  -> 다운로드 완료후 동작
         if downSample.isOn == true {
             downSample.isEnabled = false // 다운이 완료되면 초기화
-            print("---> toggle On")
+            print("\n---> [설정창 스위치 - On] 서버데이터 받기 toggle")
             
 //            self.db.setValue(<#T##value: Any?##Any?#>)
         }
         // [] toggle버튼 OFF -> 기본 json file 다운로드
         else {
-            print("---> toggle Off")
+            print("\n---> [설정창 스위치 - off] 서버데이터 받기 toggle")
         }
         
 //        if downSample.isOn == true, FoodViewModel.countN_download < 1 {
@@ -44,17 +51,14 @@ class SettingTableViewController: UITableViewController {
 //        }
     }
     
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func delAllFoodArr(_ sender: Any) {
+        
+        if delFoodsAll.isOn {
+            print("\n---> [설정창 스위치 - On] 모든 데이터를 삭제합니다.")
+        } else {
+            print("\n---> [설정창 스위치 - Off] 모든 데이터를 삭제합니다.")
+        }
     }
-    */
-
 }
 
 
