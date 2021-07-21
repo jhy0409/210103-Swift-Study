@@ -10,9 +10,19 @@ import Firebase
 /*
  할일 목록
  
+ [버전]
  - [] 버전정보 강제 업데이트
- - [ㅇ] 타이머 전체 비우기
  
+ [타이머]
+ - [] 경고창 - 백그라운드에서 실행 (타이머완료 후)
+ - [] 타이머 N번 실행 - 뒤집기 수가 1이상일 때
+ 
+ [타이머 수정]
+ - [] 검색 - 음식이름으로 자동완성
+ - [] 임시뷰로 띄워서 tmpFood[index] 업데이트
+ 
+ [기타]
+ - [] 앱 아이콘
  */
 
 class SettingTableViewController: UITableViewController {
