@@ -29,7 +29,7 @@
 		685D6E9C26A56AAF008CE5F0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6874AA5B26A0F87400E2891F /* AddTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimerViewController.swift; sourceTree = "<group>"; };
 		68F4179A26A5805600C28EF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../GoogleService-Info.plist"; sourceTree = "<group>"; };
-		68F885AC26A068FD000A49BA /* simpleTimerFor_AirFryer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = simpleTimerFor_AirFryer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		68F885AC26A068FD000A49BA /* 앱이름확인.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "앱이름확인.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		68F885AF26A068FD000A49BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68F885B126A068FD000A49BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		68F885B326A068FD000A49BA /* AFTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFTimerViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +60,6 @@
 				AE52D939811E1C5F971BB897 /* Pods-simpleTimerFor_AirFryer.debug.xcconfig */,
 				40B7EEBFD53CDA8CC5DA7A23 /* Pods-simpleTimerFor_AirFryer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -112,7 +111,7 @@
 		68F885AD26A068FD000A49BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				68F885AC26A068FD000A49BA /* simpleTimerFor_AirFryer.app */,
+				68F885AC26A068FD000A49BA /* 앱이름확인.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,8 +124,8 @@
 				68F885AF26A068FD000A49BA /* AppDelegate.swift */,
 				68F885B126A068FD000A49BA /* SceneDelegate.swift */,
 				68F885B526A068FD000A49BA /* Main.storyboard */,
-				68F885B826A068FE000A49BA /* Assets.xcassets */,
 				68F885BA26A068FE000A49BA /* LaunchScreen.storyboard */,
+				68F885B826A068FE000A49BA /* Assets.xcassets */,
 				68F885BD26A068FE000A49BA /* Info.plist */,
 				685D6E9C26A56AAF008CE5F0 /* SettingViewController.swift */,
 				68F4179A26A5805600C28EF3 /* GoogleService-Info.plist */,
@@ -161,7 +160,7 @@
 			);
 			name = simpleTimerFor_AirFryer;
 			productName = simpleTimerFor_AirFryer;
-			productReference = 68F885AC26A068FD000A49BA /* simpleTimerFor_AirFryer.app */;
+			productReference = 68F885AC26A068FD000A49BA /* 앱이름확인.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -420,7 +419,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jhy.simpleTimerFor-AirFryer";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "앱이름확인";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -440,7 +439,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jhy.simpleTimerFor-AirFryer";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "앱이름확인";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
