@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A46905F941A5F62F7C1DD64 /* Pods_simpleTimerFor_AirFryer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C8652A372FF7408286C7D28 /* Pods_simpleTimerFor_AirFryer.framework */; };
+		680FBCFF26ABF68B0068AA11 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 680FBCFE26ABF68B0068AA11 /* Assets.xcassets */; };
 		6856B68026A12AE300529AA0 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6856B67F26A12AE300529AA0 /* Storage.swift */; };
 		685D6E9D26A56AAF008CE5F0 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 685D6E9C26A56AAF008CE5F0 /* SettingViewController.swift */; };
 		6874AA5C26A0F87400E2891F /* AddTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6874AA5B26A0F87400E2891F /* AddTimerViewController.swift */; };
@@ -16,7 +17,6 @@
 		68F885B226A068FD000A49BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F885B126A068FD000A49BA /* SceneDelegate.swift */; };
 		68F885B426A068FD000A49BA /* AFTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F885B326A068FD000A49BA /* AFTimerViewController.swift */; };
 		68F885B726A068FD000A49BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F885B526A068FD000A49BA /* Main.storyboard */; };
-		68F885B926A068FE000A49BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 68F885B826A068FE000A49BA /* Assets.xcassets */; };
 		68F885BC26A068FE000A49BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 68F885BA26A068FE000A49BA /* LaunchScreen.storyboard */; };
 		68F885C626A06C44000A49BA /* AFTimerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F885C526A06C44000A49BA /* AFTimerCell.swift */; };
 		68F885C826A07845000A49BA /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F885C726A07845000A49BA /* Food.swift */; };
@@ -25,6 +25,7 @@
 /* Begin PBXFileReference section */
 		1C8652A372FF7408286C7D28 /* Pods_simpleTimerFor_AirFryer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_simpleTimerFor_AirFryer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B7EEBFD53CDA8CC5DA7A23 /* Pods-simpleTimerFor_AirFryer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simpleTimerFor_AirFryer.release.xcconfig"; path = "Target Support Files/Pods-simpleTimerFor_AirFryer/Pods-simpleTimerFor_AirFryer.release.xcconfig"; sourceTree = "<group>"; };
+		680FBCFE26ABF68B0068AA11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6856B67F26A12AE300529AA0 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		685D6E9C26A56AAF008CE5F0 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		6874AA5B26A0F87400E2891F /* AddTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTimerViewController.swift; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		68F885B126A068FD000A49BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		68F885B326A068FD000A49BA /* AFTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFTimerViewController.swift; sourceTree = "<group>"; };
 		68F885B626A068FD000A49BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		68F885B826A068FE000A49BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68F885BB26A068FE000A49BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68F885BD26A068FE000A49BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68F885C526A06C44000A49BA /* AFTimerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFTimerCell.swift; sourceTree = "<group>"; };
@@ -101,6 +101,7 @@
 		68F885A326A068FD000A49BA = {
 			isa = PBXGroup;
 			children = (
+				680FBCFE26ABF68B0068AA11 /* Assets.xcassets */,
 				68F885AE26A068FD000A49BA /* simpleTimerFor_AirFryer */,
 				68F885AD26A068FD000A49BA /* Products */,
 				1914717C0910F774593C5FBE /* Pods */,
@@ -125,7 +126,6 @@
 				68F885B126A068FD000A49BA /* SceneDelegate.swift */,
 				68F885B526A068FD000A49BA /* Main.storyboard */,
 				68F885BA26A068FE000A49BA /* LaunchScreen.storyboard */,
-				68F885B826A068FE000A49BA /* Assets.xcassets */,
 				68F885BD26A068FE000A49BA /* Info.plist */,
 				685D6E9C26A56AAF008CE5F0 /* SettingViewController.swift */,
 				68F4179A26A5805600C28EF3 /* GoogleService-Info.plist */,
@@ -202,7 +202,7 @@
 			files = (
 				68F885BC26A068FE000A49BA /* LaunchScreen.storyboard in Resources */,
 				68F4179B26A5805600C28EF3 /* GoogleService-Info.plist in Resources */,
-				68F885B926A068FE000A49BA /* Assets.xcassets in Resources */,
+				680FBCFF26ABF68B0068AA11 /* Assets.xcassets in Resources */,
 				68F885B726A068FD000A49BA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -23,7 +23,7 @@ import Firebase
  - [] 정렬 - 음식이름 순, 추가순
  
  [기타]
- - [] 앱 아이콘
+ - [ㅇ] 앱 아이콘
  */
 
 class SettingTableViewController: UITableViewController {
