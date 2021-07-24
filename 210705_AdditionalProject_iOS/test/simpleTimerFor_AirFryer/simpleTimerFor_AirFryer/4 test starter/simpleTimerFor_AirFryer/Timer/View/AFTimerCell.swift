@@ -185,5 +185,9 @@ extension AFTimerCell {
     @IBAction func closeBtnTapped(_ sender: Any) {
         closeBtnHandler?()
     }
+    
+    @IBAction func editBtnTapped(_ sender: Any) {
+        print("\n수정버튼 눌림")
+    }
 }
 
