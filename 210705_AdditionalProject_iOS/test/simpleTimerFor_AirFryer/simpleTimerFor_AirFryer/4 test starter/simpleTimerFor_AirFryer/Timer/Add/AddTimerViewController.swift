@@ -27,9 +27,9 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
     //var isTypeBtnCliked: Bool = false
     var foodBtnType: (() -> String)?
     
-    private var uiButton = [UIButton]()
-    private let uiLabelColorArr = [#colorLiteral(red: 1, green: 0, blue: 0, alpha: 0.2), #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.2), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 0.2), #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.2), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.2), #colorLiteral(red: 0.2196078449, green: 0.2030190556, blue: 0.8549019694, alpha: 0.2), #colorLiteral(red: 0.5, green: 0.007843137719, blue: 0.4200693323, alpha: 0.2)]
-    private var uiTxtFields = [UITextField]()
+    var uiButton = [UIButton]()
+    static let uiLabelColorArr = [#colorLiteral(red: 1, green: 0, blue: 0, alpha: 0.2), #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.2), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 0.2), #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.2), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.2), #colorLiteral(red: 0.2196078449, green: 0.2030190556, blue: 0.8549019694, alpha: 0.2), #colorLiteral(red: 0.5, green: 0.007843137719, blue: 0.4200693323, alpha: 0.2)]
+    var uiTxtFields = [UITextField]()
     
     let foodViewModel = FoodViewModel()
     var btnSenderTxt = ""
@@ -50,20 +50,20 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func addButtonTap(_ sender: Any) {
-        // [x] 기본값 세팅
+        // [ㅇ] 기본값 세팅
         let ondo = ondoTxt.text == "" ? "0" : String(ondoTxt.text!) // 온도
         let turn = turnTimeTxt.text == "" ? "0" : String(turnTimeTxt.text!) // 뒤집는 횟수
         var hour = hourTxt.text == "" ? "0" : String(hourTxt.text!) // 시간
         var min = minTxt.text == "" ? "0" : String(minTxt.text!) // 분
         let foodName = foodNameTxt.text == "" ? "" : String(foodNameTxt.text!) // 음식이름
         
-        // [x] 유효값 확인목록 튜플로 저장
+        // [ㅇ] 유효값 확인목록 튜플로 저장
         let (if1_hourNMinZero, if2_hourZero, if3_foodNameEmpty, if4_ondoZero, if5_minToH_T) =
             ((hour == "0" && min == "0"), (hour != "0" && Int(min)! > 60 ), foodName.isEmpty, ondo == "0", (hour == "0" && Int(min)! > 60 ))
-        // [x] 유효값 검사 후 반환값이 true일 때만 아래코드 실행
+        // [ㅇ] 유효값 검사 후 반환값이 true일 때만 아래코드 실행
         let tOrF = showAlert(if1_hourNMinZero, if2_hourZero, if3_foodNameEmpty, if4_ondoZero)
         if tOrF == true {
-            // [x] 분으로 세팅 ex) 80분 -> 1h 20min, 조건 : 시간이 0이고 분이 60분 이상일 때
+            // [ㅇ] 분으로 세팅 ex) 80분 -> 1h 20min, 조건 : 시간이 0이고 분이 60분 이상일 때
                 if let minIf = Int(min), if5_minToH_T == true {
                 let h = minIf / 60 // 60으로 나눈 몫
                 let m = minIf % 60 // 60으로 나눈 나머지
@@ -91,7 +91,7 @@ extension AddTimerViewController {
         self.turnTimeTxt.resignFirstResponder()
     }
     
-    // 각 버튼 클릭시 음식분류 내용 전달
+    // [ㅇ] 각 버튼 클릭시 음식분류 내용 전달
     @IBAction func gogiBtn_Clicked(_ sender: Any) {
         guard let str = sender as? UIButton else { return }
         btnSenderTxt = str.titleLabel?.text ?? "NONE"
@@ -130,7 +130,7 @@ extension AddTimerViewController {
     func tintBtn(_ uiBtn: [UIButton]) { // 음식유형 버튼 초기화
         var i: Int = 0
         for item in uiBtn {
-            item.backgroundColor = uiLabelColorArr[i]
+            item.backgroundColor = AddTimerViewController.uiLabelColorArr[i]
             item.layer.cornerRadius = 5
             i += 1
         }

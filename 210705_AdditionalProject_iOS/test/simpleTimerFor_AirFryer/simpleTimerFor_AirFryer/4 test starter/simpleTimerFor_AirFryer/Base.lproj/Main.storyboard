@@ -750,6 +750,9 @@
                                     <color key="titleColor" systemColor="labelColor"/>
                                     <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="editCurrentFood:" destination="mW8-hs-4LC" eventType="touchUpInside" id="uw8-DR-25P"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="huq-NX-YKr">
                                 <rect key="frame" x="106" y="361" width="52" height="40"/>
@@ -763,6 +766,9 @@
                                 <state key="normal" title="고기">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="gogiBtn_Clicked:" destination="mW8-hs-4LC" eventType="touchUpInside" id="In0-Am-mcx"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G35-Dk-gg7">
                                 <rect key="frame" x="168" y="361" width="52" height="40"/>
@@ -775,6 +781,9 @@
                                 <state key="normal" title="과자">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="snackBtn_Clicked:" destination="mW8-hs-4LC" eventType="touchUpInside" id="CEz-JD-UTs"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6U-NB-081">
                                 <rect key="frame" x="168" y="411" width="52" height="42"/>
@@ -786,6 +795,9 @@
                                 <state key="normal" title="야채">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="chesoBtn_Clicked:" destination="mW8-hs-4LC" eventType="touchUpInside" id="sO9-NM-wn0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2d-lU-qL3">
                                 <rect key="frame" x="230" y="361" width="85" height="40"/>
@@ -798,6 +810,9 @@
                                 <state key="normal" title="냉동식품">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="ganpeyonBtn_Clicked:" destination="mW8-hs-4LC" eventType="touchUpInside" id="nnx-8V-v8I"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iz-7w-dDX">
                                 <rect key="frame" x="106" y="411" width="52" height="42"/>
@@ -809,6 +824,9 @@
                                 <state key="normal" title="빵">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="breadBtn_Clicked:" destination="mW8-hs-4LC" eventType="touchUpInside" id="HHG-Pj-asV"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c4g-oe-kuB">
                                 <rect key="frame" x="230" y="411" width="85" height="42"/>
@@ -820,6 +838,9 @@
                                 <state key="normal" title="해산물">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="hesanmulBtn_Clicked:" destination="mW8-hs-4LC" eventType="touchUpInside" id="ktB-R7-KFB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xiv-uh-Vgh">
                                 <rect key="frame" x="106" y="463" width="52" height="42"/>
@@ -831,6 +852,9 @@
                                 <state key="normal" title="기타">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="etcFoodBtn_Clicked:" destination="mW8-hs-4LC" eventType="touchUpInside" id="NwW-UI-ze9"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Xfy-cu-cew"/>
@@ -890,10 +914,25 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="타이머추가" image="plus" catalog="system" id="dEI-Hu-e1P"/>
+                    <connections>
+                        <outlet property="breadButton" destination="7iz-7w-dDX" id="0I2-0d-7Ik"/>
+                        <outlet property="chesoButton" destination="J6U-NB-081" id="SJh-S6-60c"/>
+                        <outlet property="conformButton" destination="Klg-r5-Nb4" id="DOk-9B-VBE"/>
+                        <outlet property="etcFoodButton" destination="Xiv-uh-Vgh" id="ban-BN-vtl"/>
+                        <outlet property="foodNameTxt" destination="1af-hq-5uy" id="uml-z0-SAH"/>
+                        <outlet property="ganpeyonButton" destination="h2d-lU-qL3" id="HBQ-53-Yze"/>
+                        <outlet property="gogiButton" destination="huq-NX-YKr" id="M48-Nh-kbb"/>
+                        <outlet property="hesanmulButton" destination="c4g-oe-kuB" id="Q2v-3w-gsn"/>
+                        <outlet property="hourTxt" destination="5er-IH-Q61" id="jxJ-sm-YGZ"/>
+                        <outlet property="minTxt" destination="iw4-EW-QkQ" id="O8L-XA-ICH"/>
+                        <outlet property="ondoTxt" destination="p97-51-aQj" id="Wxy-5Q-YlS"/>
+                        <outlet property="snackButton" destination="G35-Dk-gg7" id="EcT-o6-rIf"/>
+                        <outlet property="turnTimeTxt" destination="IkR-jJ-8jl" id="DQD-Ms-ksF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ja5-7M-j6L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="825" y="1459"/>
+            <point key="canvasLocation" x="112" y="1504"/>
         </scene>
     </scenes>
     <resources>

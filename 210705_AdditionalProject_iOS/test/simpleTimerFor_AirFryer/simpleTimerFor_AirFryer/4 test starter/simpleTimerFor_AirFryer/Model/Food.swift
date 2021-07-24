@@ -71,7 +71,7 @@ class FoodManager {
     
     func updateFood(_ food: Food) {
         guard let index = foods.firstIndex(of: food) else { return }
-        
+        print("\n [func updateFood] currunt index is ---->\(index)")
         foods[index].update(ondo: food.ondo, hour: food.hour, min: food.min, turn: food.turningFood, foodType: food.foodType, isTimerOn: food.isTimerOn, foodName: food.foodName)
          saveFood()
     }
