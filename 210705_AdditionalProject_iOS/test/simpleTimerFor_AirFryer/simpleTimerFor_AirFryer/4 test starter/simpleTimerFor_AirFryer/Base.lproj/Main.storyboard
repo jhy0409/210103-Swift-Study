@@ -139,6 +139,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="editBtnTapped:" destination="tz3-aj-1Ti" eventType="touchUpInside" id="5eY-Uh-zgo"/>
+                                                        <segue destination="mW8-hs-4LC" kind="presentation" id="BJQ-ps-bOI"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -517,7 +518,6 @@
                         <segue destination="ZvY-fh-ll5" kind="relationship" relationship="viewControllers" id="cSB-GF-Wu2"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="9n2-e7-ZN8"/>
                         <segue destination="dJZ-UV-zbv" kind="relationship" relationship="viewControllers" id="gIg-0t-WYX"/>
-                        <segue destination="mW8-hs-4LC" kind="presentation" id="alC-LU-ans"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SFi-92-G3U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -647,7 +647,7 @@
         <!--EditTimer-->
         <scene sceneID="mvy-IF-IdC">
             <objects>
-                <viewController id="mW8-hs-4LC" userLabel="EditTimer" customClass="EditTimerViewController" customModule="앱이름확인" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTimerViewController" id="mW8-hs-4LC" userLabel="EditTimer" customClass="EditTimerViewController" customModule="앱이름확인" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZK-G0-vJB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

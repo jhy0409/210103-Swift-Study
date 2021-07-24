@@ -8,7 +8,7 @@
 import UIKit
 
 class EditTimerViewController: UIViewController {
-
+    var tmpFood: Food?
     override func viewDidLoad() {
         super.viewDidLoad()
 

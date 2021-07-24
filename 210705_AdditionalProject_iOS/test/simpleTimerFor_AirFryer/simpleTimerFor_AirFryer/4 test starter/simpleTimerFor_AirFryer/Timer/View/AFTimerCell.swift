@@ -35,6 +35,7 @@ class AFTimerCell: UICollectionViewCell {
     
     weak var viewController: UIViewController?
     var tmpFoodStr: String?
+    var tmpFoodFromCell: Food?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -188,6 +189,9 @@ extension AFTimerCell {
     
     @IBAction func editBtnTapped(_ sender: Any) {
         print("\n수정버튼 눌림")
+        guard let editVC = viewController?.storyboard?.instantiateViewController(identifier: "EditTimerViewController") as? EditTimerViewController else { return }
+        editVC.tmpFood = tmpFoodFromCell
+        viewController?.present(editVC, animated: true, completion: nil)
     }
 }
 
