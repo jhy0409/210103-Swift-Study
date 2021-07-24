@@ -36,13 +36,12 @@ class EditTimerViewController: UIViewController {
         super.viewDidLoad()
         uiLabelColorArr = AddTimerViewController.uiLabelColorArr
         
-        uiButton = [gogiButton, snackButton, ganpeyonButton, breadButton, chesoButton, hesanmulButton, etcFoodButton]
+        uiButton = [gogiButton, snackButton, ganpeyonButton,
+                    breadButton, chesoButton, hesanmulButton, etcFoodButton]
         uiTxtFields = [foodNameTxt, ondoTxt, hourTxt, minTxt, turnTimeTxt ]
         tintBtn(uiButton)
         
         conformButton.backgroundColor = #colorLiteral(red: 0, green: 0.6565038562, blue: 0.9419061542, alpha: 0.45); conformButton.layer.cornerRadius = 10
-        btnSenderTxt = "NONE" // 초기값설정
-        
         settingAlltxtField()
     }
 }
