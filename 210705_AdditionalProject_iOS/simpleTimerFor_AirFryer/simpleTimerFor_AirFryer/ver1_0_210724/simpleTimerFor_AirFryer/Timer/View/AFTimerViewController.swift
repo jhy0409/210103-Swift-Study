@@ -18,7 +18,12 @@ class AFTimerViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         self.collectionView.reloadData()
+        let editController = EditTimerViewController()
+        editController.isDismissed = { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
 }
 

@@ -31,6 +31,7 @@ class EditTimerViewController: UIViewController {
     var btnSenderTxt = ""
     
     let foodViewModel = FoodViewModel()
+    var isDismissed: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,11 @@ class EditTimerViewController: UIViewController {
         
         conformButton.backgroundColor = #colorLiteral(red: 0, green: 0.6565038562, blue: 0.9419061542, alpha: 0.45); conformButton.layer.cornerRadius = 10
         settingAlltxtField()
+        btnSenderTxt = tmpFood!.foodType
+    }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: true, completion: { self.isDismissed?() })
     }
 }
 
@@ -124,7 +130,7 @@ extension EditTimerViewController {
                 }
             }
             txtField_makeEmpty(txtFields: uiTxtFields) // 문자입력 창 초기화
-            btnSenderTxt = "NONE"
+//            btnSenderTxt = "NONE"
             showAlert("타이머 추가 완료")
         }
     }
