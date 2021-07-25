@@ -14,7 +14,18 @@ class AFTimerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didDismiss_EditTimerViewController(_:)), name: didDismiss_EditTimerViewController, object: nil)
         foodViewModel.loadFoods()
+        collectionView.reloadData()
+    }
+    
+    // [ㅇ] 타이머 수정 모달창이 닫힌 후 컬렉션뷰 업데이트
+    let didDismiss_EditTimerViewController: Notification.Name = Notification.Name("EditTimerViewController")
+    
+    @objc func didDismiss_EditTimerViewController(_ noti: Notification) {
+        OperationQueue.main.addOperation {
+            self.collectionView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
