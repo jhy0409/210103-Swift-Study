@@ -29,13 +29,10 @@ class EditTimerViewController: UIViewController {
     var uiButton = [UIButton]()
     var uiTxtFields = [UITextField]()
     var btnSenderTxt = ""
-    
     let foodViewModel = FoodViewModel()
     
     var isDismissed: (() -> Void)?
     let didDismiss_EditTimerViewController: Notification.Name = Notification.Name("EditTimerViewController")
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,6 +94,13 @@ extension EditTimerViewController {
         }
     }
     
+    // [ㅇ] 음식 버튼글자 투명도 초기화
+    func titleAlphaReset() {
+        for i in uiButton {
+            i.titleLabel?.alpha = 1
+        }
+    }
+    
     // [ㅇ] food id값 일치 -> 수정된 값으로 뷰모델에 있는 foods배열의 위치에 업데이트
     @IBAction func editCurrentFood(_ sender: Any) {
         // [ㅇ] 기본값 세팅
@@ -136,6 +140,7 @@ extension EditTimerViewController {
                 }
             }
             txtField_makeEmpty(txtFields: uiTxtFields) // 문자입력 창 초기화
+            titleAlphaReset() // 버튼 글자 투명도 초기화
             showAlert("타이머 추가 완료")
         }
     }
