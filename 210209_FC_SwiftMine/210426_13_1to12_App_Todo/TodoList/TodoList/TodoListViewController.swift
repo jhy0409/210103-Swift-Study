@@ -28,7 +28,6 @@ class TodoListViewController: UIViewController {
         // TODO: 데이터 불러오기
         todoListViewModel.loadTasks()
         
-        
 //        let todo = TodoManager.shared.createTodo(detail: "👍 Good Job", isToday: true)
 //        Storage.saveTodo(todo, fileName: "test.json")
     }
