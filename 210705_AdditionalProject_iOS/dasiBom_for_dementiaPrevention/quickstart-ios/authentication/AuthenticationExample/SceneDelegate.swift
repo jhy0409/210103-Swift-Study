@@ -42,6 +42,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     tabBarController.view.backgroundColor = .systemBackground
     return tabBarController
   }()
+    
+    lazy var surveyController: UINavigationController = {
+       let navController = UINavigationController(rootViewController: SurveyViewController())
+        navController.view.backgroundColor = .systemBackground
+        return navController
+    }()
 
   func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
              options connectionOptions: UIScene.ConnectionOptions) {
@@ -90,6 +96,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     )
     userNavController.configureTabBar(title: "내정보", systemImageName: "person.fill")
     brainGameController.configureTabBar(title: "게임하기", systemImageName: "star.fill")
-    tabBarController.viewControllers = [authNavController, userNavController, brainGameController]
+    surveyController.configureTabBar(title: "자가진단", systemImageName: "square.and.pencil")
+    // SurveyViewController
+    tabBarController.viewControllers = [authNavController, userNavController, surveyController, brainGameController]
   }
 }

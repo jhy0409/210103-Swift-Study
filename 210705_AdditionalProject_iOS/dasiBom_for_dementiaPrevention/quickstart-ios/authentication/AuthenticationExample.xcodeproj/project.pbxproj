@@ -13,6 +13,7 @@
 		6821F0ED26B2440C00C15F8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6821F0EB26B2440C00C15F8B /* GoogleService-Info.plist */; };
 		6821F0EE26B2440C00C15F8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6821F0EB26B2440C00C15F8B /* GoogleService-Info.plist */; };
 		688FA6CE26B2715500F1EEB8 /* BrainGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688FA6CD26B2715500F1EEB8 /* BrainGameViewController.swift */; };
+		68D11A8726B2EB92007C1BAA /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D11A8626B2EB92007C1BAA /* SurveyViewController.swift */; };
 		8D048172C552DD55B0F1F546 /* Pods_AuthenticationExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C061A4FD0CB57B04DEEE6AF /* Pods_AuthenticationExampleTests.framework */; };
 		EA02F68524A000E00079D000 /* UserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA02F68424A000E00079D000 /* UserActions.swift */; };
 		EA02F68D24A063E90079D000 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA02F68C24A063E90079D000 /* LoginDelegate.swift */; };
@@ -66,6 +67,7 @@
 		3DCF965A30DBB1A198A1BBAC /* Pods-AuthenticationExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthenticationExample.debug.xcconfig"; path = "Target Support Files/Pods-AuthenticationExample/Pods-AuthenticationExample.debug.xcconfig"; sourceTree = "<group>"; };
 		6821F0EB26B2440C00C15F8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		688FA6CD26B2715500F1EEB8 /* BrainGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameViewController.swift; sourceTree = "<group>"; };
+		68D11A8626B2EB92007C1BAA /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		6D7B32DDBC05CE4A40D6DFA4 /* Pods_AuthenticationExample_AuthenticationExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AuthenticationExample_AuthenticationExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5981688279C36C93FAAEFE /* Pods-AuthenticationExample-AuthenticationExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthenticationExample-AuthenticationExampleUITests.release.xcconfig"; path = "Target Support Files/Pods-AuthenticationExample-AuthenticationExampleUITests/Pods-AuthenticationExample-AuthenticationExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8207F4FFFF08447068F0D967 /* Pods-AuthenticationExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthenticationExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-AuthenticationExampleTests/Pods-AuthenticationExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				EAE4CBF424857A5100245E92 /* LoginController.swift */,
 				EAB3A17B2494628200385291 /* UserViewController.swift */,
 				688FA6CD26B2715500F1EEB8 /* BrainGameViewController.swift */,
+				68D11A8626B2EB92007C1BAA /* SurveyViewController.swift */,
 				EA02F68E24A0714B0079D000 /* OtherAuthMethodControllers */,
 			);
 			path = ViewControllers;
@@ -531,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA20B46E2495B2C700B5E581 /* DataSourceProtocols.swift in Sources */,
+				68D11A8726B2EB92007C1BAA /* SurveyViewController.swift in Sources */,
 				EAB3A1792494433500385291 /* DataSourceProvider.swift in Sources */,
 				EA20B46C2495A9F900B5E581 /* SignedOutView.swift in Sources */,
 				EA527CAA24A0766D00ADB9A2 /* OtherAuthViewController.swift in Sources */,
