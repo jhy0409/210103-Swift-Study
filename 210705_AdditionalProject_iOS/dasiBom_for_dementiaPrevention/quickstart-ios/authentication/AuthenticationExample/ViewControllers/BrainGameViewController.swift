@@ -65,15 +65,6 @@ class BrainGameViewController: UIViewController{
     
     // MARK: - Firebase 🔥
     
-    private func showUILabel() {
-        let btn = UIButton()
-        btn.setTitle("9999999999", for: .normal)
-        btn.titleColor(for: .normal)
-        btn.backgroundColor = .blue
-        view.addSubview(btn)
-        print("\n\n view did load")
-    }
-    
     // MARK: - Private Helpers
     
     override func loadView() {
@@ -141,7 +132,7 @@ class BrainGameViewController: UIViewController{
     private func showMunjeLabel() {
         let munjeUILabel = UILabel()
         
-        munjeUILabel.text = "문제 : \(randN1) + (\(randN2) * \(randN3))"
+        munjeUILabel.text = "문제 : \(randN1) + (\(randN2) × \(randN3))"
         munjeUILabel.textAlignment = .left
         munjeUILabel.font = UIFont.systemFont(ofSize: CGFloat(22), weight: .light)
         munjeUILabel.frame = CGRect(x: 20, y: 120, width: screenWidth, height: 30)

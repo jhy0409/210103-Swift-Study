@@ -89,7 +89,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       systemImageName: "person.crop.circle.fill.badge.plus"
     )
     userNavController.configureTabBar(title: "내정보", systemImageName: "person.fill")
-    brainGameController.configureTabBar(title: "게임하기", systemImageName: "person.fill")
+    brainGameController.configureTabBar(title: "게임하기", systemImageName: "star.fill")
     tabBarController.viewControllers = [authNavController, userNavController, brainGameController]
   }
 }
