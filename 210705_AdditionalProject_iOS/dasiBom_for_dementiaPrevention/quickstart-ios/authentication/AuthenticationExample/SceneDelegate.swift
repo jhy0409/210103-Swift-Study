@@ -29,6 +29,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     navController.view.backgroundColor = .systemBackground
     return navController
   }()
+    
+    lazy var brainGameController: UINavigationController = {
+      let navController = UINavigationController(rootViewController: BrainGameViewController())
+      navController.view.backgroundColor = .systemBackground
+      return navController
+    }()
 
   lazy var tabBarController: UITabBarController = {
     let tabBarController = UITabBarController()
@@ -83,6 +89,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
       systemImageName: "person.crop.circle.fill.badge.plus"
     )
     userNavController.configureTabBar(title: "Current User", systemImageName: "person.fill")
-    tabBarController.viewControllers = [authNavController, userNavController]
+    brainGameController.configureTabBar(title: "게임하기", systemImageName: "person.fill")
+    tabBarController.viewControllers = [authNavController, userNavController, brainGameController]
   }
 }
