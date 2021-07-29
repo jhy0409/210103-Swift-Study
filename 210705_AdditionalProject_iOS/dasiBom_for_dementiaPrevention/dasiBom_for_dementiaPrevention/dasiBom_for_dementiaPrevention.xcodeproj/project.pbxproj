@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0504D485204AA81441C5C0F1 /* Pods_dasiBom_for_dementiaPrevention.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09B8DD501B44E669AC1311C4 /* Pods_dasiBom_for_dementiaPrevention.framework */; };
 		68E9BA8326B231E3004EEBB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E9BA8226B231E3004EEBB1 /* AppDelegate.swift */; };
 		68E9BA8526B231E3004EEBB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E9BA8426B231E3004EEBB1 /* SceneDelegate.swift */; };
 		68E9BA8726B231E3004EEBB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68E9BA8626B231E3004EEBB1 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09B8DD501B44E669AC1311C4 /* Pods_dasiBom_for_dementiaPrevention.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dasiBom_for_dementiaPrevention.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E9BA7F26B231E3004EEBB1 /* dasiBom_for_dementiaPrevention.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dasiBom_for_dementiaPrevention.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68E9BA8226B231E3004EEBB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68E9BA8426B231E3004EEBB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		68E9BA8E26B231E4004EEBB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68E9BA9026B231E4004EEBB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		68E9BA9626B23227004EEBB1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		78F94D76CF969A5FADB587F7 /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dasiBom_for_dementiaPrevention.release.xcconfig"; path = "Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention.release.xcconfig"; sourceTree = "<group>"; };
+		E7D9A858F571F682E3402B46 /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dasiBom_for_dementiaPrevention.debug.xcconfig"; path = "Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0504D485204AA81441C5C0F1 /* Pods_dasiBom_for_dementiaPrevention.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				68E9BA8126B231E3004EEBB1 /* dasiBom_for_dementiaPrevention */,
 				68E9BA8026B231E3004EEBB1 /* Products */,
+				786D892A2C0356E3CED836D3 /* Pods */,
+				CB69F095A8C6082CB24F2276 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +77,24 @@
 			path = dasiBom_for_dementiaPrevention;
 			sourceTree = "<group>";
 		};
+		786D892A2C0356E3CED836D3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E7D9A858F571F682E3402B46 /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */,
+				78F94D76CF969A5FADB587F7 /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CB69F095A8C6082CB24F2276 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09B8DD501B44E669AC1311C4 /* Pods_dasiBom_for_dementiaPrevention.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68E9BA9326B231E4004EEBB1 /* Build configuration list for PBXNativeTarget "dasiBom_for_dementiaPrevention" */;
 			buildPhases = (
+				F24E3683A5FD05181FBE8974 /* [CP] Check Pods Manifest.lock */,
 				68E9BA7B26B231E3004EEBB1 /* Sources */,
 				68E9BA7C26B231E3004EEBB1 /* Frameworks */,
 				68E9BA7D26B231E3004EEBB1 /* Resources */,
+				D7456B8B1D73A95442EED6B7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D7456B8B1D73A95442EED6B7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F24E3683A5FD05181FBE8974 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dasiBom_for_dementiaPrevention-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		68E9BA7B26B231E3004EEBB1 /* Sources */ = {
@@ -287,6 +356,7 @@
 		};
 		68E9BA9426B231E4004EEBB1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7D9A858F571F682E3402B46 /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -306,6 +376,7 @@
 		};
 		68E9BA9526B231E4004EEBB1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78F94D76CF969A5FADB587F7 /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
