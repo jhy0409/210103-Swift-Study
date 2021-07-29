@@ -19,7 +19,8 @@ class BrainGameViewController: UIViewController{
     var btn4: UIButton?
     
     var btnArr: [UIButton] = []
-    
+    let screenWidth = UIScreen.main.bounds.size.width
+
     
     
   private var _user: User?
@@ -41,6 +42,16 @@ class BrainGameViewController: UIViewController{
 
   override func viewDidLoad() {
     super.viewDidLoad()
+//    let view2 = UIView()
+//    view2.backgroundColor = .red
+//    view.addSubview(view2)
+//    view2.translatesAutoresizingMaskIntoConstraints = false
+//        let horizontalConstraint = NSLayoutConstraint(item: view2, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+//        let verticalConstraint = NSLayoutConstraint(item: view2, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
+//        let widthConstraint = NSLayoutConstraint(item: view2, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 300)
+//        let heightConstraint = NSLayoutConstraint(item: view2, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 300)
+//        view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+    
     configureNavigationBar()
     
   }
@@ -49,7 +60,6 @@ class BrainGameViewController: UIViewController{
     super.viewWillAppear(animated)
     
   }
-  
 
   // MARK: - Firebase 🔥
 
@@ -62,9 +72,6 @@ class BrainGameViewController: UIViewController{
         print("\n\n view did load")
     }
     
-//  public func signCurrentUserOut() {
-//    try? Auth.auth().signOut()
-//  }
   
   // MARK: - Private Helpers
     
@@ -73,24 +80,8 @@ class BrainGameViewController: UIViewController{
         super.loadView()
         view = UIView()
         view.backgroundColor = .systemBlue
-        
-        
     }
     
-    private func updateGameUI(_ btnArr: [UIButton?]) {
-        let margin: CGFloat = 40
-        let itemSpacing: CGFloat = 20
-        
-        let w = view.bounds.width
-        let width = ((w - (margin * 2)) - itemSpacing) / 2
-        
-        for i in btnArr {
-            i?.frame = CGRect(x: 40, y: 150, width: width, height: width)
-            i?.backgroundColor = .blue
-            print("\n 확인확인화")
-        }
-        // [] 크기세팅이 끝나면 각 버튼별로 btnArr에 추가
-    }
     
     
   private func configureNavigationBar() {
@@ -100,25 +91,35 @@ class BrainGameViewController: UIViewController{
     navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemOrange]
     navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.systemOrange]
     
+    showMunjeLabel()
     btnMake()
   }
     private func btnMake() {
+//        var view2 = UIView()
         let button1 = UIButton(); let button2 = UIButton()
         let button3 = UIButton(); let button4 = UIButton()
         
         btnArr = [button1, button2, button3, button4]
         
+//        let itemSpacing: CGFloat = 20
+//        let margin: CGFloat = 40
+//        let tmpW = (screenWidth - (margin * 2) - itemSpacing) / 2
+//        let tmpW = (300 - itemSpacing) / 2
+//        print(tmpW)
         var tmpI = 1
+        let fromTop = 220
+        let fromLeft = 40
+        
         for i in btnArr {
             switch tmpI {
             case 1:
-                i.frame = CGRect.init(x: 40, y: 130, width: 100, height: 100)
+                i.frame = CGRect.init(x: fromLeft, y: fromTop, width: 100, height: 100)
             case 2:
-                i.frame = CGRect.init(x: 160, y: 130, width: 100, height: 100)
+                i.frame = CGRect.init(x: fromLeft + 120, y: fromTop, width: 100, height: 100)
             case 3:
-                i.frame = CGRect.init(x: 40, y: 250, width: 100, height: 100)
+                i.frame = CGRect.init(x: fromLeft, y: fromTop + 120, width: 100, height: 100)
             default:
-                i.frame = CGRect.init(x: 160, y: 250, width: 100, height: 100)
+                i.frame = CGRect.init(x: fromLeft + 120, y: fromTop + 120, width: 100, height: 100)
             }
             
             i.setTitle("TEST", for: .normal)
@@ -130,13 +131,16 @@ class BrainGameViewController: UIViewController{
             i.addTarget(self, action: #selector(self.testAction), for: .touchUpInside)
             
             view.addSubview(i)
-            i.translatesAutoresizingMaskIntoConstraints = false
             tmpI += 1
         }
     }
     
+    private func showMunjeLabel() {
+        
+        
+    }
     @objc func testAction(sender: UIButton!) {
-        print("\n 클릭되었음")
+        print("\n -----------> 클릭되었음")
     }
 
 //  private func animateUpdates(for tableView: UITableView) {
