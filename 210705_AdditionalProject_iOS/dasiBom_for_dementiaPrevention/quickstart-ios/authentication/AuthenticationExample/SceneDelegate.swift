@@ -85,10 +85,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
   private func configureControllers() {
     authNavController.configureTabBar(
-      title: "Authentication",
+      title: "사용자 인증",
       systemImageName: "person.crop.circle.fill.badge.plus"
     )
-    userNavController.configureTabBar(title: "Current User", systemImageName: "person.fill")
+    userNavController.configureTabBar(title: "내정보", systemImageName: "person.fill")
     brainGameController.configureTabBar(title: "게임하기", systemImageName: "person.fill")
     tabBarController.viewControllers = [authNavController, userNavController, brainGameController]
   }
