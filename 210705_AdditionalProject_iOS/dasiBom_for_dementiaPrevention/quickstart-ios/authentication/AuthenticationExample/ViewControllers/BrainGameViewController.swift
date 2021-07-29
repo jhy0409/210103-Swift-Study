@@ -8,7 +8,11 @@
 
 import UIKit
 import Firebase
-
+/*
+ todo
+ - [] 정답버튼 클릭 시 alert창띄우기
+ - [] 사용자 정보 json으로 업데이트
+ */
 class BrainGameViewController: UIViewController{
     
     var btnArr: [UIButton] = []
@@ -96,10 +100,10 @@ class BrainGameViewController: UIViewController{
         
         btnArr = [button1, button2, button3, button4]
         
-        //        let itemSpacing: CGFloat = 20
-        //        let margin: CGFloat = 40
-        //        let tmpW = (screenWidth - (margin * 2) - itemSpacing) / 2
-        //        print(tmpW)
+        //let itemSpacing: CGFloat = 20
+        //let margin: CGFloat = 40
+        //let tmpW = (screenWidth - (margin * 2) - itemSpacing) / 2
+        //print(tmpW)
         var tmpI = 1
         let fromTop = 190
         let fromLeft = 40
@@ -118,12 +122,12 @@ class BrainGameViewController: UIViewController{
             
             let tmpN = Int.random(in: 1...100) // 나머지 버튼은 랜덤으로 숫자생성
             i.setTitle("\(tmpN)", for: .normal)
-            i.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(25))
+            i.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(25)) // 폰트속성
             i.setTitleColor(UIColor.black, for: .normal)
             i.backgroundColor = .white
             i.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.center
-            i.isEnabled = true
-            i.layer.cornerRadius = 10
+            i.isEnabled = true // 클릭 가능여부
+            i.layer.cornerRadius = 10 // 모서리 둥근 정도
             i.addTarget(self, action: #selector(self.testAction), for: .touchUpInside)
             
             view.addSubview(i)
@@ -133,7 +137,6 @@ class BrainGameViewController: UIViewController{
         // [ㅇ] 버튼 셋 중 하나는 정답이어야 함
         setBtnText_Random(btnArr)
     }
-    
     
     private func showMunjeLabel() {
         let munjeUILabel = UILabel()
@@ -154,9 +157,6 @@ class BrainGameViewController: UIViewController{
         tmp.setTitle("\(result)", for: .normal)
     }
     
-    
-    
-    
     @objc func testAction(sender: UIButton!) {
         guard let btn = sender as? UIButton else { return }
         if btn.titleLabel?.text == "\(result)" {
@@ -165,7 +165,6 @@ class BrainGameViewController: UIViewController{
             print("\n -----------> 틀렸습니다.")
         }
     }
-    
     
     private var originalOffset: CGFloat?
     
