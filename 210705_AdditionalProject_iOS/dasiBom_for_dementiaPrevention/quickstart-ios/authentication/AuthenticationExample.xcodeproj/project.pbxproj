@@ -14,6 +14,7 @@
 		6821F0EE26B2440C00C15F8B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6821F0EB26B2440C00C15F8B /* GoogleService-Info.plist */; };
 		688FA6CE26B2715500F1EEB8 /* BrainGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 688FA6CD26B2715500F1EEB8 /* BrainGameViewController.swift */; };
 		68D11A8726B2EB92007C1BAA /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68D11A8626B2EB92007C1BAA /* SurveyViewController.swift */; };
+		68FFEA0526B35ED700455143 /* Survery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68FFEA0426B35ED700455143 /* Survery.swift */; };
 		8D048172C552DD55B0F1F546 /* Pods_AuthenticationExampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C061A4FD0CB57B04DEEE6AF /* Pods_AuthenticationExampleTests.framework */; };
 		EA02F68524A000E00079D000 /* UserActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA02F68424A000E00079D000 /* UserActions.swift */; };
 		EA02F68D24A063E90079D000 /* LoginDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA02F68C24A063E90079D000 /* LoginDelegate.swift */; };
@@ -68,6 +69,7 @@
 		6821F0EB26B2440C00C15F8B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		688FA6CD26B2715500F1EEB8 /* BrainGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameViewController.swift; sourceTree = "<group>"; };
 		68D11A8626B2EB92007C1BAA /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
+		68FFEA0426B35ED700455143 /* Survery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survery.swift; sourceTree = "<group>"; };
 		6D7B32DDBC05CE4A40D6DFA4 /* Pods_AuthenticationExample_AuthenticationExampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AuthenticationExample_AuthenticationExampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E5981688279C36C93FAAEFE /* Pods-AuthenticationExample-AuthenticationExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthenticationExample-AuthenticationExampleUITests.release.xcconfig"; path = "Target Support Files/Pods-AuthenticationExample-AuthenticationExampleUITests/Pods-AuthenticationExample-AuthenticationExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8207F4FFFF08447068F0D967 /* Pods-AuthenticationExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthenticationExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-AuthenticationExampleTests/Pods-AuthenticationExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				EA20B50F249FDB4400B5E581 /* OtherAuthMethods.swift */,
 				EA02F68424A000E00079D000 /* UserActions.swift */,
 				EAEBCE10248A9AA000FCEA92 /* Section.swift */,
+				68FFEA0426B35ED700455143 /* Survery.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -541,6 +544,7 @@
 				EA20B508249CCB0000B5E581 /* PhoneAuthViewController.swift in Sources */,
 				EAB3A17C2494628200385291 /* UserViewController.swift in Sources */,
 				EA20B50C249E8F0700B5E581 /* AuthProvider.swift in Sources */,
+				68FFEA0526B35ED700455143 /* Survery.swift in Sources */,
 				EAE4CBC924855E3A00245E92 /* AuthViewController.swift in Sources */,
 				EA02F68524A000E00079D000 /* UserActions.swift in Sources */,
 				EA02F68D24A063E90079D000 /* LoginDelegate.swift in Sources */,
