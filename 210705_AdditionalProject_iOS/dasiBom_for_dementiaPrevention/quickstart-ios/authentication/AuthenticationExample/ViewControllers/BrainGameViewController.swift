@@ -11,8 +11,17 @@ import Firebase
 
 class BrainGameViewController: UIViewController{
   
-  var userImage = UIImageView(systemImageName: "sunset.fill", tintColor: .secondaryLabel)
-
+//  var userImage = UIImageView(systemImageName: "sunset.fill", tintColor: .secondaryLabel)
+    
+    var btn1: UIButton?
+    var btn2: UIButton?
+    var btn3: UIButton?
+    var btn4: UIButton?
+    
+    var btnArr: [UIButton] = []
+    
+    
+    
   private var _user: User?
   var user: User? {
     get { _user ?? Auth.auth().currentUser }
@@ -30,113 +39,117 @@ class BrainGameViewController: UIViewController{
     fatalError("init(coder:) has not been implemented")
   }
 
-  // MARK: - UIViewController Life Cycle
-
-  override func loadView() {
-    view = UITableView(frame: .zero, style: .insetGrouped)
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
     configureNavigationBar()
+    
   }
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-
+    
   }
-
-  // MARK: - DataSourceProviderDelegate
-
-  func tableViewDidScroll(_ tableView: UITableView) {
-    adjustUserImageAlpha(tableView.contentOffset.y)
-  }
-
   
 
   // MARK: - Firebase 🔥
 
-  public func signCurrentUserOut() {
-    try? Auth.auth().signOut()
-//    updateUI()
-  }
-
-  public func linkUserToOtherAuthProviders() {
-    guard let user = user else { return }
-    let accountLinkingController = AccountLinkingViewController(for: user)
-    let navController = UINavigationController(rootViewController: accountLinkingController)
-    navigationController?.present(navController, animated: true, completion: nil)
-  }
-
-  public func requestVerifyEmail() {
-    user?.sendEmailVerification { error in
-      guard error == nil else { return self.displayError(error) }
-      print("Verification email sent!")
+    private func showUILabel() {
+        let btn = UIButton()
+        btn.setTitle("9999999999", for: .normal)
+        btn.titleColor(for: .normal)
+        btn.backgroundColor = .blue
+        view.addSubview(btn)
+        print("\n\n view did load")
     }
-  }
-
-  public func refreshCurrentUserIDToken() {
-    let forceRefresh = true
-    user?.getIDTokenForcingRefresh(forceRefresh) { token, error in
-      guard error == nil else { return self.displayError(error) }
-      if let token = token {
-        print("New token: \(token)")
-      }
-    }
-  }
-
+    
+//  public func signCurrentUserOut() {
+//    try? Auth.auth().signOut()
+//  }
   
-
   // MARK: - Private Helpers
-
+    
+    
+    override func loadView() {
+        super.loadView()
+        view = UIView()
+        view.backgroundColor = .systemBlue
+        
+        
+    }
+    
+    private func updateGameUI(_ btnArr: [UIButton?]) {
+        let margin: CGFloat = 40
+        let itemSpacing: CGFloat = 20
+        
+        let w = view.bounds.width
+        let width = ((w - (margin * 2)) - itemSpacing) / 2
+        
+        for i in btnArr {
+            i?.frame = CGRect(x: 40, y: 150, width: width, height: width)
+            i?.backgroundColor = .blue
+            print("\n 확인확인화")
+        }
+        // [] 크기세팅이 끝나면 각 버튼별로 btnArr에 추가
+    }
+    
+    
   private func configureNavigationBar() {
     navigationItem.title = "기억력 향상하기"
     guard let navigationBar = navigationController?.navigationBar else { return }
     navigationBar.prefersLargeTitles = true
     navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemOrange]
     navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.systemOrange]
-//    navigationBar.addProfilePic(userImage)
+    
+    btnMake()
   }
-
-//  private func updateUserImage() {
-//    guard let photoURL = user?.photoURL else {
-//      let defaultImage = UIImage(systemName: "person.circle.fill")
-//      userImage.image = defaultImage?.withTintColor(.secondaryLabel, renderingMode: .alwaysOriginal)
-//      return
-//    }
-//    userImage.setImage(from: photoURL)
-//  }
-
-  private func animateUpdates(for tableView: UITableView) {
-    UIView.transition(with: tableView, duration: 0.2,
-                      options: .transitionCrossDissolve,
-                      animations: { tableView.reloadData() })
-  }
-
-  private func presentEditUserInfoController(for item: Itemable,
-                                             to saveHandler: @escaping (String) -> Void) {
-    let editController = UIAlertController(
-      title: "Update \(item.detailTitle!)",
-      message: nil,
-      preferredStyle: .alert
-    )
-    editController.addTextField { $0.placeholder = "New \(item.detailTitle!)" }
-
-    let saveHandler: (UIAlertAction) -> Void = { _ in
-      let text = editController.textFields!.first!.text!
-      saveHandler(text)
+    private func btnMake() {
+        let button1 = UIButton(); let button2 = UIButton()
+        let button3 = UIButton(); let button4 = UIButton()
+        
+        btnArr = [button1, button2, button3, button4]
+        
+        var tmpI = 1
+        for i in btnArr {
+            switch tmpI {
+            case 1:
+                i.frame = CGRect.init(x: 40, y: 130, width: 100, height: 100)
+            case 2:
+                i.frame = CGRect.init(x: 160, y: 130, width: 100, height: 100)
+            case 3:
+                i.frame = CGRect.init(x: 40, y: 250, width: 100, height: 100)
+            default:
+                i.frame = CGRect.init(x: 160, y: 250, width: 100, height: 100)
+            }
+            
+            i.setTitle("TEST", for: .normal)
+            i.titleLabel?.font = UIFont.systemFont(ofSize: CGFloat(25))
+            i.setTitleColor(UIColor.black, for: .normal)
+            i.backgroundColor = .white
+            i.contentHorizontalAlignment = UIControl.ContentHorizontalAlignment.center
+            i.isEnabled = true
+            i.addTarget(self, action: #selector(self.testAction), for: .touchUpInside)
+            
+            view.addSubview(i)
+            i.translatesAutoresizingMaskIntoConstraints = false
+            tmpI += 1
+        }
+    }
+    
+    @objc func testAction(sender: UIButton!) {
+        print("\n 클릭되었음")
     }
 
-    editController.addAction(UIAlertAction(title: "Save", style: .default, handler: saveHandler))
-    editController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-    present(editController, animated: true, completion: nil)
-  }
+//  private func animateUpdates(for tableView: UITableView) {
+//    UIView.transition(with: tableView, duration: 0.2,
+//                      options: .transitionCrossDissolve,
+//                      animations: { tableView.reloadData() })
+//  }
 
   private var originalOffset: CGFloat?
 
-  private func adjustUserImageAlpha(_ offset: CGFloat) {
-    originalOffset = originalOffset ?? offset
-    let verticalOffset = offset - originalOffset!
-    userImage.alpha = 1 - (verticalOffset * 0.05)
-  }
+//  private func adjustUserImageAlpha(_ offset: CGFloat) {
+//    originalOffset = originalOffset ?? offset
+//    let verticalOffset = offset - originalOffset!
+//    userImage.alpha = 1 - (verticalOffset * 0.05)
+//  }
 }
