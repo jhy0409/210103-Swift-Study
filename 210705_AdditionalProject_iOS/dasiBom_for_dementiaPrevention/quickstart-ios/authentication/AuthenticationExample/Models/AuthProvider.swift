@@ -19,10 +19,6 @@ enum AuthProvider: String {
   case google = "google.com"
   case apple = "apple.com"
   case twitter = "twitter.com"
-//  case microsoft = "microsoft.com"
-//  case gitHub = "github.com"
-//  case yahoo = "yahoo.com"
-//  case facebook = "facebook.com"
   case emailPassword = "password"
   case passwordless = "emailLink"
   case phoneNumber = "phone"
@@ -41,14 +37,6 @@ enum AuthProvider: String {
       return "Apple"
     case .twitter:
       return "Twitter"
-//    case .microsoft:
-//      return "Microsoft"
-//    case .gitHub:
-//      return "GitHub"
-//    case .yahoo:
-//      return "Yahoo"
-//    case .facebook:
-//      return "Facebook"
     case .emailPassword:
       return "Email & Password Login"
     case .passwordless:
@@ -72,16 +60,6 @@ enum AuthProvider: String {
       self = .apple
     case "Twitter":
       self = .twitter
-//    case "Microsoft":
-//      self = .microsoft
-//    case "GitHub":
-//      self = .gitHub
-//    case "Yahoo":
-//      self = .yahoo
-//    case "Facebook":
-//      self = .facebook
-//    case "Email & Password Login":
-//      self = .emailPassword
     case "Email Link/Passwordless":
       self = .passwordless
     case "Phone Number":
@@ -104,32 +82,10 @@ extension AuthProvider: DataSourceProvidable {
 
   static var providerSection: Section {
     let providers = self.providers.map { Item(title: $0.name) }
-    let header = "Identity Providers"
-    let footer = "Choose a login flow from one of the identity providers above."
+    let header = "로그인"
+    let footer = "다음을 통해 로그인 후 이용정보를 서버와 연동할 수 있습니다."
     return Section(headerDescription: header, footerDescription: footer, items: providers)
   }
-
-//  static var emailPasswordSection: Section {
-//    let image = UIImage(named: "firebaseIcon")
-//    let item = Item(title: emailPassword.name, hasNestedContent: true, image: image)
-//    let footer = "A example login flow with password authentication."
-//    return Section(footerDescription: footer, items: [item])
-//  }
-//
-//  static var otherSection: Section {
-//    let lockSymbol = UIImage.systemImage("lock.slash.fill", tintColor: .systemOrange)
-//    let phoneSymbol = UIImage.systemImage("phone.fill", tintColor: .systemOrange)
-//    let anonSymbol = UIImage.systemImage("questionmark.circle.fill", tintColor: .systemOrange)
-//    let shieldSymbol = UIImage.systemImage("lock.shield.fill", tintColor: .systemOrange)
-//
-//    let otherOptions = [
-//      Item(title: passwordless.name, image: lockSymbol),
-//      Item(title: phoneNumber.name, image: phoneSymbol),
-//      Item(title: anonymous.name, image: anonSymbol),
-//      Item(title: custom.name, image: shieldSymbol),
-//    ]
-//    return Section(footerDescription: "Other authentication methods.", items: otherOptions)
-//  }
 
   static var sections: [Section] {
     [providerSection]

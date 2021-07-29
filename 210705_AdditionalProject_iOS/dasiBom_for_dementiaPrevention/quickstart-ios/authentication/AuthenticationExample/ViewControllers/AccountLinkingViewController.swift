@@ -85,9 +85,6 @@ class AccountLinkingViewController: UIViewController, DataSourceProviderDelegate
     case .apple:
       performAppleAccountLink()
 
-//    case .facebook:
-//      performFacebookAccountLink()
-
     case .twitter:
       performOAuthAccountLink(for: provider)
 

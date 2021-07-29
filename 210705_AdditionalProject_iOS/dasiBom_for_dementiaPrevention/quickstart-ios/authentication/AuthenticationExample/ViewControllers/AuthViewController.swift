@@ -59,9 +59,6 @@ class AuthViewController: UIViewController, DataSourceProviderDelegate {
     case .apple:
       performAppleSignInFlow()
 
-//    case .facebook:
-//      performFacebookSignInFlow()
-
     case .twitter:
       performOAuthLoginFlow(for: provider)
 
@@ -217,7 +214,7 @@ class AuthViewController: UIViewController, DataSourceProviderDelegate {
   }
 
   private func configureNavigationBar() {
-    navigationItem.title = "Firebase Auth"
+    navigationItem.title = "서버와 연동"
     guard let navigationBar = navigationController?.navigationBar else { return }
     navigationBar.prefersLargeTitles = true
     navigationBar.titleTextAttributes = [.foregroundColor: UIColor.systemOrange]
