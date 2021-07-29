@@ -71,18 +71,14 @@ class BrainGameViewController: UIViewController{
         view.addSubview(btn)
         print("\n\n view did load")
     }
-    
   
   // MARK: - Private Helpers
-    
     
     override func loadView() {
         super.loadView()
         view = UIView()
         view.backgroundColor = .systemBlue
     }
-    
-    
     
   private func configureNavigationBar() {
     navigationItem.title = "기억력 향상하기"
@@ -107,19 +103,19 @@ class BrainGameViewController: UIViewController{
 //        let tmpW = (300 - itemSpacing) / 2
 //        print(tmpW)
         var tmpI = 1
-        let fromTop = 220
+        let fromTop = 190
         let fromLeft = 40
-        
+        let btnSize = 135
         for i in btnArr {
             switch tmpI {
             case 1:
-                i.frame = CGRect.init(x: fromLeft, y: fromTop, width: 100, height: 100)
+                i.frame = CGRect.init(x: fromLeft, y: fromTop, width: btnSize, height: btnSize)
             case 2:
-                i.frame = CGRect.init(x: fromLeft + 120, y: fromTop, width: 100, height: 100)
+                i.frame = CGRect.init(x: fromLeft + btnSize + 20, y: fromTop, width: btnSize, height: btnSize)
             case 3:
-                i.frame = CGRect.init(x: fromLeft, y: fromTop + 120, width: 100, height: 100)
+                i.frame = CGRect.init(x: fromLeft, y: fromTop + btnSize + 20, width: btnSize, height: btnSize)
             default:
-                i.frame = CGRect.init(x: fromLeft + 120, y: fromTop + 120, width: 100, height: 100)
+                i.frame = CGRect.init(x: fromLeft + btnSize + 20, y: fromTop + btnSize + 20, width: btnSize, height: btnSize)
             }
             
             i.setTitle("TEST", for: .normal)
@@ -135,25 +131,26 @@ class BrainGameViewController: UIViewController{
         }
     }
     
+    
     private func showMunjeLabel() {
+        let munjeUILabel = UILabel()
+//        munjeUILabel.translatesAutoresizingMaskIntoConstraints = false
+        munjeUILabel.text = "this ISsssss"
+        munjeUILabel.textAlignment = .left
+        munjeUILabel.font = UIFont.systemFont(ofSize: CGFloat(22), weight: .light)
+        munjeUILabel.frame = CGRect(x: 20, y: 120, width: screenWidth, height: 30)
         
-        
+        view.addSubview(munjeUILabel)
     }
+    
+    
+    
+    
     @objc func testAction(sender: UIButton!) {
         print("\n -----------> 클릭되었음")
     }
 
-//  private func animateUpdates(for tableView: UITableView) {
-//    UIView.transition(with: tableView, duration: 0.2,
-//                      options: .transitionCrossDissolve,
-//                      animations: { tableView.reloadData() })
-//  }
 
   private var originalOffset: CGFloat?
 
-//  private func adjustUserImageAlpha(_ offset: CGFloat) {
-//    originalOffset = originalOffset ?? offset
-//    let verticalOffset = offset - originalOffset!
-//    userImage.alpha = 1 - (verticalOffset * 0.05)
-//  }
 }
