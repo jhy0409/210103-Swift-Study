@@ -115,6 +115,7 @@
 				6823DAC626B39C8E007B8F2E /* Frameworks */,
 				6823DAC726B39C8E007B8F2E /* Resources */,
 				2A712F493CF2BC246738BF80 /* [CP] Embed Pods Frameworks */,
+				744A7676DF2B884E70E45E8D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,6 +209,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		744A7676DF2B884E70E45E8D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
