@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63C4AC7E0B873B8F40C09538 /* Pods_dasiBom4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9E1CDB5722B5B0878CAE4A /* Pods_dasiBom4.framework */; };
 		68CED95026B425DC0023A202 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CED94F26B425DC0023A202 /* AppDelegate.swift */; };
 		68CED95226B425DC0023A202 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CED95126B425DC0023A202 /* SceneDelegate.swift */; };
 		68CED95426B425DC0023A202 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68CED95326B425DC0023A202 /* ViewController.swift */; };
@@ -24,6 +25,9 @@
 		68CED95826B425DC0023A202 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		68CED95B26B425DC0023A202 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		68CED95D26B425DC0023A202 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		690652824A8B9E050667ADA2 /* Pods-dasiBom4.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dasiBom4.release.xcconfig"; path = "Target Support Files/Pods-dasiBom4/Pods-dasiBom4.release.xcconfig"; sourceTree = "<group>"; };
+		8B9E1CDB5722B5B0878CAE4A /* Pods_dasiBom4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dasiBom4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		951B8D0F9AEC6B94959648F6 /* Pods-dasiBom4.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dasiBom4.debug.xcconfig"; path = "Target Support Files/Pods-dasiBom4/Pods-dasiBom4.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63C4AC7E0B873B8F40C09538 /* Pods_dasiBom4.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				68CED94E26B425DC0023A202 /* dasiBom4 */,
 				68CED94D26B425DC0023A202 /* Products */,
+				717FA634F52DBDB0ADB595EA /* Pods */,
+				F40ADF52A3D1273555161607 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = dasiBom4;
 			sourceTree = "<group>";
 		};
+		717FA634F52DBDB0ADB595EA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				951B8D0F9AEC6B94959648F6 /* Pods-dasiBom4.debug.xcconfig */,
+				690652824A8B9E050667ADA2 /* Pods-dasiBom4.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F40ADF52A3D1273555161607 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8B9E1CDB5722B5B0878CAE4A /* Pods_dasiBom4.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 68CED96026B425DC0023A202 /* Build configuration list for PBXNativeTarget "dasiBom4" */;
 			buildPhases = (
+				3A45B02F18B9270A0ED0D609 /* [CP] Check Pods Manifest.lock */,
 				68CED94826B425DC0023A202 /* Sources */,
 				68CED94926B425DC0023A202 /* Frameworks */,
 				68CED94A26B425DC0023A202 /* Resources */,
+				70BEB1B413C989B0900C108F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A45B02F18B9270A0ED0D609 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-dasiBom4-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70BEB1B413C989B0900C108F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dasiBom4/Pods-dasiBom4-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-dasiBom4/Pods-dasiBom4-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dasiBom4/Pods-dasiBom4-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		68CED94826B425DC0023A202 /* Sources */ = {
@@ -283,6 +352,7 @@
 		};
 		68CED96126B425DC0023A202 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 951B8D0F9AEC6B94959648F6 /* Pods-dasiBom4.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +372,7 @@
 		};
 		68CED96226B425DC0023A202 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 690652824A8B9E050667ADA2 /* Pods-dasiBom4.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
