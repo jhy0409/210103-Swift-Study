@@ -16,14 +16,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P6E-06-Ebq" customClass="GIDSignInButton">
-                                <rect key="frame" x="77" y="258" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P6E-06-Ebq" customClass="GIDSignInButton">
+                                <rect key="frame" x="40" y="164" width="334" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aAD-cy-SK8"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="P6E-06-Ebq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="AN8-ij-XgJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="P6E-06-Ebq" secondAttribute="trailing" constant="40" id="mkY-nj-uf4"/>
+                            <constraint firstItem="P6E-06-Ebq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="wYd-Cm-Rue"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="signInButton" destination="P6E-06-Ebq" id="2UV-on-vLC"/>
