@@ -8,6 +8,7 @@ target 'dasiBom_for_dementiaPrevention' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'GoogleSignIn'
 
   # Pods for dasiBom_for_dementiaPrevention
 

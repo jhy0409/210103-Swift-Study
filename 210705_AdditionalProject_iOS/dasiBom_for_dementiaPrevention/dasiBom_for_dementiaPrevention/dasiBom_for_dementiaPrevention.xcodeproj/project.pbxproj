@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -63,7 +63,6 @@
 				56BD0C424AB959E69F0A6802 /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */,
 				E0C785275E0DF055FE13D91D /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
