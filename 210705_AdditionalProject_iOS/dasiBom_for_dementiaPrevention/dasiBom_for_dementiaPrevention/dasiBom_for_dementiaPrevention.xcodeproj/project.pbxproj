@@ -14,7 +14,6 @@
 		6823DAD926B39C8E007B8F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6823DAD826B39C8E007B8F2E /* Assets.xcassets */; };
 		6823DADC26B39C8E007B8F2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6823DADA26B39C8E007B8F2E /* LaunchScreen.storyboard */; };
 		6823DADF26B39C8E007B8F2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6823DADE26B39C8E007B8F2E /* main.m */; };
-		6823DAE626B39CC0007B8F2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6823DAE526B39CC0007B8F2E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		6823DADB26B39C8E007B8F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6823DADD26B39C8E007B8F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6823DADE26B39C8E007B8F2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		6823DAE526B39CC0007B8F2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../_del/dasiBom_for_dementiaPrevention/dasiBom_for_dementiaPrevention/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +61,6 @@
 		6823DACB26B39C8E007B8F2E /* dasiBom_for_dementiaPrevention */ = {
 			isa = PBXGroup;
 			children = (
-				6823DAE526B39CC0007B8F2E /* GoogleService-Info.plist */,
 				6823DACC26B39C8E007B8F2E /* AppDelegate.h */,
 				6823DACD26B39C8E007B8F2E /* AppDelegate.m */,
 				6823DACF26B39C8E007B8F2E /* SceneDelegate.h */,
@@ -136,7 +133,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6823DADC26B39C8E007B8F2E /* LaunchScreen.storyboard in Resources */,
-				6823DAE626B39CC0007B8F2E /* GoogleService-Info.plist in Resources */,
 				6823DAD926B39C8E007B8F2E /* Assets.xcassets in Resources */,
 				6823DAD726B39C8E007B8F2E /* Main.storyboard in Resources */,
 			);
