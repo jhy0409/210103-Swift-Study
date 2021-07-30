@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		684AC0B026B3986600340AF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 684AC0AF26B3986600340AF5 /* GoogleService-Info.plist */; };
 		6891696726B391460056AA1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6891696626B391460056AA1B /* AppDelegate.swift */; };
 		6891696926B391460056AA1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6891696826B391460056AA1B /* SceneDelegate.swift */; };
 		6891696B26B391460056AA1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6891696A26B391460056AA1B /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		684AC0AF26B3986600340AF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6891696326B391460056AA1B /* dasiBom_for_dementiaPrevention.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dasiBom_for_dementiaPrevention.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6891696626B391460056AA1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6891696826B391460056AA1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		6891696526B391460056AA1B /* dasiBom_for_dementiaPrevention */ = {
 			isa = PBXGroup;
 			children = (
+				684AC0AF26B3986600340AF5 /* GoogleService-Info.plist */,
 				6891696626B391460056AA1B /* AppDelegate.swift */,
 				6891696826B391460056AA1B /* SceneDelegate.swift */,
 				6891696A26B391460056AA1B /* ViewController.swift */,
@@ -125,6 +128,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6891697326B391460056AA1B /* LaunchScreen.storyboard in Resources */,
+				684AC0B026B3986600340AF5 /* GoogleService-Info.plist in Resources */,
 				6891697026B391460056AA1B /* Assets.xcassets in Resources */,
 				6891696E26B391460056AA1B /* Main.storyboard in Resources */,
 			);
