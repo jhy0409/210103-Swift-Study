@@ -3,109 +3,119 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		684AC0B026B3986600340AF5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 684AC0AF26B3986600340AF5 /* GoogleService-Info.plist */; };
-		6891696726B391460056AA1B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6891696626B391460056AA1B /* AppDelegate.swift */; };
-		6891696926B391460056AA1B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6891696826B391460056AA1B /* SceneDelegate.swift */; };
-		6891696B26B391460056AA1B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6891696A26B391460056AA1B /* ViewController.swift */; };
-		6891696E26B391460056AA1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6891696C26B391460056AA1B /* Main.storyboard */; };
-		6891697026B391460056AA1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6891696F26B391460056AA1B /* Assets.xcassets */; };
-		6891697326B391460056AA1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6891697126B391460056AA1B /* LaunchScreen.storyboard */; };
-		ADEA659E7C3B738A921168E6 /* Pods_dasiBom_for_dementiaPrevention.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33A9B13349BF6EE1CF330AB1 /* Pods_dasiBom_for_dementiaPrevention.framework */; };
+		0C638CD0491390F281E36627 /* Pods_dasiBom_for_dementiaPrevention.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127809BBEF6D7D378D5F1057 /* Pods_dasiBom_for_dementiaPrevention.framework */; };
+		6823DACE26B39C8E007B8F2E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6823DACD26B39C8E007B8F2E /* AppDelegate.m */; };
+		6823DAD126B39C8E007B8F2E /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6823DAD026B39C8E007B8F2E /* SceneDelegate.m */; };
+		6823DAD426B39C8E007B8F2E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6823DAD326B39C8E007B8F2E /* ViewController.m */; };
+		6823DAD726B39C8E007B8F2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6823DAD526B39C8E007B8F2E /* Main.storyboard */; };
+		6823DAD926B39C8E007B8F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6823DAD826B39C8E007B8F2E /* Assets.xcassets */; };
+		6823DADC26B39C8E007B8F2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6823DADA26B39C8E007B8F2E /* LaunchScreen.storyboard */; };
+		6823DADF26B39C8E007B8F2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6823DADE26B39C8E007B8F2E /* main.m */; };
+		6823DAE626B39CC0007B8F2E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6823DAE526B39CC0007B8F2E /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		33A9B13349BF6EE1CF330AB1 /* Pods_dasiBom_for_dementiaPrevention.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dasiBom_for_dementiaPrevention.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		684AC0AF26B3986600340AF5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		6891696326B391460056AA1B /* dasiBom_for_dementiaPrevention.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dasiBom_for_dementiaPrevention.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6891696626B391460056AA1B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6891696826B391460056AA1B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6891696A26B391460056AA1B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		6891696D26B391460056AA1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6891696F26B391460056AA1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6891697226B391460056AA1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		6891697426B391460056AA1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9C9C5FAA1CB2F112F4AE8A5B /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dasiBom_for_dementiaPrevention.release.xcconfig"; path = "Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention.release.xcconfig"; sourceTree = "<group>"; };
-		CC78B4BB8D0AEE8734968BDB /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dasiBom_for_dementiaPrevention.debug.xcconfig"; path = "Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention.debug.xcconfig"; sourceTree = "<group>"; };
+		127809BBEF6D7D378D5F1057 /* Pods_dasiBom_for_dementiaPrevention.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_dasiBom_for_dementiaPrevention.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6823DAC926B39C8E007B8F2E /* dasiBom_for_dementiaPrevention.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dasiBom_for_dementiaPrevention.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6823DACC26B39C8E007B8F2E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6823DACD26B39C8E007B8F2E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		6823DACF26B39C8E007B8F2E /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		6823DAD026B39C8E007B8F2E /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		6823DAD226B39C8E007B8F2E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		6823DAD326B39C8E007B8F2E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6823DAD626B39C8E007B8F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		6823DAD826B39C8E007B8F2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6823DADB26B39C8E007B8F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		6823DADD26B39C8E007B8F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6823DADE26B39C8E007B8F2E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6823DAE526B39CC0007B8F2E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../_del/dasiBom_for_dementiaPrevention/dasiBom_for_dementiaPrevention/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C327C31EB26E9B8CAC54DB3B /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dasiBom_for_dementiaPrevention.debug.xcconfig"; path = "Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention.debug.xcconfig"; sourceTree = "<group>"; };
+		CBB87C2458A842EE64A87B5B /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dasiBom_for_dementiaPrevention.release.xcconfig"; path = "Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6891696026B391460056AA1B /* Frameworks */ = {
+		6823DAC626B39C8E007B8F2E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ADEA659E7C3B738A921168E6 /* Pods_dasiBom_for_dementiaPrevention.framework in Frameworks */,
+				0C638CD0491390F281E36627 /* Pods_dasiBom_for_dementiaPrevention.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6891695A26B391460056AA1B = {
+		53F85707A00B5EDA1F0FBFCB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6891696526B391460056AA1B /* dasiBom_for_dementiaPrevention */,
-				6891696426B391460056AA1B /* Products */,
-				71972A93A65CBBF3DBA5B814 /* Pods */,
-				CAE5D6D22A38FBDAEC5239AC /* Frameworks */,
+				127809BBEF6D7D378D5F1057 /* Pods_dasiBom_for_dementiaPrevention.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6823DAC026B39C8E007B8F2E = {
+			isa = PBXGroup;
+			children = (
+				6823DACB26B39C8E007B8F2E /* dasiBom_for_dementiaPrevention */,
+				6823DACA26B39C8E007B8F2E /* Products */,
+				72F9F11955CA74F65B1CB083 /* Pods */,
+				53F85707A00B5EDA1F0FBFCB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		6891696426B391460056AA1B /* Products */ = {
+		6823DACA26B39C8E007B8F2E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6891696326B391460056AA1B /* dasiBom_for_dementiaPrevention.app */,
+				6823DAC926B39C8E007B8F2E /* dasiBom_for_dementiaPrevention.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6891696526B391460056AA1B /* dasiBom_for_dementiaPrevention */ = {
+		6823DACB26B39C8E007B8F2E /* dasiBom_for_dementiaPrevention */ = {
 			isa = PBXGroup;
 			children = (
-				684AC0AF26B3986600340AF5 /* GoogleService-Info.plist */,
-				6891696626B391460056AA1B /* AppDelegate.swift */,
-				6891696826B391460056AA1B /* SceneDelegate.swift */,
-				6891696A26B391460056AA1B /* ViewController.swift */,
-				6891696C26B391460056AA1B /* Main.storyboard */,
-				6891696F26B391460056AA1B /* Assets.xcassets */,
-				6891697126B391460056AA1B /* LaunchScreen.storyboard */,
-				6891697426B391460056AA1B /* Info.plist */,
+				6823DAE526B39CC0007B8F2E /* GoogleService-Info.plist */,
+				6823DACC26B39C8E007B8F2E /* AppDelegate.h */,
+				6823DACD26B39C8E007B8F2E /* AppDelegate.m */,
+				6823DACF26B39C8E007B8F2E /* SceneDelegate.h */,
+				6823DAD026B39C8E007B8F2E /* SceneDelegate.m */,
+				6823DAD226B39C8E007B8F2E /* ViewController.h */,
+				6823DAD326B39C8E007B8F2E /* ViewController.m */,
+				6823DAD526B39C8E007B8F2E /* Main.storyboard */,
+				6823DAD826B39C8E007B8F2E /* Assets.xcassets */,
+				6823DADA26B39C8E007B8F2E /* LaunchScreen.storyboard */,
+				6823DADD26B39C8E007B8F2E /* Info.plist */,
+				6823DADE26B39C8E007B8F2E /* main.m */,
 			);
 			path = dasiBom_for_dementiaPrevention;
 			sourceTree = "<group>";
 		};
-		71972A93A65CBBF3DBA5B814 /* Pods */ = {
+		72F9F11955CA74F65B1CB083 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CC78B4BB8D0AEE8734968BDB /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */,
-				9C9C5FAA1CB2F112F4AE8A5B /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */,
+				C327C31EB26E9B8CAC54DB3B /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */,
+				CBB87C2458A842EE64A87B5B /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		CAE5D6D22A38FBDAEC5239AC /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				33A9B13349BF6EE1CF330AB1 /* Pods_dasiBom_for_dementiaPrevention.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6891696226B391460056AA1B /* dasiBom_for_dementiaPrevention */ = {
+		6823DAC826B39C8E007B8F2E /* dasiBom_for_dementiaPrevention */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6891697726B391460056AA1B /* Build configuration list for PBXNativeTarget "dasiBom_for_dementiaPrevention" */;
+			buildConfigurationList = 6823DAE226B39C8E007B8F2E /* Build configuration list for PBXNativeTarget "dasiBom_for_dementiaPrevention" */;
 			buildPhases = (
-				FD5057717216D9C9315E2D3F /* [CP] Check Pods Manifest.lock */,
-				6891695F26B391460056AA1B /* Sources */,
-				6891696026B391460056AA1B /* Frameworks */,
-				6891696126B391460056AA1B /* Resources */,
-				B63EAEF7BA1A1484E4F66EF8 /* [CP] Embed Pods Frameworks */,
+				E13356AD0F563D9DE3F236A0 /* [CP] Check Pods Manifest.lock */,
+				6823DAC526B39C8E007B8F2E /* Sources */,
+				6823DAC626B39C8E007B8F2E /* Frameworks */,
+				6823DAC726B39C8E007B8F2E /* Resources */,
+				2DB04B4E10366CF88890BDEB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -113,24 +123,23 @@
 			);
 			name = dasiBom_for_dementiaPrevention;
 			productName = dasiBom_for_dementiaPrevention;
-			productReference = 6891696326B391460056AA1B /* dasiBom_for_dementiaPrevention.app */;
+			productReference = 6823DAC926B39C8E007B8F2E /* dasiBom_for_dementiaPrevention.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6891695B26B391460056AA1B /* Project object */ = {
+		6823DAC126B39C8E007B8F2E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					6891696226B391460056AA1B = {
+					6823DAC826B39C8E007B8F2E = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
 			};
-			buildConfigurationList = 6891695E26B391460056AA1B /* Build configuration list for PBXProject "dasiBom_for_dementiaPrevention" */;
+			buildConfigurationList = 6823DAC426B39C8E007B8F2E /* Build configuration list for PBXProject "dasiBom_for_dementiaPrevention" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -138,32 +147,32 @@
 				en,
 				Base,
 			);
-			mainGroup = 6891695A26B391460056AA1B;
-			productRefGroup = 6891696426B391460056AA1B /* Products */;
+			mainGroup = 6823DAC026B39C8E007B8F2E;
+			productRefGroup = 6823DACA26B39C8E007B8F2E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6891696226B391460056AA1B /* dasiBom_for_dementiaPrevention */,
+				6823DAC826B39C8E007B8F2E /* dasiBom_for_dementiaPrevention */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6891696126B391460056AA1B /* Resources */ = {
+		6823DAC726B39C8E007B8F2E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6891697326B391460056AA1B /* LaunchScreen.storyboard in Resources */,
-				684AC0B026B3986600340AF5 /* GoogleService-Info.plist in Resources */,
-				6891697026B391460056AA1B /* Assets.xcassets in Resources */,
-				6891696E26B391460056AA1B /* Main.storyboard in Resources */,
+				6823DADC26B39C8E007B8F2E /* LaunchScreen.storyboard in Resources */,
+				6823DAE626B39CC0007B8F2E /* GoogleService-Info.plist in Resources */,
+				6823DAD926B39C8E007B8F2E /* Assets.xcassets in Resources */,
+				6823DAD726B39C8E007B8F2E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B63EAEF7BA1A1484E4F66EF8 /* [CP] Embed Pods Frameworks */ = {
+		2DB04B4E10366CF88890BDEB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -180,7 +189,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-dasiBom_for_dementiaPrevention/Pods-dasiBom_for_dementiaPrevention-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FD5057717216D9C9315E2D3F /* [CP] Check Pods Manifest.lock */ = {
+		E13356AD0F563D9DE3F236A0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -205,31 +214,32 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6891695F26B391460056AA1B /* Sources */ = {
+		6823DAC526B39C8E007B8F2E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6891696B26B391460056AA1B /* ViewController.swift in Sources */,
-				6891696726B391460056AA1B /* AppDelegate.swift in Sources */,
-				6891696926B391460056AA1B /* SceneDelegate.swift in Sources */,
+				6823DAD426B39C8E007B8F2E /* ViewController.m in Sources */,
+				6823DACE26B39C8E007B8F2E /* AppDelegate.m in Sources */,
+				6823DADF26B39C8E007B8F2E /* main.m in Sources */,
+				6823DAD126B39C8E007B8F2E /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		6891696C26B391460056AA1B /* Main.storyboard */ = {
+		6823DAD526B39C8E007B8F2E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6891696D26B391460056AA1B /* Base */,
+				6823DAD626B39C8E007B8F2E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		6891697126B391460056AA1B /* LaunchScreen.storyboard */ = {
+		6823DADA26B39C8E007B8F2E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				6891697226B391460056AA1B /* Base */,
+				6823DADB26B39C8E007B8F2E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -237,7 +247,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		6891697526B391460056AA1B /* Debug */ = {
+		6823DAE026B39C8E007B8F2E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -293,12 +303,10 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		6891697626B391460056AA1B /* Release */ = {
+		6823DAE126B39C8E007B8F2E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -347,15 +355,13 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		6891697826B391460056AA1B /* Debug */ = {
+		6823DAE326B39C8E007B8F2E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CC78B4BB8D0AEE8734968BDB /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */;
+			baseConfigurationReference = C327C31EB26E9B8CAC54DB3B /* Pods-dasiBom_for_dementiaPrevention.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -368,14 +374,13 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jhy.dasiBom-for-dementiaPrevention";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		6891697926B391460056AA1B /* Release */ = {
+		6823DAE426B39C8E007B8F2E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9C9C5FAA1CB2F112F4AE8A5B /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */;
+			baseConfigurationReference = CBB87C2458A842EE64A87B5B /* Pods-dasiBom_for_dementiaPrevention.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -388,7 +393,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jhy.dasiBom-for-dementiaPrevention";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -396,25 +400,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6891695E26B391460056AA1B /* Build configuration list for PBXProject "dasiBom_for_dementiaPrevention" */ = {
+		6823DAC426B39C8E007B8F2E /* Build configuration list for PBXProject "dasiBom_for_dementiaPrevention" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6891697526B391460056AA1B /* Debug */,
-				6891697626B391460056AA1B /* Release */,
+				6823DAE026B39C8E007B8F2E /* Debug */,
+				6823DAE126B39C8E007B8F2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6891697726B391460056AA1B /* Build configuration list for PBXNativeTarget "dasiBom_for_dementiaPrevention" */ = {
+		6823DAE226B39C8E007B8F2E /* Build configuration list for PBXNativeTarget "dasiBom_for_dementiaPrevention" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6891697826B391460056AA1B /* Debug */,
-				6891697926B391460056AA1B /* Release */,
+				6823DAE326B39C8E007B8F2E /* Debug */,
+				6823DAE426B39C8E007B8F2E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 6891695B26B391460056AA1B /* Project object */;
+	rootObject = 6823DAC126B39C8E007B8F2E /* Project object */;
 }
