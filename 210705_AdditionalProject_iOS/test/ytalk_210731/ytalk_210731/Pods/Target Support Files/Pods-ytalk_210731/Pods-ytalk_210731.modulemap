@@ -1,0 +1,6 @@
+framework module Pods_ytalk_210731 {
+  umbrella header "Pods-ytalk_210731-umbrella.h"
+
+  export *
+  module * { export * }
+}
