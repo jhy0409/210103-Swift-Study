@@ -14,6 +14,7 @@
 		6884708C26B4FFBE00C37438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6884708A26B4FFBE00C37438 /* Main.storyboard */; };
 		6884708E26B4FFBF00C37438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6884708D26B4FFBF00C37438 /* Assets.xcassets */; };
 		6884709126B4FFBF00C37438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6884708F26B4FFBF00C37438 /* LaunchScreen.storyboard */; };
+		68CF052626B50ABB00235D10 /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 68CF052526B50ABB00235D10 /* RemoteConfigDefaults.plist */; };
 		E72A379ED976D16044480CB9 /* Pods_ytalk_210731.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69541C462C448EA7469ABA34 /* Pods_ytalk_210731.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		6884708D26B4FFBF00C37438 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6884709026B4FFBF00C37438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6884709226B4FFBF00C37438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		68CF052526B50ABB00235D10 /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		69541C462C448EA7469ABA34 /* Pods_ytalk_210731.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ytalk_210731.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 				6884708D26B4FFBF00C37438 /* Assets.xcassets */,
 				6884708F26B4FFBF00C37438 /* LaunchScreen.storyboard */,
 				6884709226B4FFBF00C37438 /* Info.plist */,
+				68CF052526B50ABB00235D10 /* RemoteConfigDefaults.plist */,
 			);
 			path = ytalk_210731;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 				6884709126B4FFBF00C37438 /* LaunchScreen.storyboard in Resources */,
 				681CC52D26B501E200ED11BF /* GoogleService-Info.plist in Resources */,
 				6884708E26B4FFBF00C37438 /* Assets.xcassets in Resources */,
+				68CF052626B50ABB00235D10 /* RemoteConfigDefaults.plist in Resources */,
 				6884708C26B4FFBE00C37438 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
