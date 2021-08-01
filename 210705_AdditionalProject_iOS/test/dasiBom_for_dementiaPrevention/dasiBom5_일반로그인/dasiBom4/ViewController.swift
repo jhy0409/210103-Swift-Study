@@ -17,19 +17,28 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        if let user = Auth.auth().currentUser {
-            emailTxtField.placeholder = "이미 로그인 된 상태입니다."
-            
-            pwTxtFIeld.placeholder = "이미 로그인 된 상태입니다."
-            
-            loginBtn.setTitle("이미 로그인 된 상태입니다.", for: .normal)
+        let user = Auth.auth().currentUser
+        if let user = user {
+            updateUI(user)
+        } else {
+            updateUI(user)
         }
-        
+//        self.view.layoutIfNeeded()
     }
     
     
     @IBAction func loginBtnTouched(_ sender: Any) {
+        let user = Auth.auth().currentUser
+        if user != nil {
+            signOut()
+            updateUI(user)
+        } else {
+            signIn()
+            updateUI(user)
+        }
+    }
+    
+    func signIn() {
         Auth.auth().signIn(withEmail: emailTxtField.text!, password: pwTxtFIeld.text!) { (user, error) in
             if user != nil  {
                 print("login success")
@@ -39,10 +48,23 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func registerBtnTouced(_ sender: Any) {
+    func signOut() {
+        try? Auth.auth().signOut()
     }
     
-    
+    func updateUI(_ user: User?) {
+        if let user = user {// 로그인 상태
+            emailTxtField.isHidden = true
+            pwTxtFIeld.isHidden = true
+            emailTxtField.text = ""
+            pwTxtFIeld.text = ""
+            loginBtn.setTitle("로그아웃", for: .normal)
+        } else { //미로그인 상태
+            emailTxtField.isHidden = false
+            pwTxtFIeld.isHidden = false
+            loginBtn.setTitle("로그인", for: .normal)
+        }
+    }
     
 }
 
