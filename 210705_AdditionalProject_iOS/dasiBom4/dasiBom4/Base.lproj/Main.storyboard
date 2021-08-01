@@ -22,6 +22,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="aAD-cy-SK8"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="valueChanged" id="H6G-cy-X3E"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
