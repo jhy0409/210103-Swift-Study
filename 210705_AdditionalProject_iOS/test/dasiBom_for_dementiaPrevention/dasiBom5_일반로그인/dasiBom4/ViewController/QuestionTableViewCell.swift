@@ -8,24 +8,36 @@
 import UIKit
 
 class QuestionTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var yesBtn: UIButton!
     @IBOutlet weak var noBtn: UIButton!
     
-    func update(info: Survey) {
+    let viewModel = QuestionViewModel.shared
+    var tmpIndex: Int?
+    
+    func update(info: Survey, index: Int) {
         questionLabel.text = info.questionTxt
+        tmpIndex = index
     }
-//
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
-
+    
+    @IBAction func yesBtnTapped(_ sender: Any) {
+        yesBtn.isSelected = true
+        noBtn.isSelected = false
+        
+        var survey = viewModel.questionArr[tmpIndex!]
+        survey.score = 1
+        
+        print("\n------> \(survey.questionTxt) - \(survey.score)")
+    }
+    
+    @IBAction func noBtnTapped(_ sender: Any) {
+        noBtn.isSelected = true
+        yesBtn.isSelected = false
+        
+        var survey = viewModel.questionArr[tmpIndex!]
+        survey.score = 0
+        
+        print("\n------> \(survey.questionTxt) - \(survey.score)")
+    }
 }

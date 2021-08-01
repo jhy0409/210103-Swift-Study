@@ -8,7 +8,7 @@
 import UIKit
 
 class SurveyViewController: UIViewController {
-    let viewModel = QuestionViewModel()
+    let viewModel = QuestionViewModel.shared
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let navigationBar = navigationController?.navigationBar else { return }
@@ -30,8 +30,8 @@ extension SurveyViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? QuestionTableViewCell else {
             return UITableViewCell()
         }
-        let survey = viewModel.questionArr[indexPath.row]
-        cell.update(info: survey)
+        var survey = viewModel.questionArr[indexPath.row]
+        cell.update(info: survey, index: indexPath.row)
         
         return cell
     }

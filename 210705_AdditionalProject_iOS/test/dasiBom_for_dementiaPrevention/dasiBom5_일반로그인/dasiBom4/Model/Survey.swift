@@ -9,11 +9,23 @@ import UIKit
 
 struct Survey {
     let questionTxt: String
-    let score: Int?
+    var score: Int?
+    
+    init(questionTxt: String, score: Int?) {
+        self.questionTxt = questionTxt
+        self.score = score
+    }
+    
+    init(_ questionTxt: String, _ score: Int?) {
+        self.questionTxt = questionTxt
+        self.score = score
+    }
+    
 }
 
 class QuestionViewModel {
-    let questionArr: [Survey] = [
+    static let shared: QuestionViewModel = QuestionViewModel()
+    var questionArr: [Survey] = [
         Survey(questionTxt: "1. 자신의 기억력에 문제가 있다고 생각하십니까?", score: nil),
         Survey(questionTxt: "2. 자신의 기억력이 10년 전보다 나빠졌다고 생각하십니까?", score: nil),
         Survey(questionTxt: "3. 자신의 기억력이 같은 또래의 다른 사람들에 비해 나쁘다고 생각하십니까?", score: nil),
