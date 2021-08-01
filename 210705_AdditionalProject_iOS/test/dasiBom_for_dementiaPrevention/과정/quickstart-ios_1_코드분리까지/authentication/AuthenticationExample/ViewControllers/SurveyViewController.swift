@@ -75,7 +75,7 @@ extension SurveyViewController: UITableViewDataSource {
         cell.backgroundColor = .systemGray6
         
         
-        cell.addSubview(<#T##view: UIView##UIView#>)
+//        cell.addSubview(<#T##view: UIView##UIView#>)
         
         return cell
     }
