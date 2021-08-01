@@ -17,11 +17,8 @@ class SurveyViewController: UIViewController {
     }
 }
 
-extension SurveyViewController: UITableViewDelegate {
-    
-}
 
-extension SurveyViewController: UITableViewDataSource {
+extension SurveyViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.questionArr.count
     }
@@ -30,9 +27,8 @@ extension SurveyViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? QuestionTableViewCell else {
             return UITableViewCell()
         }
-        var survey = viewModel.questionArr[indexPath.row]
+        let survey = viewModel.questionArr[indexPath.row]
         cell.update(info: survey, index: indexPath.row)
-        
         return cell
     }
 }

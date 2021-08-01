@@ -159,7 +159,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNC-af-2Aw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3ms-Ey-ucX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1701" y="64"/>
+            <point key="canvasLocation" x="1758" y="73"/>
         </scene>
         <!--자가진단-->
         <scene sceneID="Ya1-3w-iZZ">

@@ -27,8 +27,9 @@ class QuestionTableViewCell: UITableViewCell {
         
         var survey = viewModel.questionArr[tmpIndex!]
         survey.score = 1
+        survey.checked = true
         
-        print("\n------> \(survey.questionTxt) - \(survey.score)")
+        print("\n------> \(survey.questionTxt) - \(survey.score!)")
     }
     
     @IBAction func noBtnTapped(_ sender: Any) {
@@ -37,7 +38,8 @@ class QuestionTableViewCell: UITableViewCell {
         
         var survey = viewModel.questionArr[tmpIndex!]
         survey.score = 0
+        survey.checked = true
         
-        print("\n------> \(survey.questionTxt) - \(survey.score)")
+        print("\n------> \(survey.questionTxt) - \(survey.score!)")
     }
 }
