@@ -360,7 +360,7 @@
         <!--설정-->
         <scene sceneID="7TH-Jw-YVR">
             <objects>
-                <tableViewController id="sK6-7R-YeJ" sceneMemberID="viewController">
+                <tableViewController id="sK6-7R-YeJ" customClass="SettingsTableViewController" customModule="dasiBom4" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="cbn-yI-fc0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -432,6 +432,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="설정" image="gear" catalog="system" id="fzP-nG-uoU"/>
+                    <connections>
+                        <outlet property="serverSwitch" destination="rSS-9u-gTh" id="yDT-1X-fMz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="om7-QV-ssl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

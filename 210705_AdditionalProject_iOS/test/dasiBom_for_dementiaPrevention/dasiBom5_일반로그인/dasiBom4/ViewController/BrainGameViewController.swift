@@ -33,6 +33,10 @@ class BrainGameViewController: UIViewController {
                                               UIColor(hex: "#15cc94"), UIColor(hex: "#a59ddd")]
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setUIButton(btnArr) // 오토 레이아웃
         makeLabelTxt() // 간단 문제 라벨 세팅, 정답버튼 내용 랜덤배치
         submitUser(btnArr) // 버튼탭 할 때 동작
