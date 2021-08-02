@@ -22,25 +22,39 @@ class SurveyViewController: UIViewController {
     }
     
     @IBAction func submitBtn_Tapped(_ sender: Any) {
-        checkTrue()
+         showAlert("검사결과", checkTrue())
     }
     
-    func checkTrue() {
-        print("\n\n ------------>>>>>>>>>>> 111")
-        var tmpBool = false
+    func checkTrue() -> (Bool, String) {
         let tmpRange = 0...13
-        
-        
         let queArr = viewModel.getQueArr()
+        var totalSum: Int = 0
         
         for i in tmpRange {
-            if i == 0 {
-                print("\n0번째 ----- 점수 : \(queArr[0].score) / 체크여부 : \(queArr[0].checked)")
-            } else {
-                print("\n\(i)번째 ----- 점수 : \(queArr[i].score) / 체크여부 : \(queArr[i].checked)")
+            guard let tmpScore = queArr[i].score, let tmpChecked = queArr[i].checked
+            else {
+                showAlert("알림창", "누락된 항목이 있습니다.")
+                return (false, "")
             }
+            totalSum += queArr[i].score! // cell에서 체크시 점수를 주므로 강제추출 가능
         }
-        print("\n\n ------------>>>>>>>>>>> 333")
+        return (true, "\(totalSum)")
+    }
+    
+    func showAlert(_ title: String, _ msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func showAlert(_ title: String, _ msg: (Bool, String)) {
+        guard msg.0 == true else { return }
+        
+        let alert = UIAlertController(title: title, message: "검사결과는 \(msg.1)", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
     }
 }
 
