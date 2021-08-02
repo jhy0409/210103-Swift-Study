@@ -78,14 +78,14 @@ extension BrainGameViewController {
     }
     
     func makeLabelTxt() {
-        var tmpN1 = Int.random(in: 1...10)
-        var tmpN2 = Int.random(in: 1...10)
-        var tmpN3 = Int.random(in: 1...10)
+        let tmpN1 = Int.random(in: 1...10)
+        let tmpN2 = Int.random(in: 1...10)
+        let tmpN3 = Int.random(in: 1...10)
         
         let oper: [String] = ["+", "-", "*"]
-        var oper1: String = oper.randomElement()!
-        var oper2: String = oper.randomElement()!
-        var tmpStr: String = "\(tmpN1) \(oper1) (\(tmpN2) \(oper2) \(tmpN3))"
+        let oper1: String = oper.randomElement()!
+        let oper2: String = oper.randomElement()!
+        let tmpStr: String = "\(tmpN1) \(oper1) (\(tmpN2) \(oper2) \(tmpN3))"
         print("\n----> \(tmpStr)")
         questionLabel.text = "문제 : \(tmpStr)"
         answer = calcResult(tmpN1, tmpN2, tmpN3, oper1, oper2)
