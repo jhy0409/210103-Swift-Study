@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SurveyViewController: UIViewController {
     let viewModel = QuestionViewModel.shared
