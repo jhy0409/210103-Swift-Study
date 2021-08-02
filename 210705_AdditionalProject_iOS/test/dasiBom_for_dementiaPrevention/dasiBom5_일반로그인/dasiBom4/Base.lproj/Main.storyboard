@@ -159,7 +159,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNC-af-2Aw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3ms-Ey-ucX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1758" y="73"/>
+            <point key="canvasLocation" x="1757.9710144927537" y="72.991071428571431"/>
         </scene>
         <!--자가진단-->
         <scene sceneID="Ya1-3w-iZZ">
@@ -320,7 +320,7 @@
         <!--게임하기-->
         <scene sceneID="sTI-Vt-xeT">
             <objects>
-                <viewController id="NcO-xQ-Kgg" sceneMemberID="viewController">
+                <viewController id="NcO-xQ-Kgg" customClass="BrainGameViewController" customModule="dasiBom4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8yN-rK-Ds8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -331,15 +331,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문제 : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="22m-kj-9O8">
+                                <rect key="frame" x="40" y="133" width="49.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p5V-Gi-UB6"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="je6-vT-jxZ" firstAttribute="leading" secondItem="p5V-Gi-UB6" secondAttribute="leading" constant="40" id="OZG-1U-xk7"/>
+                            <constraint firstItem="22m-kj-9O8" firstAttribute="top" secondItem="je6-vT-jxZ" secondAttribute="bottom" constant="8" symbolic="YES" id="knr-Qk-5vB"/>
                             <constraint firstItem="je6-vT-jxZ" firstAttribute="top" secondItem="p5V-Gi-UB6" secondAttribute="top" constant="40" id="qDX-9m-tLi"/>
+                            <constraint firstItem="22m-kj-9O8" firstAttribute="leading" secondItem="je6-vT-jxZ" secondAttribute="leading" id="sHG-Dq-cIl"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="게임하기" image="gamecontroller" catalog="system" id="cQO-Ol-z7x"/>
+                    <connections>
+                        <outlet property="questionLabel" destination="22m-kj-9O8" id="EcU-3C-PMP"/>
+                        <outlet property="view" destination="8yN-rK-Ds8" id="MMX-wV-jPk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9VP-jl-uvX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

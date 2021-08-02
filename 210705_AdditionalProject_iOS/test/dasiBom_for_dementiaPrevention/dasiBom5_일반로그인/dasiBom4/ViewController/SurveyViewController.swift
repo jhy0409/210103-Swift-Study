@@ -11,15 +11,6 @@ import Firebase
 class SurveyViewController: UIViewController {
     let viewModel = QuestionViewModel.shared
     @IBOutlet weak var submitBtn: UIButton!
-    /*
-     Todo
-     [] 제출버튼 클릭 시 파이어베이스 연동
-        - [] 예외처리 : 서버와 연동여부
-     [] 결과조회 탭 - 그전 검사결과 받아오기
-        - [] 예외처리 : 검사이력 없을 시 perform Segue(검사탭으로 이동)
-     
-     [] 게임하기 탭 - 게임이력 파이어베이스 연동
-     */
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let navigationBar = navigationController?.navigationBar else { return }
