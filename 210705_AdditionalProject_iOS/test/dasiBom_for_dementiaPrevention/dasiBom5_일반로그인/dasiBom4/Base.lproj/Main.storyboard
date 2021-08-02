@@ -213,7 +213,7 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oNH-lF-woL" userLabel="n_radioBtn">
                                                             <rect key="frame" x="371" y="26" width="23" height="23.5"/>
-                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" systemColor="systemRedColor"/>
                                                             <state key="normal" image="circle" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                                             </state>
@@ -233,7 +233,7 @@
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9k-3y-Emy" userLabel="y_radioBtn">
                                                             <rect key="frame" x="340" y="26" width="23" height="23.5"/>
-                                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" systemColor="systemGreenColor"/>
                                                             <state key="normal" image="circle" catalog="system">
                                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="20"/>
                                                             </state>
@@ -301,6 +301,50 @@
             </objects>
             <point key="canvasLocation" x="-26.086956521739133" y="959.59821428571422"/>
         </scene>
+        <!--결과조회-->
+        <scene sceneID="WHd-XV-7Wo">
+            <objects>
+                <viewController id="oph-cw-Pry" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mke-zh-T99">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="abd-wv-C33"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="결과조회" image="text.justify" catalog="system" id="quJ-tf-nHB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lne-RQ-SVW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="884" y="907"/>
+        </scene>
+        <!--게임하기-->
+        <scene sceneID="sTI-Vt-xeT">
+            <objects>
+                <viewController id="NcO-xQ-Kgg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8yN-rK-Ds8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="게임하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je6-vT-jxZ">
+                                <rect key="frame" x="40" y="84" width="118" height="41"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="34"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="p5V-Gi-UB6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="je6-vT-jxZ" firstAttribute="leading" secondItem="p5V-Gi-UB6" secondAttribute="leading" constant="40" id="OZG-1U-xk7"/>
+                            <constraint firstItem="je6-vT-jxZ" firstAttribute="top" secondItem="p5V-Gi-UB6" secondAttribute="top" constant="40" id="qDX-9m-tLi"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="게임하기" image="gamecontroller" catalog="system" id="cQO-Ol-z7x"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9VP-jl-uvX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1758" y="907"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dia-BJ-wSS">
             <objects>
@@ -314,6 +358,8 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="bv2-Zk-J0H"/>
                         <segue destination="JBs-nd-d4g" kind="relationship" relationship="viewControllers" id="3QW-fJ-6ig"/>
+                        <segue destination="oph-cw-Pry" kind="relationship" relationship="viewControllers" id="wIQ-lv-ERk"/>
+                        <segue destination="NcO-xQ-Kgg" kind="relationship" relationship="viewControllers" id="8iw-Vv-MJT"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgr-3j-DfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -324,13 +370,21 @@
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
+        <image name="gamecontroller" catalog="system" width="128" height="80"/>
         <image name="sparkle" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <image name="text.justify" catalog="system" width="128" height="100"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
