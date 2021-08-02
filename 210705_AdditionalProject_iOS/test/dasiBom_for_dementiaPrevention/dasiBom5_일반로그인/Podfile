@@ -12,4 +12,6 @@ target 'dasiBom4' do
   pod 'Firebase/Firestore'
   pod 'GoogleSignIn'
   pod ‘Firebase/Database’
+
+  pod 'SnapKit', '~> 5.0.0'
 end

@@ -33,6 +33,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOh-mU-ggF">
+                                <rect key="frame" x="172" y="426" width="70" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="로그아웃"/>
+                                <connections>
+                                    <action selector="logOutBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qWZ-Ca-LSW"/>
+                                    <action selector="loginBtnTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U4w-di-Dh8"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="env-rp-agx">
                                 <rect key="frame" x="181" y="426" width="52" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -53,6 +62,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="QOh-mU-ggF" firstAttribute="centerY" secondItem="env-rp-agx" secondAttribute="centerY" id="3dP-jV-YMB"/>
                             <constraint firstItem="4th-RI-oXf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="6sa-XX-S0V"/>
                             <constraint firstItem="WgW-te-vWA" firstAttribute="centerX" secondItem="env-rp-agx" secondAttribute="centerX" id="8ZE-vy-Mft"/>
                             <constraint firstItem="env-rp-agx" firstAttribute="top" secondItem="4th-RI-oXf" secondAttribute="bottom" constant="30" id="8kL-RY-LWg"/>
@@ -65,11 +75,13 @@
                             <constraint firstItem="KrS-ZN-VVz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="216" id="cI5-YV-nL6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KrS-ZN-VVz" secondAttribute="trailing" constant="40" id="pwN-ML-3Ua"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4th-RI-oXf" secondAttribute="trailing" constant="40" id="sH1-Rc-cGV"/>
+                            <constraint firstItem="QOh-mU-ggF" firstAttribute="centerX" secondItem="env-rp-agx" secondAttribute="centerX" id="uTt-i2-Cav"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="로그인" image="sparkle" catalog="system" id="HpJ-yl-950"/>
                     <connections>
                         <outlet property="emailTxtField" destination="KrS-ZN-VVz" id="nL1-sI-dcS"/>
+                        <outlet property="logOutBtn" destination="QOh-mU-ggF" id="maD-p0-V2h"/>
                         <outlet property="loginBtn" destination="env-rp-agx" id="uhb-xW-TjZ"/>
                         <outlet property="pwTxtFIeld" destination="4th-RI-oXf" id="9xs-y6-EZm"/>
                     </connections>
