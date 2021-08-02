@@ -14,6 +14,7 @@ class QuestionTableViewCell: UITableViewCell {
     @IBOutlet weak var noBtn: UIButton!
     
     let viewModel = QuestionViewModel.shared
+    lazy var queArr = viewModel.getQueArr()
     var tmpIndex: Int?
     
     func update(info: Survey, index: Int) {
@@ -25,21 +26,24 @@ class QuestionTableViewCell: UITableViewCell {
         yesBtn.isSelected = true
         noBtn.isSelected = false
         
-        var survey = viewModel.questionArr[tmpIndex!]
+//        var survey = viewModel.questionArr[tmpIndex!]
+        var survey = queArr[tmpIndex!]
         survey.score = 1
         survey.checked = true
         
-        print("\n------> \(survey.questionTxt) - \(survey.score!)")
+        viewModel.updateSurvey(tmpIndex!, 1, true)
+        print("\n------> \(survey.questionTxt) - \(survey.score!) & - \(survey.checked!)")
     }
     
     @IBAction func noBtnTapped(_ sender: Any) {
         noBtn.isSelected = true
         yesBtn.isSelected = false
         
-        var survey = viewModel.questionArr[tmpIndex!]
+        var survey = queArr[tmpIndex!]
         survey.score = 0
         survey.checked = true
         
-        print("\n------> \(survey.questionTxt) - \(survey.score!)")
+        viewModel.updateSurvey(tmpIndex!, 0, true)
+        print("\n------> \(survey.questionTxt) - \(survey.score!) & - \(survey.checked!)")
     }
 }

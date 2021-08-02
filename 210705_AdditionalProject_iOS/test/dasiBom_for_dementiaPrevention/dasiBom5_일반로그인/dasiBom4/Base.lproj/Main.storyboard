@@ -175,15 +175,26 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HO-bV-NbG">
                                         <rect key="frame" x="0.0" y="800" width="414" height="123"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPk-hw-9y1">
-                                                <rect key="frame" x="184" y="46" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPk-hw-9y1">
+                                                <rect key="frame" x="30" y="36.5" width="354" height="50"/>
+                                                <color key="backgroundColor" name="AccentColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="288-aG-klc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal" title="제출">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="submitBtn_Tapped:" destination="JBs-nd-d4g" eventType="touchUpInside" id="kqc-S7-FE3"/>
+                                                </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="123" id="Gwf-kU-j9R"/>
+                                            <constraint firstItem="lPk-hw-9y1" firstAttribute="centerY" secondItem="5HO-bV-NbG" secondAttribute="centerY" id="VMh-zy-ILK"/>
+                                            <constraint firstItem="lPk-hw-9y1" firstAttribute="leading" secondItem="5HO-bV-NbG" secondAttribute="leading" constant="30" id="pNF-lX-oFB"/>
+                                            <constraint firstAttribute="trailing" secondItem="lPk-hw-9y1" secondAttribute="trailing" constant="30" id="zMW-r9-qvr"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yAs-ES-YWj">
@@ -282,6 +293,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="자가진단" image="square.and.pencil" catalog="system" id="ybw-5r-bD1"/>
                     <size key="freeformSize" width="414" height="1055"/>
+                    <connections>
+                        <outlet property="submitBtn" destination="lPk-hw-9y1" id="u8s-gx-Iv5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HnN-kd-7Nh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -317,9 +331,6 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -21,7 +21,6 @@ struct Survey {
         self.questionTxt = questionTxt
         self.score = score
     }
-    
 }
 
 class QuestionViewModel {
@@ -44,4 +43,17 @@ class QuestionViewModel {
         Survey(questionTxt: "13. 가스불이나 전기불 끄는 것을 기억하기 어렵습니까?", score: nil, checked: false),
         Survey(questionTxt: "14. 자주 사용하는 전화번호(자신 혹은 자녀의 집)를 기억하기 어렵습니까?", score: nil, checked: false)
     ]
+    
+    func getQueArr() -> [Survey] {
+        return questionArr
+    }
+    
+    func setQueArr(_ tmpQue: [Survey]) {
+        self.questionArr = tmpQue
+    }
+    
+    func updateSurvey(_ index: Int, _ score: Int, _ checked: Bool) {
+        self.questionArr[index].checked = checked
+        self.questionArr[index].score = score
+    }
 }
