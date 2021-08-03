@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct UserGameResults {
+struct UserGameResults: Codable {
     /*
      있어야할 것
      - 날짜별
