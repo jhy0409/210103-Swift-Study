@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class BrainGameViewController: UIViewController {
     
@@ -31,6 +32,9 @@ class BrainGameViewController: UIViewController {
     lazy var rainbowUIColorArr: [UIColor] = [ UIColor(hex: "#ea58aa"), UIColor(hex: "#f59acc"),
                                               UIColor(hex: "#f9c455"), UIColor(hex: "#7ce9dd"),
                                               UIColor(hex: "#15cc94"), UIColor(hex: "#a59ddd")]
+    
+    var user = Auth.auth().currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,28 +42,31 @@ class BrainGameViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setUIButton(btnArr) // 오토 레이아웃
-        makeLabelTxt() // 간단 문제 라벨 세팅, 정답버튼 내용 랜덤배치
         submitUser(btnArr) // 버튼탭 할 때 동작
+        makeLabelTxt() // 간단 문제 라벨 세팅, 정답버튼 내용 랜덤배치
     }
 }
 
 extension BrainGameViewController {
+    // [ㅇ] 버튼배열을 받아와서 각 버튼 클릭시 연결할 동일한 함수를 연결 - buttonAction
     func submitUser(_ btnArr: [UIButton]) {
         for i in btnArr {
             i.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
         }
     }
     
+    // [ㅇ] 버튼클릭시 동작, uibutton에서 보내는 내용을 알림창으로 띄울 매개변수로 전달.
     @objc func buttonAction(_ sender: UIButton!) {
         guard let str = sender.titleLabel?.text else { return }
         print("Button tapped \(str)")
         showAlert(str, "알림")
     }
     
+    // [ㅇ] 정답여부에 따른 알림창띄우기
     func showAlert(_ userResult: String, _ title: String?) {
-        var msg = ""
-        var tmpBool: Bool
-        if userResult == answer {
+        var msg = "" // 임시변수
+        var tmpBool: Bool // 임시 bool값
+        if userResult == answer { // 조건 : 유저가 클릭한 버튼의 내용(답)과 전역변수에서 계산한 식의 답이 같으면
             msg = "정답입니다."
             tmpBool = true
         } else {
@@ -68,19 +75,21 @@ extension BrainGameViewController {
         }
         
         let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
-        if tmpBool == false {
+        // [ㅇ] 코드분기 - 유저가 클릭한 버튼이 정답과 오답여부
+        if tmpBool == false { // 오답일 때
             let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
             alert.addAction(ok)
-        } else {
+        } else { // 정답일 때
             let ok = UIAlertAction(title: "확인", style: .default) { _ in
-                self.setUIButton(self.btnArr)
-                self.makeLabelTxt()
+                self.setUIButton(self.btnArr) // 버튼내용 새로 갱신
+                self.makeLabelTxt() // 정답버튼으로 갱신 - 4개버튼 중 랜덤
             }
             alert.addAction(ok)
         }
         present(alert, animated: true, completion: nil)
     }
     
+    // [ㅇ] 문제라벨 생성 메소드 - 숫자세개와 연산자 2개를 랜덤으로 생성
     func makeLabelTxt() {
         let tmpN1 = Int.random(in: 1...10)
         let tmpN2 = Int.random(in: 1...10)
@@ -97,9 +106,10 @@ extension BrainGameViewController {
         
     }
     
+    // [ㅇ] 메소드 - 문제에 대한 답 연산 후 전역변수 answer에 값 업데이트
     func calcResult(_ n1: Int, _ n2: Int, _ n3: Int, _ oper1: String, _ oper2: String) -> String{
         var result1: Int
-        switch oper2 {
+        switch oper2 { // 괄호로 묶인 두번째 항부터 연산
         case "+":
             result1 = n2 + n3
         case "-":
@@ -109,7 +119,7 @@ extension BrainGameViewController {
         }
         
         var result2: Int
-        switch oper1 {
+        switch oper1 { // 두번째 항 계산이 끝난 뒤 전체연산
         case "+":
             result2 = n1 + result1
         case "-":
@@ -121,6 +131,7 @@ extension BrainGameViewController {
         return "\(result2)"
     }
     
+    // [ㅇ] 버튼 오토 레이아웃 및 버튼숫자 랜덤생성
     func setUIButton(_ btnArr: [UIButton]) {
         let itemSpacing: CGFloat = 18
         let margin: CGFloat = 40

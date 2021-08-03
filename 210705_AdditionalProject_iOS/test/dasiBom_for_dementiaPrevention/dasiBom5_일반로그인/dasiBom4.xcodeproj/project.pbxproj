@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		63C4AC7E0B873B8F40C09538 /* Pods_dasiBom4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9E1CDB5722B5B0878CAE4A /* Pods_dasiBom4.framework */; };
+		6857CBC526B8CECC0061A63F /* UserGameResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6857CBC426B8CECC0061A63F /* UserGameResults.swift */; };
 		689701FF26B7B4FA00006D8B /* BrainGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689701FE26B7B4FA00006D8B /* BrainGameViewController.swift */; };
 		6897020226B7C19E00006D8B /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6897020126B7C19E00006D8B /* ExtensionUIColor.swift */; };
 		689A98D426B7E2C000D1B88B /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689A98D326B7E2C000D1B88B /* SettingsTableViewController.swift */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6857CBC426B8CECC0061A63F /* UserGameResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameResults.swift; sourceTree = "<group>"; };
 		689701FE26B7B4FA00006D8B /* BrainGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameViewController.swift; sourceTree = "<group>"; };
 		6897020126B7C19E00006D8B /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 		689A98D326B7E2C000D1B88B /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				68AE6D3E26B6934500B1C281 /* Survey.swift */,
+				6857CBC426B8CECC0061A63F /* UserGameResults.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				68CED95226B425DC0023A202 /* SceneDelegate.swift in Sources */,
 				689A98D426B7E2C000D1B88B /* SettingsTableViewController.swift in Sources */,
 				689701FF26B7B4FA00006D8B /* BrainGameViewController.swift in Sources */,
+				6857CBC526B8CECC0061A63F /* UserGameResults.swift in Sources */,
 				68AE6D3C26B6919000B1C281 /* SurveyViewController.swift in Sources */,
 				68AE6D4126B6980F00B1C281 /* QuestionTableViewCell.swift in Sources */,
 			);
