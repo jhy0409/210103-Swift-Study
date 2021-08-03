@@ -7,7 +7,14 @@
 
 import UIKit
 import Firebase
-
+/*
+ Todo
+ 
+ [ㅇ] 검사 제출버튼 클릭 시 파이어베이스 연동
+    - [ㅇ] 예외처리 : 서버와 연동여부
+        - 함수이름 : submitBtn_Tapped
+        - 동작    : 미로그인 시 알림창만 뜸
+ */
 class SurveyViewController: UIViewController {
     let viewModel = QuestionViewModel.shared
     @IBOutlet weak var tableView: UITableView!

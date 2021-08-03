@@ -14,11 +14,6 @@ class BrainGameViewController: UIViewController {
     
     /*
      Todo
-     [ㅇ] 검사 제출버튼 클릭 시 파이어베이스 연동
-        - [ㅇ] 예외처리 : 서버와 연동여부
-            - 함수이름 : submitBtn_Tapped
-            - 동작    : 미로그인 시 알림창만 뜸
-     
      [] 결과조회 탭 - 그전 검사결과 받아오기
         - [] 예외처리 : 검사이력 없을 시 perform Segue(검사탭으로 이동)
      

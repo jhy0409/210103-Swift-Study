@@ -9,15 +9,13 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var pwTxtFIeld: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var logOutBtn: UIButton!
     
     var user = Auth.auth().currentUser
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
