@@ -14,7 +14,7 @@ class BrainGameViewController: UIViewController {
     
     /*
      Todo
-     [] 제출버튼 클릭 시 파이어베이스 연동
+     [] 검사 제출버튼 클릭 시 파이어베이스 연동
         - [] 예외처리 : 서버와 연동여부
      
      [] 결과조회 탭 - 그전 검사결과 받아오기
@@ -54,6 +54,7 @@ class BrainGameViewController: UIViewController {
     }
 }
 
+// MARK: - 파이어베이스 업로드를 위한 메소드
 extension BrainGameViewController {
     // [ㅇ] 게임 시도회수 갱신 - 전역변수
     func updateTryNum(_ str: String) -> Bool {
@@ -124,6 +125,7 @@ extension BrainGameViewController {
     }
 }
 
+// MARK: - UI 및 오토레이아웃 관련 메소드
 extension BrainGameViewController {
     // [ㅇ] 버튼 오토 레이아웃 및 버튼숫자 랜덤생성
     func setUIButton(_ btnArr: [UIButton]) {
