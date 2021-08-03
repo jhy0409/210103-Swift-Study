@@ -11,3 +11,6 @@ var b: Bool {
 }
 
 b
+
+
+let date = Date()

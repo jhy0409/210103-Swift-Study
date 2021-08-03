@@ -15,15 +15,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var logOutBtn: UIButton!
     
+    var user = Auth.auth().currentUser
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         logOutBtn.isHidden = true
         
-        if let user = Auth.auth().currentUser {
+        if let user = user {
             self.updateUI(user)
         } else { self.updateUI(nil) }
     }
-    
     
     @IBAction func loginBtnTouched(_ sender: Any) {
         let user = Auth.auth().currentUser
