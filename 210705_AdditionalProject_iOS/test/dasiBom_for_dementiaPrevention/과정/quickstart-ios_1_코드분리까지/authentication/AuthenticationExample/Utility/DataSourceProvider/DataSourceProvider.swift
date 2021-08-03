@@ -32,7 +32,7 @@ class DataSourceProvider<DataSource: DataSourceProvidable>: NSObject, UITableVie
     tableView?.delegate = self
   }
 
-  // MARK: Public Section and Item Getters
+  // MARK: - Public Section and Item Getters
 
   public func section(at indexPath: IndexPath) -> DataSource.Section {
     return sections[indexPath.section]

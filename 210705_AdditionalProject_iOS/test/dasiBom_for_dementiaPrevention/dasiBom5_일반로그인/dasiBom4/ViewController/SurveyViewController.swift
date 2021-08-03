@@ -10,7 +10,12 @@ import Firebase
 
 class SurveyViewController: UIViewController {
     let viewModel = QuestionViewModel.shared
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var submitBtn: UIButton!
+    
+    let db = Database.database().reference().child("users")
+    var user = Auth.auth().currentUser
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let navigationBar = navigationController?.navigationBar else { return }
@@ -22,7 +27,16 @@ class SurveyViewController: UIViewController {
     }
     
     @IBAction func submitBtn_Tapped(_ sender: Any) {
-         showAlert("검사결과", checkTrue())
+        showAlert("검사결과", checkTrue())
+        
+        guard let user = user, checkTrue().0 == true else { return } // 서버와 연동 - 로그인된 사용자가 있고, 누락항목이 없을 떄
+        let uID = user.uid
+        let timestamp: Int = Int(Date().timeIntervalSince1970.rounded()) // 등록일자
+        
+        let today = BrainGameViewController.makeDate_YYYYMMDD(Date())
+        let riskType: String =  checkTrue().1 <= 5 ? "정상" : "위험"
+        let resultScore: Int =  checkTrue().1
+        db.child("\(uID)").child("selfTest").childByAutoId().setValue(["timestamp": timestamp,"today": today, "resultScore": resultScore, "riskType": riskType])
     }
     
     func checkTrue() -> (Bool, Int) {
@@ -67,7 +81,7 @@ class SurveyViewController: UIViewController {
     }
 }
 
-
+// MARK: -
 extension SurveyViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.questionArr.count

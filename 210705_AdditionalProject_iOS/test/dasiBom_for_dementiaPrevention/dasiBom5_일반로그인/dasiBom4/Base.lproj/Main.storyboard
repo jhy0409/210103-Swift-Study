@@ -307,6 +307,7 @@
                     <size key="freeformSize" width="414" height="1055"/>
                     <connections>
                         <outlet property="submitBtn" destination="lPk-hw-9y1" id="u8s-gx-Iv5"/>
+                        <outlet property="tableView" destination="yAs-ES-YWj" id="jBN-uq-ZhH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HnN-kd-7Nh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
