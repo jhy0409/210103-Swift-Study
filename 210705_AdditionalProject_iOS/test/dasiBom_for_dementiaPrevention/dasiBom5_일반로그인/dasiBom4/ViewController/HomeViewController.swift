@@ -28,19 +28,29 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         logOutBtn.isHidden = true
         
-        makeBtnBorder(btnArr)
+        makeBtnBorder(btnArr, nil)
         if let user = user {
             self.updateUI(user)
         } else { self.updateUI(nil) }
     }
     
     
-    func makeBtnBorder(_ btnArr: [UIButton]) {
+    func makeBtnBorder(_ btnArr: [UIButton], _ user: User?) {
         let range = 0...btnArr.count - 1
-        for i in range {
-            btnArr[i].layer.borderColor = UIColor.systemBlue.cgColor
-            btnArr[i].layer.borderWidth = 2
-            btnArr[i].layer.cornerRadius = btnArr[i].frame.height / 2
+        if user == nil {
+            for i in range {
+                btnArr[i].layer.borderColor = UIColor.systemBlue.cgColor
+                btnArr[i].layer.borderWidth = 2
+                btnArr[i].layer.cornerRadius = btnArr[i].frame.height / 2
+                btnArr[i].setTitleColor(.systemBlue, for: .normal)
+            }
+        } else {
+            for i in range {
+                btnArr[i].layer.borderColor = UIColor.white.cgColor
+                btnArr[i].layer.borderWidth = 2
+                btnArr[i].layer.cornerRadius = btnArr[i].frame.height / 2
+                btnArr[i].setTitleColor(.white, for: .normal)
+            }
         }
     }
     
@@ -80,6 +90,8 @@ class HomeViewController: UIViewController {
             loginBtn.isHidden = true
             logOutBtn.isHidden = false
             
+            view.backgroundColor = .systemBlue
+            makeBtnBorder(btnArr, user)
             logOutBtn_topConstant.constant = view.bounds.height * 0.2
             signUpBtn_topConstant.constant = logOutBtn_topConstant.constant + 20
         } else { //미로그인 상태
@@ -87,7 +99,10 @@ class HomeViewController: UIViewController {
             pwTxtFIeld.isHidden = false
             logOutBtn.isHidden = true
             loginBtn.isHidden = false
+            
+            view.backgroundColor = .white
             signUpBtn_topConstant.constant = oldValue
+            makeBtnBorder(btnArr, nil)
         }
     }
     
