@@ -26,7 +26,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4th-RI-oXf" userLabel="pw_inputTxtField">
-                                <rect key="frame" x="40" y="346" width="334" height="50"/>
+                                <rect key="frame" x="40" y="330" width="334" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="924-z4-H6f"/>
                                 </constraints>
@@ -34,7 +34,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOh-mU-ggF">
-                                <rect key="frame" x="40" y="426" width="334" height="50"/>
+                                <rect key="frame" x="40" y="410" width="334" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="mfb-7w-FsC"/>
                                 </constraints>
@@ -45,7 +45,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="env-rp-agx">
-                                <rect key="frame" x="40" y="426" width="334" height="50"/>
+                                <rect key="frame" x="40" y="410" width="334" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="QzG-YQ-1Fw"/>
                                 </constraints>
@@ -56,7 +56,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgW-te-vWA">
-                                <rect key="frame" x="40" y="496" width="334" height="50"/>
+                                <rect key="frame" x="40" y="480" width="334" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="gPm-p4-xLb"/>
                                 </constraints>
@@ -77,7 +77,7 @@
                             <constraint firstItem="env-rp-agx" firstAttribute="top" secondItem="4th-RI-oXf" secondAttribute="bottom" constant="30" id="8kL-RY-LWg"/>
                             <constraint firstItem="4th-RI-oXf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="BPb-4M-phf"/>
                             <constraint firstItem="env-rp-agx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CS8-bs-pJR"/>
-                            <constraint firstItem="4th-RI-oXf" firstAttribute="top" secondItem="KrS-ZN-VVz" secondAttribute="bottom" constant="36" id="JSc-fP-qlF"/>
+                            <constraint firstItem="4th-RI-oXf" firstAttribute="top" secondItem="KrS-ZN-VVz" secondAttribute="bottom" constant="20" id="JSc-fP-qlF"/>
                             <constraint firstItem="KrS-ZN-VVz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NGa-AC-L0h"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="env-rp-agx" secondAttribute="trailing" constant="40" id="Ovj-aN-Kca"/>
                             <constraint firstItem="KrS-ZN-VVz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Uj7-bn-6Eq"/>

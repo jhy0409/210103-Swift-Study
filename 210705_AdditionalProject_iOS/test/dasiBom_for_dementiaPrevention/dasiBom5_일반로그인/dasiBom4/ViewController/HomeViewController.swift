@@ -92,7 +92,7 @@ class HomeViewController: UIViewController {
             
             view.backgroundColor = .systemBlue
             makeBtnBorder(btnArr, user)
-            logOutBtn_topConstant.constant = view.bounds.height * 0.2
+            logOutBtn_topConstant.constant += 15
             signUpBtn_topConstant.constant = logOutBtn_topConstant.constant + 20
         } else { //미로그인 상태
             emailTxtField.isHidden = false
