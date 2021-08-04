@@ -52,8 +52,7 @@ class ViewResultController: UIViewController {
         if uID != nil {
             dbForGame = Database.database().reference().child("users").child("\(uID!)").child("game")
             dbForTest = Database.database().reference().child("users").child("\(uID!)").child("selfTest")
-            
-            
+            print("\n\n------------> ViewResultController uID : \(uID)")
             dbForGame?.observeSingleEvent(of: .value) { (snapshot) in
                 guard let gameHistory = snapshot.value as? [String: Any] else { print("\n\n\n -----> error dbForGame"); return }
                 let data = try! JSONSerialization.data(withJSONObject: Array(gameHistory.values), options: [])
