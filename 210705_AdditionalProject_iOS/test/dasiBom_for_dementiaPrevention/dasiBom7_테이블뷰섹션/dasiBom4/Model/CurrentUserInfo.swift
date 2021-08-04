@@ -10,11 +10,24 @@ import UIKit
 // MARK: - for game 
 struct userGameResult: Codable {
     let correctPercentage: Double
-    let timestamp: TimeInterval
+    let timestamp: Int
     let today: String
     let totalTime: Int
     let tryNum: Int
     
+    func getAllString() -> String {
+        let DateFormatter = DateFormatter()
+        DateFormatter.dateFormat = "yyyy.M.d - a h시 m분 s초"
+        DateFormatter.locale = Locale(identifier:"ko_KR")
+        
+        let date = "\(DateFormatter.string(from: Date(timeIntervalSince1970: Double(timestamp))))"
+        var tmpStr = ""
+        tmpStr += "게임일시 : \(date)\n"
+        tmpStr += "시도횟수 : \(tryNum)\n"
+        tmpStr += "소요시간 : \(totalTime)\n"
+        tmpStr += "정답확률 : \(Int(correctPercentage * 100))%"
+        return tmpStr
+    }
     
 }
 
@@ -22,6 +35,6 @@ struct userGameResult: Codable {
 struct userTestResult: Codable {
     let resultScore: Int
     let riskType: String
-    let timestamp: TimeInterval
+    let timestamp: Int
     let today: String
 }
