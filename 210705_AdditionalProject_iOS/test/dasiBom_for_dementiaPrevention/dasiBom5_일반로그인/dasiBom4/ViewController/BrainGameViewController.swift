@@ -23,11 +23,9 @@ class BrainGameViewController: UIViewController {
      */
     
     @IBOutlet weak var questionLabel: UILabel!
-    var answer: String?
+    var answer: String? // 사용자 제출답안 전역변수
     
-    let btn1 = UIButton(); let btn2 = UIButton()
-    let btn3 = UIButton(); let btn4 = UIButton()
-    lazy var btnArr: [UIButton] = [btn1, btn2, btn3, btn4]
+    lazy var btnArr: [UIButton] = []
     lazy var rainbowUIColorArr: [UIColor] = [ UIColor(hex: "#ea58aa"), UIColor(hex: "#f59acc"),
                                               UIColor(hex: "#f9c455"), UIColor(hex: "#7ce9dd"),
                                               UIColor(hex: "#15cc94"), UIColor(hex: "#a59ddd")]
@@ -41,6 +39,7 @@ class BrainGameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        makeBtn4()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +48,8 @@ class BrainGameViewController: UIViewController {
         submitUser(btnArr) // 버튼탭 할 때 동작
         makeLabelTxt() // 간단 문제 라벨 세팅, 정답버튼 내용 랜덤배치
     }
+    
+    
 }
 
 // MARK: - 파이어베이스 업로드를 위한 메소드
@@ -170,6 +171,15 @@ extension BrainGameViewController {
         answer = calcResult(tmpN1, tmpN2, tmpN3, oper1, oper2)
         btnArr.randomElement()?.setTitle(answer, for: .normal)
         gameStartTime = Date()
+    }
+    
+    // [ㅇ] 뷰 로드시 버튼생성 및 버튼배열에 추가
+    func makeBtn4() {
+        let range = 0...3
+        for _ in range {
+            let btn = UIButton()
+            btnArr.append(btn)
+        }
     }
     
     // [ㅇ] 버튼배열을 받아와서 각 버튼 클릭시 연결할 동일한 함수를 연결 - buttonAction

@@ -14,16 +14,34 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var pwTxtFIeld: UITextField!
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var logOutBtn: UIButton!
+    @IBOutlet weak var signUpBtn: UIButton!
     
+    @IBOutlet weak var logOutBtn_topConstant: NSLayoutConstraint!
+    @IBOutlet weak var signUpBtn_topConstant: NSLayoutConstraint!
+    lazy var oldValue: CGFloat = 20
+    
+    
+    lazy var btnArr: [UIButton] = [loginBtn, logOutBtn, signUpBtn]
     var user = Auth.auth().currentUser
     
     override func viewDidLoad() {
         super.viewDidLoad()
         logOutBtn.isHidden = true
         
+        makeBtnBorder(btnArr)
         if let user = user {
             self.updateUI(user)
         } else { self.updateUI(nil) }
+    }
+    
+    
+    func makeBtnBorder(_ btnArr: [UIButton]) {
+        let range = 0...btnArr.count - 1
+        for i in range {
+            btnArr[i].layer.borderColor = UIColor.systemBlue.cgColor
+            btnArr[i].layer.borderWidth = 2
+            btnArr[i].layer.cornerRadius = btnArr[i].frame.height / 2
+        }
     }
     
     @IBAction func loginBtnTouched(_ sender: Any) {
@@ -62,11 +80,14 @@ class HomeViewController: UIViewController {
             loginBtn.isHidden = true
             logOutBtn.isHidden = false
             
+            logOutBtn_topConstant.constant = view.bounds.height * 0.2
+            signUpBtn_topConstant.constant = logOutBtn_topConstant.constant + 20
         } else { //미로그인 상태
             emailTxtField.isHidden = false
             pwTxtFIeld.isHidden = false
             logOutBtn.isHidden = true
             loginBtn.isHidden = false
+            signUpBtn_topConstant.constant = oldValue
         }
     }
     

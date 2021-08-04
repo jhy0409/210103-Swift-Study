@@ -34,7 +34,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOh-mU-ggF">
-                                <rect key="frame" x="172" y="426" width="70" height="36"/>
+                                <rect key="frame" x="40" y="426" width="334" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="mfb-7w-FsC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="로그아웃"/>
                                 <connections>
@@ -42,7 +45,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="env-rp-agx">
-                                <rect key="frame" x="181" y="426" width="52" height="36"/>
+                                <rect key="frame" x="40" y="426" width="334" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="QzG-YQ-1Fw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="로그인"/>
                                 <connections>
@@ -50,7 +56,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgW-te-vWA">
-                                <rect key="frame" x="172" y="470" width="70" height="36"/>
+                                <rect key="frame" x="40" y="496" width="334" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="gPm-p4-xLb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="회원가입"/>
                                 <connections>
@@ -62,6 +71,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QOh-mU-ggF" firstAttribute="centerY" secondItem="env-rp-agx" secondAttribute="centerY" id="3dP-jV-YMB"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WgW-te-vWA" secondAttribute="trailing" constant="40" id="6Oe-hV-TOm"/>
                             <constraint firstItem="4th-RI-oXf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="6sa-XX-S0V"/>
                             <constraint firstItem="WgW-te-vWA" firstAttribute="centerX" secondItem="env-rp-agx" secondAttribute="centerX" id="8ZE-vy-Mft"/>
                             <constraint firstItem="env-rp-agx" firstAttribute="top" secondItem="4th-RI-oXf" secondAttribute="bottom" constant="30" id="8kL-RY-LWg"/>
@@ -69,20 +79,28 @@
                             <constraint firstItem="env-rp-agx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="CS8-bs-pJR"/>
                             <constraint firstItem="4th-RI-oXf" firstAttribute="top" secondItem="KrS-ZN-VVz" secondAttribute="bottom" constant="36" id="JSc-fP-qlF"/>
                             <constraint firstItem="KrS-ZN-VVz" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="NGa-AC-L0h"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="env-rp-agx" secondAttribute="trailing" constant="40" id="Ovj-aN-Kca"/>
                             <constraint firstItem="KrS-ZN-VVz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Uj7-bn-6Eq"/>
-                            <constraint firstItem="WgW-te-vWA" firstAttribute="top" secondItem="env-rp-agx" secondAttribute="bottom" constant="8" symbolic="YES" id="afH-Ov-gRK"/>
+                            <constraint firstItem="WgW-te-vWA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="VVf-w7-DWX"/>
+                            <constraint firstItem="WgW-te-vWA" firstAttribute="top" secondItem="env-rp-agx" secondAttribute="bottom" constant="20" id="afH-Ov-gRK"/>
                             <constraint firstItem="KrS-ZN-VVz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="216" id="cI5-YV-nL6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QOh-mU-ggF" secondAttribute="trailing" constant="40" id="dCC-9G-bQq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KrS-ZN-VVz" secondAttribute="trailing" constant="40" id="pwN-ML-3Ua"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4th-RI-oXf" secondAttribute="trailing" constant="40" id="sH1-Rc-cGV"/>
+                            <constraint firstItem="env-rp-agx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="tmV-e5-NJh"/>
                             <constraint firstItem="QOh-mU-ggF" firstAttribute="centerX" secondItem="env-rp-agx" secondAttribute="centerX" id="uTt-i2-Cav"/>
+                            <constraint firstItem="QOh-mU-ggF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="ww1-y6-3Ka"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="로그인" image="sparkle" catalog="system" id="HpJ-yl-950"/>
                     <connections>
                         <outlet property="emailTxtField" destination="KrS-ZN-VVz" id="nL1-sI-dcS"/>
                         <outlet property="logOutBtn" destination="QOh-mU-ggF" id="maD-p0-V2h"/>
+                        <outlet property="logOutBtn_topConstant" destination="3dP-jV-YMB" id="CFO-fd-h0n"/>
                         <outlet property="loginBtn" destination="env-rp-agx" id="uhb-xW-TjZ"/>
                         <outlet property="pwTxtFIeld" destination="4th-RI-oXf" id="9xs-y6-EZm"/>
+                        <outlet property="signUpBtn" destination="WgW-te-vWA" id="SZT-xa-ccJ"/>
+                        <outlet property="signUpBtn_topConstant" destination="afH-Ov-gRK" id="VXH-Rl-HAO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
