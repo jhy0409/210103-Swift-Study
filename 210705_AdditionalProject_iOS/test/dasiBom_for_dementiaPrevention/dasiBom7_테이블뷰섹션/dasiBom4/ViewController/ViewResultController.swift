@@ -32,8 +32,8 @@ class ViewResultController: UIViewController {
             print("\n---------> getUserGameInfoArr Count : \(getUserGameInfoArr.count) / \(getUserGameInfoArr[0].totalTime)")
             print("\n---------> getUserTestInfoArr Count : \(getUserTestInfoArr.count) / \(getUserTestInfoArr[0].riskType)")
             self.tableVIew.reloadData()
-            
         }
+        self.tableVIew.reloadData()
     }
     
     
@@ -44,6 +44,10 @@ class ViewResultController: UIViewController {
         tableVIew.tableFooterView = UIView(frame: .zero)
         tableVIew.register(UINib(nibName: "ViewResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ViewResultTableViewCell")
         
+        loadDataFromFirebase()
+    }
+    
+    func loadDataFromFirebase() {
         uID = user?.uid
         if uID != nil {
             dbForGame = Database.database().reference().child("users").child("\(uID!)").child("game")
@@ -72,8 +76,6 @@ class ViewResultController: UIViewController {
             expertise.append(["title": "game", "value": getUserGameInfoArr]) //getUserGameInfoArr
             expertise.append(["title": "selfTest", "value": getUserTestInfoArr]) // getUserTestInfoArr
             self.tableVIew.reloadData()
-
-            
         }
         
         tableVIew.estimatedRowHeight = 60.0
@@ -81,8 +83,6 @@ class ViewResultController: UIViewController {
         tableVIew.delegate = self
         //        createDataSource()
     }
-    
-    
 //    func createDataSource() {
 //        expertise.append(["title": "iOS", "value": ["Tom", "John", "Moddy"]])
 //        expertise.append(["title": "Android", "value": ["Reema", "Raze", "Jack", "Joddy"]])
@@ -111,17 +111,8 @@ extension ViewResultController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ViewResultTableViewCell") as! ViewResultTableViewCell
         
-//        guard let codersName = expertise[indexPath.section]["value"] as? [String] else { return cell }
-//        cell.setCoderName(codersName[indexPath.row])
-        
-        
-        
-        
         let codersName = getUserGameInfoArr[indexPath.row].getAllString()
         cell.setCoderName(codersName)
-        
-        
-        
         
         return cell
     }
