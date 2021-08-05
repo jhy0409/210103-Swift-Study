@@ -339,8 +339,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-aG-Ep0">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="769" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DzQ-aG-Ep0" customClass="SelfSizedTableView" customModule="dasiBom4" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="414" height="250"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="414" placeholderIntrinsicHeight="769" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rh8-j5-4Nu" customClass="SelfSizedTableView" customModule="dasiBom4" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="323" width="414" height="250"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -348,20 +352,24 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="DzQ-aG-Ep0" firstAttribute="top" secondItem="abd-wv-C33" secondAttribute="top" id="Kee-Em-x40"/>
-                            <constraint firstItem="abd-wv-C33" firstAttribute="bottom" secondItem="DzQ-aG-Ep0" secondAttribute="bottom" id="iBy-7O-LcO"/>
+                            <constraint firstItem="Rh8-j5-4Nu" firstAttribute="top" secondItem="DzQ-aG-Ep0" secondAttribute="bottom" id="c9y-AD-Pz9"/>
+                            <constraint firstItem="Rh8-j5-4Nu" firstAttribute="width" secondItem="abd-wv-C33" secondAttribute="width" id="jmZ-05-NXs"/>
                             <constraint firstItem="abd-wv-C33" firstAttribute="trailing" secondItem="DzQ-aG-Ep0" secondAttribute="trailing" id="lnk-3i-cf4"/>
                             <constraint firstItem="DzQ-aG-Ep0" firstAttribute="leading" secondItem="abd-wv-C33" secondAttribute="leading" id="mSF-HP-LuW"/>
+                            <constraint firstItem="Rh8-j5-4Nu" firstAttribute="leading" secondItem="abd-wv-C33" secondAttribute="leading" id="xXn-xL-YpR"/>
+                            <constraint firstItem="abd-wv-C33" firstAttribute="trailing" secondItem="Rh8-j5-4Nu" secondAttribute="trailing" id="zGl-hb-tNl"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="결과조회" image="text.justify" catalog="system" id="quJ-tf-nHB"/>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
-                        <outlet property="tableVIew" destination="DzQ-aG-Ep0" id="skW-eh-lQd"/>
+                        <outlet property="bottomTableView" destination="Rh8-j5-4Nu" id="3Zj-0e-Go2"/>
+                        <outlet property="toptableVIew" destination="DzQ-aG-Ep0" id="r7M-va-kTg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lne-RQ-SVW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884" y="907"/>
+            <point key="canvasLocation" x="882.60869565217399" y="906.69642857142856"/>
         </scene>
         <!--게임하기-->
         <scene sceneID="sTI-Vt-xeT">

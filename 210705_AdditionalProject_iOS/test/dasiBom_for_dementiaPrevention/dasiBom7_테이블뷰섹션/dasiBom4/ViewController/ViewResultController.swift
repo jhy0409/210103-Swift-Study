@@ -16,22 +16,15 @@ class ViewResultController: UIViewController {
     
     
     var expertise = [Dictionary<String, Any>]()
-    //    var expertise2 = [Dictionary<String, Any>]()
-//    var expertise: [CommonData] {
-//        var tmpArr: [CommonData] = (getUserGameInfoArr as [CommonData]) + (getUserTestInfoArr as [CommonData])
-//        print("\n\n\n ------>>> tmpArr.count ==> \(tmpArr.count)")
-//        return tmpArr
-//    }
-    @IBOutlet weak var tableVIew: UITableView!
+
+    @IBOutlet weak var toptableVIew: SelfSizedTableView!
+    @IBOutlet weak var bottomTableView: SelfSizedTableView!
     
     var dbForGame: DatabaseReference?
     var dbForTest: DatabaseReference?
     
-    
-    
     var user = Auth.auth().currentUser
     var uID: String?
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,17 +33,34 @@ class ViewResultController: UIViewController {
         if expertise.count > 0, getUserGameInfoArr.count > 0, getUserTestInfoArr.count > 0 {
             print("\n----> getUserGameInfoArr Count : \(getUserGameInfoArr.count) / \(getUserGameInfoArr[0].totalTime)")
             print("\n----> getUserTestInfoArr Count : \(getUserTestInfoArr.count) / \(getUserTestInfoArr[0].riskType)")
-            self.tableVIew.reloadData()
+            self.toptableVIew.reloadData()
+            self.bottomTableView.reloadData()
         }
-        self.tableVIew.reloadData()
+        
+        let vieHeight = self.view.safeAreaFrame
+        print(vieHeight.height)
+        print(vieHeight.width)
+        let vH = vieHeight.height * 0.2
+        print("\n\n\n --------------> \(vH)")
+        toptableVIew.estimatedRowHeight = vH
+        bottomTableView.estimatedRowHeight = vH
+        
+//        self.toptableVIew.reloadData()
+//        self.bottomTableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableVIew.tableFooterView = UIView(frame: .zero)
-        tableVIew.register(UINib(nibName: "ViewResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ViewResultTableViewCell")
+        toptableVIew.tableFooterView = UIView(frame: .zero)
+        toptableVIew.register(UINib(nibName: "ViewResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ViewResultTableViewCell")
+        bottomTableView.tableFooterView = UIView(frame: .zero)
+        bottomTableView.register(UINib(nibName: "ViewResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ViewResultTableViewCell")
         
         loadDataFromFirebase()
+        
+        
+        
+        
     }
     
     func loadDataFromFirebase() {
@@ -80,27 +90,23 @@ class ViewResultController: UIViewController {
             }
             expertise.append(["title": "game", "value": getUserGameInfoArr]) //getUserGameInfoArr
             expertise.append(["title": "selfTest", "value": getUserTestInfoArr]) // getUserTestInfoArr
-            self.tableVIew.reloadData()
+            self.toptableVIew.reloadData()
+            self.bottomTableView.reloadData()
         }
         
-        tableVIew.estimatedRowHeight = 60.0
-        tableVIew.dataSource = self
-        tableVIew.delegate = self
-        //        createDataSource()
+        toptableVIew.estimatedRowHeight = 60.0
+        toptableVIew.dataSource = self
+        toptableVIew.delegate = self
+        
+        bottomTableView.estimatedRowHeight = 60.0
+        bottomTableView.dataSource = self
+        bottomTableView.delegate = self
     }
-//    func createDataSource() {
-//        expertise.append(["title": "iOS", "value": ["Tom", "John", "Moddy"]])
-//        expertise.append(["title": "Android", "value": ["Reema", "Raze", "Jack", "Joddy"]])
-//        expertise.append(["title": "Etc", "value": ["Majed", "Ali", "Ryan"]])
-//        expertise.append(["title": "Python", "value": ["Jake", "Riyadh", "Mark"]])
-//        expertise.append(["title": "PHP", "value": ["Jerry", "Alex", "Cyril", "Rohn", "Rob", "John", "Rahul"]])
+    
+    
+//    enum userSection: Int {
+//        case type = 0, game, total
 //    }
-    
-    
-    
-    enum userSection: Int {
-        case type = 0, game, total
-    }
 }
 
 
@@ -108,12 +114,21 @@ class ViewResultController: UIViewController {
 extension ViewResultController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return userSection.total.rawValue
+//        return userSection.total.rawValue
+        return 1
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return getUserGameInfoArr.count
+        var rowCount: Int
+        if tableView == toptableVIew {
+            rowCount =  getUserGameInfoArr.count
+            return rowCount
+        }
+        else {
+            rowCount =  getUserTestInfoArr.count
+            return rowCount
+        }
     }
     
     
@@ -121,28 +136,16 @@ extension ViewResultController: UITableViewDataSource {
     // getUserGameInfoArr getUserTestInfoArr
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ViewResultTableViewCell") as! ViewResultTableViewCell
-            
+        var codersName: String
+        if tableView == toptableVIew {
+            codersName = getUserGameInfoArr[indexPath.row].getAllString()
+            cell.setCoderName(codersName)
+        }
         
-        
-        let codersName = getUserGameInfoArr[indexPath.row].getAllString()
-        cell.setCoderName(codersName)
-        
-        // var codersName: String
-//        if let data = expertise[indexPath.row] as? userGameResult {
-//            print("\n---->>> userGameResult - ViewResultController expertise[indexPath.row] = \(indexPath.row)")
-//            codersName = data.getAllString()
-//
-//            print("\n---->>> [userGameResult] cellForRowAt indexPath: \(codersName)")
-//            cell.setCoderName(codersName)
-//        }
-//        else if let data2 = expertise[indexPath.row] as? userTestResult {
-//            print("\n---->>> userTestResult - ViewResultController expertise[indexPath.row] = \(indexPath.row)")
-//            codersName = data2.getAllString()
-//            print("\n---->>> [userTestResult] cellForRowAt indexPath: \(codersName)")
-//            cell.setCoderName(codersName)
-//        }
-        
-        
+        if tableView == bottomTableView {
+            codersName = getUserTestInfoArr[indexPath.row].getAllString()
+            cell.setCoderName(codersName)
+        }
         
         return cell
     }
@@ -157,14 +160,14 @@ extension ViewResultController: UITableViewDataSource {
         let titleLabel = UILabel(frame: CGRect(x: 15.0, y: 0, width: view.frame.size.width, height: 50.0))
         titleLabel.textColor = .white
         titleLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
-        if let title = userSection(rawValue: section) {
-            switch title {
-            case .game:
-                titleLabel.text = "게임이력"
-                
-            default:
-                titleLabel.text = "자가진단 내역"
-            }
+        
+        
+        if tableView == toptableVIew {
+            titleLabel.text = "게임이력"
+        }
+        
+        if tableView == bottomTableView {
+            titleLabel.text = "자가진단 내역"
         }
         view.addSubview(titleLabel)
         return view
@@ -179,5 +182,32 @@ extension ViewResultController: UITableViewDataSource {
 extension ViewResultController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+
+// MARK: - SelfSizedTableView class
+class SelfSizedTableView: UITableView {
+  var maxHeight: CGFloat = UIScreen.main.bounds.size.height
+  
+  override func reloadData() {
+    super.reloadData()
+    self.invalidateIntrinsicContentSize()
+    self.layoutIfNeeded()
+  }
+  
+  override var intrinsicContentSize: CGSize {
+    let height = min(contentSize.height, maxHeight)
+    return CGSize(width: contentSize.width, height: height)
+  }
+}
+
+
+extension UIView {
+    public var safeAreaFrame: CGRect {
+        if #available(iOS 11, *) {
+            return safeAreaLayoutGuide.layoutFrame
+        }
+        return bounds
     }
 }
