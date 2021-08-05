@@ -29,7 +29,9 @@ class ViewResultController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        if user == nil {
+            print("미로그인 상태입니다.")
+        }
         if getUserGameInfoArr.count > 0, getUserTestInfoArr.count > 0 {
             print("\n----> getUserGameInfoArr Count : \(getUserGameInfoArr.count) / \(getUserGameInfoArr[0].totalTime)")
             print("\n----> getUserTestInfoArr Count : \(getUserTestInfoArr.count) / \(getUserTestInfoArr[0].riskType)")
@@ -74,8 +76,6 @@ class ViewResultController: UIViewController {
                     return term1.timestamp < term2.timestamp
                 })
             }
-//            expertise.append(["title": "game", "value": getUserGameInfoArr]) //getUserGameInfoArr
-//            expertise.append(["title": "selfTest", "value": getUserTestInfoArr]) // getUserTestInfoArr
             self.toptableVIew.reloadData()
             self.bottomTableView.reloadData()
         }

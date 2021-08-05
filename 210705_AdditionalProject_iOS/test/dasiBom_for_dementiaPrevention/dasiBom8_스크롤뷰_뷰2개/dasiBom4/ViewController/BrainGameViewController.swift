@@ -12,8 +12,6 @@ class BrainGameViewController: UIViewController {
     
     let db = Database.database().reference().child("users")
     
-    
-    
     @IBOutlet weak var questionLabel: UILabel!
     var answer: String? // 사용자 제출답안 전역변수
     
