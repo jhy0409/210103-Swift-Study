@@ -16,10 +16,8 @@ class SignUpViewController: UIViewController, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         signUpBtn.layer.cornerRadius = 10
     }
-    
     
     @IBAction func signUpAction(_ sender: Any) {
         doSignUp()
@@ -46,7 +44,7 @@ extension SignUpViewController {
             }
         }
     
-    
+    // [ㅇ] 로그인성공, 로그인버튼 누른 뒤 텍스트필드 초기화
     func updateUI() {
         emailTextField.text = ""
         passwordTextField.text = ""
@@ -65,9 +63,7 @@ extension SignUpViewController {
         
         signUp(email: emailTextField.text!, password: passwordTextField.text!)
     }
-    func dismissSelf() {
-        self.dismiss(animated: true, completion: nil)
-    }
+    
     func signUp(email:String,password:String){
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
             if error != nil{
@@ -92,6 +88,10 @@ extension SignUpViewController {
                 self.showAlert(true, message: "회원가입이 완료되었습니다.")
             }
         })
+    }
+    
+    func dismissSelf() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
 

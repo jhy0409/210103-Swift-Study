@@ -33,6 +33,7 @@ class SurveyViewController: UIViewController {
         submitBtn.layer.cornerRadius = 10
     }
     
+    // MARK: - 검사결과 서버 제출
     @IBAction func submitBtn_Tapped(_ sender: Any) {
         showAlert("검사결과", checkTrue())
         
@@ -47,9 +48,9 @@ class SurveyViewController: UIViewController {
     }
     
     func checkTrue() -> (Bool, Int) {
-        let tmpRange = 0...13
+        let tmpRange = 0...13 // 자가진단 문항 개수
         let queArr = viewModel.getQueArr()
-        var totalSum: Int = 0
+        var totalSum: Int = 0 // 검사점수 합계 저장용 임시변수
         
         for i in tmpRange {
             guard let tmpScore = queArr[i].score, let tmpChecked = queArr[i].checked
@@ -62,6 +63,7 @@ class SurveyViewController: UIViewController {
         return (true, totalSum)
     }
     
+    // MARK: - 알림창 메소드 showAlert
     func showAlert(_ title: String, _ msg: String) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
@@ -88,7 +90,7 @@ class SurveyViewController: UIViewController {
     }
 }
 
-// MARK: -
+// MARK: - 테이블뷰 프로토콜 준수
 extension SurveyViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.questionArr.count

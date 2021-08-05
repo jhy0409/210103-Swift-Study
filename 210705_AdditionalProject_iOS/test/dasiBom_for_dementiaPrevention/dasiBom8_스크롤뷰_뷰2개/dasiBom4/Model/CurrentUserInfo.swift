@@ -7,14 +7,8 @@
 
 import UIKit
 
-//// MARK: - Protocol
-//protocol CommonData {
-//    var type: String { get }
-//}
-
 // MARK: - for game 
 struct userGameResult: Codable {
-//    var type: String = "game"
     let correctPercentage: Double
     let timestamp: Int
     let today: String
@@ -39,7 +33,6 @@ struct userGameResult: Codable {
 
 // MARK: - for test
 struct userTestResult: Codable {
-//    var type: String = "selfTest"
     let resultScore: Int
     let riskType: String
     let timestamp: Int

@@ -11,16 +11,6 @@ struct Survey {
     let questionTxt: String
     var score: Int?
     var checked: Bool?
-    
-    init(questionTxt: String, score: Int?, checked: Bool) {
-        self.questionTxt = questionTxt
-        self.score = score
-    }
-    
-    init(_ questionTxt: String, _ score: Int?, _ checked: Bool) {
-        self.questionTxt = questionTxt
-        self.score = score
-    }
 }
 
 class QuestionViewModel {

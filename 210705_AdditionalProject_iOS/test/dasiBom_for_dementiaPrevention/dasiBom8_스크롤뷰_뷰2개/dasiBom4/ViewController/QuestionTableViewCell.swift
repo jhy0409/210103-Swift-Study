@@ -26,7 +26,6 @@ class QuestionTableViewCell: UITableViewCell {
         yesBtn.isSelected = true
         noBtn.isSelected = false
         
-//        var survey = viewModel.questionArr[tmpIndex!]
         var survey = queArr[tmpIndex!]
         survey.score = 1
         survey.checked = true

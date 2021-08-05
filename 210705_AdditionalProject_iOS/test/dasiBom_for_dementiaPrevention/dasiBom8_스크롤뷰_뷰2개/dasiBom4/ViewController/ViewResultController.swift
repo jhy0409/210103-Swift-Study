@@ -9,42 +9,33 @@ import UIKit
 import Firebase
 
 class ViewResultController: UIViewController {
-    
-    // userGameResult userTestResult
-    var getUserGameInfoArr: [userGameResult] = []
-    var getUserTestInfoArr: [userTestResult] = []
-    
-    
-    var expertise = [Dictionary<String, Any>]()
-
-    @IBOutlet weak var toptableVIew: SelfSizedTableView!
-    @IBOutlet weak var bottomTableView: SelfSizedTableView!
-    
+    var user = Auth.auth().currentUser
+    var uID: String?
     var dbForGame: DatabaseReference?
     var dbForTest: DatabaseReference?
     
-    var user = Auth.auth().currentUser
-    var uID: String?
+    var getUserGameInfoArr: [userGameResult] = []
+    var getUserTestInfoArr: [userTestResult] = []
     
+//    var expertise = [Dictionary<String, Any>]()
+    @IBOutlet weak var toptableVIew: SelfSizedTableView!
+    @IBOutlet weak var bottomTableView: SelfSizedTableView!
+    
+    /*
+     Todo
+     [] 결과조회 탭 - 그전 검사결과 받아오기
+        - [] 예외처리 : 검사이력 없을 시 perform Segue(검사탭으로 이동)
+     */
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if expertise.count > 0, getUserGameInfoArr.count > 0, getUserTestInfoArr.count > 0 {
+        if getUserGameInfoArr.count > 0, getUserTestInfoArr.count > 0 {
             print("\n----> getUserGameInfoArr Count : \(getUserGameInfoArr.count) / \(getUserGameInfoArr[0].totalTime)")
             print("\n----> getUserTestInfoArr Count : \(getUserTestInfoArr.count) / \(getUserTestInfoArr[0].riskType)")
             self.toptableVIew.reloadData()
             self.bottomTableView.reloadData()
         }
-        
-        
-//        let vH: CGFloat = 100
-//        print("\n\n\n --------------> \(vH)")
-//        toptableVIew.estimatedRowHeight = vH
-//        bottomTableView.estimatedRowHeight = vH
-        
-//        self.toptableVIew.reloadData()
-//        self.bottomTableView.reloadData()
     }
     
     override func viewDidLoad() {
@@ -55,18 +46,15 @@ class ViewResultController: UIViewController {
         bottomTableView.register(UINib(nibName: "ViewResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ViewResultTableViewCell")
         
         loadDataFromFirebase()
-        
-        
-        
-        
     }
     
     func loadDataFromFirebase() {
         uID = user?.uid
         if uID != nil {
+            print("\n\n------------> ViewResultController uID : \(uID)")
             dbForGame = Database.database().reference().child("users").child("\(uID!)").child("game")
             dbForTest = Database.database().reference().child("users").child("\(uID!)").child("selfTest")
-            print("\n\n------------> ViewResultController uID : \(uID)")
+            
             dbForGame?.observeSingleEvent(of: .value) { (snapshot) in
                 guard let gameHistory = snapshot.value as? [String: Any] else { print("\n\n\n -----> error dbForGame"); return }
                 let data = try! JSONSerialization.data(withJSONObject: Array(gameHistory.values), options: [])
@@ -86,12 +74,11 @@ class ViewResultController: UIViewController {
                     return term1.timestamp < term2.timestamp
                 })
             }
-            expertise.append(["title": "game", "value": getUserGameInfoArr]) //getUserGameInfoArr
-            expertise.append(["title": "selfTest", "value": getUserTestInfoArr]) // getUserTestInfoArr
+//            expertise.append(["title": "game", "value": getUserGameInfoArr]) //getUserGameInfoArr
+//            expertise.append(["title": "selfTest", "value": getUserTestInfoArr]) // getUserTestInfoArr
             self.toptableVIew.reloadData()
             self.bottomTableView.reloadData()
         }
-        
         toptableVIew.estimatedRowHeight = 60.0
         toptableVIew.dataSource = self
         toptableVIew.delegate = self
@@ -100,22 +87,12 @@ class ViewResultController: UIViewController {
         bottomTableView.dataSource = self
         bottomTableView.delegate = self
     }
-    
-    
-//    enum userSection: Int {
-//        case type = 0, game, total
-//    }
 }
 
-
-
 extension ViewResultController: UITableViewDataSource {
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return userSection.total.rawValue
         return 1
     }
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var rowCount: Int
@@ -129,9 +106,7 @@ extension ViewResultController: UITableViewDataSource {
         }
     }
     
-    
-    // MARK: - 셀에 데이터 세팅
-    // getUserGameInfoArr getUserTestInfoArr
+    // MARK: - 셀에 데이터 세팅 (getUserGameInfoArr, getUserTestInfoArr)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ViewResultTableViewCell") as! ViewResultTableViewCell
         var codersName: String
@@ -144,13 +119,10 @@ extension ViewResultController: UITableViewDataSource {
             codersName = getUserTestInfoArr[indexPath.row].getAllString()
             cell.setCoderName(codersName)
         }
-        
         return cell
     }
     
-    
     //MARK: - For Header
-    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0.0, y: 0.0, width: tableView.frame.size.width, height: 50.0))
         
@@ -171,7 +143,6 @@ extension ViewResultController: UITableViewDataSource {
         return view
     }
     
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50.0
     }
@@ -182,7 +153,6 @@ extension ViewResultController: UITableViewDelegate {
         return UITableView.automaticDimension
     }
 }
-
 
 // MARK: - SelfSizedTableView class
 class SelfSizedTableView: UITableView {
@@ -199,13 +169,3 @@ class SelfSizedTableView: UITableView {
     return CGSize(width: contentSize.width, height: height)
   }
 }
-
-//
-//extension UIView {
-//    public var safeAreaFrame: CGRect {
-//        if #available(iOS 11, *) {
-//            return safeAreaLayoutGuide.layoutFrame
-//        }
-//        return bounds
-//    }
-//}

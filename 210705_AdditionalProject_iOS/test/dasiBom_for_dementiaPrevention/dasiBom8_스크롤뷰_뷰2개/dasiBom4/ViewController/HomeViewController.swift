@@ -34,18 +34,18 @@ class HomeViewController: UIViewController {
         } else { self.updateUI(nil) }
     }
     
-    
+    // [ㅇ] 현재사용자 유무에 따른 버튼 UI업데이트 (로그인, 로그아웃, 회원가입)
     func makeBtnBorder(_ btnArr: [UIButton], _ user: User?) {
         let range = 0...btnArr.count - 1
         if user == nil {
-            for i in range {
+            for i in range { // 미로그인 = 파란색
                 btnArr[i].layer.borderColor = UIColor.systemBlue.cgColor
                 btnArr[i].layer.borderWidth = 2
                 btnArr[i].layer.cornerRadius = btnArr[i].frame.height / 2
                 btnArr[i].setTitleColor(.systemBlue, for: .normal)
             }
         } else {
-            for i in range {
+            for i in range { // 로그인 = 흰색
                 btnArr[i].layer.borderColor = UIColor.white.cgColor
                 btnArr[i].layer.borderWidth = 2
                 btnArr[i].layer.cornerRadius = btnArr[i].frame.height / 2

@@ -12,15 +12,7 @@ class BrainGameViewController: UIViewController {
     
     let db = Database.database().reference().child("users")
     
-    /*
-     Todo
-     [] 결과조회 탭 - 그전 검사결과 받아오기
-        - [] 예외처리 : 검사이력 없을 시 perform Segue(검사탭으로 이동)
-     
-     [ㅇ] 게임하기 탭
-        - [ㅇ] 문제당 시도회차, 걸린 시간
-        - [ㅇ] 게임이력 파이어베이스 연동
-     */
+    
     
     @IBOutlet weak var questionLabel: UILabel!
     var answer: String? // 사용자 제출답안 전역변수
