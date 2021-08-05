@@ -7,8 +7,14 @@
 
 import UIKit
 
+//// MARK: - Protocol
+//protocol CommonData {
+//    var type: String { get }
+//}
+
 // MARK: - for game 
 struct userGameResult: Codable {
+//    var type: String = "game"
     let correctPercentage: Double
     let timestamp: Int
     let today: String
@@ -33,8 +39,25 @@ struct userGameResult: Codable {
 
 // MARK: - for test
 struct userTestResult: Codable {
+//    var type: String = "selfTest"
     let resultScore: Int
     let riskType: String
     let timestamp: Int
     let today: String
+    
+    func getAllString() -> String {
+        var tmpStr = ""
+        
+        let DateFormatter = DateFormatter()
+        DateFormatter.dateFormat = "yyyy.M.d - a h시 m분 s초"
+        DateFormatter.locale = Locale(identifier:"ko_KR")
+        
+        let date = "\(DateFormatter.string(from: Date(timeIntervalSince1970: Double(timestamp))))"
+        
+        tmpStr += "검사일자 : \(date)\n"
+        tmpStr += "검사결과 : \(resultScore)\n"
+        tmpStr += "위험여부 : \(riskType)"
+        
+        return tmpStr
+    }
 }
