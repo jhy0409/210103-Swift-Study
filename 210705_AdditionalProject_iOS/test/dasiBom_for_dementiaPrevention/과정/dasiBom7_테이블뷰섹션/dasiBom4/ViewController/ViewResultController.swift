@@ -40,7 +40,8 @@ class ViewResultController: UIViewController {
         let vieHeight = self.view.safeAreaFrame
         print(vieHeight.height)
         print(vieHeight.width)
-        let vH = vieHeight.height * 0.2
+//        let vH = vieHeight.height * 0.2
+        let vH: CGFloat = 100
         print("\n\n\n --------------> \(vH)")
         toptableVIew.estimatedRowHeight = vH
         bottomTableView.estimatedRowHeight = vH
