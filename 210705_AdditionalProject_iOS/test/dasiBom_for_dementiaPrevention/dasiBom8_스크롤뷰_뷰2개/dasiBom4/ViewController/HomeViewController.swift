@@ -20,18 +20,24 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var signUpBtn_topConstant: NSLayoutConstraint!
     lazy var oldValue: CGFloat = 20
     
-    
     lazy var btnArr: [UIButton] = [loginBtn, logOutBtn, signUpBtn]
-    var user = Auth.auth().currentUser
+    static var currentUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         logOutBtn.isHidden = true
-        
         makeBtnBorder(btnArr, nil)
-        if let user = user {
-            self.updateUI(user)
-        } else { self.updateUI(nil) }
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil {
+                HomeViewController.currentUser = user // 유저가 있으면 전역변수로
+                print("\n\n------> addStateDidChangeListener [user] :  \(HomeViewController.currentUser!.uid)")
+                self.updateUI(user)
+            } else {
+                HomeViewController.currentUser = nil
+                self.updateUI(user)
+            }
+        }
     }
     
     // [ㅇ] 현재사용자 유무에 따른 버튼 UI업데이트 (로그인, 로그아웃, 회원가입)
@@ -105,7 +111,6 @@ class HomeViewController: UIViewController {
             makeBtnBorder(btnArr, nil)
         }
     }
-    
 }
 
 
