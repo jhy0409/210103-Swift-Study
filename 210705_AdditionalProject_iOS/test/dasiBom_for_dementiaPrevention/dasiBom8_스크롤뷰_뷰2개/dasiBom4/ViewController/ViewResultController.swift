@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class ViewResultController: UIViewController {
-    var user = Auth.auth().currentUser
+    var currentUser: User?
     var uID: String?
     var dbForGame: DatabaseReference?
     var dbForTest: DatabaseReference?
@@ -20,21 +20,24 @@ class ViewResultController: UIViewController {
     @IBOutlet weak var toptableVIew: UITableView!
     @IBOutlet weak var bottomTableView: UITableView!
     
-    /*
-     Todo
-     [ㅇ] 결과조회 탭 - 검사결과, 두뇌훈련게임
-     [ㅇ] 실시간 서버 데이터 연동
-     */
+    //Todo
+    //[ㅇ] 결과조회 탭 - 검사결과, 두뇌훈련게임
+    //[ㅇ] 실시간 서버 데이터 연동
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
+            if user != nil{
+                self.currentUser = user
                 self.loadDataFromFirebase()
             } else {
-                self.showAlert("알림", "로그인 후 이력을 조회할 수 있습니다.")
+                self.currentUser = nil
             }
+        }
+        
+        if currentUser == nil {
+            showAlert("알림", "로그인 후 이력을 조회할 수 있습니다.")
         }
     }
     
@@ -46,16 +49,21 @@ class ViewResultController: UIViewController {
         bottomTableView.register(UINib(nibName: "ViewResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ViewResultTableViewCell")
         
         Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
+            if user != nil{
+                self.currentUser = user
                 self.loadDataFromFirebase()
             } else {
-                self.showAlert("알림", "로그인 후 이력을 조회할 수 있습니다.")
+                self.currentUser = nil
             }
+        }
+        
+        if currentUser == nil {
+            showAlert("알림", "로그인 후 이력을 조회할 수 있습니다.")
         }
     }
     
     func loadDataFromFirebase() {
-        uID = user?.uid
+        uID = currentUser?.uid
         if uID != nil {
             print("\n\n------------> ViewResultController uID : \(uID)")
             dbForGame = Database.database().reference().child("users").child("\(uID!)").child("game")
@@ -103,8 +111,7 @@ extension ViewResultController: UITableViewDataSource {
         if tableView == toptableVIew {
             rowCount =  getUserGameInfoArr.count
             return rowCount
-        }
-        else {
+        } else {
             rowCount =  getUserTestInfoArr.count
             return rowCount
         }
@@ -142,14 +149,9 @@ extension ViewResultController: UITableViewDataSource {
         titleLabel.textColor = .white
         titleLabel.font = UIFont.boldSystemFont(ofSize: 16.0)
         
+        if tableView == toptableVIew { titleLabel.text = "게임이력" }
+        if tableView == bottomTableView { titleLabel.text = "자가진단 내역" }
         
-        if tableView == toptableVIew {
-            titleLabel.text = "게임이력"
-        }
-        
-        if tableView == bottomTableView {
-            titleLabel.text = "자가진단 내역"
-        }
         view.addSubview(titleLabel)
         return view
     }

@@ -542,6 +542,11 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="설정" image="gear" catalog="system" id="W13-ZC-5rs"/>
+                    <connections>
+                        <outlet property="delBtn_account" destination="ehe-Mv-8FR" id="cfW-Db-VZJ"/>
+                        <outlet property="delBtn_gameResult" destination="i7A-sa-XAd" id="A6A-hm-TeO"/>
+                        <outlet property="delBtn_testResult" destination="4R8-y3-IqH" id="5UR-sJ-9hy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E6O-wL-Qa7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
