@@ -105,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884.05797101449286" y="72.991071428571431"/>
+            <point key="canvasLocation" x="-887" y="907"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="TPj-vj-tqp">
@@ -188,7 +188,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BNC-af-2Aw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="3ms-Ey-ucX" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1757.9710144927537" y="72.991071428571431"/>
+            <point key="canvasLocation" x="-888" y="1624"/>
         </scene>
         <!--자가진단-->
         <scene sceneID="Ya1-3w-iZZ">
@@ -336,7 +336,7 @@
             <objects>
                 <viewController id="oph-cw-Pry" customClass="ViewResultController" customModule="dasiBom4" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mke-zh-T99">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="3000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="67N-Uf-Tq0">
@@ -401,7 +401,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="결과조회" image="text.justify" catalog="system" id="quJ-tf-nHB"/>
-                    <size key="freeformSize" width="414" height="3000"/>
+                    <size key="freeformSize" width="414" height="800"/>
                     <connections>
                         <outlet property="bottomTableView" destination="Rh8-j5-4Nu" id="3Zj-0e-Go2"/>
                         <outlet property="toptableVIew" destination="DzQ-aG-Ep0" id="r7M-va-kTg"/>
@@ -409,7 +409,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lne-RQ-SVW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853.62318840579712" y="1609.8214285714284"/>
+            <point key="canvasLocation" x="886" y="874"/>
         </scene>
         <!--게임하기-->
         <scene sceneID="sTI-Vt-xeT">
@@ -451,6 +451,102 @@
             </objects>
             <point key="canvasLocation" x="1758" y="907"/>
         </scene>
+        <!--설정-->
+        <scene sceneID="hWb-DQ-D67">
+            <objects>
+                <tableViewController id="sfo-PX-tgW" customClass="SettingTableViewController" customModule="dasiBom4" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="4rm-HS-mhz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <sections>
+                            <tableViewSection headerTitle="설정" id="vsF-1H-sjJ">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="JAo-no-HQo">
+                                        <rect key="frame" x="20" y="49.5" width="374" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JAo-no-HQo" id="IhH-Dq-zl0">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4R8-y3-IqH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="자가진단 내역 삭제"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="4R8-y3-IqH" secondAttribute="trailing" id="0bm-Ff-B4f"/>
+                                                <constraint firstItem="4R8-y3-IqH" firstAttribute="centerY" secondItem="IhH-Dq-zl0" secondAttribute="centerY" id="EHB-Oz-XBz"/>
+                                                <constraint firstItem="4R8-y3-IqH" firstAttribute="leading" secondItem="IhH-Dq-zl0" secondAttribute="leading" id="R8p-i5-wcY"/>
+                                                <constraint firstItem="4R8-y3-IqH" firstAttribute="width" secondItem="IhH-Dq-zl0" secondAttribute="width" id="l8f-Ab-xsi"/>
+                                                <constraint firstItem="4R8-y3-IqH" firstAttribute="height" secondItem="IhH-Dq-zl0" secondAttribute="height" id="s9q-Vg-fff"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="oBU-Jm-dqJ">
+                                        <rect key="frame" x="20" y="109.5" width="374" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oBU-Jm-dqJ" id="i1T-yf-azS">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i7A-sa-XAd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="게임이력 삭제"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="i7A-sa-XAd" firstAttribute="height" secondItem="i1T-yf-azS" secondAttribute="height" id="1jq-1K-hSp"/>
+                                                <constraint firstAttribute="trailing" secondItem="i7A-sa-XAd" secondAttribute="trailing" id="2Jn-CS-SRL"/>
+                                                <constraint firstItem="i7A-sa-XAd" firstAttribute="leading" secondItem="i1T-yf-azS" secondAttribute="leading" id="B9i-Pq-wAc"/>
+                                                <constraint firstItem="i7A-sa-XAd" firstAttribute="width" secondItem="i1T-yf-azS" secondAttribute="width" id="cEx-tL-0Pf"/>
+                                                <constraint firstItem="i7A-sa-XAd" firstAttribute="centerY" secondItem="i1T-yf-azS" secondAttribute="centerY" id="k52-mu-cbr"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="wL5-Sm-FBR">
+                                        <rect key="frame" x="20" y="169.5" width="374" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wL5-Sm-FBR" id="6Cj-Dq-w5D">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehe-Mv-8FR">
+                                                    <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="계정 삭제"/>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ehe-Mv-8FR" firstAttribute="width" secondItem="6Cj-Dq-w5D" secondAttribute="width" id="FHZ-9M-Bhb"/>
+                                                <constraint firstItem="ehe-Mv-8FR" firstAttribute="centerY" secondItem="6Cj-Dq-w5D" secondAttribute="centerY" id="Frr-jM-C8Q"/>
+                                                <constraint firstItem="ehe-Mv-8FR" firstAttribute="height" secondItem="6Cj-Dq-w5D" secondAttribute="height" id="iw4-eh-BLY"/>
+                                                <constraint firstAttribute="trailing" secondItem="ehe-Mv-8FR" secondAttribute="trailing" id="vI5-6u-7Ww"/>
+                                                <constraint firstItem="ehe-Mv-8FR" firstAttribute="leading" secondItem="6Cj-Dq-w5D" secondAttribute="leading" id="zYi-hA-cSB"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="sfo-PX-tgW" id="VRG-ug-fIX"/>
+                            <outlet property="delegate" destination="sfo-PX-tgW" id="qSd-20-NYg"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="설정" image="gear" catalog="system" id="W13-ZC-5rs"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E6O-wL-Qa7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2602.898550724638" y="906.69642857142856"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="dia-BJ-wSS">
             <objects>
@@ -466,17 +562,19 @@
                         <segue destination="JBs-nd-d4g" kind="relationship" relationship="viewControllers" id="3QW-fJ-6ig"/>
                         <segue destination="oph-cw-Pry" kind="relationship" relationship="viewControllers" id="wIQ-lv-ERk"/>
                         <segue destination="NcO-xQ-Kgg" kind="relationship" relationship="viewControllers" id="8iw-Vv-MJT"/>
+                        <segue destination="sfo-PX-tgW" kind="relationship" relationship="viewControllers" id="7J9-HL-5kL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgr-3j-DfM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.086956521739133" y="72.991071428571431"/>
+            <point key="canvasLocation" x="884" y="63"/>
         </scene>
     </scenes>
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="gamecontroller" catalog="system" width="128" height="80"/>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <image name="sparkle" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="text.justify" catalog="system" width="128" height="100"/>

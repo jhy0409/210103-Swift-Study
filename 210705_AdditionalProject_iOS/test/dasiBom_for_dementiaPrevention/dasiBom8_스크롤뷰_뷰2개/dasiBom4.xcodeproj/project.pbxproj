@@ -12,6 +12,7 @@
 		6879196226B9150300C712F0 /* forSuver_chimae.json in Resources */ = {isa = PBXBuildFile; fileRef = 6879196126B9150300C712F0 /* forSuver_chimae.json */; };
 		689701FF26B7B4FA00006D8B /* BrainGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689701FE26B7B4FA00006D8B /* BrainGameViewController.swift */; };
 		6897020226B7C19E00006D8B /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6897020126B7C19E00006D8B /* ExtensionUIColor.swift */; };
+		689B501726BD0BBA002DC16D /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 689B501626BD0BBA002DC16D /* SettingTableViewController.swift */; };
 		68AE6D3C26B6919000B1C281 /* SurveyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE6D3B26B6919000B1C281 /* SurveyViewController.swift */; };
 		68AE6D3F26B6934500B1C281 /* Survey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE6D3E26B6934500B1C281 /* Survey.swift */; };
 		68AE6D4126B6980F00B1C281 /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68AE6D4026B6980F00B1C281 /* QuestionTableViewCell.swift */; };
@@ -33,6 +34,7 @@
 		6879196126B9150300C712F0 /* forSuver_chimae.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = forSuver_chimae.json; path = dasiBom4/etc/forSuver_chimae.json; sourceTree = SOURCE_ROOT; };
 		689701FE26B7B4FA00006D8B /* BrainGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrainGameViewController.swift; sourceTree = "<group>"; };
 		6897020126B7C19E00006D8B /* ExtensionUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
+		689B501626BD0BBA002DC16D /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		68AE6D3B26B6919000B1C281 /* SurveyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyViewController.swift; sourceTree = "<group>"; };
 		68AE6D3E26B6934500B1C281 /* Survey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Survey.swift; sourceTree = "<group>"; };
 		68AE6D4026B6980F00B1C281 /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				68BEBF9826BA802C00039834 /* ViewResultController.swift */,
 				68BEBF9A26BA874B00039834 /* ViewResultTableViewCell.swift */,
 				68BEBF9B26BA874B00039834 /* ViewResultTableViewCell.xib */,
+				689B501626BD0BBA002DC16D /* SettingTableViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				683276F526BA9E010028BF46 /* CurrentUserInfo.swift in Sources */,
+				689B501726BD0BBA002DC16D /* SettingTableViewController.swift in Sources */,
 				68CED95426B425DC0023A202 /* HomeViewController.swift in Sources */,
 				68AE6D3F26B6934500B1C281 /* Survey.swift in Sources */,
 				68BEBF9926BA802C00039834 /* ViewResultController.swift in Sources */,

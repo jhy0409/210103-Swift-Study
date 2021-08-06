@@ -17,26 +17,24 @@ class ViewResultController: UIViewController {
     var getUserGameInfoArr: [userGameResult] = []
     var getUserTestInfoArr: [userTestResult] = []
     
-//    var expertise = [Dictionary<String, Any>]()
-    @IBOutlet weak var toptableVIew: SelfSizedTableView!
-    @IBOutlet weak var bottomTableView: SelfSizedTableView!
+    @IBOutlet weak var toptableVIew: UITableView!
+    @IBOutlet weak var bottomTableView: UITableView!
     
     /*
      Todo
-     [] 결과조회 탭 - 그전 검사결과 받아오기
-        - [] 예외처리 : 검사이력 없을 시 perform Segue(검사탭으로 이동)
+     [ㅇ] 결과조회 탭 - 검사결과, 두뇌훈련게임
+     [ㅇ] 실시간 서버 데이터 연동
      */
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if user == nil {
-            print("미로그인 상태입니다.")
-        }
-        if getUserGameInfoArr.count > 0, getUserTestInfoArr.count > 0 {
-            print("\n----> getUserGameInfoArr Count : \(getUserGameInfoArr.count) / \(getUserGameInfoArr[0].totalTime)")
-            print("\n----> getUserTestInfoArr Count : \(getUserTestInfoArr.count) / \(getUserTestInfoArr[0].riskType)")
-            self.toptableVIew.reloadData()
-            self.bottomTableView.reloadData()
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if let user = user {
+                self.loadDataFromFirebase()
+            } else {
+                self.showAlert("알림", "로그인 후 이력을 조회할 수 있습니다.")
+            }
         }
     }
     
@@ -47,7 +45,13 @@ class ViewResultController: UIViewController {
         bottomTableView.tableFooterView = UIView(frame: .zero)
         bottomTableView.register(UINib(nibName: "ViewResultTableViewCell", bundle: nil), forCellReuseIdentifier: "ViewResultTableViewCell")
         
-        loadDataFromFirebase()
+        Auth.auth().addStateDidChangeListener { auth, user in
+            if let user = user {
+                self.loadDataFromFirebase()
+            } else {
+                self.showAlert("알림", "로그인 후 이력을 조회할 수 있습니다.")
+            }
+        }
     }
     
     func loadDataFromFirebase() {
@@ -106,6 +110,13 @@ extension ViewResultController: UITableViewDataSource {
         }
     }
     
+    func showAlert(_ title: String, _ msg: String) {
+        let alert = UIAlertController(title: title, message: msg, preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     // MARK: - 셀에 데이터 세팅 (getUserGameInfoArr, getUserTestInfoArr)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ViewResultTableViewCell") as! ViewResultTableViewCell
@@ -152,20 +163,4 @@ extension ViewResultController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
-}
-
-// MARK: - SelfSizedTableView class
-class SelfSizedTableView: UITableView {
-  var maxHeight: CGFloat = UIScreen.main.bounds.size.height
-  
-  override func reloadData() {
-    super.reloadData()
-    self.invalidateIntrinsicContentSize()
-    self.layoutIfNeeded()
-  }
-  
-  override var intrinsicContentSize: CGSize {
-    let height = min(contentSize.height, maxHeight)
-    return CGSize(width: contentSize.width, height: height)
-  }
 }
