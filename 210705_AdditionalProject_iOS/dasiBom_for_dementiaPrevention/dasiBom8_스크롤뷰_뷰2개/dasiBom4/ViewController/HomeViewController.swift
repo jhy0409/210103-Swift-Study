@@ -111,6 +111,13 @@ class HomeViewController: UIViewController {
             makeBtnBorder(btnArr, nil)
         }
     }
+    
+    // MARK: - 키보드 내리기
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.emailTxtField.resignFirstResponder()
+        self.pwTxtFIeld.resignFirstResponder()
+    }
 }
 
 
