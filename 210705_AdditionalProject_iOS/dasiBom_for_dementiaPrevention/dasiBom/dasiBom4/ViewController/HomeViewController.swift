@@ -78,17 +78,20 @@ class HomeViewController: UIViewController {
             pwTxtFIeld.text = ""
             loginBtn.isHidden = true
             logOutBtn.isHidden = false
+            signUpBtn.isHidden = true
             
             view.backgroundColor = .systemBlue
             makeBtnBorder(btnArr, user)
-            logOutBtn_topConstant.constant += 15
+            logOutBtn_topConstant.constant = 70
             signUpBtn_topConstant.constant = logOutBtn_topConstant.constant + 20
+            
         } else { //미로그인 상태
             logoImgView.isHidden = true
             emailTxtField.isHidden = false
             pwTxtFIeld.isHidden = false
             logOutBtn.isHidden = true
             loginBtn.isHidden = false
+            signUpBtn.isHidden = false
             
             view.backgroundColor = .white
             signUpBtn_topConstant.constant = oldValue
