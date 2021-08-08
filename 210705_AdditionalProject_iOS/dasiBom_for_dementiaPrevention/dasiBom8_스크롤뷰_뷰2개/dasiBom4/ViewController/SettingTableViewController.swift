@@ -30,8 +30,8 @@ class SettingTableViewController: UITableViewController {
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                 self.currentUser = user // 유저가 있으면 전역변수로
-                self.btnEnableSwitch(self.btnArr, self.currentUser)
-                self.setFirebaseReference(self.currentUser)
+                self.btnEnableSwitch(self.btnArr, self.currentUser) // 현재 로그인중인 계정이 없으면 버튼 비활성화
+                self.setFirebaseReference(self.currentUser) // 현재유저 정보를 기반으로 Firebase 참조 설정
                 print("\n\n------> addStateDidChangeListener [user] :  \(self.currentUser!.uid)")
             } else {
                 self.currentUser = nil
@@ -65,23 +65,23 @@ class SettingTableViewController: UITableViewController {
     }
     
     @IBAction func delBtnTapped_testResult(_ sender: Any) {
-        dbForTest?.removeValue()
+        dbForTest?.removeValue() // 자가진단 이력 삭제
     }
     
     @IBAction func delBtnTapped_gameResult(_ sender: Any) {
-        dbForGame?.removeValue()
+        dbForGame?.removeValue() // 게임이력 삭제
     }
     
     @IBAction func delBtnTapped_account(_ sender: Any) {
         print("\n\n\n---> delBtnTapped_account tapped")
         db?.removeValue()
-        loadDeleteFirebase()
+        deleteFirebaseUser()
         HomeViewController.currentUser = nil
-        btnEnableSwitch(btnArr, HomeViewController.currentUser)
+        btnEnableSwitch(btnArr, HomeViewController.currentUser) // 계정삭제 후 로그인화면 로그아웃으로 상태 변경
         uID = nil
     }
     
-    private func loadDeleteFirebase() {
+    private func deleteFirebaseUser() {
         let user = Auth.auth().currentUser
         user?.delete(completion: { (error) in
             guard error == nil else

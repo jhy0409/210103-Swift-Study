@@ -72,14 +72,12 @@ class SurveyViewController: UIViewController {
     }
     
     func showAlert(_ title: String, _ msg: (Bool, Int)) {
-        guard msg.0 == true else { return }
+        guard msg.0 == true else { return } // [Survey]의 체크여부, 해당항목에 점수가 없을 시 return
 
-        var tmpStr = "당신의 검사결과는 "
+        var tmpStr = "당신의 검사결과는 \(msg.1)점 입니다.\n\n"
         if msg.1 <= 5 {
-            tmpStr.append("\(msg.1)점 입니다.\n\n")
             tmpStr.append("1~5점 운동과 외부 사회 활동을 유지하시고 \n치매예방 수칙 3·3·3을 잘 실천하셔서 치매를 에방하세요.")
         } else {
-            tmpStr.append("\(msg.1)점 입니다.\n\n")
             tmpStr.append("6~14점 가까운 보건소나 치매안심센터를 방문하셔서 더 정확한 치매검진을 받아보시기 바랍니다")
         }
 

@@ -37,7 +37,8 @@ extension SignUpViewController {
         else {
             let alert = UIAlertController(title: "회원가입 성공",message: message, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "확인", style: UIAlertAction.Style.default, handler: { [self] _ in
-                self.updateUI(); dismissSelf() // [ㅇ] 가입성공 확인버튼 누른 뒤 동작
+                self.updateUI()
+                dismissSelf() // [ㅇ] 가입성공 확인버튼 누른 뒤 동작
             }))
             
             self.present(alert, animated: true, completion: nil)
@@ -84,7 +85,7 @@ extension SignUpViewController {
                 
             } else {
                 print("회원가입 성공")
-                dump(user)
+                // dump(user)
                 self.showAlert(true, message: "회원가입이 완료되었습니다.")
             }
         })
@@ -92,6 +93,12 @@ extension SignUpViewController {
     
     func dismissSelf() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.emailTextField.resignFirstResponder()
+        self.passwordTextField.resignFirstResponder()
     }
 }
 

@@ -11,12 +11,11 @@ class ViewResultTableViewCell: UITableViewCell {
     @IBOutlet weak var lbName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    //MARK: - setCoderName
-    func setCoderName(_ name: String) {
-        self.lbName.text = name
+    //MARK: - set Results (게임 & 자가진단 이력)
+    func setResult(_ contentStr: String) {
+        self.lbName.text = contentStr
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

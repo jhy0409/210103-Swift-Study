@@ -8,6 +8,9 @@
 import UIKit
 import Firebase
 
+//Todo
+//[ㅇ] 결과조회 탭 - 검사결과, 두뇌훈련게임
+//[ㅇ] 실시간 서버 데이터 연동
 class ViewResultController: UIViewController {
     var currentUser: User?
     var uID: String?
@@ -20,17 +23,12 @@ class ViewResultController: UIViewController {
     @IBOutlet weak var toptableVIew: UITableView!
     @IBOutlet weak var bottomTableView: UITableView!
     
-    //Todo
-    //[ㅇ] 결과조회 탭 - 검사결과, 두뇌훈련게임
-    //[ㅇ] 실시간 서버 데이터 연동
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil{
-                self.currentUser = user
-                self.loadDataFromFirebase()
+                self.currentUser = user // 사용자가 있으면 전역변수로 할당
+                self.loadDataFromFirebase() // 서버에서 데이터 받아오기
             } else {
                 self.currentUser = nil
             }
@@ -47,8 +45,8 @@ class ViewResultController: UIViewController {
         
         Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil{
-                self.currentUser = user
-                self.loadDataFromFirebase()
+                self.currentUser = user // 사용자가 있으면 전역변수로 할당
+                self.loadDataFromFirebase() // 서버에서 데이터 받아오기
             } else {
                 self.currentUser = nil
             }
@@ -71,6 +69,7 @@ class ViewResultController: UIViewController {
             dbForGame = Database.database().reference().child("users").child("\(uID!)").child("game")
             dbForTest = Database.database().reference().child("users").child("\(uID!)").child("selfTest")
             
+            // [ㅇ] 게임이력을 받아 옴
             dbForGame?.observeSingleEvent(of: .value) { (snapshot) in
                 guard let gameHistory = snapshot.value as? [String: Any] else { print("\n\n\n -----> error dbForGame"); self.getUserGameInfoArr = [] ; return }
                 let data = try! JSONSerialization.data(withJSONObject: Array(gameHistory.values), options: [])
@@ -81,6 +80,7 @@ class ViewResultController: UIViewController {
                 })
             }
             
+            // [ㅇ] 자가진단 이력을 받아 옴
             dbForTest?.observeSingleEvent(of: .value) { (snapshot) in
                 guard let testHistory = snapshot.value as? [String: Any] else { print("\n\n\n -----> error dbForTest"); self.getUserTestInfoArr = []; return }
                 let data = try! JSONSerialization.data(withJSONObject: Array(testHistory.values), options: [])
@@ -129,15 +129,15 @@ extension ViewResultController: UITableViewDataSource {
     // MARK: - 셀에 데이터 세팅 (getUserGameInfoArr, getUserTestInfoArr)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ViewResultTableViewCell") as! ViewResultTableViewCell
-        var codersName: String
+        var contentStr: String
         if tableView == toptableVIew {
-            codersName = getUserGameInfoArr[indexPath.row].getAllString()
-            cell.setCoderName(codersName)
+            contentStr = getUserGameInfoArr[indexPath.row].getAllString()
+            cell.setResult(contentStr)
         }
         
         if tableView == bottomTableView {
-            codersName = getUserTestInfoArr[indexPath.row].getAllString()
-            cell.setCoderName(codersName)
+            contentStr = getUserTestInfoArr[indexPath.row].getAllString()
+            cell.setResult(contentStr)
         }
         return cell
     }

@@ -38,8 +38,6 @@ class BrainGameViewController: UIViewController {
         submitUser(btnArr) // 버튼탭 할 때 동작
         makeLabelTxt() // 간단 문제 라벨 세팅, 정답버튼 내용 랜덤배치
     }
-    
-    
 }
 
 // MARK: - 파이어베이스 업로드를 위한 메소드
@@ -47,7 +45,7 @@ extension BrainGameViewController {
     // [ㅇ] 게임 시도회수 갱신 - 전역변수
     func updateTryNum(_ str: String) -> Bool {
         if str != answer {
-            tryNum += 1;
+            tryNum += 1
             return false
         } else {
             tryNum += 1
@@ -158,9 +156,9 @@ extension BrainGameViewController {
         let tmpStr: String = "\(tmpN1) \(oper1) (\(tmpN2) \(oper2) \(tmpN3))"
         print("\n----> \(tmpStr)")
         questionLabel.text = "문제 : \(tmpStr)"
-        answer = calcResult(tmpN1, tmpN2, tmpN3, oper1, oper2)
-        btnArr.randomElement()?.setTitle(answer, for: .normal)
-        gameStartTime = Date()
+        answer = calcResult(tmpN1, tmpN2, tmpN3, oper1, oper2) // 연산결과를 전역변수에 저장
+        btnArr.randomElement()?.setTitle(answer, for: .normal) // 버튼 중 하나를 정답으로 교체
+        gameStartTime = Date() // 게임 시작시간
     }
     
     // [ㅇ] 뷰 로드시 버튼생성 및 버튼배열에 추가

@@ -66,16 +66,25 @@
                                     <segue destination="syX-H0-qwg" kind="presentation" id="LD7-0i-Ych"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_white" translatesAutoresizingMaskIntoConstraints="NO" id="4uJ-wg-3g3">
+                                <rect key="frame" x="107" y="159" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="4uJ-wg-3g3" secondAttribute="height" multiplier="1:1" id="3bZ-7G-Dnt"/>
+                                    <constraint firstAttribute="width" constant="200" id="hzU-wh-Rq0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="QOh-mU-ggF" firstAttribute="centerY" secondItem="env-rp-agx" secondAttribute="centerY" id="3dP-jV-YMB"/>
+                            <constraint firstItem="4uJ-wg-3g3" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="5cm-Mo-tJO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WgW-te-vWA" secondAttribute="trailing" constant="40" id="6Oe-hV-TOm"/>
                             <constraint firstItem="4th-RI-oXf" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="6sa-XX-S0V"/>
                             <constraint firstItem="env-rp-agx" firstAttribute="top" secondItem="4th-RI-oXf" secondAttribute="bottom" constant="30" id="8kL-RY-LWg"/>
                             <constraint firstItem="4th-RI-oXf" firstAttribute="top" secondItem="KrS-ZN-VVz" secondAttribute="bottom" constant="20" id="JSc-fP-qlF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="env-rp-agx" secondAttribute="trailing" constant="40" id="Ovj-aN-Kca"/>
+                            <constraint firstItem="4uJ-wg-3g3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qgi-i8-F2x"/>
                             <constraint firstItem="KrS-ZN-VVz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Uj7-bn-6Eq"/>
                             <constraint firstItem="WgW-te-vWA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="VVf-w7-DWX"/>
                             <constraint firstItem="WgW-te-vWA" firstAttribute="top" secondItem="env-rp-agx" secondAttribute="bottom" constant="20" id="afH-Ov-gRK"/>
@@ -93,6 +102,7 @@
                         <outlet property="logOutBtn" destination="QOh-mU-ggF" id="maD-p0-V2h"/>
                         <outlet property="logOutBtn_topConstant" destination="3dP-jV-YMB" id="CFO-fd-h0n"/>
                         <outlet property="loginBtn" destination="env-rp-agx" id="uhb-xW-TjZ"/>
+                        <outlet property="logoImgView" destination="4uJ-wg-3g3" id="HNR-4y-fPA"/>
                         <outlet property="pwTxtFIeld" destination="4th-RI-oXf" id="9xs-y6-EZm"/>
                         <outlet property="signUpBtn" destination="WgW-te-vWA" id="SZT-xa-ccJ"/>
                         <outlet property="signUpBtn_topConstant" destination="afH-Ov-gRK" id="VXH-Rl-HAO"/>
@@ -588,6 +598,7 @@
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="gamecontroller" catalog="system" width="128" height="80"/>
         <image name="gear" catalog="system" width="128" height="119"/>
+        <image name="ic_white" width="167" height="219"/>
         <image name="sparkle" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <image name="text.justify" catalog="system" width="128" height="100"/>
