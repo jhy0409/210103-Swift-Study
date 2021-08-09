@@ -25,25 +25,23 @@ class EditTimerViewController: UIViewController {
     @IBOutlet weak var etcFoodButton: UIButton!
     
     @IBOutlet weak var conformButton: UIButton!
-    var uiLabelColorArr: [UIColor] = []
+    let uiLabelColorArr = AddTimerViewController.uiLabelColorArr
     var uiButton = [UIButton]()
     var uiTxtFields = [UITextField]()
     var btnSenderTxt = ""
-    let foodViewModel = FoodViewModel()
+    let foodViewModel = FoodViewModel.shared
     
     var isDismissed: (() -> Void)?
     let didDismiss_EditTimerViewController: Notification.Name = Notification.Name("EditTimerViewController")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        uiLabelColorArr = AddTimerViewController.uiLabelColorArr
-        
         uiButton = [gogiButton, snackButton, ganpeyonButton,
                     breadButton, chesoButton, hesanmulButton, etcFoodButton]
         uiTxtFields = [foodNameTxt, ondoTxt, hourTxt, minTxt, turnTimeTxt ]
         tintBtn(uiButton)
         
-        conformButton.backgroundColor = #colorLiteral(red: 0, green: 0.6565038562, blue: 0.9419061542, alpha: 0.45); conformButton.layer.cornerRadius = 10
+        conformButton.layer.cornerRadius = 15
         settingAlltxtField()
         btnSenderTxt = tmpFood!.foodType
     }
@@ -51,7 +49,6 @@ class EditTimerViewController: UIViewController {
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
         super.dismiss(animated: true, completion: { self.isDismissed?() })
         NotificationCenter.default.post(name: didDismiss_EditTimerViewController, object: nil, userInfo: nil)
-
     }
 }
 
@@ -141,13 +138,13 @@ extension EditTimerViewController {
             }
             txtField_makeEmpty(txtFields: uiTxtFields) // 문자입력 창 초기화
             titleAlphaReset() // 버튼 글자 투명도 초기화
-            showAlert("타이머 추가 완료")
+            showAlert("타이머 수정 완료")
         }
     }
 }
 
+// MARK: - [ㅇ] 각 버튼 클릭시 음식분류 내용 전달
 extension EditTimerViewController {
-    // [ㅇ] 각 버튼 클릭시 음식분류 내용 전달
     @IBAction func gogiBtn_Clicked(_ sender: Any) {
         guard let str = sender as? UIButton else { return }
         btnSenderTxt = str.titleLabel?.text ?? "NONE"

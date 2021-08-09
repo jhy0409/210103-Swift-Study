@@ -27,7 +27,7 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
     var uiButton = [UIButton]()
     static let uiLabelColorArr = [#colorLiteral(red: 1, green: 0, blue: 0, alpha: 0.2), #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 0.2), #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 0.2), #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 0.2), #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 0.2), #colorLiteral(red: 0.2196078449, green: 0.2030190556, blue: 0.8549019694, alpha: 0.2), #colorLiteral(red: 0.5, green: 0.007843137719, blue: 0.4200693323, alpha: 0.2)]
     var uiTxtFields = [UITextField]()
-    let foodViewModel = FoodViewModel()
+    let foodViewModel = FoodViewModel.shared
     var btnSenderTxt = ""
     
     override func viewDidLoad() {
@@ -35,14 +35,11 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         uiButton = [gogiButton, snackButton, ganpeyonButton, breadButton, chesoButton, hesanmulButton, etcFoodButton]
         tintBtn(uiButton)
-        
         uiTxtFields = [foodNameTxt, ondoTxt, hourTxt, minTxt, turnTimeTxt ]
-        addButton.backgroundColor = #colorLiteral(red: 0, green: 0.6565038562, blue: 0.9419061542, alpha: 0.45); addButton.layer.cornerRadius = 10
+        
+        addButton.backgroundColor = UIColor.systemBlue
+        addButton.layer.cornerRadius = 15
         btnSenderTxt = "NONE" // 초기값설정
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
     }
     
     @IBAction func addButtonTap(_ sender: Any) {
@@ -67,8 +64,6 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
             }
             
             let foodType: String = btnSenderTxt == "NONE" ? "기타" : btnSenderTxt
-            
-            // ondo: Int, hour: Int, min: Int, turn: Int, foodType: String, isTimerOn: Bool
             let food: Food = FoodManager.shared.createFood(ondo: Int(ondo)!, hour: Int(hour)!, min: Int(min)!, turn: Int(turn)!, foodType: foodType, isTimerOn: false, foodName: foodName)
             foodViewModel.addFood(food) // 음식 배열에 추가
             txtField_makeEmpty(txtFields: uiTxtFields) // 문자입력 창 초기화

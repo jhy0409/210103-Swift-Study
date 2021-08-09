@@ -12,24 +12,19 @@ class AFTimerViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     let foodViewModel = FoodViewModel.shared
     var startTime: Date?
-    var tmpFoodFor_LocalPush: Food? // 스위치 탭시에 할당 됨
-    
-    var timer = Timer()
-    let userNotiCenter = UNUserNotificationCenter.current()
-    var tmpIndexOfFood: Int?
+    static let userNotiCenter = UNUserNotificationCenter.current()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.didDismiss_EditTimerViewController(_:)), name: didDismiss_EditTimerViewController, object: nil)
         foodViewModel.loadFoods()
         collectionView.reloadData()
-        
         requestAuthNoti() // 사용자에게 알림 권한 요청
     }
     
     func requestAuthNoti() { // 사용자에게 알림 권한 요청
         let notiAuthOptions = UNAuthorizationOptions(arrayLiteral: [.alert, .badge, .sound])
-        userNotiCenter.requestAuthorization(options: notiAuthOptions) { (success, error) in
+        AFTimerViewController.userNotiCenter.requestAuthorization(options: notiAuthOptions) { (success, error) in
             if let error = error { print(#function, error) }
         }
     }
@@ -40,7 +35,6 @@ class AFTimerViewController: UIViewController {
         notiContent.title = "알림"
         notiContent.body = "띠링! 타이머가 완료되었습니다."
         notiContent.userInfo = ["targetScene": "splash"] // 푸시 받을때 오는 데이터
-        
         // 알림이 trigger되는 시간 설정
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: seconds, repeats: false)
         
@@ -49,9 +43,8 @@ class AFTimerViewController: UIViewController {
             content: notiContent,
             trigger: trigger
         )
-        
-        userNotiCenter.add(request) { (error) in
-            print(#function, error)
+        AFTimerViewController.userNotiCenter.add(request) { (error) in
+            print(#function, error as Any)
         }
         print("\n\n-----> [AFViewCon] Line 38 : requestSendNoti(seconds: Double) Called")
     }
@@ -85,11 +78,10 @@ extension AFTimerViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AFTimerCell", for: indexPath) as? AFTimerCell else { return UICollectionViewCell() }
-        var food: Food = foodViewModel.foods[indexPath.item]
+        let food: Food = foodViewModel.foods[indexPath.item]
         cell.tmpFoodFromCell = food
         cell.updateUI(food: food)
         cell.viewController = self
-        cell.indexInt = indexPath.item
         
         // [ㅇ] 삭제 버튼 누를 때 동작
         cell.closeBtnHandler = {
@@ -104,15 +96,9 @@ extension AFTimerViewController: UICollectionViewDataSource {
                 cell.setTimer(startTime: Date(), food: food)
                 return
             }
-            food.isTimerOn = true
             cell.setTimer(startTime: startTime, food: food) // 라벨을 바꿈
-            
-            self.tmpIndexOfFood = indexPath.item
-            self.tmpFoodFor_LocalPush = food
         }
         self.foodViewModel.updateFood(food)
-        //        self.notiOutside(Double(food.totalSec)) // 스위치 켜질 때 기준으로!
-        
         return cell
     }
 }
@@ -127,23 +113,12 @@ extension AFTimerViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: width, height: height)
     }
     
+    // MARK: - [ㅇ] 타이머뷰셀에서 스위치 On -> 이 메소드 호출 (ViewController에서만 실행되므로 타입메소드로 선언)
     static func notiOutside(_ second: Double) {
-        print("\n\n\n---------> [뷰컨트롤러] notiOutside 호출 됨 - 함수 시작")
-        //        tmpFoodFor_LocalPush // 탭 시작 시 값이 할당 됨
-        /*
-         할일
-         - [] 타이머가 켜지면 이 메소드가 호출돼야함
-         
-         시나리오
-         - 뷰모델에서 [Food] 받아온 뒤 isTimerOn값이 있는 거 체크?
-         - 뷰셀에서 타이머 끝나면 뷰컨 타입메소드에 전달?
-         
-         */
-        
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
-        content.title = "Reminder"
-        content.body = "This is a local notification"
+        content.title = "띠링"
+        content.body = "예약한 알람이 완료되었습니다."
         content.sound = .default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: second-1, repeats: false)
@@ -151,10 +126,9 @@ extension AFTimerViewController: UICollectionViewDelegateFlowLayout {
         let request = UNNotificationRequest(identifier: "reminder", content: content, trigger: trigger)
         center.add(request) { (error) in
             if error != nil {
-                print("\n\n\n ---> Error : \(error?.localizedDescription)")
+                print("\n\n\n ---> Error : \(String(describing: error?.localizedDescription))")
             }
         }
-        print("\n\n\n---------> notiOutside 호출 됨 - 함수 종료")
     }
 }
 

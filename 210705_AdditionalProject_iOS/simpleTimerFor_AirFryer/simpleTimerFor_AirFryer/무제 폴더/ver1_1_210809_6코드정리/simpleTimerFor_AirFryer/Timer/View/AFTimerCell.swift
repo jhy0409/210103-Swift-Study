@@ -35,12 +35,108 @@ class AFTimerCell: UICollectionViewCell {
     
     weak var viewController: UIViewController?
     var tmpFoodStr: String? // 타이머 실행전 기본값
-    var tmpFoodFromCell: Food?
+    var tmpFoodFromCell: Food? // foods[indexpath.item] 낱개값, 수정버튼 클릭 시 뷰 띄울 때 필요
     
-    //    var timerIsDone: Bool?
-    var indexInt: Int? // 바깥쪽에서 indexpath.item 꽂혀들어옴
-    let foodViewModel = FoodViewModel.shared
+    func updateUI(food: Food?) {
+        guard let food = food else { return }
+        foodTitleLabel.text = "\(food.foodName)"
+        ondoLabel.text = "\(food.ondo)℃" // 온도
+        let h = String(food.hour), m = String(food.min)
+        timerLabel.text = "\(h)시간 \(m)분" // 시간
+        timerStartLabel.text = "\(h) : \(m)"
+        tmpFoodStr = "\(h) : \(m)" // 타이머 실행전 기본값
+        turnNumLabel.text = "\(food.turningFood)번" // 뒤집는 횟수
+        
+        // [ㅇ] 라벨별 색 변경
+        foodTypeBtn.setTitle(food.foodType, for: .normal) // 음식 분류, 채소, 고기 등
+        let col = findLabelBgColor(food.foodType)
+        foodTypeBtn.layer.backgroundColor = col
+        foodTypeBtn.layer.cornerRadius = 5
+        
+        // [ㅇ] 타이머 켜기끄기
+        timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
+    }
     
+    func setTimer(startTime: Date, food: Food) {
+        if timerSwitch.isOn == false { // 타이머가 꺼져있으면
+            resetSwitch()
+        }
+        else { // 타이머가 켜져있을 때
+            DispatchQueue.main.async { [weak self] in
+                self?.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
+                    let elapsedTimeSeconds = Int(Date().timeIntervalSince(startTime))
+                    
+                    var expireLimit = food.totalSec //hourToSec + minToSec // 초로 환산
+                    if food.foodName == "test" { expireLimit = 4 } // test일 때 10초
+                    var tmpStr = expireLimit - elapsedTimeSeconds // 종료시간 - 시작시간
+                    
+                    let (h, m, s) = returnHMS(&tmpStr)
+                    let remainSeconds = "\(h)시 \(m)분 \(s)초"
+                    self?.timerStartLabel.text = String(describing: remainSeconds.self)
+                    
+                    if h <= 0 && m <= 0 && s <= 0 { self?.resetSwitch() }
+                }
+            }
+        }
+        
+        func returnHMS(_ inputTotal: inout Int) -> (h: Int, m: Int, s: Int) {
+            let h = inputTotal / ( 60 * 60 )
+            inputTotal %= 60 * 60
+            
+            let m = inputTotal / 60
+            inputTotal %= 60
+            let s = inputTotal
+            return (h, m, s)
+        }
+    }
+    
+    func resetSwitch() { // 타이머 완료시 초기화
+        timer.invalidate()
+        timerSwitch.isOn = false
+        timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
+        timerStartLabel.text = tmpFoodStr
+        print("===> timer is OFF : reset Switch ")
+    }
+}
+
+extension AFTimerCell {
+    @IBAction func switchTapped(_ sender: Any) {
+        if timerSwitch.isOn == true { // [ㅇ] 타이머 On
+            timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
+            timerTapHandler?()
+            
+            guard let sec = tmpFoodFromCell?.totalSec else {
+                print("\n\n\n-> second Binding Fail AFTimerCell Line 108"); return }
+            AFTimerViewController.notiOutside(Double(sec + 1))
+            
+            /* // 테스트코드, test입력시 5초로 세팅
+             if tmpFoodFromCell?.foodName == "test" { AFTimerViewController.notiOutside(Double(5))
+             } else {
+                     guard let sec = tmpFoodFromCell?.totalSec
+                     else { print("\n\n\n-> second Binding Fail AFTimerCell Line 172"); return }
+                     AFTimerViewController.notiOutside(Double(sec + 1))
+             }
+             */
+        } else { // [ㅇ] 타이머 off
+            timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
+            print("===> timer is OFF")
+            resetSwitch()
+            AFTimerViewController.userNotiCenter.removeAllPendingNotificationRequests() // 예약된 모든 알림삭제
+        }
+    }
+    
+    @IBAction func closeBtnTapped(_ sender: Any) { // [ㅇ] 삭제 버튼 누를 때 동작
+        closeBtnHandler?()
+    }
+    
+    @IBAction func editBtnTapped(_ sender: Any) { // [ㅇ] 수정버튼 누를 때 동작 -> 뷰를 새로 띄움
+        print("\n수정버튼 눌림")
+        guard let editVC = viewController?.storyboard?.instantiateViewController(identifier: "EditTimerViewController") as? EditTimerViewController else { return }
+        editVC.tmpFood = tmpFoodFromCell
+        viewController?.present(editVC, animated: true, completion: nil)
+    }
+    
+    // MARK: - UIView 관련 (UICollectionViewCell 모서리 둥글게, 그림자)
     override func awakeFromNib() {
         super.awakeFromNib()
         foodTypeBtn.isEnabled = false
@@ -66,27 +162,7 @@ class AFTimerCell: UICollectionViewCell {
         ).cgPath
     }
     
-    func updateUI(food: Food?) {
-        guard let food = food else { return }
-        foodTitleLabel.text = "\(food.foodName)"
-        ondoLabel.text = "\(food.ondo)℃" // 온도
-        let h = String(food.hour), m = String(food.min)
-        timerLabel.text = "\(h)시간 \(m)분" // 시간
-        timerStartLabel.text = "\(h) : \(m)"
-        tmpFoodStr = "\(h) : \(m)" // 타이머 실행전 기본값
-        turnNumLabel.text = "\(food.turningFood)번" // 뒤집는 횟수
-        
-        // [ㅇ] 라벨별 색 변경
-        foodTypeBtn.setTitle(food.foodType, for: .normal) // 음식 분류, 채소, 고기 등
-        let col = findLabelBgColor(food.foodType)
-        foodTypeBtn.layer.backgroundColor = col
-        foodTypeBtn.layer.cornerRadius = 5
-        
-        // [ㅇ] 타이머 켜기끄기
-        timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
-    }
-    
-    func findLabelBgColor(_ str: String) -> CGColor {
+    func findLabelBgColor(_ str: String) -> CGColor { // 각 Cell별 음식분류에 따른 버튼 배경색 지정
         switch str {
         case "고기" :
             return uiLabelCGColArr[0]
@@ -105,89 +181,5 @@ class AFTimerCell: UICollectionViewCell {
         default:
             return uiLabelCGColArr[6]
         }
-    }
-    
-    func setTimer(startTime: Date, food: Food) {
-        if timerSwitch.isOn == false {
-            let h = food.hour, m = food.min
-            timerStartLabel.text = "\(h) : \(m)"
-            print("===> timer is OFF : setTimer [ timer.invalidate() ]")
-            return
-        }
-        
-        DispatchQueue.main.async { [weak self] in
-            self?.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] timer in
-                let elapsedTimeSeconds = Int(Date().timeIntervalSince(startTime))
-                
-                var expireLimit = food.totalSec //hourToSec + minToSec // 초로 환산
-                if food.foodName == "test" { expireLimit = 4 } // test일 때 10초
-                
-                var tmpStr = expireLimit - elapsedTimeSeconds // 종료시간 - 시작시간
-                
-                let (h, m, s) = returnHMS(&tmpStr)
-                let remainSeconds = "\(h)시 \(m)분 \(s)초"
-                self?.timerStartLabel.text = String(describing: remainSeconds.self)
-                
-                if h <= 0 && m <= 0 && s <= 0 {
-                    resetSwitch()
-                    timer.invalidate()
-                    return
-                }
-            }
-        }
-        
-        func resetSwitch() {
-            timerSwitch.isOn = false
-            timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
-            timerStartLabel.text = tmpFoodStr
-            
-            guard let index = indexInt else { return }
-            foodViewModel.foods[index].isTimerOn = false
-            print("===> timer is OFF : reset Switch ")
-        }
-        
-        func returnHMS(_ inputTotal: inout Int) -> (h: Int, m: Int, s: Int) {
-            let h = inputTotal / ( 60 * 60 )
-            inputTotal %= 60 * 60
-            
-            let m = inputTotal / 60
-            inputTotal %= 60
-            let s = inputTotal
-            return (h, m, s)
-        }
-    }
-}
-
-extension AFTimerCell {
-    @IBAction func switchTapped(_ sender: Any) {
-        if timerSwitch.isOn {
-            // [ㅇ] 타이머 On
-            timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
-            print("===> timer is on")
-            timerTapHandler?()
-            
-            if tmpFoodFromCell?.foodName == "test" {
-                AFTimerViewController.notiOutside(Double(5))
-            } else {
-                guard let sec = tmpFoodFromCell?.totalSec else { print("\n\n\n\n\n-> second Fail AFTimerCell return Line 211 "); return }
-                AFTimerViewController.notiOutside(Double(sec + 1))
-            }
-        } else {
-            // [ㅇ] 타이머 off
-            timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
-            print("===> timer is OFF")
-            timerTapHandler?()
-        }
-    }
-    
-    @IBAction func closeBtnTapped(_ sender: Any) {
-        closeBtnHandler?()
-    }
-    
-    @IBAction func editBtnTapped(_ sender: Any) {
-        print("\n수정버튼 눌림")
-        guard let editVC = viewController?.storyboard?.instantiateViewController(identifier: "EditTimerViewController") as? EditTimerViewController else { return }
-        editVC.tmpFood = tmpFoodFromCell
-        viewController?.present(editVC, animated: true, completion: nil)
     }
 }

@@ -12,7 +12,7 @@
         <!--AFCook-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="AFTimerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="AFCook" customClass="AFTimerViewController" customModule="띠링" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AFTimerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" userLabel="AFCook" customClass="AFTimerViewController" customModule="ttiling" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -27,7 +27,7 @@
                                     <inset key="sectionInset" minX="15" minY="20" maxX="15" maxY="20"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AFTimerCell" id="tz3-aj-1Ti" customClass="AFTimerCell" customModule="띠링" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="AFTimerCell" id="tz3-aj-1Ti" customClass="AFTimerCell" customModule="ttiling" customModuleProvider="target">
                                         <rect key="frame" x="15" y="20" width="180" height="340"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6Iy-EC-vPl">
@@ -223,7 +223,7 @@
         <!--AddTimer-->
         <scene sceneID="bgg-uM-mPd">
             <objects>
-                <viewController id="ZvY-fh-ll5" userLabel="AddTimer" customClass="AddTimerViewController" customModule="띠링" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ZvY-fh-ll5" userLabel="AddTimer" customClass="AddTimerViewController" customModule="ttiling" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NMm-vY-Gv9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,10 +320,11 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tV2-9s-MFE">
                                 <rect key="frame" x="40" y="711" width="334" height="62"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
                                 <state key="normal" title="추가">
-                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -532,7 +533,7 @@
         <!--Setting-->
         <scene sceneID="r3Z-wW-n9h">
             <objects>
-                <tableViewController id="dJZ-UV-zbv" userLabel="Setting" customClass="SettingTableViewController" customModule="띠링" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="dJZ-UV-zbv" userLabel="Setting" customClass="SettingTableViewController" customModule="ttiling" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="insetGrouped" separatorStyle="default" allowsSelection="NO" rowHeight="55" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="9IY-TN-Rn4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -562,6 +563,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="XkH-JJ-FFP" firstAttribute="centerY" secondItem="QiL-qb-bGU" secondAttribute="centerY" id="2Pc-RF-TIp"/>
+                                                <constraint firstItem="XkH-JJ-FFP" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ctw-hh-k3B" secondAttribute="trailing" constant="30" id="AKH-ui-ope"/>
                                                 <constraint firstItem="Ctw-hh-k3B" firstAttribute="leading" secondItem="QiL-qb-bGU" secondAttribute="leading" constant="20" id="eeB-Kw-JEV"/>
                                                 <constraint firstAttribute="trailing" secondItem="XkH-JJ-FFP" secondAttribute="trailing" constant="20" id="k06-A9-2qH"/>
                                                 <constraint firstItem="Ctw-hh-k3B" firstAttribute="centerY" secondItem="QiL-qb-bGU" secondAttribute="centerY" id="uJ7-Q7-6lB"/>
@@ -651,7 +653,7 @@
         <!--EditTimer-->
         <scene sceneID="mvy-IF-IdC">
             <objects>
-                <viewController storyboardIdentifier="EditTimerViewController" id="mW8-hs-4LC" userLabel="EditTimer" customClass="EditTimerViewController" customModule="띠링" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditTimerViewController" id="mW8-hs-4LC" userLabel="EditTimer" customClass="EditTimerViewController" customModule="ttiling" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SZK-G0-vJB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -748,10 +750,11 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Klg-r5-Nb4">
                                 <rect key="frame" x="40" y="706" width="334" height="62"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="15" maxX="0.0" maxY="15"/>
                                 <state key="normal" title="제출">
-                                    <color key="titleColor" systemColor="labelColor"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
