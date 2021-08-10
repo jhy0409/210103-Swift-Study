@@ -123,7 +123,7 @@
 			<key>orderHint</key>
 			<integer>15</integer>
 		</dict>
-		<key>Pods-dasiBom4.xcscheme</key>
+		<key>Pods-dasiBom.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -136,13 +136,6 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>24</integer>
-		</dict>
-		<key>SnapKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>25</integer>
 		</dict>
 		<key>abseil.xcscheme</key>
 		<dict>
