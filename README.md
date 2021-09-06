@@ -1,7 +1,10 @@
-# 210103 Swift Study
+## ↘️ 210103 Swift Study
 [iOS App, Swift] 앱 제작, 강의 수강 내용
 
-## [🔒 네이버 iOS 수강중 - 210810~](https://github.com/jhy0409/210810-bstProjects)
+
+## ↘️ 네이버 부스트코스 iOS (수강중 - 210810~)
+
+추후 [🔒 부스트코스 깃주소](https://github.com/jhy0409/210810-bstProjects) 공개예정(프로젝트 제출파일 제외)
  
 ✅ [Swift - 1강 (25ea) / 프로젝트1. 음원 재생기 애플리케이션](https://www.notion.so/210810-bst-Swift-1-25ea-1-f00eb331789743beac6dbfaa4befc0f4)
 
