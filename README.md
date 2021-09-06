@@ -11,4 +11,4 @@
 
 ✅ [Swift - 4강 (25ea) / 프로젝트4. 내 사진 관리 애플리케이션](https://www.notion.so/210829-bst-Swift-4-25ea-4-6a043b76884a4f998a489a4928ad7146)
 
-✅ [Swift - 5강 (17ea) / 프로젝트5. 영화정보 애플리케이션](https://www.notion.so/210906-bst-Swift-5-17ea-5-9aaea9c6a3c84fd08cf044331b8d2bcc)
+🔲 [Swift - 5강 (17ea) / 프로젝트5. 영화정보 애플리케이션](https://www.notion.so/210906-bst-Swift-5-17ea-5-9aaea9c6a3c84fd08cf044331b8d2bcc)
