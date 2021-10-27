@@ -72,7 +72,7 @@ class AFTimerCell: UICollectionViewCell {
                     
                     let (h, m, s) = returnHMS(&tmpStr)
                     let remainSeconds = "\(h)시 \(m)분 \(s)초"
-                    self?.timerStartLabel.text = String(describing: remainSeconds.self)
+                    self?.timerStartLabel.text = String(describing: remainSeconds)
                     
                     if h <= 0 && m <= 0 && s <= 0 { self?.resetSwitch() }
                 }
@@ -105,18 +105,12 @@ extension AFTimerCell {
             timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
             timerTapHandler?()
             
-            guard let sec = tmpFoodFromCell?.totalSec else {
-                print("\n\n\n-> second Binding Fail AFTimerCell Line 108"); return }
-            AFTimerViewController.notiOutside(Double(sec + 1))
-            
-            /* // 테스트코드, test입력시 5초로 세팅
-             if tmpFoodFromCell?.foodName == "test" { AFTimerViewController.notiOutside(Double(5))
-             } else {
-                     guard let sec = tmpFoodFromCell?.totalSec
-                     else { print("\n\n\n-> second Binding Fail AFTimerCell Line 172"); return }
-                     AFTimerViewController.notiOutside(Double(sec + 1))
-             }
-             */
+            if var sec = tmpFoodFromCell?.totalSec {
+                if tmpFoodFromCell?.foodName == "test" {
+                    sec = 4 
+                }
+                AFTimerViewController.notiOutside(Double(sec + 1))
+            } 
         } else { // [ㅇ] 타이머 off
             timerDescriptionLabel.text = timerSwitch.isOn ? "타이머 끄기" : "타이머 켜기"
             print("===> timer is OFF")

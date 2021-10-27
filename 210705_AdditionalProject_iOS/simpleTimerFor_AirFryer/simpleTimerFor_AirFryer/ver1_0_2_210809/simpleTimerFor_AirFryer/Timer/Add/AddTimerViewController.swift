@@ -52,7 +52,11 @@ class AddTimerViewController: UIViewController, UITextFieldDelegate {
         
         // [ㅇ] 유효값 확인목록 튜플로 저장
         let (if1_hourNMinZero, if2_hourZero, if3_foodNameEmpty, if4_ondoZero, if5_minToH_T) =
-            ((hour == "0" && min == "0"), (hour != "0" && Int(min)! > 60 ), foodName.isEmpty, ondo == "0", (hour == "0" && Int(min)! > 60 ))
+            ((hour == "0" && min == "0"),
+             (hour != "0" && Int(min)! > 60),
+             foodName.isEmpty, ondo == "0",
+             (hour == "0" && Int(min)! > 60 ))
+        
         // [ㅇ] 유효값 검사 후 반환값이 true일 때만 아래코드 실행
         let tOrF = showAlert(if1_hourNMinZero, if2_hourZero, if3_foodNameEmpty, if4_ondoZero)
         if tOrF == true {
@@ -83,39 +87,32 @@ extension AddTimerViewController {
     }
     
     // MARK: - [ㅇ] 각 버튼 클릭시 음식분류 내용 전달
-    @IBAction func gogiBtn_Clicked(_ sender: Any) {
-        guard let str = sender as? UIButton else { return }
-        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    @IBAction func gogiBtn_Clicked(_ sender: UIButton) {
+        btnSenderTxt = sender.titleLabel?.text ?? "NONE"
     }
     
-    @IBAction func snackBtn_Clicked(_ sender: Any) {
-        guard let str = sender as? UIButton else { return }
-        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    @IBAction func snackBtn_Clicked(_ sender: UIButton) {
+        btnSenderTxt = sender.titleLabel?.text ?? "NONE"
     }
     
-    @IBAction func ganpeyonBtn_Clicked(_ sender: Any) {
-        guard let str = sender as? UIButton else { return }
-        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    @IBAction func ganpeyonBtn_Clicked(_ sender: UIButton) {
+        btnSenderTxt = sender.titleLabel?.text ?? "NONE"
     }
     
-    @IBAction func breadBtn_Clicked(_ sender: Any) {
-        guard let str = sender as? UIButton else { return }
-        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    @IBAction func breadBtn_Clicked(_ sender: UIButton) {
+        btnSenderTxt = sender.titleLabel?.text ?? "NONE"
     }
     
-    @IBAction func chesoBtn_Clicked(_ sender: Any) {
-        guard let str = sender as? UIButton else { return }
-        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    @IBAction func chesoBtn_Clicked(_ sender: UIButton) {
+        btnSenderTxt = sender.titleLabel?.text ?? "NONE"
     }
     
-    @IBAction func hesanmulBtn_Clicked(_ sender: Any) {
-        guard let str = sender as? UIButton else { return }
-        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    @IBAction func hesanmulBtn_Clicked(_ sender: UIButton) {
+        btnSenderTxt = sender.titleLabel?.text ?? "NONE"
     }
     
-    @IBAction func etcFoodBtn_Clicked(_ sender: Any) {
-        guard let str = sender as? UIButton else { return }
-        btnSenderTxt = str.titleLabel?.text ?? "NONE"
+    @IBAction func etcFoodBtn_Clicked(_ sender: UIButton) {
+        btnSenderTxt = sender.titleLabel?.text ?? "NONE"
     }
     
     func tintBtn(_ uiBtn: [UIButton]) { // 음식유형 버튼 초기화
