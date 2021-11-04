@@ -2,7 +2,7 @@ import UIKit
 
 func printChapterTitle(str: String, isDone: Int) {
     let mark = ("🔴", "🟠", "🟢")
-    let line = "----------------------------"
+    let line = "\t----------------------------"
     switch isDone {
     case 0:
         print("\(mark.0) \(str) \(line)")
@@ -24,12 +24,12 @@ func printChapterTitle(str: String, isDone: Int) {
     - [ㅇ] 한줄 주석
     - [ㅇ] 여러줄 주석
  
-    - [] 조건문
+    - [ㅇ] 조건문
     - [ㅇ] 튜플
-    - [] Boolean
+    - [ㅇ] Boolean
  
-    - [] 삼항연산자
-    - [] Scope
+    - [ㅇ] 삼항연산자
+    - [ㅇ] Scope
  */
 
 // MARK: - [ㅇ] 한줄 주석
@@ -127,6 +127,18 @@ let greetingMessage: String
 
 greetingMessage = isjason == true ? "Hello Jason" : "Hello Somebody"
 print("\n삼항연산자 분기 : \(greetingMessage)")
+
+var hours = 50
+let payPerHour = 10000
+var salary = 0
+
+if hours > 40  {
+    let extraHours = hours - 40
+    salary += extraHours * hours * 2
+    hours -= extraHours
+}
+
+salary += hours * payPerHour
 
 /*:
  ## [공식문서 - 함수](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID164)
