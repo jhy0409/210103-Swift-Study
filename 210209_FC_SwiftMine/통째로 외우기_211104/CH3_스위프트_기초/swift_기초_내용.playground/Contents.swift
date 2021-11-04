@@ -270,4 +270,3 @@ while currentValue != 0 {
  ## [⛔️ 공식문서 - 속성](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID608)
  
  */
-
