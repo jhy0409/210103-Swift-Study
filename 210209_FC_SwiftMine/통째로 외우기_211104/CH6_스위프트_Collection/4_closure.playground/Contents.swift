@@ -1,7 +1,7 @@
 import UIKit
 
 // MARK: - Closure / Swift 공식 문서 https://docs.swift.org/swift-book/LanguageGuide/Closures.html
-// 여기부터 읽기 : var completionHandlers: [() -> Void] = []
+// 여기부터 읽기 : Here’s a version of that captures by including it in the closure’s capture list, and then refers to implicitly:
 
 /*: ## N회차 */
 // MARK: - [] 1-1. multiplyClosure 인자 2개 받아서 곱한 값을 반환하는 클로저
