@@ -125,17 +125,56 @@ for i in closedRange1 where i > 1 && i < 10 {
 }
 
 /*: ### Switch */
-// MARK: - [] num = 10
+// MARK: - [🟢] num = 10
 // 0, 0~9, 10, 그 외
+printChapterTitle(str: "1회차 - Switch ", isDone: 0)
+num = 10
 
-// MARK: - [] pet = "bird"
+switch num {
+case 0:
+    print("0입니다.")
+case 0..<10:
+    print("0~9사이 입니다.")
+case 10:
+    print("10입니다.")
+default:
+    print("그 외의 값입니다.")
+}
+
+
+// MARK: - [🟢] pet = "bird"
 // dog, cat, bird / default
+let pet1 = "bird"
 
-// MARK: - [] num = 50, 홀, 짝 where
+switch pet1 {
+case "dog", "cat", "bird":
+    print("집 동물이군요")
+default:
+    print("잘 모를..")
+}
 
-// MARK: - [] coordinate 좌표, 원점, x축/ y축/ x, y같은 곳(where)/ 그 외
+// MARK: - [🟠] num = 50, 홀, 짝 where
+num = 50
 
+switch num {
+case _ where num % 2 == 0:
+    print("짝수입니다.")
+default:
+    print("홀수입니다.")
+}
+// MARK: - [🟠] coordinate 좌표, 원점, x축/ y축/ x, y같은 곳(where)/ 그 외
+let coordinate1 = (x: 10, y: 10)
 
+switch coordinate1 {
+case (0, 0):
+    print("원점입니다.")
+case (let x, 0):
+    print("x축입니다. \(x)")
+case (0, let y):
+    print("y축입니다. \(y)")
+case (let x, let y):
+    print("그 외 나머지 \(x), \(y)")
+}
 
 
 
