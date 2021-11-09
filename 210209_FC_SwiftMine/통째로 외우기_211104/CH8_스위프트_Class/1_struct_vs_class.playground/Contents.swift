@@ -113,7 +113,7 @@ print(personStruct2.fullName)
 
 print("\n\(LINE)")
 print(personClass1.fullName)
-print(personClass2.fullName+"\n")
+print(personClass2.fullName+"\n") // 여기부터
 personClass2.firstName = "Jay 객체를 공유하므로 둘 다 바뀝니다."
 
 print(personClass1.fullName)
