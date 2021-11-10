@@ -49,7 +49,7 @@ let LINE = "-------------------------------------"
 
 
 /*: ## 2번째*/
-// MARK: - [] 1. PersonStruct
+// MARK: - [🟢] 1. PersonStruct
     // var firstName, lastName, 생성자
     // var fullName(계산속성)
     // func uppercaseName() : first, last
@@ -71,7 +71,7 @@ struct PersonStruct {
     }
 }
 
-// MARK: - [] 2. PersonClass
+// MARK: - [🟢] 2. PersonClass
     // var firstName, lastName, 생성자
     // var fullName(계산속성)
     // func uppercaseName() : first, last
@@ -94,8 +94,8 @@ class PersonClass {
     }
 }
 
-// MARK: - [] personStruct1 - Jason Lee, per...2 = per..1할당
-// MARK: - [] personClass1 - Jason Lee, perC...2 = per..1할당
+// MARK: - [🟢] personStruct1 - Jason Lee, per...2 = per..1할당
+// MARK: - [🟢] personClass1 - Jason Lee, perC...2 = per..1할당
 
 var personStruct1 = PersonStruct(firstName: "struct - Jason", lastName: "Lee")
 var personStruct2 = personStruct1
@@ -113,40 +113,47 @@ print(personStruct2.fullName)
 
 print("\n\(LINE)")
 print(personClass1.fullName)
-print(personClass2.fullName+"\n") // 여기부터
+print(personClass2.fullName+"\n 여기부터") // 여기부터
 personClass2.firstName = "Jay 객체를 공유하므로 둘 다 바뀝니다."
 
 print(personClass1.fullName)
-print(personClass2.fullName+"\n\npersonClass2에 새로운 객체를 생성 및 할당합니다.")
+print(personClass2.fullName+"\n\npersonClass2에 새로운 객체를 생성 및 할당합니다.\n")
 
 personClass2 = PersonClass(firstName: "Bob", lastName: "Lee")
 print(personClass1.fullName)
+print(personClass2.fullName+"\n\npersonClass1에 personClass2(Bob)를 할당합니다.")
+
+personClass1 = personClass2
+print(personClass1.fullName)
 print(personClass2.fullName)
 
-
-/*
- personStruct2.firstName = "Jay"
- personStruct1.firstName
- personStruct2.firstName
- 
- personClass2.firstName = "Jay"
- personClass1.firstName
- personClass2.firstName
- 
- personClass1 = personClass2
- personClass1.firstName
- personClass2.firstName
- */
-
-// MARK: - [] struct Point - let x, let y: Int
+// MARK: - [🟢] struct Point - let x, let y: Int
     /*
      point1 = 3, 5
      point2 = 3, 5
      */
 
-// MARK: - [] struct Mac
+struct Point {
+    let x: Int
+    let y: Int
+}
+
+var point1 = Point(x: 3, y: 5)
+var point2 = Point(x: 3, y: 5)
+
+// MARK: - [🟢] struct Mac
     // var owner
 
+struct Mac {
+    var owner: String
+}
+
+var myMac = Mac(owner: "Jason")
+var yourMac = myMac
+yourMac.owner = "Jay"
+
+myMac.owner
+yourMac.owner
 /*
  myMac = "Jason"
  yourMac = myMac
