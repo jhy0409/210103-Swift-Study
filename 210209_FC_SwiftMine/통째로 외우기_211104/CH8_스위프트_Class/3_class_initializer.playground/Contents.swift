@@ -32,15 +32,45 @@ import UIKit
 
 
 /*: ## 2번째*/
-// MARK: - [] struct Grade var letter(Ch), points, credits(Double)
-struct
-// MARK: - [] class Person var firstName, lastName, init, func printMyName()
+// MARK: - [🟠] struct Grade var letter(Ch), points, credits(Double)
+struct Grade {
+    var letter: Character
+    var points: Double
+    var credits: Double
+}
 
-// MARK: - [] class Student : Person, var grades: [Grade] = []
+// MARK: - [🟠] class Person var firstName, lastName, init, func printMyName()
+class Person {
+    var firstName: String
+    var lastName: String
+    
+    init(firstName: String, lastName: String) {
+        self.firstName = firstName
+        self.lastName = lastName
+    }
+    
+    func printMyName() {
+        print("my name is ... \(firstName) \(lastName)")
+    }
+}
+
+
+// MARK: - [🟠] class Student : Person, var grades: [Grade] = []
     // init(firstName, lastName)
     // convenience(student: Student)
+class Student: Person {
+    var grades: [Grade] = []
+    override init(firstName: String, lastName: String) {
+        super.init(firstName: firstName, lastName: lastName)
+    }
+    
+    convenience init(student: Student) {
+        self.init(firstName: student.firstName, lastName: student.lastName)
+    }
+}
 
-// MARK: - [] class StudentAthlete: Student 학생인데 운동선수
+
+// MARK: - [🟠] class StudentAthlete: Student 학생인데 운동선수
     // var minimunTrainingTime: Int = 2
     // var trainedTime = 0
     // var sports: [String]
@@ -48,20 +78,50 @@ struct
     // init
     // convenience init
     // func train() += 1
+class StudentAthlete: Student {
+    var minimumTrainingTime: Int = 2
+    var trainedTime: Int = 0
+    var sports: [String]
+    
+    init(firstName: String, lastName: String, sports: [String]) {
+        self.sports = sports // 자식 속성 먼저 할당
+        super.init(firstName: firstName, lastName: lastName) // 부모 생성자 호출 및 속성할당
+        self.train() // super init 후 self property, method 사용 가능
+    }
+    
+    convenience init(name: String) {
+        self.init(firstName: name, lastName: "", sports: [])
+    }
+    
+    func train() {
+        trainedTime += 1
+    }
+}
 
-// MARK: - [] class FootballPlayer: StudentAth... 운동선수인데 축구선수
+// MARK: - [🟠] class FootballPlayer: StudentAth... 운동선수인데 축구선수
 
     // var footballTeam = "FC Swift"
     // train() += 2
+class FootballPlayer: StudentAthlete {
+    var footballTeam = "FC Swift"
+    
+    override func train() {
+        trainedTime += 2
+    }
+}
 
-// MARK: - [] try..
+
+// MARK: - [🟠] try..
     // student1 = Jason Lee
     // student1_1 = Student(student: student1)
 
     // student2 = StudentAthlete Jay, Lee, Football
     // student3 = Mike
+let student1 = Student(firstName: "1. Class Student / Jason", lastName: "Lee")
+let student1_1 = Student(student: student1)
 
-
+let studentAth2 = StudentAthlete(firstName: "2. Class StuAth / Jay", lastName: "Lee", sports: ["Football"])
+let student3 = StudentAthlete(name: "2. Class StuAth / Mike")
 /*: ## 1번째*/
 //// MARK: - [🟡] struct Grade var letter(Ch), points, credits(Double)
 //struct Grade {
