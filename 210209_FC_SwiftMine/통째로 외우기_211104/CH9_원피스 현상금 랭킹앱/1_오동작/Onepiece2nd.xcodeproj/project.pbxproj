@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		68895BBD2745301C00CDACC2 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68895BBC2745301C00CDACC2 /* DetailViewController.swift */; };
-		68895BBF2745318D00CDACC2 /* ListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68895BBE2745318D00CDACC2 /* ListCell.swift */; };
 		68DBECC02742921900BD182F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DBECBF2742921900BD182F /* AppDelegate.swift */; };
 		68DBECC22742921900BD182F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DBECC12742921900BD182F /* SceneDelegate.swift */; };
 		68DBECC42742921900BD182F /* BountyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68DBECC32742921900BD182F /* BountyViewController.swift */; };
@@ -19,7 +18,6 @@
 
 /* Begin PBXFileReference section */
 		68895BBC2745301C00CDACC2 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		68895BBE2745318D00CDACC2 /* ListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCell.swift; sourceTree = "<group>"; };
 		68DBECBC2742921900BD182F /* Onepiece2nd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Onepiece2nd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		68DBECBF2742921900BD182F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		68DBECC12742921900BD182F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 				68DBECC12742921900BD182F /* SceneDelegate.swift */,
 				68DBECC32742921900BD182F /* BountyViewController.swift */,
 				68DBECC52742921900BD182F /* Main.storyboard */,
-				68895BBE2745318D00CDACC2 /* ListCell.swift */,
 				68DBECC82742921A00BD182F /* Assets.xcassets */,
 				68DBECCA2742921A00BD182F /* LaunchScreen.storyboard */,
 				68DBECCD2742921A00BD182F /* Info.plist */,
@@ -146,7 +143,6 @@
 				68DBECC42742921900BD182F /* BountyViewController.swift in Sources */,
 				68DBECC02742921900BD182F /* AppDelegate.swift in Sources */,
 				68DBECC22742921900BD182F /* SceneDelegate.swift in Sources */,
-				68895BBF2745318D00CDACC2 /* ListCell.swift in Sources */,
 				68895BBD2745301C00CDACC2 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
