@@ -17,8 +17,10 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        updateUI()
+    }
+    
+    func updateUI() {
         guard let name = self.name, let bounty = self.bounty else { return }
         imgView.image = UIImage(named: "\(name).jpg")
         lblName.text = name
@@ -26,7 +28,7 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     /*
