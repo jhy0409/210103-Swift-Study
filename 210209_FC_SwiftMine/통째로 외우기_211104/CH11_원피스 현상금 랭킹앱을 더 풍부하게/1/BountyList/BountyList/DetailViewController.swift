@@ -63,10 +63,11 @@ class DetailViewController: UIViewController {
                    animations: {
                        self.nameLabel.transform = CGAffineTransform.identity
                        self.nameLabel.alpha = 1
-               },
+                   },
                    completion: nil)
         
-        UIView.animate(withDuration: 1,
+        UIView.animate(
+                       withDuration: 1,
                        delay: 0.2,
                        usingSpringWithDamping: 0.6,
                        initialSpringVelocity: 2,
