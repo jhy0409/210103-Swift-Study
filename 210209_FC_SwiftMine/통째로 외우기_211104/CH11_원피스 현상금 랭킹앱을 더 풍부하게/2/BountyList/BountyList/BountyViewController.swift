@@ -44,23 +44,32 @@ class BountyViewController: UIViewController, UICollectionViewDataSource, UIColl
         super.viewDidLoad()
     }
     
+    // UICollectionViewDataSource
+    // 몇개를 보여줄까요?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.numOfBountyInfoList
     }
     
+    // 셀은 어떻게 표현할꺼야?
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as? GridCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GridCell", for: indexPath) as? GridCell else {
+            return UICollectionViewCell()
+        }
         
-        let bountyInfo = viewModel.bountyInfo(at: indexPath.item)
-        cell.updateUI(info: bountyInfo)
+        let info = viewModel.bountyInfo(at: indexPath.item)
+        cell.updateUI(info)
         
         return cell
     }
     
+    // UICollectionViewDelegate
+    // 셀이 클릭되었을때 어쩔꺼야?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         performSegue(withIdentifier: "showDetail", sender: indexPath.item)
     }
     
+    // UICollectionViewDelegateFlowLayout
+    // cell size??
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let itemSpacing: CGFloat = 10
         let textAreaHeight: CGFloat = 65
@@ -87,6 +96,7 @@ class BountyViewModel {
         let sortedList = bountyInfoList.sorted { prev, next  in
             return prev.bounty > next.bounty
         }
+        
         return sortedList
     }
     
@@ -104,9 +114,9 @@ class GridCell: UICollectionViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var bountyLabel: UILabel!
     
-    func updateUI(info: BountyInfo) {
-        imgView.image = info.image
-        nameLabel.text = info.name
-        bountyLabel.text = "\(info.bounty)"
+    func updateUI(_ bountyInfo: BountyInfo) {
+        imgView.image = bountyInfo.image
+        nameLabel.text = bountyInfo.name
+        bountyLabel.text = "\(bountyInfo.bounty)"
     }
 }
