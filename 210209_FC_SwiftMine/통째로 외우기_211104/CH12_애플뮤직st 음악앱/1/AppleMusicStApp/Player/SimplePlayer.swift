@@ -10,7 +10,7 @@ import AVFoundation
 
 class SimplePlayer {
     // TODO: 싱글톤 만들기, 왜 만드는가?
-    
+    static let shared = SimplePlayer()
     
     private let player = AVPlayer()
 
@@ -53,7 +53,7 @@ class SimplePlayer {
     
     func replaceCurrentItem(with item: AVPlayerItem?) {
         // TODO: replace current item 구현
-        
+        player.replaceCurrentItem(with: item)
     }
     
     func addPeriodicTimeObserver(forInterval: CMTime, queue: DispatchQueue?, using: @escaping (CMTime) -> Void) {
