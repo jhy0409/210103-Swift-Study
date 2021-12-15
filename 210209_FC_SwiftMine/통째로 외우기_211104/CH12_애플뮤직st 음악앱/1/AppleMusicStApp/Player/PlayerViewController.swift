@@ -32,6 +32,9 @@ class PlayerViewController: UIViewController {
         updatePlayButton()
         updateTime(time: CMTime.zero)
         // TODO: TimeObserver 구현
+        timeObserver = simplePlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 10), queue: DispatchQueue.main) { time in
+            self.updateTime(time: time)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +46,8 @@ class PlayerViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         // TODO: 뷰나갈때 처리 > 심플플레이어
-        
+        simplePlayer.pause()
+        simplePlayer.replaceCurrentItem(with: nil)
     }
     
     @IBAction func beginDrag(_ sender: UISlider) {
@@ -56,11 +60,21 @@ class PlayerViewController: UIViewController {
     
     @IBAction func seek(_ sender: UISlider) {
         // TODO: 시킹 구현
+        guard let currentItem = simplePlayer.currentItem else { return }
+        let position = Double(sender.value) // 슬라이더 위치 값
+        let seconds = currentItem.duration.seconds * position // 전체 곡시간 * 위치 값 60sec * 0.5  = 30sec
+        
+        let time = CMTime(seconds: seconds, preferredTimescale: 100)
+        simplePlayer.seek(to: time)
     }
     
     @IBAction func togglePlayButton(_ sender: UIButton) {
         // TODO: 플레이버튼 토글 구현
-        
+        if simplePlayer.isPlaying {
+            simplePlayer.pause()
+        } else {
+            simplePlayer.play()
+        }
         updatePlayButton()
     }
 }
@@ -68,7 +82,10 @@ class PlayerViewController: UIViewController {
 extension PlayerViewController {
     func updateTrackInfo() {
         // TODO: 트랙 정보 업데이트
-        
+        guard let track = simplePlayer.currentItem?.convertToTrack() else { return }
+        thumbnailImageView.image = track.artwork
+        titleLabel.text = track.title
+        artistLabel.text = track.artist
     }
     
     func updateTintColor() {
@@ -101,5 +118,11 @@ extension PlayerViewController {
     
     func updatePlayButton() {
         // TODO: 플레이버튼 업데이트 UI작업 > 재생/멈춤
+        let configuration = UIImage.SymbolConfiguration(pointSize: 40)
+        var image: UIImage?
+        let imageName: String = simplePlayer.isPlaying ? "pause.fill" : "play.fill"
+        
+        image = UIImage(systemName: "\(imageName)", withConfiguration: configuration)
+        playControlButton.setImage(image, for: .normal)
     }
 }
