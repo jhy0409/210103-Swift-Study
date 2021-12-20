@@ -45,7 +45,7 @@ extension HomeViewController: UICollectionViewDataSource {
             
             header.update(with: item)
             header.tapHandler = { item in
-                let playerStoryboard = UIStoryboard(name: "Player", bundle: nil)
+                let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
                 guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
                 playerVC.simplePlayer.replaceCurrentItem(with: item)
                 self.present(playerVC, animated: true, completion: nil)
@@ -60,12 +60,12 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     // 클릭했을때 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: 곡 클릭시 플레이어뷰 띄우기
-        
         let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
         guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
         let item = trackManager.tracks[indexPath.item]
         playerVC.simplePlayer.replaceCurrentItem(with: item)
+        
+        print(" 🌈🌈🌈🌈🌈🌈🌈🌈🌈 item : \(item)")
         present(playerVC, animated: true, completion: nil)
     }
 }

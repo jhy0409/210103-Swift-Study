@@ -97,6 +97,7 @@
                         <outlet property="currentTimeLabel" destination="DJB-In-3xA" id="isd-SQ-XlD"/>
                         <outlet property="playControlButton" destination="Apx-z7-35I" id="C0j-FN-rYp"/>
                         <outlet property="thumbnailImageView" destination="S1f-GN-6wr" id="dgB-AI-rzj"/>
+                        <outlet property="timeSlider" destination="cEQ-03-hJt" id="WMI-Pd-zzQ"/>
                         <outlet property="titleLabel" destination="XU7-uq-l0K" id="zU3-rp-0zT"/>
                         <outlet property="totalDurationLabel" destination="TMZ-XG-LJP" id="bGo-zg-TfP"/>
                     </connections>
