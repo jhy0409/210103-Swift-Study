@@ -2,7 +2,6 @@
 //  HomeViewController.swift
 //  AppleMusicStApp
 //
-//  Created by joonwon lee on 2020/01/11.
 //  Copyright © 2020 com.joonwon. All rights reserved.
 //
 
@@ -38,10 +37,13 @@ extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind {
         case UICollectionView.elementKindSectionHeader:
-            // TODO: 헤더 구성하기
-            guard let item = trackManager.todaysTrack else { return UICollectionReusableView() }
+            guard let item = trackManager.todaysTrack else {
+                return UICollectionReusableView()
+            }
             
-            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TrackCollectionHeaderView", for: indexPath) as? TrackCollectionHeaderView else { return UICollectionReusableView() }
+            
+            guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "TrackCollectionHeaderView", for: indexPath) as? TrackCollectionHeaderView else { return UICollectionReusableView()
+            }
             
             header.update(with: item)
             header.tapHandler = { item in
@@ -60,6 +62,7 @@ extension HomeViewController: UICollectionViewDataSource {
 extension HomeViewController: UICollectionViewDelegate {
     // 클릭했을때 어떻게 할까?
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: 곡 클릭시 플레이어뷰 띄우기
         let playerStoryboard = UIStoryboard.init(name: "Player", bundle: nil)
         guard let playerVC = playerStoryboard.instantiateViewController(identifier: "PlayerViewController") as? PlayerViewController else { return }
         let item = trackManager.tracks[indexPath.item]

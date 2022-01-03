@@ -23,6 +23,7 @@ class PlayerViewController: UIViewController {
     
     //TODO: SimplePlayer 만들고 프로퍼티 추가
     let simplePlayer = SimplePlayer.shared
+    
     var timeObserver: Any?
     var isSeeking: Bool = false
     
@@ -32,9 +33,12 @@ class PlayerViewController: UIViewController {
         updatePlayButton()
         updateTime(time: CMTime.zero)
         // TODO: TimeObserver 구현
-        timeObserver = simplePlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 10), queue: DispatchQueue.main) { time in
+        
+        
+        timeObserver = simplePlayer.addPeriodicTimeObserver(forInterval: CMTime(seconds: 1, preferredTimescale: 10), queue: DispatchQueue.main, using: { time in
             self.updateTime(time: time)
-        }
+        })
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,8 +107,8 @@ extension PlayerViewController {
         
         if isSeeking == false {
             // 노래 들으면서 시킹하면, 자꾸 슬라이더가 업데이트 됨, 따라서 시킹아닐때마 슬라이더 업데이트하자
-            timeSlider.value = Float(simplePlayer.currentTime/simplePlayer.totalDurationTime)
             // TODO: 슬라이더 정보 업데이트
+            timeSlider.value = Float(simplePlayer.currentTime/simplePlayer.totalDurationTime)
         }
     }
     
