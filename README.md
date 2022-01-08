@@ -12,8 +12,13 @@
 
 ### [파일 이름만 가져오기, 스트링 자르기_ 220109 일](https://github.com/jhy0409/210103-Swift-Study/tree/main/Sample%20mine/%ED%8C%8C%EC%9D%BC%20%EC%9D%B4%EB%A6%84%EB%A7%8C%20%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0%2C%20%EC%8A%A4%ED%8A%B8%EB%A7%81%20%EC%9E%90%EB%A5%B4%EA%B8%B0_%20220109%20%EC%9D%BC)
 ```
-let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
-textField.leftView = paddingView
-textField.leftViewMode = .always
+import UIKit
+
+//var greeting = "Hello, playground"
+var str: String = "app/webroot/uploads/61d6db121e4e31black.mp4"
+var arr: [String] = str.components(separatedBy: ["/"])
+
+let forPrint = arr.last == nil ? "" : arr.last!
+print(forPrint)
 ```
 ![파일 이름만 가져오기, 스트링 자르기_ 220109 일](https://github.com/jhy0409/210103-Swift-Study/blob/main/Sample%20mine/%ED%8C%8C%EC%9D%BC%20%EC%9D%B4%EB%A6%84%EB%A7%8C%20%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0,%20%EC%8A%A4%ED%8A%B8%EB%A7%81%20%EC%9E%90%EB%A5%B4%EA%B8%B0_%20220109%20%EC%9D%BC/%E1%84%91%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%20%E1%84%8B%E1%85%B5%E1%84%85%E1%85%B3%E1%86%B7%E1%84%86%E1%85%A1%E1%86%AB%20%E1%84%80%E1%85%A1%E1%84%8C%E1%85%A7%E1%84%8B%E1%85%A9%E1%84%80%E1%85%B5,%20%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3%E1%84%85%E1%85%B5%E1%86%BC%20%E1%84%8C%E1%85%A1%E1%84%85%E1%85%B3%E1%84%80%E1%85%B5_%20220109%20%E1%84%8B%E1%85%B5%E1%86%AF.png?raw=true)
