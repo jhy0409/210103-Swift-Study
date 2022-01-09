@@ -109,6 +109,9 @@
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmS-WY-SqP">
                                             <rect key="frame" x="20" y="81" width="374" height="200"/>
+                                            <connections>
+                                                <action selector="cardTapped:" destination="2Um-Hw-zy7" eventType="touchUpInside" id="6dF-n4-5uC"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
