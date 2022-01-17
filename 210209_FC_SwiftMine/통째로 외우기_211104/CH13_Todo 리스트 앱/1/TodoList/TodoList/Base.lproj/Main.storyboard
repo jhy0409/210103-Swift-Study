@@ -13,7 +13,7 @@
         <!--Tasks-->
         <scene sceneID="FPI-R8-eDt">
             <objects>
-                <viewController id="vQg-Bv-aYZ" sceneMemberID="viewController">
+                <viewController id="vQg-Bv-aYZ" customClass="TodoListViewController" customModule="TodoList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="v3n-hA-Ntd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,6 +157,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tasks" image="checkmark.circle.fill" catalog="system" id="Tzb-qV-dyg"/>
+                    <connections>
+                        <outlet property="addButton" destination="EEG-3q-JN3" id="3qk-5w-zT7"/>
+                        <outlet property="collectionView" destination="YIx-bO-NIk" id="zJX-rT-MY0"/>
+                        <outlet property="inputTextField" destination="QKu-xZ-FHt" id="TTX-Ao-wDl"/>
+                        <outlet property="inputViewBottom" destination="0pN-TT-bjd" id="f8T-0w-FLK"/>
+                        <outlet property="isTodayButton" destination="LQs-YH-5T1" id="Ak3-zs-0Iy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1g-hB-6o1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

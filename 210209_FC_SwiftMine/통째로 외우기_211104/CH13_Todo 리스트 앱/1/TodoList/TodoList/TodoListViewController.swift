@@ -18,17 +18,27 @@ class TodoListViewController: UIViewController {
     @IBOutlet weak var addButton: UIButton!
     
     
-    // TODO: TodoViewModel 만들기
-    
+    // [x] TODO: TodoViewModel 만들기
+    let todoListViewModel = TodoViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // TODO: 키보드 디텍션
+        // [x] TODO: 키보드 디텍션
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(adjustInputView), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         
-        // TODO: 데이터 불러오기
-        
+        // [x]TODO: 데이터 불러오기
+//        todoListViewModel.loadTasks()
+        let todo = TodoManager.shared.createTodo(detail: "🏆🏆 Corona 난리", isToday: true)
+        Storage.saveTodo(todo, fileName: "test.json")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        let todo = Storage.restoreTodo("test.json")
+//        print("---> restore from disk: \(todo)")
     }
     
     @IBAction func isTodayButtonTapped(_ sender: Any) {
@@ -37,7 +47,7 @@ class TodoListViewController: UIViewController {
     }
     
     @IBAction func addTaskButtonTapped(_ sender: Any) {
-        // TODO: Todo 태스크 추가
+        // [x] TODO: Todo 태스크 추가
         // add task to view model
         // and tableview reload or update
     }
@@ -48,20 +58,33 @@ class TodoListViewController: UIViewController {
 extension TodoListViewController {
     @objc private func adjustInputView(noti: Notification) {
         guard let userInfo = noti.userInfo else { return }
-        // TODO: 키보드 높이에 따른 인풋뷰 위치 변경
+        // [x] TODO: 키보드 높이에 따른 인풋뷰 위치 변경
+        guard let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
+        if noti.name == UIResponder.keyboardWillShowNotification {
+            let adjustmentHeight = keyboardFrame.height - view.safeAreaInsets.bottom
+            inputViewBottom.constant = adjustmentHeight
+        } else {
+            inputViewBottom.constant = 0
+        }
+        
+        print("---> Keyboard End Frame: \(keyboardFrame)")
     }
 }
 
 extension TodoListViewController: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // TODO: 섹션 몇개
-        return 0
+        // [x] TODO: 섹션 몇개
+        return todoListViewModel.numOfSection
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: 섹션별 아이템 몇개
-        return 0
+        // [x]TODO: 섹션별 아이템 몇개
+        if section == 0 {
+            return todoListViewModel.todayTodos.count
+        } else {
+            return todoListViewModel.upcompingTodos.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -98,8 +121,10 @@ extension TodoListViewController: UICollectionViewDataSource {
 
 extension TodoListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // TODO: 사이즈 계산하기
-        return CGSize.zero
+        // [x] TODO: 사이즈 계산하기
+        let width: CGFloat = collectionView.bounds.width
+        let height: CGFloat = 50
+        return CGSize(width: width, height: height)
     }
 }
 
@@ -126,7 +151,7 @@ class TodoListCell: UICollectionViewCell {
     }
     
     func updateUI(todo: Todo) {
-        // TODO: 셀 업데이트 하기
+        // [x] TODO: 셀 업데이트 하기
         checkButton.isSelected = todo.isDone
         descriptionLabel.text = todo.detail
         descriptionLabel.alpha = todo.isDone ? 0.2 : 1
